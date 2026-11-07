@@ -1,0 +1,15 @@
+__pycache__/
+*.egg-info/
+build/
+dist/
+# Demos are test data and stay off the repository.
+*.replay
+
+# Replays and recordings are test data; conversations and their logs never belong here.
+*.replay
+*.wrpl
+*.wotreplay
+*.wowsreplay
+.pytest_cache/
+.claude/
+*.jsonl
