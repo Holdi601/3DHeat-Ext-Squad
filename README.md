@@ -1,6 +1,6 @@
 # 3DHeat Squad demo reader
 
-Reads Squad server demos and turns them into 3DHeat heatmap tables. The output covers every player's position over the match, on foot and in ground vehicles, with their name, team, faction and squad.
+Reads Squad server demos and turns them into 3DHeat heatmap tables. The output covers every player's and every bot's position over the match, on foot and in ground vehicles, with their name, team, faction, squad, health and view pitch; wounds, revives and deaths; every vehicle, deployable and emplacement spawned, damaged, destroyed and removed; and, in the match document, every other property the server replicated.
 
 ```bash
 pip install -e .                       # installs the heat3d-squad-demo command
@@ -27,37 +27,41 @@ Squad demos are recorded on the server, not by the game client:
 |---|---|
 | `time` | seconds since the recording started |
 | `x`, `y`, `z` | position in Unreal units (centimetres), Z up |
-| `dirX`, `dirY`, `dirZ` | the body's facing, as a unit vector from the actor's yaw |
-| `yaw` | the same facing in degrees |
+| `dirX`, `dirY`, `dirZ` | where a soldier looks: the body's yaw and the view's pitch, as a unit vector (a vehicle's: level) |
+| `yaw`, `pitch` | the same in degrees; `pitch` up from the horizon, soldiers only |
+| `health` | the soldier's, bot's or vehicle's health at that moment, where the server sent it (a soldier's falls below 0 while wounded) |
 | `speed` | the replicated speed, cm/s |
-| `player` | the player's name |
+| `player` | the player's name; `bot <id>` for a bot; for a vehicle or deployable nobody owns, its class |
 | `team`, `faction` | Squad's team number (1, 2) and its faction setup, **at that moment**: players can change sides |
 | `squad` | the squad number, -1 when not in one |
-| `event` | `position` on foot, `vehicle` while in a ground vehicle (the row then has the vehicle's position) |
-| `pawn` | the soldier blueprint, or the vehicle |
+| `event` | `position` on foot, `vehicle` while in a ground vehicle (the row then has the vehicle's position); `wounded`, `revived`, `death` (soldiers and bots); `spawn`, `damaged`, `destroyed`, `removed` (vehicles, deployables, emplacements, crates, helicopters: where they were); `seat` (a player took a seat) |
+| `pawn` | the soldier blueprint (`SQSquidBot` for a bot), or the vehicle |
 | `seat` | for a turret or passenger seat, the seat's own pawn |
 | `match` | the demo's name |
 
-The Parquet footer carries reading instructions under the `heat3d` key: Z up, no axis mirrored, unit scale 1. The match JSON holds the map and layer, the game and engine versions, the recording time, the length, the teams, and a summary line for each player:
+The Parquet footer carries reading instructions under the `heat3d` key: Z up, no axis mirrored, unit scale 1. The match JSON holds the map and layer, the game and engine versions, the recording time, the length, and:
 
-- samples on foot and in vehicles
-- distance walked
-- soldier classes played
-- vehicles used
-- team changes
+- **the teams**: number, faction and everything their state replicated (tickets, availabilities, commander) as it changed;
+- **the squads**: number, team, name, creator, leader, members;
+- **the game state**: server name and settings, game mode, match state and id, map and layer rotations, votes, timers, the message of the day;
+- **the actors**: every vehicle, deployable, emplacement, ammo crate and helicopter - class, where and when it spawned, when it went, whose, and its replicated state (health, build state, seats...);
+- **a line for each player**: samples on foot and in vehicles, distance walked, soldier classes played, vehicles used, team changes, seats taken, and everything the player state replicated (ping, level, role, current seat...); and a line for each bot;
+- **the events** counted, the **property census** (how often each class's properties were sent), what was **not** read, and the reader's diagnostics.
 
-It also lists what was **not** read and the reader's diagnostics.
+Online ids (Steam, EOS) are left out on purpose.
+
+Every replicated property is decoded as far as its bits say what it is: one bit a flag, a length and that many bytes a string, a name, 8/16/32/64 bits a number (a float where the property's name says so: health, time, rate...), anything else its bits in hex with the strings found inside.
 
 A sample is taken whenever the server replicated the actor's movement, up to 8 times a second (the demo's recording rate) while the actor moves.
 
-**Not read yet:**
+**How the events are read.** A soldier's `Health` and `bWounded` come from the server: wounded when `bWounded` turns on, revived when it turns off with health above 0, dead when the health drops below -100 (a player who gives up or bleeds out is set to -300); a bot, never wounded, dies at 0. A vehicle or deployable is `damaged` at each fall of its `Health`, `destroyed` at 0 or below. Spawns and removals are the actor channel opening and closing; a seat is the player state's `CurrentSeat`. The view pitch is the soldier's `RemoteViewPitch`, a byte from straight down (0) to straight up (255).
 
-- **Helicopter movement.** Helicopters replicate it through Squad's own movement component, in a different quantization.
-- **Kills, deaths and damage.**
-- **Deployables:** FOBs, rallies and emplacements.
-- **Where a player looks.** Only the body's yaw is read.
+**Not read:**
 
-The stream gives all of these by name. Each needs its property type worked out and checked on a demo where the event is known.
+- **Helicopter movement.** Helicopters replicate it through Squad's own movement component, in a different quantization (their health is read).
+- **Who killed whom, and damage to soldiers by hit.** These travel as remote calls or in components the demo names no fields for (the `unresolved_content_blocks` in the diagnostics); only the victims' health is replicated.
+- **The bot's team.** A bot's state carries a number that may be its team; not confirmed, not used.
+- **Where a soldier looks sideways** beyond the body's yaw.
 
 ## How it works
 
@@ -82,6 +86,10 @@ These were checked against two public Squad v10.3.1 server demos (Unreal Engine 
 - **Movement against velocity.** Each soldier sample's step from the previous one, divided by the time between them, matches the velocity the sample carries. The median ratio is within 0.8 to 1.2 on moving players.
 - **Teams against blueprints.** Every row's team is the team whose faction the soldier's blueprint belongs to. This held for a player who changed sides during the match.
 - **Errors.** One stream error per demo remains: a stray bit at the end of the opening bunch of the recorder's own spectator actor, which carries nothing used here.
+- **Casualties against that project's kills.** On the Fallujah demo it counts 11 kills, the first at 75.399 s (the victim incapacitated), the last at 1,527.853 s; read here: 6 wounds and 5 deaths of players, the first wound of the same player at 75.399 s, the last wound of that kill's victim at 1,527.853 s. On the Jensen's Range demo its last kill, at 553.392 s, is when the M60T read here is destroyed (health -104).
+- **Deployables.** 51 actors with a build state or an FOB requirement on Jensen's Range, against that project's 52 deployables.
+- **Pitch.** The view pitch byte lies around 120 at rest and spans 34 to 255 over both demos: -66 to +90 degrees read as a byte over -90..+90. Read as the engine's usual byte of a whole turn it would put soldiers up to 128 degrees under the horizon, which they cannot look.
+- **Bots.** The Fallujah seeding demo has 622 bots (`SQSquidBot`), each with its own track; 388 of them die.
 
 Tests on demos built by the tests themselves cover the container, the archives, the stream and the whole path to the table:
 

@@ -42,11 +42,11 @@ HINTS = {
         "dirX": "dirX",
         "dirY": "dirY",
         "dirZ": "dirZ",
-        "extra": ["event", "faction", "squad", "pawn", "seat", "speed", "yaw"],
+        "extra": ["event", "faction", "squad", "pawn", "seat", "speed", "yaw", "pitch", "health"],
     },
 }
 
-FLOAT32 = ("x", "y", "z", "dirX", "dirY", "dirZ", "yaw", "speed")
+FLOAT32 = ("x", "y", "z", "dirX", "dirY", "dirZ", "yaw", "pitch", "speed", "health")
 INT16 = ("team", "squad")
 STRINGS = ("player", "faction", "event", "pawn", "seat", "match")
 
@@ -58,7 +58,12 @@ def table(match: Match, rows: list[dict[str, Any]] | None = None) -> pa.Table:
     rows = match.rows() if rows is None else rows
     for r in rows:
         yaw = math.radians(r["yaw"])
-        r["dirX"], r["dirY"], r["dirZ"] = math.cos(yaw), math.sin(yaw), 0.0
+        pitch = r.get("pitch", float("nan"))
+        # Where a soldier looks, with its pitch; a vehicle's (or a soldier's with no pitch yet) level.
+        up = math.radians(pitch) if math.isfinite(pitch) else 0.0
+        r["dirX"], r["dirY"], r["dirZ"] = math.cos(yaw) * math.cos(up), math.sin(yaw) * math.cos(up), math.sin(up)
+        r.setdefault("pitch", float("nan"))
+        r.setdefault("health", float("nan"))
         r["match"] = match.name
     arrays = [pa.array(np.array([r["time"] for r in rows], dtype=np.float64))]
     fields = [pa.field("time", pa.float64())]
@@ -105,6 +110,9 @@ def summary(match: Match, rows: list[dict[str, Any]] | None = None) -> dict[str,
             "distance_on_foot_m": round(_distance([x for x in mine if x["event"] == "position"]) / 100.0, 1),
             "soldiers": sorted({x["pawn"] for x in mine if is_soldier(x["pawn"])}),
             "vehicles": sorted({x["pawn"] for x in mine if x["event"] == "vehicle"}),
+            "seats_taken": sum(1 for x in mine if x["event"] == "seat"),
+            # Everything else the player state replicated, where it changed (ping is a quarter of the ms).
+            "state": _plain(match.props.get(p.guid, {}), skip_ids=True),
         })
     for who in sorted(set(per) - named):
         players.append({"name": who, "samples": len(per[who]), "note": "a soldier no player state was found for"})
@@ -124,17 +132,28 @@ def summary(match: Match, rows: list[dict[str, Any]] | None = None) -> dict[str,
         "recorded_unix": r.recorded_unix,
         "duration_s": round(r.length_ms / 1000.0, 3),
         "teams": [
-            {"number": t.number, "faction": t.faction} for t in sorted(match.teams.values(), key=lambda t: t.number or 0)
+            {"number": t.number, "faction": t.faction, "state": _plain(match.props.get(g, {}))}
+            for g, t in sorted(match.teams.items(), key=lambda kv: kv[1].number or 0)
         ],
+        "squads": [
+            {"number": q.number, "team": q.team, "state": _plain(match.props.get(g, {}), skip_ids=True)}
+            for g, q in sorted(match.squads.items(), key=lambda kv: (kv[1].team or 0, kv[1].number or 0))
+        ],
+        "game_state": _game_state(match),
+        "actors": _actors(match),
         "players": players,
         "rows": len(rows),
+        "events": _count(r["event"] for r in rows),
         "units": "Unreal units (centimetres); Z up",
         "not_read": [
             "helicopter movement (Squad's own movement component format)",
-            "kills, deaths and damage",
-            "deployables (FOBs, rallies) and their positions",
-            "a player's look direction beyond the body's yaw",
+            "kills, deaths and damage to soldiers: sent as remote calls or in components the demo names no fields "
+            "for (the unresolved content blocks below)",
+            "where a player looks sideways beyond the body's yaw (the pitch is read)",
+            "online ids: kept out on purpose (see the README)",
         ],
+        # How often each class's properties were sent.
+        "property_census": match.census,
         "diagnostics": {
             "frames": match.stats.frames,
             "packets": match.stats.packets,
@@ -151,6 +170,69 @@ def summary(match: Match, rows: list[dict[str, Any]] | None = None) -> dict[str,
     }
 
 
+#: Properties holding a person's online ids: never written.
+IDS = {"UniqueID", "OnlineUserId", "SquadCreatorSteamID", "SteamID", "EOSID"}
+
+
+def _plain(props: dict[str, list[tuple[float, Any]]], skip_ids: bool = False) -> dict[str, Any]:
+    """An actor's properties as JSON: the value when it never changed, else every change as [time, value]."""
+    out: dict[str, Any] = {}
+    for name, changes in sorted(props.items()):
+        if skip_ids and name.rsplit(".", 1)[-1] in IDS:
+            continue
+        if len(changes) == 1:
+            out[name] = _finite(changes[0][1])
+        else:
+            out[name] = [[round(t, 3), _finite(v)] for t, v in changes]
+    return out
+
+
+def _finite(v: Any) -> Any:
+    """JSON has no NaN or infinity: such a float is written as null."""
+    return None if isinstance(v, float) and not math.isfinite(v) else v
+
+
+def _game_state(match: Match) -> dict[str, Any]:
+    """The game state actor's properties: server, mode, match state, rotation, timers, settings."""
+    for guid, a in match.actors.items():
+        if "GameState" in class_name(a.path):
+            return {"class": class_name(a.path), **_plain(match.props.get(guid, {}))}
+    return {}
+
+
+def _actors(match: Match) -> list[dict[str, Any]]:
+    """
+    Every actor that can be damaged or built (vehicles, deployables,
+    emplacements, ammo crates, helicopters): what, where it spawned, when it
+    went, whose, and its properties.
+    """
+    from .squad import DAMAGEABLE
+
+    out = []
+    for guid, a in sorted(match.actors.items(), key=lambda kv: kv[1].opened):
+        props = match.props.get(guid, {})
+        kind = class_name(a.path)
+        if not (DAMAGEABLE & set(props)) or is_soldier(kind):
+            continue
+        out.append({
+            "class": kind,
+            "spawned": round(a.opened, 3),
+            "removed": round(a.closed, 3) if a.closed is not None else None,
+            "at": [round(a.location.x, 1), round(a.location.y, 1), round(a.location.z, 1)] if a.location else None,
+            "owner": match.player_name(guid) or None,
+            "samples": len(match.tracks.get(guid, [])),
+            "state": _plain(props, skip_ids=True),
+        })  # fmt: skip
+    return out
+
+
+def _count(items: Any) -> dict[str, int]:
+    out: dict[str, int] = {}
+    for x in items:
+        out[x] = out.get(x, 0) + 1
+    return dict(sorted(out.items()))
+
+
 def _distance(rows: list[dict[str, Any]]) -> float:
     total = 0.0
     for a, b in zip(rows, rows[1:]):
@@ -162,6 +244,12 @@ def _distance(rows: list[dict[str, Any]]) -> float:
     return total
 
 
+def _json(v: Any) -> Any:
+    if isinstance(v, float) and not math.isfinite(v):
+        return None
+    return str(v)
+
+
 def write(match: Match, folder: str | Path) -> tuple[Path, Path]:
     """`<match>.parquet` and `<match>.match.json` in `folder`."""
     folder = Path(folder)
@@ -170,5 +258,5 @@ def write(match: Match, folder: str | Path) -> tuple[Path, Path]:
     doc = folder / f"{match.name}.match.json"
     rows = match.rows()
     pq.write_table(table(match, rows), data, compression="snappy", row_group_size=256_000)
-    doc.write_text(json.dumps(summary(match, rows), indent=1, ensure_ascii=False), encoding="utf-8")
+    doc.write_text(json.dumps(summary(match, rows), indent=1, ensure_ascii=False, default=_json), encoding="utf-8")
     return data, doc
