@@ -3,7 +3,8 @@
 
 Each `.replay` (or every `.replay` in a folder given) becomes
 `<outdir>/<map>/<name>.parquet` and `<outdir>/<map>/<name>.match.json`, as the
-CS2 tool writes them (`--flat` leaves out the map folder). A demo that cannot
+CS2 tool writes them (`--flat` leaves out the map folder), with the sidecars
+`<name>.entities.parquet` and `<name>.packets.parquet` beside them. A demo that cannot
 be read is reported and skipped; the exit code is 1 if any was, 0 otherwise.
 `--json` prints one line of JSON per demo instead of text, for callers such as
 the 3DHeat Watcher.
@@ -76,6 +77,8 @@ def main(argv: list[str] | None = None) -> int:
         summary = json.loads(doc.read_text(encoding="utf-8"))
         if args.json:
             print(json.dumps({"demo": str(f), "ok": True, "parquet": str(data), "match": str(doc),
+                              "sidecars": [str(data.parent / x) for x in m.sidecars],
+                              "lost": summary["selfCheck"]["completeness"].get("lost"),
                               "rows": summary["rows"], "players": len(summary["players"]),
                               "layer": summary["layer"], "recorded_unix": summary["recorded_unix"]}), flush=True)
         else:

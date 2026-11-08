@@ -38,14 +38,17 @@ removal (vehicles, deployables, emplacements) is an event.
 from __future__ import annotations
 
 import bisect
+import math
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
 from .bits import BitReader, ReadError
 from .container import ReplayFile, read
-from .movement import rep_movement
+from .movement import helicopter_movement, rep_movement
+from .keep import Keeper, keep_container
 from .stream import Actor, Group, Stats, Stream
+from .stream import _leaf as path_leaf
 
 #: The engine's hardcoded FName that SQTeamState and SQSquadState use for their number.
 NUMBER_NAMES = ("#name253", "ID", "Id", "TeamId")
@@ -59,13 +62,23 @@ WANTED = {
 #: Properties that are replication bookkeeping, not the game: counted, not kept.
 NOISE = {"ReplayLastTransformUpdateTimeStamp", "ReplicatedMovement"}
 
+#: How the names of properties and parameters that hold an object (a packed net GUID) end. A player's
+#: `CurrentSeat` read so is, at every change, the seat the soldier's `MulticastUpdateCurrentSeat` call names.
+OBJECT_WORDS = ("Class", "State", "Seat", "Pawn", "Actor", "Instigator", "Causer", "Owner", "Controller", "Target",
+                "Vehicle", "Weapon", "Soldier", "Parent")
+
 #: Properties whose 32 or 64 bits are a floating-point number, by a word in their name; other 32-bit ones are
-#: integers.
+#: integers. `Input`: a vehicle's throttle, brake and handbrake read so lie in 0..1, its steering in -1..1, in
+#: every update of the demos read.
 FLOAT_WORDS = ("Health", "Time", "Rate", "Multiplier", "Duration", "Seconds", "Thrust", "Scale", "Distance",
-               "Speed", "Interval", "Radius", "Damage", "Percent", "Progress", "Ratio", "Stamina")
+               "Speed", "Interval", "Radius", "Damage", "Percent", "Progress", "Ratio", "Stamina", "Input")
 
 #: A soldier's health is gone below this: dead, not wounded (a soldier who gives up or bleeds out is set to -300).
 DEAD_BELOW = -100.0
+
+#: Properties holding a person's online ids: never written into the table or the match document, nor decoded
+#: into the sidecar (whose bits hold them, as the demo does).
+IDS = {"UniqueID", "OnlineUserId", "SquadCreatorSteamID", "SteamID", "EOSID"}
 
 #: An actor that can be damaged or built: its spawn and removal are events.
 DAMAGEABLE = {"Health", "bCanBeDamaged", "BuildState", "bRequiresFOB"}
@@ -73,15 +86,24 @@ DAMAGEABLE = {"Health", "bCanBeDamaged", "BuildState", "bRequiresFOB"}
 
 def decode(name: str, b: BitReader) -> Any:
     """
-    A replicated property's value, as far as its bits say: one bit a flag; a
-    string when a length and that many bytes fill it exactly; a name when it
-    reads as one exactly; 8, 16, 32 or 64 bits a number (a float when its name
-    says so); else the bits as hex.
+    A replicated property's value, as far as its bits say: one bit a flag; an
+    object (its net GUID) when its name ends as a reference's does and its
+    bits are one packed GUID; a string when a length and that many bytes fill
+    it exactly; a name when it reads as one exactly; 8, 16, 32 or 64 bits a
+    number (a float when its name says so); else the bits as hex.
     """
     n = b.left()
     if n == 1:
         return bool(b.bit())
     start = b.pos
+    if n % 8 == 0 and n <= 40 and name.endswith(OBJECT_WORDS):
+        try:
+            g = b.packed()
+            if b.at_end():
+                return {"guid": g}
+        except ReadError:
+            pass
+        b.pos = start
     if n >= 32:
         try:
             v = b.fstring()
@@ -132,6 +154,118 @@ def _texts(raw: bytes) -> list[str]:
     return out
 
 
+#: Words in a remote call parameter's name that make 192 bits a vector of three doubles (FVector).
+VECTOR_WORDS = ("Location", "Origin", "Impulse", "Velocity", "Position", "Dir", "Normal", "Offset", "Vector", "Point")
+#: ... and 48 bits a unit vector (FVector_NetQuantizeNormal: three 16-bit fixed-point numbers).
+DIRECTION_WORDS = ("Dir", "Normal")
+
+
+def decode_param(name: str, b: BitReader, stream: Stream | None = None) -> Any:
+    """
+    A remote call's parameter: a vector where its name and size say so (192
+    bits three doubles; 48 bits a unit vector; else a quantized vector that
+    reads exactly, as its integers and whether they are scaled), an object
+    where its name says so and its bits are one packed net GUID, else as
+    `decode` reads a property.
+    """
+    n = b.left()
+    start = b.pos
+    vectorish = any(w in name for w in VECTOR_WORDS)
+    try:
+        if vectorish and n == 192:
+            return [b.f64(), b.f64(), b.f64()]
+        if n == 48 and any(w in name for w in DIRECTION_WORDS):
+            return [round((b.bits(16) - 32768) / 32767, 5) for _ in range(3)]
+        if vectorish and 7 < n < 192:
+            info = b.serialized_int(1 << 7)
+            bits = info & 63
+            if bits:
+                sign = 1 << (bits - 1)
+                xyz = [((b.bits(bits) ^ sign) - sign) for _ in range(3)]
+                if b.at_end():
+                    return {"quantized": xyz, "scaled": bool(info >> 6)}
+    except ReadError:
+        pass
+    b.pos = start
+    if n % 8 == 0 and 8 <= n <= 40 and name.endswith(OBJECT_WORDS):
+        return object_ref(b, stream)
+    return decode(name, b)
+
+
+def object_ref(b: BitReader, stream: Stream | None = None) -> Any:
+    """An object reference: its packed net GUID, with its class or path where the stream knows it."""
+    start = b.pos
+    try:
+        g = b.packed()
+        if b.at_end():
+            out: dict[str, Any] = {"guid": g}
+            a = stream.actors.get(g) if stream else None
+            if a is not None:
+                out["class"] = class_name(a.path)
+            elif stream is not None and g in stream.guid_paths:
+                out["path"] = stream.guid_paths[g]
+            return out
+    except ReadError:
+        pass
+    b.pos = start
+    return decode("", b)
+
+
+@dataclass
+class Shot:
+    t: float
+    weapon: int  # the weapon, or for a hit the vehicle hit
+    function: str
+    origin: tuple[float, float, float]
+    direction: tuple[float, float, float] | None
+    kind: str = "fire"
+    detail: str = ""
+
+
+def _vec(v: Any) -> tuple[float, float, float] | None:
+    if isinstance(v, list) and len(v) == 3 and all(isinstance(x, (int, float)) for x in v):
+        return float(v[0]), float(v[1]), float(v[2])
+    return None
+
+
+def _matched(sh: Shot, fired) -> bool:
+    """Whether an effects call repeats a shot already placed: same weapon, same direction, within a second."""
+    return bool(sh.direction) and any(
+        abs(f.t - sh.t) < 1.0 and f.direction and max(abs(a - b) for a, b in zip(f.direction, sh.direction)) < 1e-4
+        for f in fired)
+
+
+def shot_of(t: float, actor: int, function: str, params: dict) -> Shot | None:
+    """
+    A remote call that places a shot or a hit:
+
+    - `MulticastFireProjectile(WithId)`: `OriginZeroBased`, three doubles, and
+      `ShootDir`, a unit vector;
+    - `MulticastFireMultipleProjectileEffects`: `Origin`, quantized in tenths
+      (divided by 10 it is the `OriginZeroBased` of the matching
+      `MulticastFireProjectile`), and `ShootDir`;
+    - `MulticastPlayDamageEffects` on a vehicle: `ImpactLocationZeroBased`,
+      and the `DamageTypeClass`.
+    """
+    if function in ("MulticastFireProjectile", "MulticastFireProjectileWithId"):
+        o, d = _vec(params.get("OriginZeroBased")), _vec(params.get("ShootDir"))
+        return Shot(t, actor, function, o, d) if o else None
+    if function == "MulticastFireMultipleProjectileEffects":
+        q = params.get("Origin")
+        if isinstance(q, dict) and q.get("scaled") and _vec(q.get("quantized")):
+            o = tuple(x / 10.0 for x in q["quantized"])
+            return Shot(t, actor, function, o, _vec(params.get("ShootDir")))
+        return None
+    if function == "MulticastPlayDamageEffects":
+        o = _vec(params.get("ImpactLocationZeroBased"))
+        dmg = params.get("DamageTypeClass")
+        detail = ""
+        if isinstance(dmg, dict):
+            detail = class_name(dmg.get("path", "")) or dmg.get("class", "") or ""
+        return Shot(t, actor, function, o, None, "hit", detail) if o else None
+    return None
+
+
 @dataclass
 class Player:
     guid: int
@@ -180,6 +314,14 @@ class Match:
     props: dict[int, dict[str, list[tuple[float, Any]]]] = field(default_factory=dict)
     #: How often each class's properties were sent (the bookkeeping ones too): class -> property -> count.
     census: dict[str, dict[str, int]] = field(default_factory=dict)
+    #: Every item the demo holds, kept for the sidecars and the self-check (None when parsed without).
+    keeper: Keeper | None = None
+    #: The stream, for its export tables and what it counted.
+    stream: Stream | None = None
+    #: Shots fired, from the weapons' remote calls.
+    shots: list[Shot] = field(default_factory=list)
+    #: The sidecar files `output.write` wrote.
+    sidecars: list[str] = field(default_factory=list)
 
     def value_at(self, guid: int, prop: str, t: float) -> Any:
         """A property's value at time `t`: the last change by then, None before the first."""
@@ -197,6 +339,7 @@ class Match:
             if guid in self.players and self.players[guid].name:
                 return self.players[guid].name
             ps = self.value_at(guid, "PlayerState", float("inf"))
+            ps = ps.get("guid") if isinstance(ps, dict) else ps
             if isinstance(ps, int) and ps in self.players:
                 return self.players[ps].name
             guid = self.owner.get(guid) or 0
@@ -218,11 +361,13 @@ class Match:
             who = self.player_name(guid) or kind
             yaw = a.rotation[1] if a.rotation else 0.0
             spawn = Sample(a.opened, a.location.x, a.location.y, a.location.z, yaw, 0.0)
-            out.append(_row(spawn, who, None, None, "spawn", kind, kind, health=self.value_at(guid, "Health", a.opened)))
+            out.append(_row(spawn, who, None, None, "spawn", kind, kind, health=self.value_at(guid, "Health", a.opened),
+                            entity=guid))
             if a.closed is not None:
                 last = track[-1] if track else spawn
                 end = Sample(a.closed, last.x, last.y, last.z, last.yaw, 0.0)
-                out.append(_row(end, who, None, None, "removed", kind, kind, health=self.value_at(guid, "Health", a.closed)))
+                out.append(_row(end, who, None, None, "removed", kind, kind,
+                                health=self.value_at(guid, "Health", a.closed), entity=guid, detail=a.close_reason or ""))
             # Its health: each fall a "damaged" row where it was, the first at or below 0 "destroyed".
             times = [x.t for x in track] if track else []
             before = None
@@ -234,7 +379,7 @@ class Match:
                     at = track[i] if track and i >= 0 else spawn
                     here = Sample(t, at.x, at.y, at.z, at.yaw, 0.0)
                     out.append(_row(here, who, None, None, "destroyed" if health <= 0 else "damaged", kind, kind,
-                                    health=health))
+                                    health=health, entity=guid))
                     if health <= 0:
                         break
                 before = health
@@ -242,9 +387,12 @@ class Match:
         for p in self.players.values():
             seats = self.props.get(p.guid, {}).get("CurrentSeat", [])
             for t, seat in seats:
-                if not isinstance(seat, int) or not seat:
+                # The seat is a component of the vehicle (or of a seat pawn on it): its object, sent on that actor.
+                seat = seat.get("guid") if isinstance(seat, dict) else seat
+                if not isinstance(seat, int) or isinstance(seat, bool) or not seat:
                     continue
-                vehicle = self.owner.get(seat, seat)
+                holder = self.stream.subobjects.get(seat, seat) if self.stream else seat
+                vehicle = holder if holder in self.tracks else self.owner.get(holder, holder)
                 track = self.tracks.get(vehicle)
                 if not track:
                     continue
@@ -252,7 +400,8 @@ class Match:
                 i = max(0, bisect.bisect_right(times, t) - 1)
                 team, squad = self.team_of(p, t), self.squad_of(p, t)
                 at = Sample(t, track[i].x, track[i].y, track[i].z, track[i].yaw, 0.0)
-                out.append(_row(at, p.name or f"player {p.guid}", team, squad, "seat", self.kind(vehicle), self.kind(seat)))
+                out.append(_row(at, p.name or f"player {p.guid}", team, squad, "seat", self.kind(vehicle),
+                                self.kind(holder), entity=vehicle))
         return out
 
     @property
@@ -299,7 +448,7 @@ class Match:
                 for s in track[bisect.bisect_left(times, start) : bisect.bisect_left(times, end)]:
                     out.append(_row(s, who, team, squad, "position" if on_foot else "vehicle",
                                     self.kind(target), self.kind(pawn), pitch=self._pitch(target, s.t),
-                                    health=self.value_at(target, "Health", s.t)))
+                                    health=self.value_at(target, "Health", s.t), entity=target))
         # Soldiers nobody was found to control (bots without a player state,
         # a recording that missed the link): kept, under their own name.
         for guid, track in self.tracks.items():
@@ -313,11 +462,62 @@ class Match:
             squad = self.squad_of(p, t0) if p else None
             for s in track:
                 out.append(_row(s, who, team, squad, "position", self.kind(guid), self.kind(guid),
-                                pitch=self._pitch(guid, s.t), health=self.value_at(guid, "Health", s.t)))
+                                pitch=self._pitch(guid, s.t), health=self.value_at(guid, "Health", s.t), entity=guid))
         out += self.events()
         out += self.casualties()
+        out += self.shot_rows()
         out.sort(key=lambda r: (r["time"], r["player"]))
         return out
+
+    def shot_rows(self) -> list[dict[str, Any]]:
+        """
+        Every shot a weapon's remote calls place (`fire`: where it left, the
+        direction it went as yaw and pitch, the weapon as `pawn`, the call as
+        `detail`), and every hit a vehicle's `MulticastPlayDamageEffects`
+        places (`hit`: where, the damage type as `detail`). A weapon sends a
+        shot twice, `MulticastFireProjectile` and a moment later
+        `MulticastFireMultipleProjectileEffects` with the same direction; the
+        second is a row only where no first one matches it (some weapons send
+        only the second).
+        """
+        fired: dict[int, list[Shot]] = {}
+        for sh in self.shots:
+            if sh.kind == "fire" and not sh.function.endswith("Effects"):
+                fired.setdefault(sh.weapon, []).append(sh)
+        out = []
+        for sh in self.shots:
+            if sh.kind == "fire" and sh.function.endswith("Effects") and _matched(sh, fired.get(sh.weapon, ())):
+                continue
+            kind = self.kind(sh.weapon)
+            p = self._occupant(sh.weapon, sh.t) if sh.kind == "fire" else None
+            who = self.player_name(sh.weapon) or (p.name if p else "") or kind
+            p = p or next((pl for pl in self.players.values() if pl.name == who), None)
+            team = self.team_of(p, sh.t) if p else None
+            squad = self.squad_of(p, sh.t) if p else None
+            yaw = pitch = None
+            if sh.direction:
+                dx, dy, dz = sh.direction
+                yaw = math.degrees(math.atan2(dy, dx))
+                pitch = math.degrees(math.asin(max(-1.0, min(1.0, dz))))
+            out.append(_row(Sample(sh.t, *sh.origin, yaw or 0.0, 0.0), who, team, squad, sh.kind, kind, "",
+                            pitch=pitch, entity=sh.weapon, detail=sh.detail or sh.function))
+        return out
+
+    def _occupant(self, guid: int, t: float) -> Player | None:
+        """The player whose seat, at `t`, is on the actor `guid` or on what it is mounted on (a turret, a vehicle)."""
+        chain: list[int] = []
+        while guid and guid not in chain:
+            chain.append(guid)
+            guid = self.owner.get(guid) or 0
+        for p in self.players.values():
+            seat = self.value_at(p.guid, "CurrentSeat", t)
+            seat = seat.get("guid") if isinstance(seat, dict) else None
+            if not seat:
+                continue
+            holder = self.stream.subobjects.get(seat, seat) if self.stream else seat
+            if holder in chain or self.owner.get(holder) in chain:
+                return p
+        return None
 
     def _pitch(self, guid: int, t: float) -> float | None:
         """
@@ -359,7 +559,7 @@ class Match:
                 team = self.team_of(p, t) if p else None
                 squad = self.squad_of(p, t) if p else None
                 out.append(_row(Sample(t, s.x, s.y, s.z, s.yaw, 0.0), who, team, squad, event, kind, kind,
-                                pitch=self._pitch(guid, t), health=health))
+                                pitch=self._pitch(guid, t), health=health, entity=guid))
 
             for t, wounded in props.get("bWounded", []):
                 health = self.value_at(guid, "Health", t)
@@ -414,8 +614,9 @@ def _at(changes: list[tuple[float, int]], t: float) -> int:
 
 
 def _row(s: Sample, who: str, team: Team | None, squad: SquadUnit | None, event: str, what: str, seat: str,
-         pitch: float | None = None, health: Any = None):
+         pitch: float | None = None, health: Any = None, entity: int | None = None, detail: str = ""):
     return {
+        "entity": -1 if entity is None else entity, "detail": detail,
         "time": s.t, "x": s.x, "y": s.y, "z": s.z, "yaw": s.yaw, "speed": s.speed,
         "player": who, "team": team.number if team and team.number is not None else -1,
         "faction": team.faction if team else "", "squad": squad.number if squad and squad.number is not None else -1,
@@ -451,9 +652,12 @@ def load(path: str | Path) -> Match:
     return parse(buf, Path(path).stem)
 
 
-def parse(buf: bytes, name: str = "replay") -> Match:
+def parse(buf: bytes, name: str = "replay", keep: bool = True) -> Match:
     replay = read(buf)
     eng = replay.header.engine_network_version if replay.header else 0
+    keeper = Keeper() if keep else None
+    if keeper:
+        keep_container(keeper, replay, buf)
     players: dict[int, Player] = {}
     teams: dict[int, Team] = {}
     squads: dict[int, SquadUnit] = {}
@@ -462,46 +666,57 @@ def parse(buf: bytes, name: str = "replay") -> Match:
     soldier_player: dict[int, list[tuple[float, int]]] = {}
     props: dict[int, dict[str, list[tuple[float, Any]]]] = {}
     census: dict[str, dict[str, int]] = {}
+    shots: list[Shot] = []
     errors = [0]
 
-    def keep(t: float, actor: Actor, g: Group, obj: int, prop: str, b: BitReader) -> None:
+    def keep_prop(t: float, actor: Actor, g: Group, obj: int, prop: str, b: BitReader) -> Any:
         """Any property, decoded as far as it goes, kept where it changed - the actor's own, or a subobject's."""
-        leaf = _leaf(g)
+        leaf = g.leaf
         counts = census.setdefault(leaf, {})
         counts[prop] = counts.get(prop, 0) + 1
-        if prop in NOISE:
-            return
         w = BitReader(b.value, b.end, b.pos)
         try:
             value = decode(prop, w)
         except ReadError:
-            return
-        key = prop if obj == actor.guid else f"{leaf}.{prop}"
+            return None
+        if prop in NOISE:
+            return value
+        # A subobject's under its own name where it has one (`wheel_L1.Health`), else its class's.
+        key = prop if obj == actor.guid else f"{path_leaf(s.guid_paths[obj]) if obj in s.guid_paths else leaf}.{prop}"
         changes = props.setdefault(actor.guid, {}).setdefault(key, [])
         if not changes or changes[-1][1] != value:
             changes.append((t, value))
+        return value
 
-    def on_property(t: float, actor: Actor | None, g: Group, obj: int, prop: str, b: BitReader) -> None:
+    def on_property(t: float, actor: Actor | None, g: Group, obj: int, prop: str, b: BitReader) -> Any:
         if actor is None:
-            return
-        keep(t, actor, g, obj, prop, b)
-        if prop not in WANTED:
-            return
-        leaf = _leaf(g)
-        try:
-            if prop == "ReplicatedMovement":
-                if obj != actor.guid:
-                    return  # a component's movement, not the actor's
-                try:
-                    m = rep_movement(b, eng)
-                except ReadError:
-                    errors[0] += 1
-                    return
+            return None
+        if prop == "ReplicatedMovement":
+            census.setdefault(g.leaf, {})[prop] = census.setdefault(g.leaf, {}).get(prop, 0) + 1
+            heli = g.leaf == "SQHelicopterMovementComponent"
+            try:
+                if heli:
+                    m, clock = helicopter_movement(BitReader(b.value, b.end, b.pos))
+                else:
+                    m = rep_movement(BitReader(b.value, b.end, b.pos), eng)
+            except ReadError:
+                errors[0] += 1
+                return None
+            # A component's movement is not the actor's - but for a helicopter's movement component, which moves it.
+            if obj == actor.guid or heli:
                 v = m.velocity
                 tracks.setdefault(actor.guid, []).append(
                     Sample(t, m.location.x, m.location.y, m.location.z, m.yaw,
                            (v.x * v.x + v.y * v.y + v.z * v.z) ** 0.5))
-            elif leaf == "SQPlayerState":
+            return {**m.as_dict(), "clock": clock} if heli else m.as_dict()
+        value = keep_prop(t, actor, g, obj, prop, b)
+        if prop in IDS:
+            value = None  # an online id: in the sidecar's bits only
+        if prop not in WANTED:
+            return value
+        leaf = g.leaf
+        try:
+            if leaf == "SQPlayerState":
                 p = players.setdefault(actor.guid, Player(actor.guid))
                 if prop == "PlayerNamePrivate":
                     p.name = b.fstring().strip()
@@ -531,9 +746,21 @@ def parse(buf: bytes, name: str = "replay") -> Match:
                     owner[actor.guid] = parent
         except ReadError:
             errors[0] += 1
+        return value
 
-    s = Stream(replay, buf, wanted=None, on_property=on_property)
+    def on_rpc(t: float, actor: Actor, g: Group, obj: int, function: str, params: dict) -> None:
+        shot = shot_of(t, actor.guid, function, params)
+        if shot is not None:
+            shots.append(shot)
+
+    s = Stream(replay, buf, wanted=None, on_property=on_property, on_rpc=on_rpc, keep=keeper,
+               decode_value=lambda n, b: decode_param(n, b, s))
     stats = s.run()
+    for track in tracks.values():  # read in stream order, except the blocks of objects named after the stream
+        track.sort(key=lambda x: x.t)
+    for per in props.values():
+        for changes in per.values():
+            changes.sort(key=lambda x: x[0])
     # A seat pawn's owner may itself be attached to the vehicle: follow the chain to something that moves.
     for pawn in list(owner):
         seen = {pawn}
@@ -543,4 +770,4 @@ def parse(buf: bytes, name: str = "replay") -> Match:
             target = owner[target]
         owner[pawn] = target
     return Match(name, replay, stats, players, teams, squads, s.actors, tracks, owner, soldier_player, errors[0],
-                 props, census)
+                 props, census, keeper, s, shots)

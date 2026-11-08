@@ -11,7 +11,9 @@ particular match are written here:
 - the decoded movement is physically consistent: between two close samples
   the soldier moved about as far as the velocity the sample carries says;
 - every row's team is the team whose faction the soldier's blueprint belongs
-  to: one team, one set of soldier factions.
+  to: one team, one set of soldier factions;
+- nothing the demo holds is lost (`selfCheck.completeness`), and the
+  container's chunks are kept byte for byte.
 """
 
 from __future__ import annotations
@@ -89,3 +91,17 @@ def test_rows_are_named(match):
     named = sum(1 for r in rows if not r["player"].startswith(("soldier ", "player ")))
     assert named / len(rows) > 0.9
 
+
+
+def test_nothing_is_lost(match):
+    c = match.keeper.completeness([])
+    assert c["lost"] == 0, {k: v for k, v in c["types"].items() if v["lost"]}
+
+
+def test_container_chunks_are_kept_whole(match):
+    buf = match.stream.buf
+    kept = {o: p for t, o, p in zip(match.keeper.packets["type"], match.keeper.packets["offset"],
+                                     match.keeper.packets["payload"]) if t.startswith("chunk.")}
+    for c in match.replay.chunks:
+        if c.kind != 1:
+            assert kept[c.offset] == buf[c.offset : c.offset + c.size]

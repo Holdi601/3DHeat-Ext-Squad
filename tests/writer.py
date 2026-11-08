@@ -54,6 +54,12 @@ class BitWriter:
             mask <<= 1
         return self
 
+    def f32(self, v: float) -> "BitWriter":
+        return self.bytes(struct.pack("<f", v))
+
+    def f64(self, v: float) -> "BitWriter":
+        return self.bytes(struct.pack("<d", v))
+
     def append(self, other: "BitWriter") -> "BitWriter":
         return self.bits(other.value, other.n)
 
@@ -105,3 +111,15 @@ def rep_movement(xyz, yaw_byte: int, vel=(0.0, 0.0, 0.0)) -> BitWriter:
     quantized_vector(w, vel, 1.0)
     w.bit(False)
     return w
+
+
+def helicopter_movement(xyz, yaw_deg: float, vel=(0.0, 0.0, 0.0), clock: float = 0.0) -> BitWriter:
+    """A Squad helicopter movement component's ReplicatedMovement, as v10.3.1 writes it."""
+    w = BitWriter()
+    quantized_vector(w, xyz, 100.0, 24)
+    quantized_vector(w, vel, 100.0, 20)
+    quantized_vector(w, (0.0, 0.0, 0.0), 100.0, 1)
+    w.bit(False)  # pitch
+    w.bit(True).bits(round(yaw_deg * 65536 / 360) & 0xFFFF, 16)
+    w.bit(False)  # roll
+    return w.f32(clock)

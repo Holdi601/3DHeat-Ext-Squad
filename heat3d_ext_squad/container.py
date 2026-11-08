@@ -96,6 +96,12 @@ class DemoHeader:
     platform: str = ""
     min_record_hz: float | None = None
     max_record_hz: float | None = None
+    frame_limit_ms: float | None = None
+    checkpoint_limit_ms: float | None = None
+    custom_versions: list[tuple[str, int]] = field(default_factory=list)
+    package_versions: tuple[int, int, int] | None = None  # UE4, UE5, licensee
+    #: bytes after the last field read (a trailer this reader does not know), kept whole
+    unread: bytes = b""
 
     @property
     def streaming_fixes(self) -> bool:
@@ -123,6 +129,10 @@ class ReplayFile:
     encrypted: bool
     chunks: list[Chunk]
     header: DemoHeader | None = None
+    custom_versions: list[tuple[str, int]] = field(default_factory=list)
+    encryption_key: bytes = b""
+    #: where the info block ends: the first chunk's offset
+    info_size: int = 0
 
     def data_chunks(self) -> list[Chunk]:
         return [c for c in self.chunks if c.kind == CHUNK_DATA]
@@ -140,11 +150,12 @@ def read(buf: bytes) -> ReplayFile:
     if len(buf) < 8 or r.u32() != FILE_MAGIC:
         raise ReadError("not an Unreal local replay (wrong magic)")
     version = r.u32()
+    customs = []
     if version >= FILE_CUSTOM_VERSIONS:
         n = r.i32()
         if n < 0 or n > 4096:
             raise ReadError(f"{n} custom versions")
-        r.skip(n * 20)  # each a 16-byte GUID and an int32
+        customs = [(r.bytes(16).hex(), r.i32()) for _ in range(n)]  # each a 16-byte GUID and an int32
     length_ms = r.u32()
     network_version = r.u32()
     changelist = r.u32()
@@ -156,14 +167,15 @@ def read(buf: bytes) -> ReplayFile:
         recorded = (ticks - TICKS_AT_UNIX) / 1e7 if ticks > TICKS_AT_UNIX else None
     compressed = r.u32() != 0 if version >= FILE_COMPRESSION else False
     encrypted = False
+    key = b""
     if version >= FILE_ENCRYPTION:
         encrypted = r.u32() != 0
         key_len = r.i32()
         if key_len < 0 or key_len > 1024:
             raise ReadError(f"encryption key of {key_len} bytes")
-        r.skip(key_len)
+        key = r.bytes(key_len)
     out = ReplayFile(version, length_ms, network_version, changelist, friendly, live, recorded, compressed,
-                     encrypted, [])
+                     encrypted, [], custom_versions=customs, encryption_key=key, info_size=r.pos)
     while r.left() >= 8:
         kind = r.u32()
         size = r.i32()
@@ -214,7 +226,7 @@ def read_header(buf: bytes) -> DemoHeader:
         n = r.i32()
         if n < 0 or n > 4096:
             raise ReadError(f"{n} custom versions in the header")
-        r.skip(n * 20)
+        h.custom_versions = [(r.bytes(16).hex(), r.i32()) for _ in range(n)]
     h.network_checksum = r.u32()
     h.engine_network_version = r.u32()
     h.game_network_version = r.u32()
@@ -227,7 +239,7 @@ def read_header(buf: bytes) -> DemoHeader:
     else:
         h.changelist = r.u32()
     if v >= NET_PACKAGE_VERSIONS:
-        r.skip(12)  # the UE4 and UE5 package versions and the licensee version
+        h.package_versions = (r.u32(), r.u32(), r.u32())  # the UE4 and UE5 package versions and the licensee version
     if v >= NET_MULTIPLE_LEVELS:
         n = r.i32()
         if n < 0 or n > 65536:
@@ -247,11 +259,12 @@ def read_header(buf: bytes) -> DemoHeader:
         try:
             h.min_record_hz = r.f32()
             h.max_record_hz = r.f32()
-            r.f32()  # frame limit, ms
-            r.f32()  # checkpoint limit, ms
+            h.frame_limit_ms = r.f32()
+            h.checkpoint_limit_ms = r.f32()
             h.platform = r.fstring()
         except ReadError:
-            pass  # a trailer this reader does not need
+            pass  # a trailer this reader does not know; kept whole below
+    h.unread = bytes(buf[r.pos :])
     return h
 
 
