@@ -9,6 +9,20 @@ heat3d-squad-demo match.replay -o out  # or a folder of .replay files
 
 Each demo becomes `out/<map>/<demo>.parquet` and `out/<map>/<demo>.match.json`, with the sidecars `<demo>.entities.parquet` and `<demo>.packets.parquet` beside them. The table and match document are the same pair the 3DHeat CS2 tool writes, and the 3DHeat viewer opens the table directly (and leaves the sidecars out when a whole folder is loaded). Use `--flat` to leave out the map folder, and `--json` to print one line of JSON per demo for programs that call the command.
 
+| Option | Does |
+|---|---|
+| `demos` | `.replay` files, or folders holding them (one or more) |
+| `-o`, `--out` | the folder to write into (required) |
+| `--flat` | write straight into the folder, without `<map>/` |
+| `--json` | one line of JSON per demo on stdout |
+| `--version` | print the version |
+
+Exit status 0 when every demo was converted, 1 when any failed (the rest are still written) or none was found.
+
+![A run on a synthetic demo](docs/assets/img/run.svg)
+
+**Documentation:** [holdi601.github.io/3DHeat-Ext-Squad](https://holdi601.github.io/3DHeat-Ext-Squad/), a page per step and per output. This converter is part of [3DHeat](https://github.com/Holdi601/3DHeat) ([documentation](https://holdi601.github.io/3DHeat/)); the viewer's file formats, including the one-file-a-match container, are described in [One file a match (.3dheat)](https://holdi601.github.io/3DHeat/container.html).
+
 The command works on its own. The 3DHeat Watcher runs it on new demos when it is installed (adapter `squad-demos`). The Watcher never imports this package, so a problem here touches nothing else.
 
 ## Recording a demo

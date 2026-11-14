@@ -1,0 +1,12 @@
+title: 3DHeat Squad
+description: Squad server demos into heatmap tables and match documents for the 3DHeat viewer.
+remote_theme: just-the-docs/just-the-docs@v0.10.0
+plugins:
+  - jekyll-remote-theme
+search_enabled: true
+heading_anchors: true
+aux_links:
+  "GitHub": "https://github.com/Holdi601/3DHeat-Ext-Squad"
+  "3DHeat": "https://holdi601.github.io/3DHeat/"
+exclude:
+  - "*.py"
