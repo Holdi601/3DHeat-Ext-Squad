@@ -18,8 +18,7 @@ Squadi demod salvestatakse **serveril**, mitte mängu kliendi poolt.
 4. Demo kirjutatakse faili `<server>/SquadGame/Saved/Demos/<name>.replay`.
    Kopeeri see serverist masinasse, kus seda teisendad.
 
-`Server.cfg`-s on ka säte `RecordDemos`, vaikimisi väljas. Väikese mängu puhul oodata umbes
-70 kuni 80 MB tunnis; täis 100-mängijaga serveri suurust ei ole mõõdetud.
+`Server.cfg`-s on ka säte `RecordDemos`, vaikimisi väljas. Väikese mängu puhul on see umbes 70 kuni 80 MB tunnis; täis 100-mängijaga serveri suurust ei ole mõõdetud.
 
 Demo sisaldab kõigi serveril olevate inimeste nimesid ja veebi-ID-sid: kohtle seda isikuandmetena
 ([Piirangud, uuendused ja tingimused](limits.md#personal-data)).

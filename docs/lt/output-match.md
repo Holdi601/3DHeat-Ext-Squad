@@ -1,5 +1,5 @@
 ---
-title: "Rungtynių dokumentas ir šalutiniai failai"
+title: "Rungtynių dokumentas ir papildomi failai"
 nav_order: 5
 lang: lt
 source: output-match.md
@@ -7,10 +7,10 @@ source_hash: "715bd3417e47"
 nav_exclude: true
 search_exclude: true
 ---
-# Rungtynių dokumentas ir šalutiniai failai {#the-match-document-and-sidecars}
+# Rungtynių dokumentas ir papildomi failai {#the-match-document-and-sidecars}
 
-Šalia lentelės kiekvienas demo gauna `<demo>.match.json` ir du šalutinius failus,
-`<demo>.entities.parquet` ir `<demo>.packets.parquet`. Žiūrintojas rungtynių dokumentą skaito
+Šalia lentelės kiekvienas demo gauna `<demo>.match.json` ir du papildomus failus,
+`<demo>.entities.parquet` ir `<demo>.packets.parquet`. Žiūryklė rungtynių dokumentą skaito
 savo Rungtynės skirtuke.
 
 ## Rungtynių dokumentas {#the-match-document}
@@ -26,7 +26,7 @@ savo Rungtynės skirtuke.
 - **failas ir antraštė**: kiekvienas informacijos bloko ir demo antraštės laukas, dalių lentelė, tinklo lauko eksporto lentelės (`net_field_exports`), kanalų uždarymo priežastys ir klasės, rastos objektams, kurių eksportai nevardija (`stream.class_resolution`);
 - **savitikra** (`selfCheck.completeness`, žr. [Pilnumas](#completeness)).
 
-Interneto ID (Steam, EOS) tyčia nepaliekami.
+Interneto ID (Steam, EOS) tyčia neįtraukiami.
 
 Greitas pažvelgimas į konvertuotą demo:
 
@@ -46,12 +46,12 @@ Perskaitytuose tikruose demo `lost` yra 0: jų elementų yra nuo šimtų tūksta
 - kiekvienas kadras, paketas ir bunch'as (visi, suskaidyti į tai, ką jie neša), kiekvienas atidarytas veikėjas (su atsiradimo vieta, sukimu, mastelio ir greičio duomenimis) ir uždarytas (su priežastimi: `Destroyed`, `Dormancy`...);
 - kiekviena replikuojama savybė, kiek tai nurodo jos bitai ([Savybių dekodavimas](how-it-works.md#decoding-properties)), pozicijos iš `FRepMovement` ir iš sraigtasparnių judėjimo komponento, žuvimai, transporto priemonių sveikata, sėdynės;
 - kiekvienas nuotolinis kvietimas pagal pavadinimą, su parametrais, kai demo eksportuoja funkcijos grupę: šūviai (`fire`) ir transporto priemonių pataikymai (`hit`) – į lentelę;
-- tinklo lauko eksporto lentelės ir tinklo GUID (jų skaičius; keliai – šalutiniame veikėjų faile).
+- tinklo lauko eksporto lentelės ir tinklo GUID (jų skaičius; keliai – papildomame veikėjų faile).
 
 **Išsaugota žalia** (visa, kartu su tuo, kas perskaityta, šalia):
 
 - `<demo>.entities.parquet`, stulpeliai `time`, `type` (`<class>.<property>`, `<class>.<call>` arba objekto vardas), `name` (veikėjo klasė), `entity` (veikėjo tinklo GUID, kaip lentelės `entity`), `kind`, `object` (subobjektas), `channel`, `handle`, `group` (eksporto grupės klasės kelias), `decoded` (JSON), `bits` ir `payload` (bitai, nuo mažiausio, užpildyti iki pilnų baitų):
-  - kiekvienas savybės atnaujinimas (`kind` `property`), įskaitant judėjimą, su tuo, kas dekoduota; žalias tik ten, kur nieko nedekoduota (nepavadinti rankenėlės, struktūros, pavyzdžiui, turelių `RotationReplicatedMovement`, ir savybės, paliktos kaip bitai);
+  - kiekvienas savybės atnaujinimas (`kind` `property`), įskaitant judėjimą, su tuo, kas dekoduota; žalias tik ten, kur nieko nedekoduota (nepavadinti rankenėlės, struktūros, pavyzdžiui, bokštelių `RotationReplicatedMovement`, ir savybės, paliktos kaip bitai);
   - kiekvienas nuotolinis kvietimas ir pasirinktinis delta laukas (`rpc`), parametrai dekoduoti, kai funkcijos grupė buvo eksportuota; žalias, kai ne (`RepInventory`, `PlayerStateData`);
   - kiekvienas turinio blokas objekto, kurio klasės nepavyko rasti (`block`: `Buoyancy`, `GameplayTasksComponent`, `AmmoRackComponent`...), su dekoduota antraște;
   - kiekvienas veikėjo kanalas, kuris atidarytas ir uždarytas (`open`, `close`), kiekvienas subobjektas, ištrintas ar sunaikintas;

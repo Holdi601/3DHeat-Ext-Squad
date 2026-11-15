@@ -11,7 +11,7 @@ search_exclude: true
 
 Blakus tabulai katrs demo saņem `<demo>.match.json` un divus papildfailus,
 `<demo>.entities.parquet` un `<demo>.packets.parquet`. Skatītājs lasa mača dokumentu savā
-Mač cilnē.
+Mača cilnē.
 
 ## Mača dokuments {#the-match-document}
 
@@ -36,7 +36,7 @@ python -c "import json; d = json.load(open('out/<map>/<demo>.match.json')); prin
 
 ## Pilnība {#completeness}
 
-Šis lasītājs seko noteikumam, ko visi 3DHeat konvertētāji dala: dekodēt to, ko var nolasīt tagad, paturēt pārējo pilnībā un pateikt, cik daudz no katra veida tas ir nolasījis ([Konvertētāji saglabā visu](https://github.com/Holdi601/3DHeat/blob/main/docs/converters.md)). Katram mača dokumentam ir `selfCheck.completeness`: katram sastaptā vienuma veidam, cik ir `seen` (redzēti), `decoded` (dekodēti), `partial` (dekodēti daļēji un paturēti pilnībā), `raw` (paturēti tikai pilnībā) un `lost` (jābūt 0). Veidi tiek skaitīti tur, kur lasītājs tos sastop: `file.info`, `chunk.<kind>`, `frame`, `packet`, `bunch`, `open`, `close`, `export.field`, `export.guid`, `external`, `property:<class>`, `rpc:<class>`, `block:<object>`, `subobject.*`.
+Šis lasītājs seko noteikumam, ko ievēro visi 3DHeat konvertētāji: dekodēt to, ko var nolasīt tagad, paturēt pārējo pilnībā un pateikt, cik daudz no katra veida tas ir nolasījis ([Konvertētāji saglabā visu](https://github.com/Holdi601/3DHeat/blob/main/docs/converters.md)). Katram mača dokumentam ir `selfCheck.completeness`: katram sastaptā vienuma veidam, cik ir `seen` (redzēti), `decoded` (dekodēti), `partial` (dekodēti daļēji un paturēti pilnībā), `raw` (paturēti tikai pilnībā) un `lost` (jābūt 0). Veidi tiek skaitīti tur, kur lasītājs tos sastop: `file.info`, `chunk.<kind>`, `frame`, `packet`, `bunch`, `open`, `close`, `export.field`, `export.guid`, `external`, `property:<class>`, `rpc:<class>`, `block:<object>`, `subobject.*`.
 
 Īstajos nolasītajos demo `lost` ir 0: to vienumu skaits ir no simtiem tūkstošu līdz miljoniem; apmēram puse dekodējas pilnībā, pārējie ir daļēji vai neapstrādāti.
 

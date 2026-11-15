@@ -11,7 +11,7 @@ search_exclude: true
 
 Minbarra t-tabella, kull demo tikseb `<demo>.match.json` u żewġ sidecars,
 `<demo>.entities.parquet` u `<demo>.packets.parquet`. Il-viewer jaqra
-id-dokument tal-partita fit-tab Match tiegħu.
+id-dokument tal-partita fit-tab Partita tiegħu.
 
 ## Id-dokument tal-partita {#the-match-document}
 

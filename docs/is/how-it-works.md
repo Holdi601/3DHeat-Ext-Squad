@@ -9,7 +9,7 @@ search_exclude: true
 ---
 # Hvernig demo er lesið {#how-a-demo-is-read}
 
-Í einföldum orðum: Squad-þjónn sendir staðsetningu hvers leikmanns til allra hinna. Demo-skráin er upptaka á þeirri umferð. Þetta tól spilar hana aftur og skrifar niður hver var hvar.
+Í einföldum orðum: Squad-þjónn sendir staðsetningu hvers leikmanns til allra hinna. Demo-skráin er upptaka á þeirri umferð. Þetta verkfæri spilar hana aftur og skrifar niður hver var hvar.
 
 ![Lög lesarans](../assets/img/is/layers.svg)
 
@@ -23,7 +23,7 @@ Unreal-netupptaka er eigin afritunarumferð þjónsins, skrifuð niður af demo 
 | `movement.py` | `FRepMovement` vélarinnar og hreyfing þyrlna í Squad. |
 | `keep.py` | Sérhvert atriði sem mætt er, talið og geymt: raðir hliðarskránna og sjálfsskoðunin. |
 | `squad.py` | Hvaða Squad-flokkar bera hvað. `SQPlayerState` geymir nafnið, liðsstöðu, sveitarstöðu og núverandi pawn; `SQTeamState` liðsnúmerið og fylkinguna; `SQSquadState` sveitarnúmerið. Eigandi sætis-pawn er ökutæki þess. |
-| `output.py`, `cli.py` | Taflan og leikskjalið. |
+| `output.py`, `cli.py` | Taflan og leikjaskjalið. |
 
 Upptaka nefnir sín eigin svið. Hún ber flokkaslóðir og eigindanöfn fyrir hvert handfang, og slóðir hlutanna sem hún vísar í. Þess vegna má finna sérhverja eigind eftir nafni án kóða leiksins. Aðeins bitar eigindar þurfa gerð hennar. Fyrir hreyfingu er það eigin gerð vélarinnar; fyrir eigindir Squad eru gerðirnar einfaldar: strengir, heiltölur, hlutatilvísanir og nöfn.
 

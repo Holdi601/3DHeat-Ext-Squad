@@ -28,7 +28,7 @@ Lesarinn byggir á afritunarsniði vélarinnar og örfáum Squad-flokka- og eigi
 
 ## Persónuupplýsingar {#personal-data}
 
-Demo geymir nöfn og nettengd auðkenni allra á þjóninum. Taflan og leikskjalið bera nöfn, ekki auðkenni. Hliðarskrárnar geyma bita hverrar eigindar, svo þær geyma auðkennin eins og demo-ið gerir (óafkóðuð). Farðu með þær allar eins og demo-ið sjálft.
+Demo geymir nöfn og nettengd auðkenni allra á þjóninum. Taflan og leikjaskjalið bera nöfn, ekki auðkenni. Hliðarskrárnar geyma bita hverrar eigindar, svo þær geyma auðkennin eins og demo-ið gerir (óafkóðuð). Farðu með þær allar eins og demo-ið sjálft.
 
 ## Leyfi og heimildir {#licence-and-sources}
 

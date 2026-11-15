@@ -29,8 +29,8 @@ Bu araç şunlar için işe yarar:
 Komut satırında yeni misiniz? Önce [Başlamadan önce](before-you-start.md) sayfasını okuyun.
 
 ```bash
-python -m pip install -e .              # installs the heat3d-squad-demo command
-heat3d-squad-demo match.replay -o out   # or a folder of .replay files
+python -m pip install -e .              # heat3d-squad-demo komutunu kurar
+heat3d-squad-demo match.replay -o out   # ya da .replay dosyalarının klasörü
 ```
 
 Her demo için bir satır görmelisiniz. Sonra `out/<map>/<demo>.parquet` dosyasını görüntüleyicinin Isı haritası sekmesinde yükleyin ([Veri ekleme](https://holdi601.github.io/3DHeat/getting-data-in.html)).
@@ -64,7 +64,7 @@ Her demo için bir satır görmelisiniz. Sonra `out/<map>/<demo>.parquet` dosyas
 | GameCapture | tur telemetrisi ve oynanış videosundan yeniden kurulan seviyeler | [3DHeat-GameCapture](https://github.com/Holdi601/3DHeat-GameCapture) | [belgeler](https://holdi601.github.io/3DHeat-GameCapture/) |
 | Unreal Exporter | bir Unreal Editor eklentisi: bir seviye tek bir `.glb` olarak | [3DHeat-UnrealExporter](https://github.com/Holdi601/3DHeat-UnrealExporter) | [belgeler](https://holdi601.github.io/3DHeat-UnrealExporter/) |
 | CS2 | Counter-Strike 2 demoları ve haritaları | [3DHeat-CS2](https://github.com/Holdi601/3DHeat-CS2) | [belgeler](https://holdi601.github.io/3DHeat-CS2/) |
-| Watcher | oynarken oyunların yayınladığını kaydeder | [3DHeat-Watcher](https://github.com/Holdi601/3DHeat-Watcher) | [belgeler](https://holdi601.github.io/3DHeat-Watcher/) |
+| Watcher | oynarken oyunların yayımladıklarını kaydeder | [3DHeat-Watcher](https://github.com/Holdi601/3DHeat-Watcher) | [belgeler](https://holdi601.github.io/3DHeat-Watcher/) |
 | Ext-WarThunder | War Thunder tekrarları | [3DHeat-Ext-WarThunder](https://github.com/Holdi601/3DHeat-Ext-WarThunder) | [belgeler](https://holdi601.github.io/3DHeat-Ext-WarThunder/) |
 | Ext-WoT | World of Tanks tekrarları | [3DHeat-Ext-WoT](https://github.com/Holdi601/3DHeat-Ext-WoT) | [belgeler](https://holdi601.github.io/3DHeat-Ext-WoT/) |
 | Ext-WoWs | World of Warships tekrarları | [3DHeat-Ext-WoWs](https://github.com/Holdi601/3DHeat-Ext-WoWs) | [belgeler](https://holdi601.github.io/3DHeat-Ext-WoWs/) |

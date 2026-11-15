@@ -17,7 +17,7 @@ En checklista för varje utgåva, så att sidorna aldrig hamnar efter koden.
 4. **Åtgärda** allt granskningen hittar.
 5. **Översättningar.** Varje översatt sida noterar hashvärdet för den engelska sida den gjordes från. Översätt på nytt de sidor vars engelska källa ändrats, och granska sedan varje språk: tydlig text, rätt diagramtexter, samma ord som visarens egna översatta gränssnitt.
 6. **Kör testerna** (`pytest`).
-7. **Pusha** först efter ägarens godkännande.
+7. **Publicera** först efter ägarens godkännande.
 
 ## Översättningar: kommandona {#translations-the-commands}
 

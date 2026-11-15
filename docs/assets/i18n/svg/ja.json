@@ -8,9 +8,9 @@
  "<demo>.parquet": "<demo>.parquet",
  "<name>.replay, copied": "<name>.replay、コピー",
  "From a Squad server to the viewer": "Squadサーバーからビューアまで",
- "Heatmap tab: the table": "ヒートマップタブ: テーブル",
+ "Heatmap tab: the table": "ヒートマップ タブ: テーブル",
  "How a demo is read: one module per layer": "デモの読み方: 層ごとに1モジュール",
- "Match tab: the match document": "マッチタブ: 試合文書",
+ "Match tab: the match document": "マッチ タブ: マッチドキュメント",
  "an admin types AdminDemoRec,": "管理者が AdminDemoRec を入力",
  "and events": "と出来事",
  "and writes down who was where": "誰がどこにいたかを書き留める",
@@ -33,8 +33,8 @@
  "teams, squads, players": "チーム、分隊、プレイヤー",
  "the admin types AdminDemoStop": "管理者が AdminDemoStop を入力",
  "the file: info block, chunks": "ファイル: 情報ブロック、チャンク",
- "the match document:": "試合文書:",
+ "the match document:": "マッチドキュメント:",
  "the match is played,": "試合が行われ、",
- "the table, the match document, the sidecars": "テーブル、試合文書、サイドカー",
+ "the table, the match document, the sidecars": "テーブル、マッチドキュメント、サイドカー",
  "the table: positions": "テーブル: 位置"
 }

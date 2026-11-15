@@ -20,7 +20,7 @@ Një listë kontrolli për çdo botim, që faqet të mos mbeten kurrë pas kodit
    Çdo veçori, opsion dhe kolonë e re e daljes merr një vend në një faqe, dhe një
    rresht në pjesën **Docs** të [`CHANGELOG.md`](https://github.com/Holdi601/3DHeat-Ext-Squad/blob/main/CHANGELOG.md).
 3. **Rishikim i pavarur.** Dikush që nuk i ka shkruar faqet lexon
-   README dhe çdo faqe të ndryshuar, edhe fotot, tri herë: si fillestar që
+   README dhe çdo faqe të ndryshuar, edhe pamjet, tri herë: si fillestar që
    s'ka përdorur kurrë terminal, si një 8-vjeçar, dhe si ekspert që
    kontrollon çdo opsion me `--help`. Shembujt përdorin vetëm emra dhe
    numra të sajuar.
@@ -48,8 +48,8 @@ python tools/docs_i18n.py check              # exit 1 when hashes or labels are 
 ```
 
 Përkthe vetëm çfarë liston `todo`: ruaj Markdown, lidhjet, kodin, emrat e skedarëve dhe të kolonave siç janë,
-përkthe titujt dhe përshkrimet e fotove, dhe përdor fjalët e vetë shikuesit 3DHeat për butonat
-dhe panelet e tij (`src/i18n/locales/<lang>/`). Faqet e referencës së gjeneruar dhe fotot e terminalit mbeten
+përkthe titujt dhe përshkrimet e pamjeve, dhe përdor fjalët e vetë shikuesit 3DHeat për butonat
+dhe panelet e tij (`src/i18n/locales/<lang>/`). Faqet e referencës së gjeneruar dhe pamjet e terminalit mbeten
 në anglisht. Në faqe, një përkthim i vjetruar e thotë këtë dhe lidh faqen angleze; një faqe që mungon
-kthehet te anglishtja. Menuja e gjuhës në krye dhe ridrejtimi sipas gjuhës së shfletuesit në faqen kryesore
+kthehet te anglishtja. Menyja e gjuhës në krye dhe ridrejtimi sipas gjuhës së shfletuesit në faqen kryesore
 vijnë nga `docs/_includes/`.

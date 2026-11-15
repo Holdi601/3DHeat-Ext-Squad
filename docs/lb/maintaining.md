@@ -49,7 +49,7 @@ python tools/docs_i18n.py check              # exit 1 when hashes or labels are 
 
 Iwwersetzt nëmmen, wat `todo` opléscht: Markdown, Linken, Code, Datei- a Kolonnennimm bleiwen wéi se sinn,
 Titele a Bildbeschreiwunge ginn iwwersat, a benotzt d'Wierder vum 3DHeat-Viewer fir seng Knäppercher
-a Panneauen (säin `src/i18n/locales/<lang>/`). Generéiert Referenzsäiten an Terminal-Biller bleiwen
+a Panelen (säin `src/i18n/locales/<lang>/`). Generéiert Referenzsäiten an Terminal-Biller bleiwen
 Englesch. Um Site seet eng verfale Iwwersetzung dat an verlinkt d'englesch Säit; eng feelend
 fällt zréck op Englesch. D'Sproochmenü am Header an d'Viraleedung op d'Browser-Sprooch vun der Startsäit
 kommen aus `docs/_includes/`.

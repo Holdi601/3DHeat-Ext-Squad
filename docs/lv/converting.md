@@ -16,16 +16,16 @@ python -m heat3d_ext_squad ...          tas pats, bez uzstādīšanas
 
 ## Soli pa solim {#step-by-step}
 
-Nekad nav strādāts ar komandrindu? Vispirms izlasi [Pirms sākat](before-you-start.md).
+Nekad neesat strādājis ar komandrindu? Vispirms izlasiet [Pirms sākat](before-you-start.md).
 
-1. Uzstādi vienreiz: `git clone https://github.com/Holdi601/3DHeat-Ext-Squad`,
-   atver terminali šajā mapē un palaid `python -m pip install -e .`
+1. Uzstādiet vienreiz: `git clone https://github.com/Holdi601/3DHeat-Ext-Squad`,
+   atveriet termināli šajā mapē un palaidiet `python -m pip install -e .`
    (Python 3.10 vai jaunāks; tas atnes pyarrow un numpy).
-2. Ieliec `.replay` failus mapē vai nosauc tos vienu pēc otra.
-3. Palaid `heat3d-squad-demo <folder> -o out`.
-4. Redzēsi pa vienai rindai katram demo: tā slāni, spēlētājus un rindas un to, kur
+2. Ievietojiet `.replay` failus mapē vai nosauciet tos vienu pēc otra.
+3. Palaidiet `heat3d-squad-demo <folder> -o out`.
+4. Redzēsiet pa vienai rindai katram demo: tā slāni, spēlētājus un rindas un to, kur
    tabula ir saglabāta. Katrs demo kļūst par četriem atsevišķiem failiem mapē `out/<map>/` (nevis
-   `.3dheat` konteineris); ielādē `.parquet` 3DHeat skatītājā.
+   `.3dheat` konteineris); ielādējiet `.parquet` 3DHeat skatītājā.
 
 ![Palaišana uz sintētiska demo](../assets/img/run.svg)
 

@@ -11,7 +11,7 @@ search_exclude: true
 
 ## Ikke læst {#not-read}
 
-- **Hvem der dræbte hvem, og skade på soldater ved træf.** Disse rejser i træfresultaterne fra våbnenes og spillertilstandenes remote calls (`HitResultsZeroBased`, `MulticastOnImpact.Hit`), hvis struktur ikke læses; de gemmes helt i entitets-sidefilen. Kun ofrenes helbred afkodes.
+- **Hvem der dræbte hvem, og skade på soldater ved træf.** Disse rejser i træfresultaterne fra våbnenes og spillertilstandenes remote calls (`HitResultsZeroBased`, `MulticastOnImpact.Hit`), hvis struktur ikke læses; de gemmes helt i entitets-sidecaren. Kun ofrenes helbred afkodes.
 - **Botens hold.** En bots tilstand bærer et tal, der kan være dens hold; ikke bekræftet, ikke brugt.
 - **Hvor en soldat kigger sidelæns** ud over kroppens yaw.
 
@@ -28,7 +28,7 @@ Læseren afhænger af motorens replay-format og en håndfuld Squad-klassenavne o
 
 ## Personlige data {#personal-data}
 
-En demo indeholder navnene og online-ID'erne på alle på serveren. Tabellen og kampdokumentet bærer navne, ikke ID'er. Sidefilerne gemmer hver egenskabs bits, så de holder ID'erne, som demoen gør (ikke afkodet). Behandl alle dem som selve demoen.
+En demo indeholder navnene og online-ID'erne på alle på serveren. Tabellen og kampdokumentet bærer navne, ikke ID'er. Sidecarene gemmer hver egenskabs bits, så de holder ID'erne, som demoen gør (ikke afkodet). Behandl alle dem som selve demoen.
 
 ## Licens og kilder {#licence-and-sources}
 

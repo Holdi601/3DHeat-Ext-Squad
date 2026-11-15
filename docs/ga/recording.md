@@ -1,5 +1,5 @@
 ---
-title: Demo a thaifead
+title: Demo a thaifeadadh
 nav_order: 2
 lang: ga
 source: recording.md
@@ -7,7 +7,7 @@ source_hash: "5139aa7d896f"
 nav_exclude: true
 search_exclude: true
 ---
-# Demo a thaifead {#recording-a-demo}
+# Demo a thaifeadadh {#recording-a-demo}
 
 Taifeadtar demos Squad **ar an bhfreastalaí**, ní ag cliant an chluiche.
 

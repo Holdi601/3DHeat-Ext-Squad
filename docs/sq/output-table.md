@@ -32,7 +32,7 @@ ndërsa lëviz.
 | `pawn` | skema e ushtarit (`SQSquidBot` për një bot), automjeti, ose për `fire` arma |
 | `seat` | për një frëngji ose ndenjëse pasagjeri, pawn-i i vetë ndenjëses |
 | `detail` | për `fire` thirrja e armës që e vendosi të shtënën, për `hit` lloji i dëmit, për `removed` pse u mbyll kanali (`Destroyed`, `Dormancy`...) |
-| `entity` | aktori për të cilin flet rreshti (net GUID-i i tij): `entity` i rreshtave të skedarëve ndihmës |
+| `entity` | aktori për të cilin flet rreshti (net GUID-i i tij): `entity` i rreshtave të skedarëve anësorë |
 | `match` | emri i demos |
 
 ## Ngjarjet {#events}

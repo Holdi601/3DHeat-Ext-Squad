@@ -23,9 +23,9 @@ An bhfuil tú nua leis an líne ordaithe? Léigh [Sula dtosaíonn tú](before-yo
    (Python 3.10 nó níos nuaí; tugann sé pyarrow agus numpy leis).
 2. Cuir na comhaid `.replay` i bhfillteán, nó ainmnigh iad ceann ar cheann.
 3. Rith `heat3d-squad-demo <folder> -o out`.
-4. Ba chóir duit líne amháin a fheiceáil in aghaidh an demo: a layer, na himreoirí agus na sraitheanna, agus an áit
+4. Ba chóir duit líne amháin a fheiceáil in aghaidh an demo: a chiseal (layer), na himreoirí agus na sraitheanna, agus an áit
    ar chuaigh an tábla. Éiríonn gach demo ina cheithre chomhad scaoilte in `out/<map>/` (ní
-   coimeádán `.3dheat`); lódáil an `.parquet` sa lucht féachana 3DHeat.
+   coimeádán `.3dheat`); lódáil an `.parquet` san amharcán 3DHeat.
 
 ![Rith ar demo sintéiseach](../assets/img/run.svg)
 
@@ -55,12 +55,12 @@ fós) nó nuair nach bhfuarthas aon chomhad `.replay`.
 | Comhad | Cad atá ann |
 |---|---|
 | `<demo>.parquet` | an tábla: suíomhanna agus imeachtaí, ceann in aghaidh na sraithe ([An tábla](output-table.md)) |
-| `<demo>.match.json` | doiciméad an chluiche ([Doiciméad an chluiche agus na taobhchomhaid](output-match.md)) |
-| `<demo>.entities.parquet` | taobhchomhad: gach nuashonrú airí agus gach glao cianda, iomlán |
-| `<demo>.packets.parquet` | taobhchomhad: codanna an chomhaid agus gach rud nár léadh, iomlán |
+| `<demo>.match.json` | cáipéis an chluiche ([Cáipéis an chluiche agus na comhaid chliatháin](output-match.md)) |
+| `<demo>.entities.parquet` | comhad cliatháin: gach nuashonrú airí agus gach glao cianda, iomlán |
+| `<demo>.packets.parquet` | comhad cliatháin: codanna an chomhaid agus gach rud nár léadh, iomlán |
 
-Is é an péire céanna an tábla agus doiciméad an chluiche a scríobhann uirlis CS2 3DHeat.
-Osclaíonn an lucht féachana an tábla go díreach agus fágann sé na taobhchomhaid ar lár nuair a
+Is é an péire céanna an tábla agus cáipéis an chluiche a scríobhann uirlis CS2 3DHeat.
+Osclaíonn an t-amharcán an tábla go díreach agus fágann sé na comhaid chliatháin ar lár nuair a
 lódáiltear fillteán iomlán.
 
 ## Samplaí {#examples}

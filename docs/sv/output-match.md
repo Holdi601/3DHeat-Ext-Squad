@@ -55,7 +55,7 @@ På de riktiga demos som lästs är `lost` 0: deras poster går från hundratuse
   - varje innehållsblock för ett objekt vars klass inte kunde hittas (`block`: `Buoyancy`, `GameplayTasksComponent`, `AmmoRackComponent`...), med dess huvud avkodat;
   - varje aktörskanal som öppnats och stängts (`open`, `close`), varje underobjekt som tagits bort eller förstörts;
   - sammanhanget en senare avkodare behöver för att läsa filen ensam: varje nätfältexport (`export.field`: grupp-sökväg, handtag, egenskapsnamn, kontrollsumma) och varje exporterat nätverks-GUID (`export.guid`: dess sökväg, yttre objekt och flaggor), vid den tid strömmen gav dem.
-- `<demo>.packets.parquet`, kolumnerna `time`, `type`, `name`, `channel`, `offset` (i filen), `decoded`, `bits` och `payload`: infoblocket, huvuddelen, varje kontrollpunktsdel (en kontrollpunkt är varje aktörs tillstånd vid sin tid, vilket strömmen från början också har), varje händelsedel, och varje bildruta, paket eller bunt som inte går att läsa (en bunt per demo: den inspelarens egna åskådaraktörs inledande bunt), hela.
+- `<demo>.packets.parquet`, kolumnerna `time`, `type`, `name`, `channel`, `offset` (i filen), `decoded`, `bits` och `payload`: infoblocket, huvuddelen, varje kontrollpunktsdel (en kontrollpunkt är varje aktörs tillstånd vid sin tid, vilket strömmen från början också har), varje händelsedel, och varje bildruta, paket eller bunt som inte går att läsa (en bunt per demo: den inspelande spelarens egna åskådaraktörs inledande bunt), hela.
 
 Posterna i entities-filen grupperas efter `kind`, `type` och `entity`, var och en i tidsordning; sortera på `time` för strömmens ordning.
 

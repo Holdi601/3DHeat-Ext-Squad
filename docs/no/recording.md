@@ -16,7 +16,7 @@ Squad-demoer tas opp **på serveren**, ikke av spillklienten.
    En admin må skrive dette i selve spillet; én rapport sier at RCON ikke godtar det.
 3. Spill kampen, kjør deretter `AdminDemoStop`.
 4. Demoen skrives til `<server>/SquadGame/Saved/Demos/<name>.replay`.
-   Kopier den av serveren til maskinen som konverterer den.
+   Kopier den fra serveren til maskinen som konverterer den.
 
 `Server.cfg` har også en innstilling `RecordDemos`, av som standard. Regn med omtrent
 70 til 80 MB per time for en liten kamp; størrelsen for en full server med 100 spillere

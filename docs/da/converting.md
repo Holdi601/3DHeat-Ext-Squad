@@ -11,7 +11,7 @@ search_exclude: true
 
 ```text
 heat3d-squad-demo <demos or folders> -o <folder> [--flat] [--json]
-python -m heat3d_ext_squad ...          the same, without installing
+python -m heat3d_ext_squad ...          det samme, uden at installere
 ```
 
 ## Trin for trin {#step-by-step}
@@ -25,7 +25,7 @@ Ny til kommandolinjen? Læs [Før du går i gang](before-you-start.md) først.
 3. Kør `heat3d-squad-demo <folder> -o out`.
 4. Du bør se én linje pr. demo: dens lag, spillere og rækker, og hvor
    tabellen blev gemt. Hver demo bliver til fire løse filer i `out/<map>/` (ikke
-   en `.3dheat`-container); indlæs `.parquet`-filen i 3DHeat-fremviseren.
+   en `.3dheat`-container); indlæs `.parquet`-filen i 3DHeat-vieweren.
 
 ![En kørsel på en syntetisk demo](../assets/img/run.svg)
 
@@ -56,11 +56,11 @@ bliver stadig skrevet), eller når der ikke blev fundet nogen `.replay`-fil.
 |---|---|
 | `<demo>.parquet` | tabellen: positioner og hændelser, én række hver ([Tabellen](output-table.md)) |
 | `<demo>.match.json` | kampdokumentet ([Kampdokumentet](output-match.md)) |
-| `<demo>.entities.parquet` | sidefil: hver egenskabsopdatering og hvert fjernkald, helt |
-| `<demo>.packets.parquet` | sidefil: filens bidder og alt, der ikke blev læst, helt |
+| `<demo>.entities.parquet` | sidecar: hver egenskabsopdatering og hvert fjernkald, helt |
+| `<demo>.packets.parquet` | sidecar: filens bidder og alt, der ikke blev læst, helt |
 
 Tabellen og kampdokumentet er det samme par, som 3DHeat CS2-værktøjet skriver.
-Fremviseren åbner tabellen direkte og springer sidefilerne over, når en hel
+Vieweren åbner tabellen direkte og springer sidecarene over, når en hel
 mappe indlæses.
 
 ## Eksempler {#examples}

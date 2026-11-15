@@ -24,13 +24,13 @@ Kontrolinis sąrašas kiekvienam išleidimui, kad puslapiai niekada neatsiliktų
 4. **Ištaisykite** viską, ką randa peržiūra.
 5. **Vertimai.** Kiekvienas išverstas puslapis įrašo angliško puslapio, iš kurio jis padarytas, maišos reikšmę.
    Iš naujo išverskite puslapius, kurių angliškas šaltinis pasikeitė, tada peržiūrėkite kiekvieną kalbą: aiškus tekstas,
-   teisingos diagramų žymos, tie patys žodžiai kaip išverstoje žiūrintojo sąsajoje.
+   teisingos diagramų žymos, tie patys žodžiai kaip išverstoje žiūryklės sąsajoje.
 6. **Paleiskite testus** (`pytest`).
 7. **Įkelkite** tik gavę savininko leidimą.
 
 ## Vertimai: komandos {#translations-the-commands}
 
-Svetainė išversta į 40 3DHeat žiūrintojo kalbų: anglų kalba yra `docs/`, kiekviena kita kalba – `docs/<lang>/`
+Svetainė išversta į 40 3DHeat žiūryklės kalbų: anglų kalba yra `docs/`, kiekviena kita kalba – `docs/<lang>/`
 su tais pačiais failų pavadinimais. `tools/docs_i18n.py` tvarko apskaitą:
 
 ```bash
@@ -44,7 +44,7 @@ python tools/docs_i18n.py check              # baigiasi 1, kai maišos ar žymos
 ```
 
 Verskite tik tai, ką nurodo `todo`: Markdown, nuorodas, kodą, failų ir stulpelių pavadinimus palikite, kaip yra;
-verskite antraštes ir paveikslėlių aprašymus, o mygtukams ir skydeliams naudokite paties 3DHeat žiūrintojo žodžius
+verskite antraštes ir paveikslėlių aprašymus, o mygtukams ir skydeliams naudokite paties 3DHeat žiūryklės žodžius
 (jo `src/i18n/locales/<lang>/`). Sugeneruoti nuorodų puslapiai ir terminalo paveikslėliai lieka angliški.
 Svetainėje pasenęs vertimas tai pasako ir nuves į angliškąjį puslapį; trūkstamas puslapis rodomas angliškai.
 Antraštės kalbų meniu ir pagrindinio puslapio naršyklės kalbos peradresavimas ateina iš `docs/_includes/`.

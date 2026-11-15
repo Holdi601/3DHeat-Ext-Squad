@@ -36,7 +36,7 @@ python -c "import json; d = json.load(open('out/<map>/<demo>.match.json')); prin
 
 ## Täielikkus {#completeness}
 
-See lugeja järgib reeglit, mida jagavad kõik 3DHeati teisendajad: loe nüüd see, mis on loetav, hoia ülejäänu tervena ja ütle, kui palju igat liiki on loetud ([Teisendajad hoiavad kõike](https://github.com/Holdi601/3DHeat/blob/main/docs/converters.md)). Igal mängu dokumendil on `selfCheck.completeness`: iga demos kohatud üksuste liigi kohta, mitu oli `seen`, `decoded`, `partial` (osaliselt dekodeeritud ja tervena hoitud), `raw` (ainult tervena hoitud) ja `lost` (peab olema 0). Liigid loetakse seal, kus lugeja neid kohtab: `file.info`, `chunk.<kind>`, `frame`, `packet`, `bunch`, `open`, `close`, `export.field`, `export.guid`, `external`, `property:<class>`, `rpc:<class>`, `block:<object>`, `subobject.*`.
+See lugeja järgib reeglit, mida jagavad kõik 3DHeati konverterid: loe nüüd see, mis on loetav, hoia ülejäänu tervena ja ütle, kui palju igat liiki on loetud ([Konverterid hoiavad kõike](https://github.com/Holdi601/3DHeat/blob/main/docs/converters.md)). Igal mängu dokumendil on `selfCheck.completeness`: iga demos kohatud üksuste liigi kohta, mitu oli `seen`, `decoded`, `partial` (osaliselt dekodeeritud ja tervena hoitud), `raw` (ainult tervena hoitud) ja `lost` (peab olema 0). Liigid loetakse seal, kus lugeja neid kohtab: `file.info`, `chunk.<kind>`, `frame`, `packet`, `bunch`, `open`, `close`, `export.field`, `export.guid`, `external`, `property:<class>`, `rpc:<class>`, `block:<object>`, `subobject.*`.
 
 Loetud päris demodel on `lost` 0: nende üksused käivad sadadest tuhandetest miljoniteni; umbes pool dekodeerub täielikult, ülejäänud on osalised või toorandmed.
 

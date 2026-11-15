@@ -1,5 +1,5 @@
 ---
-title: "Leikskjalið og hliðarskrár"
+title: "Leikjaskjalið og hliðarskrár"
 nav_order: 5
 lang: is
 source: output-match.md
@@ -7,15 +7,15 @@ source_hash: "715bd3417e47"
 nav_exclude: true
 search_exclude: true
 ---
-# Leikskjalið og hliðarskrár {#the-match-document-and-sidecars}
+# Leikjaskjalið og hliðarskrár {#the-match-document-and-sidecars}
 
 Auk töflunnar fær hvert demo `<demo>.match.json` og tvær hliðarskrár,
 `<demo>.entities.parquet` og `<demo>.packets.parquet`. Skoðarinn les
-leikskjalið í flipanum Leikur.
+leikjaskjalið í flipanum Leikur.
 
-## Leikskjalið {#the-match-document}
+## Leikjaskjalið {#the-match-document}
 
-`<demo>.match.json` (leikskjalið) geymir á efsta stigi `map`, `layer`, `level_path`, `game_version`, `engine_version`, `recorded_unix`, `duration_s`, `teams`, `squads`, `game_state`, `actors`, `players`, `rows`, `events`, `not_read`, `file`, `header`, `chunks`, `stream`, `shots` og `selfCheck` (heildarlistinn: [Skipanayfirlit](../cli-reference.md)). Í orðum: kortið og lagið, útgáfur leiks og vélar, upptökutíminn, lengdin, og:
+`<demo>.match.json` (leikjaskjalið) geymir á efsta stigi `map`, `layer`, `level_path`, `game_version`, `engine_version`, `recorded_unix`, `duration_s`, `teams`, `squads`, `game_state`, `actors`, `players`, `rows`, `events`, `not_read`, `file`, `header`, `chunks`, `stream`, `shots` og `selfCheck` (heildarlistinn: [Skipanayfirlit](../cli-reference.md)). Í orðum: kortið og lagið, útgáfur leiks og vélar, upptökutíminn, lengdin, og:
 
 - **liðin**: númer, fylking og allt sem staða þeirra afritaði (miðar, tiltækileiki, foringi) eftir því sem það breyttist;
 - **sveitirnar**: númer, lið, nafn, stofnandi, foringi, meðlimir;
@@ -36,11 +36,11 @@ python -c "import json; d = json.load(open('out/<map>/<demo>.match.json')); prin
 
 ## Heilleiki {#completeness}
 
-Þessi lesari fylgir reglunni sem allir 3DHeat-umbreytar deila: afkóða það sem lesa má núna, geyma afganginn í heild, og segja hversu mikið af hverri tegund var gert ([Umbreytar geyma allt](https://github.com/Holdi601/3DHeat/blob/main/docs/converters.md)). Hvert leikskjal hefur `selfCheck.completeness`: fyrir hverja tegund atriða sem mætt var í demo-inu, hversu mörg voru `seen`, `decoded`, `partial` (afkóðuð að hluta og geymd í heild), `raw` (aðeins geymd í heild) og `lost` (verður að vera 0). Tegundirnar eru taldar þar sem lesarinn mætir þeim: `file.info`, `chunk.<kind>`, `frame`, `packet`, `bunch`, `open`, `close`, `export.field`, `export.guid`, `external`, `property:<class>`, `rpc:<class>`, `block:<object>`, `subobject.*`.
+Þessi lesari fylgir reglunni sem allir 3DHeat-umbreytar deila: afkóða það sem lesa má núna, geyma afganginn í heild, og segja hversu mikið af hverri tegund var gert ([Umbreytar geyma allt](https://github.com/Holdi601/3DHeat/blob/main/docs/converters.md)). Hvert leikjaskjal hefur `selfCheck.completeness`: fyrir hverja tegund atriða sem mætt var í demo-inu, hversu mörg voru `seen`, `decoded`, `partial` (afkóðuð að hluta og geymd í heild), `raw` (aðeins geymd í heild) og `lost` (verður að vera 0). Tegundirnar eru taldar þar sem lesarinn mætir þeim: `file.info`, `chunk.<kind>`, `frame`, `packet`, `bunch`, `open`, `close`, `export.field`, `export.guid`, `external`, `property:<class>`, `rpc:<class>`, `block:<object>`, `subobject.*`.
 
 Í raunverulegu demo-unum sem lesin voru er `lost` 0: atriðin skipta hundruðum þúsunda upp í milljónir; um helmingur afkóðast að fullu, hinn hlutinn er að hluta eða hrár.
 
-**Lesið** (inn í töfluna og leikskjalið):
+**Lesið** (inn í töfluna og leikjaskjalið):
 
 - upplýsingablokkin, haus demo-sins (sérhver reitur; tveir síðustu bætin sem ekki eru þekkt eru geymd sem hex), bútataflan;
 - sérhver rammi, pakki og bunch (skipt í heild í það sem þeir bera), sérhver leikaðili opnaður (með spawn-staðsetningu, snúningi, kvarða og hraða) og lokaður (með ástæðu: `Destroyed`, `Dormancy`...);

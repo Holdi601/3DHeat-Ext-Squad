@@ -15,7 +15,7 @@ search_exclude: true
    [Довідку з команд](../cli-reference.md) з власного `--help` програми і колонок
    виводу. `python tools/gen_docs_reference.py --check` завершується з кодом 1,
    коли закомічена сторінка застаріла.
-2. **Складіть список змін.** `git log v<VERSION>..HEAD --oneline`, де `<VERSION>` -
+2. **Складіть список змін.** `git log v<VERSION>..HEAD --oneline`, де `<VERSION>` —
    остання випущена версія (файл `VERSION` на момент випуску). Кожна нова функція,
    параметр і колонка виводу повинні мати місце на сторінці і рядок у розділі
    **Docs** файлу [`CHANGELOG.md`](https://github.com/Holdi601/3DHeat-Ext-Squad/blob/main/CHANGELOG.md).

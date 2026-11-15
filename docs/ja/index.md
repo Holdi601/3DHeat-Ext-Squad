@@ -33,7 +33,7 @@ python -m pip install -e .              # heat3d-squad-demo コマンドをイ�
 heat3d-squad-demo match.replay -o out   # または .replay ファイルのフォルダ
 ```
 
-デモごとに1行ずつ表示されるはずです。その後、ビューアのヒートマップタブで `out/<map>/<demo>.parquet` を読み込みます（[データの取り込み](https://holdi601.github.io/3DHeat/getting-data-in.html)）。
+デモごとに1行ずつ表示されるはずです。その後、ビューアのヒートマップ タブで `out/<map>/<demo>.parquet` を読み込みます（[データの取り込み](https://holdi601.github.io/3DHeat/getting-data-in.html)）。
 
 ## ページ {#pages}
 
@@ -43,7 +43,7 @@ heat3d-squad-demo match.replay -o out   # または .replay ファイルのフ�
 | [デモの録画](recording.md) | サーバーにデモを書き出させる方法と、その見つけ方 |
 | [デモの変換](converting.md) | コマンド、すべてのオプション、出力例 |
 | [テーブル](output-table.md) | すべての列と、すべての `event` |
-| [試合文書とサイドカー](output-match.md) | `.match.json`、二つのサイドカー、自己チェック |
+| [マッチドキュメントとサイドカー](output-match.md) | `.match.json`、二つのサイドカー、自己チェック |
 | [デモの読み方](how-it-works.md) | 読み取りの各層と、確かめたこと |
 | [制限、更新、利用条件](limits.md) | 読まれないもの、Squadの更新で壊れうるもの、個人データ、ライセンス |
 | [コマンドリファレンス](../cli-reference.md) | すべてのオプションと列。コードから生成 |
@@ -52,14 +52,14 @@ heat3d-squad-demo match.replay -o out   # または .replay ファイルのフ�
 ## 関連 {#related}
 
 - 3DHeatビューア: [github.com/Holdi601/3DHeat](https://github.com/Holdi601/3DHeat)。ドキュメントは [holdi601.github.io/3DHeat](https://holdi601.github.io/3DHeat/)。
-- ビューアが読むファイル形式。1試合1ファイルのコンテナを含みます: [1試合1ファイル (.3dheat)](https://holdi601.github.io/3DHeat/container.html)。この変換器は、テーブル、試合文書、そのサイドカーを、別々のファイルとして並べて書き出します。
-- 3DHeat Watcherは、インストールされていれば新しいデモにこの変換器を実行します（アダプター `squad-demos`）: [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/)。
+- ビューアが読むファイル形式。1 マッチを 1 ファイルにまとめたコンテナを含みます: [1 マッチを 1 ファイルに（.3dheat）](https://holdi601.github.io/3DHeat/container.html)。この変換ツールは、テーブル、マッチドキュメント、そのサイドカーを、別々のファイルとして並べて書き出します。
+- 3DHeat Watcherは、インストールされていれば新しいデモにこの変換ツールを実行します（アダプター `squad-demos`）: [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/)。
 
 ## 3DHeatのツール {#the-3dheat-tools}
 
 | ツール | 内容 | コード | ドキュメント |
 |---|---|---|---|
-| 3DHeat viewer | データを表示：ヒートマップ、レース分析、試合の振り返り | [3DHeat](https://github.com/Holdi601/3DHeat) | [ドキュメント](https://holdi601.github.io/3DHeat/) |
+| 3DHeat viewer | データを表示：ヒートマップ、レース分析、マッチの振り返り | [3DHeat](https://github.com/Holdi601/3DHeat) | [ドキュメント](https://holdi601.github.io/3DHeat/) |
 | GameFiles | ゲーム自身のファイルからのレベルとコース | [3DHeat-GameFiles](https://github.com/Holdi601/3DHeat-GameFiles) | [ドキュメント](https://holdi601.github.io/3DHeat-GameFiles/) |
 | GameCapture | ラップのテレメトリ、およびゲーム映像から再構築したレベル | [3DHeat-GameCapture](https://github.com/Holdi601/3DHeat-GameCapture) | [ドキュメント](https://holdi601.github.io/3DHeat-GameCapture/) |
 | Unreal Exporter | Unreal Editorのプラグイン：レベルを1つの `.glb` として書き出し | [3DHeat-UnrealExporter](https://github.com/Holdi601/3DHeat-UnrealExporter) | [ドキュメント](https://holdi601.github.io/3DHeat-UnrealExporter/) |

@@ -16,16 +16,16 @@ python -m heat3d_ext_squad ...          el mateix, sense instal·lar-lo
 
 ## Pas a pas {#step-by-step}
 
-Si és nou amb la línia d'ordres, llegeixi primer [Abans de començar](before-you-start.md).
+Si ets nou amb la línia d'ordres, llegeix primer [Abans de començar](before-you-start.md).
 
-1. Instal·li-la una vegada: `git clone https://github.com/Holdi601/3DHeat-Ext-Squad`,
-   obri una terminal en aquesta carpeta i executi `python -m pip install -e .`
+1. Instal·la-la una vegada: `git clone https://github.com/Holdi601/3DHeat-Ext-Squad`,
+   obre una terminal en aquesta carpeta i executa `python -m pip install -e .`
    (Python 3.10 o posterior; porta pyarrow i numpy).
-2. Posi els fitxers `.replay` en una carpeta, o anomeni-los un per un.
-3. Executi `heat3d-squad-demo <carpeta> -o out`.
-4. Hauria de veure una línia per demo: la seva capa, els jugadors i les files, i on
+2. Posa els fitxers `.replay` en una carpeta, o anomena'ls un per un.
+3. Executa `heat3d-squad-demo <carpeta> -o out`.
+4. Hauries de veure una línia per demo: la seva capa, els jugadors i les files, i on
    ha anat la taula. Cada demo es converteix en quatre fitxers sols dins de `out/<mapa>/`
-   (no en un contenidor `.3dheat`); carregui el `.parquet` al visualitzador de 3DHeat.
+   (no en un contenidor `.3dheat`); carrega el `.parquet` al visualitzador de 3DHeat.
 
 ![Una execució sobre una demo sintètica](../assets/img/run.svg)
 
@@ -55,12 +55,12 @@ Estat de sortida: 0 quan s'han convertit totes les demos; 1 quan n'ha fallat alg
 | Fitxer | Què conté |
 |---|---|
 | `<demo>.parquet` | la taula: posicions i esdeveniments, una fila cadascun ([La taula](output-table.md)) |
-| `<demo>.match.json` | el document de la partida ([El document de la partida](output-match.md)) |
-| `<demo>.entities.parquet` | fitxer auxiliar: cada actualització de propietat i cada crida remota, senceres |
-| `<demo>.packets.parquet` | fitxer auxiliar: els blocs del fitxer i tot el que no s'ha llegit, sencer |
+| `<demo>.match.json` | el document de partida ([El document de partida](output-match.md)) |
+| `<demo>.entities.parquet` | annex: cada actualització de propietat i cada crida remota, senceres |
+| `<demo>.packets.parquet` | annex: els blocs del fitxer i tot el que no s'ha llegit, sencer |
 
-La taula i el document de la partida són el mateix parell que escriu l'eina CS2 de 3DHeat.
-El visualitzador obre la taula directament i deixa sense carregar els fitxers auxiliars
+La taula i el document de partida són el mateix parell que escriu l'eina CS2 de 3DHeat.
+El visualitzador obre la taula directament i deixa sense carregar els annexos
 quan es carrega una carpeta sencera.
 
 ## Exemples {#examples}
@@ -71,4 +71,4 @@ heat3d-squad-demo one.replay two.replay -o out --flat  # directament a out/
 heat3d-squad-demo D:\SquadDemos -o out --json          # una línia JSON per demo
 ```
 
-`D:\SquadDemos` és una carpeta d'exemple de la unitat D: utilitzi la seva.
+`D:\SquadDemos` és una carpeta d'exemple de la unitat D: fes servir la teva.

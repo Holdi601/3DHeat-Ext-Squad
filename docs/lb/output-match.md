@@ -1,5 +1,5 @@
 ---
-title: "D'Match-Dokument a Begleetdateien"
+title: "D'Match-Dokument a Niewendateien"
 nav_order: 5
 lang: lb
 source: output-match.md
@@ -7,9 +7,9 @@ source_hash: "715bd3417e47"
 nav_exclude: true
 search_exclude: true
 ---
-# D'Match-Dokument a Begleetdateien {#the-match-document-and-sidecars}
+# D'Match-Dokument a Niewendateien {#the-match-document-and-sidecars}
 
-Niewent der Tabell kritt all Demo en `<demo>.match.json` an zwou Begleetdateien,
+Niewent der Tabell kritt all Demo en `<demo>.match.json` an zwou Niewendateien,
 `<demo>.entities.parquet` an `<demo>.packets.parquet`. De Viewer liest d'Match-Dokument
 a sengem Match-Tab.
 
@@ -43,17 +43,17 @@ Bei de richtegen Demoen, déi gelies goufen, ass `lost` 0: hir Elementer ginn vu
 **Gelies** (an d'Tabell an d'Match-Dokument):
 
 - den Info-Block, den Demo-Header (all Feld; zwee hannescht Bytes, déi net bekannt sinn, ginn als Hex gehalen), d'Chunk-Tabell;
-- all Frame, Packet a Bunch (ganz opgedeelt an dat, wat se droen), all Akteur, deen opgemaach gouf (mat senger Spawn-Plaz, Rotatioun, Skala a Vitesse) a zougemaach gouf (mat dem Grond: `Destroyed`, `Dormancy`...);
+- all Frame, Packet a Bunch (ganz opgedeelt an dat, wat se droen), all Akteur, deen opgemaach gouf (mat senger Spawn-Plaz, Rotatioun, Skala a Geschwindegkeet) a zougemaach gouf (mat dem Grond: `Destroyed`, `Dormancy`...);
 - all replizéiert Property, sou wäit seng Bits soen, wat et ass ([Properties dekodéieren](how-it-works.md#decoding-properties)), Positioune vun `FRepMovement` an vum Beweegungskomponent vun den Helikopteren, d'Verloschter, d'Gesondheet vun de Gefierer, d'Sëtzer;
 - all Remote-Call mam Numm, mat sengen Parameteren, wou d'Demo d'Grupp vun der Funktioun exportéiert: Schëss (`fire`) an Treffer um Gefier (`hit`) an d'Tabell;
-- d'Net-Field-Export-Tabellen an d'Net-GUIDen (hir Unzuel; d'Weeër sinn an der Entities-Begleetdatei).
+- d'Net-Field-Export-Tabellen an d'Net-GUIDen (hir Unzuel; d'Weeër sinn an der Entities-Niewendatei).
 
 **Komplett gehalen** (ganz, mat deem, wat dovun gelies gëtt, niewendrun):
 
 - `<demo>.entities.parquet`, Kolonnen `time`, `type` (`<class>.<property>`, `<class>.<call>`, oder den Numm vum Objet), `name` (d'Klass vum Akteur), `entity` (de Net-GUID vum Akteur, wéi den `entity` vun der Tabell), `kind`, `object` (dat Subobjet), `channel`, `handle`, `group` (de Klassewee vun der Export-Grupp), `decoded` (JSON), `bits` an `payload` (d'Bits, déi niddregst zuerst, op ganz Bytes opgefëllt):
   - all Property-Update (`kind` `property`), d'Beweegung abegraff, mat deem, wat dekodéiert ass; nëmmen do raw, wou näischt dekodéiert ass (onbenannt Handles, Strukturen wéi `RotationReplicatedMovement` vun Tierm, a Properties, déi als Bits bleiwen);
   - all Remote-Call a Custom-Delta-Feld (`rpc`), d'Parameter dekodéiert, wou d'Grupp vun der Funktioun exportéiert gouf; raw, wou net (`RepInventory`, `PlayerStateData`);
-  - all Inhaltsblock vun engem Objet, dessen Klass net fonnt gouf (`block`: `Buoyancy`, `GameplayTasksComponent`, `AmmoRackComponent`...), mat sengem Header dekodéiert;
+  - all Inhaltsblock vun engem Objet, deem seng Klass net fonnt gouf (`block`: `Buoyancy`, `GameplayTasksComponent`, `AmmoRackComponent`...), mat sengem Header dekodéiert;
   - all Akteur-Kanal, deen opgemaach a zougemaach gouf (`open`, `close`), all Subobjet, dat geläscht oder zerstéiert gouf;
   - de Kontext, deen e spéidere Dekoder brauch, fir d'Datei eleng ze liesen: all Net-Field-Export (`export.field`: Gruppewee, Handle, Property-Numm, Checksumm) an all exportéierte Net-GUID (`export.guid`: säi Wee, Outer a Flags), zu der Zäit, wou de Stream se ginn huet.
 - `<demo>.packets.parquet`, Kolonnen `time`, `type`, `name`, `channel`, `offset` (an der Datei), `decoded`, `bits`, `payload`: den Info-Block, de Header-Chunk, all Checkpoint-Chunk (e Checkpoint ass de State vun allen Akteuren zu senger Zäit, deen de Stream vum Ufank un och hält), all Event-Chunk, an all Frame, Packet oder Bunch, deen sech net liese léisst (ee Bunch pro Demo: den Opmaachs-Bunch vum Zuschauer vum Recorder selwer), ganz.

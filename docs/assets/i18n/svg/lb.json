@@ -1,6 +1,6 @@
 {
  "1. The Squad server": "1. De Squad-Server",
- "2 sidecars": "2 Begleetdateien",
+ "2 sidecars": "2 Niewendateien",
  "2. The demo file": "2. D'Demo-Datei",
  "3. heat3d-squad-demo": "3. heat3d-squad-demo",
  "4. The 3DHeat viewer": "4. Den 3DHeat-Viewer",
@@ -35,6 +35,6 @@
  "the file: info block, chunks": "d'Datei: Info-Block, Chunks",
  "the match document:": "d'Match-Dokument:",
  "the match is played,": "de Match gëtt gespillt,",
- "the table, the match document, the sidecars": "d'Tabell, d'Match-Dokument, d'Begleetdateien",
+ "the table, the match document, the sidecars": "d'Tabell, d'Match-Dokument, d'Niewendateien",
  "the table: positions": "d'Tabell: Positiounen"
 }

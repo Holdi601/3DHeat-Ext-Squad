@@ -62,7 +62,7 @@ Ba chóir duit rud éigin mar seo a fheiceáil:
 heat3d-squad-demo 0.1.0
 ```
 
-Ar aghaidh: [Taifead demo](recording.md), ansin [Demos a thiontú](converting.md).
+Ar aghaidh: [Demo a thaifeadadh](recording.md), ansin [Demos a thiontú](converting.md).
 
 ## Conas na horduithe ar na leathanaigh seo a léamh {#how-to-read-the-commands-on-these-pages}
 

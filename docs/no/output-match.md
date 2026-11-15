@@ -20,7 +20,7 @@ kampdokumentet i sin Kamp-fane.
 - **lagene**: nummer, fraksjon og alt deres tilstand replikerte (billetter, tilgjengelighet, sjef) etter hvert som den endret seg;
 - **troppene**: nummer, lag, navn, skaper, leder, medlemmer;
 - **spillsituasjonen**: serverens navn og innstillinger, spillmodus, kampstatus og id, kart- og banerotasjoner, avstemninger, tidtakere, dagens melding;
-- **aktørene**: hvert kjøretøy, utplasserbart objekt, stilling, ammunisjonskasse og helikopter - klasse, hvor og når det ble spawnet, når det forsvant, hvems det var, og dets replikerte tilstand (helse, byggestatus, seter...);
+- **aktørene**: hvert kjøretøy, utplasserbart objekt, stilling, ammunisjonskasse og helikopter - klasse, hvor og når det ble spawnet, når det forsvant, hvem det var, og dets replikerte tilstand (helse, byggestatus, seter...);
 - **en linje for hver spiller**: prøver til fots og i kjøretøy, tilbakelagt distanse, spilte soldatklasser, brukte kjøretøy, lagbytter, tatte seter, og alt spillertilstanden replikerte (ping, nivå, rolle, nåværende sete...); og en linje for hver bot;
 - **hendelsene** talt, **egenskapstellingen** (hvor ofte hver klasses egenskaper ble sendt) og **fjernkalltellingen**, skuddene og treffene, det som **ikke** ble lest, og leserens diagnostikk;
 - **filen og headeren**: hvert felt i infoblokken og demoheaderen, bittabellen, eksporttabellene for nettfelt (`net_field_exports`), kanalenes lukkeårsaker, og klassene funnet for objekter eksportene ikke navngir (`stream.class_resolution`);

@@ -35,7 +35,7 @@ python -c "import json; d = json.load(open('out/<map>/<demo>.match.json')); prin
 
 ## 完整性 {#completeness}
 
-本读取器遵循所有 3DHeat 转换工具共同的规则：能现在解码的就解码，其余的完整保留，并说明每一类内容保留了多少（[转换器保留一切](https://github.com/Holdi601/3DHeat/blob/main/docs/converters.md)）。每个对局文档都有 `selfCheck.completeness`：对于录像中遇到的每一类项目，给出 `seen`（见到的数量）、`decoded`（已完全解码）、`partial`（部分解码并完整保留）、`raw`（仅完整保留）和 `lost`（必须为 0）。项目的分类是在读取器遇到它们的地方统计的：`file.info`、`chunk.<kind>`、`frame`、`packet`、`bunch`、`open`、`close`、`export.field`、`export.guid`、`external`、`property:<class>`、`rpc:<class>`、`block:<object>`、`subobject.*`。
+本读取器遵循所有 3DHeat 转换器共同的规则：能现在解码的就解码，其余的完整保留，并说明每一类内容保留了多少（[转换器保留一切](https://github.com/Holdi601/3DHeat/blob/main/docs/converters.md)）。每个对局文档都有 `selfCheck.completeness`：对于录像中遇到的每一类项目，给出 `seen`（见到的数量）、`decoded`（已完全解码）、`partial`（部分解码并完整保留）、`raw`（仅完整保留）和 `lost`（必须为 0）。项目的分类是在读取器遇到它们的地方统计的：`file.info`、`chunk.<kind>`、`frame`、`packet`、`bunch`、`open`、`close`、`export.field`、`export.guid`、`external`、`property:<class>`、`rpc:<class>`、`block:<object>`、`subobject.*`。
 
 在所读取的真实录像上，`lost` 为 0：这些项目的数量从几十万到几百万不等；约一半可以完全解码，其余为部分解码或仅原样保留。
 

@@ -50,7 +50,7 @@ Hvordan hendelsene leses står i [Slik leses en demo](how-it-works.md#how-the-ev
 
 ## I visningsprogrammet {#in-the-viewer}
 
-Parquet-fotnoten bærer leseinstruksjoner under nøkkelen `heat3d`: Z opp,
+Parquet-bunnteksten bærer leseinstruksjoner under nøkkelen `heat3d`: Z opp,
 ingen akse speilvendt, enhetsskala 1, så visningsprogrammet trenger ingen kolonneoppsett. Last
 tabellen inn i Varmekart-fanen; se visningsprogrammets
 [Få data inn](https://holdi601.github.io/3DHeat/getting-data-in.html)

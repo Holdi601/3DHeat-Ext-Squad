@@ -24,13 +24,13 @@ Her sürüm için bir kontrol listesi; böylece sayfalar koddan asla geri kalmaz
 Site, 3DHeat görüntüleyicisinin 40 diline çevrilir: İngilizce `docs/` içinde, diğer her dil aynı dosya adlarıyla `docs/<lang>/` içinde. Kayıt tutma işini `tools/docs_i18n.py` yapar:
 
 ```bash
-python tools/docs_i18n.py hashes             # after any English change: record each page's hash
-python tools/docs_i18n.py svg-strings        # after any picture change: the labels to translate
-python tools/docs_i18n.py status             # per language: current, outdated, missing pages
-python tools/docs_i18n.py todo --lang de     # the German pages to (re)translate
-python tools/docs_i18n.py svg-build --lang de    # German pictures from docs/assets/i18n/svg/de.json
-python tools/docs_i18n.py finish --lang de   # stamp the German pages with their English hash
-python tools/docs_i18n.py check              # exit 1 when hashes or labels are stale
+python tools/docs_i18n.py hashes             # İngilizce bir değişiklikten sonra: her sayfanın karmasını kaydet
+python tools/docs_i18n.py svg-strings        # bir resim değişikliğinden sonra: çevrilecek etiketler
+python tools/docs_i18n.py status             # dil başına: güncel, eski ve eksik sayfalar
+python tools/docs_i18n.py todo --lang tr     # (yeniden) çevrilecek Türkçe sayfalar
+python tools/docs_i18n.py svg-build --lang tr    # docs/assets/i18n/svg/tr.json dosyasından Türkçe resimler
+python tools/docs_i18n.py finish --lang tr   # Türkçe sayfalara İngilizce karmayı damgala
+python tools/docs_i18n.py check              # karmalar ya da etiketler eskiyse 1 ile çıkar
 ```
 
 Yalnızca `todo`'nun listelediğini çevirin: Markdown'ı, bağlantıları, kodu, dosya ve sütun adlarını olduğu gibi bırakın; başlıkları ve resim açıklamalarını çevirin; düğmeler ve paneller için görüntüleyicinin kendi sözcüklerini kullanın (`src/i18n/locales/<lang>/`). Üretilmiş başvuru sayfaları ve terminal resimleri İngilizce kalır. Sitede eskimiş bir çeviri bunu söyler ve İngilizce sayfaya bağlanır; eksik bir çeviri İngilizceye döner. Üstbilgideki dil menüsü ve ana sayfanın tarayıcı dili yönlendirmesi `docs/_includes/` içinden gelir.

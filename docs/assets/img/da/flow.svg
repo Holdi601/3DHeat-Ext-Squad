@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="860" height="634" viewBox="0 0 860 634" font-family="Segoe UI,Helvetica,Arial,sans-serif">
 <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#5b6270"/></marker></defs>
 <rect width="860" height="634" rx="10" fill="#f6f7f9"/>
-<text x="16" y="32" font-size="18" fill="#1f2328" font-weight="600">Fra en Squad-server til fremviseren</text>
+<text x="16" y="32" font-size="18" fill="#1f2328" font-weight="600">Fra en Squad-server til vieweren</text>
 <rect x="16" y="52" width="828" height="102" rx="8" fill="#ffffff" stroke="#8c95a3"/>
 <text x="28" y="79" font-size="15" fill="#1f2328" font-weight="600">1. Squad-serveren</text>
 <text x="28" y="99" font-size="14" fill="#3d4450">en admin skriver AdminDemoRec,</text>
@@ -26,14 +26,14 @@
 <text x="310" y="467" font-size="14" fill="#3d4450">kampdokumentet:</text>
 <text x="310" y="487" font-size="14" fill="#3d4450">hold, squads, spillere</text>
 <rect x="580" y="420" width="264" height="82" rx="8" fill="#ffffff" stroke="#8c95a3"/>
-<text x="592" y="447" font-size="15" fill="#1f2328" font-weight="600">2 sidefiler</text>
+<text x="592" y="447" font-size="15" fill="#1f2328" font-weight="600">2 sidecars</text>
 <text x="592" y="467" font-size="14" fill="#3d4450">alt andet,</text>
 <text x="592" y="487" font-size="14" fill="#3d4450">gemt helt</text>
 <path d="M430,388 C430,403.0 148,403.0 148,417" fill="none" stroke="#5b6270" stroke-width="1.6" marker-end="url(#a)"/>
 <path d="M430,388 C430,403.0 430,403.0 430,417" fill="none" stroke="#5b6270" stroke-width="1.6" marker-end="url(#a)"/>
 <path d="M430,388 C430,403.0 712,403.0 712,417" fill="none" stroke="#5b6270" stroke-width="1.6" marker-end="url(#a)"/>
 <rect x="16" y="536" width="828" height="82" rx="8" fill="#eef4ff" stroke="#8c95a3"/>
-<text x="28" y="563" font-size="15" fill="#1f2328" font-weight="600">4. 3DHeat-fremviseren</text>
+<text x="28" y="563" font-size="15" fill="#1f2328" font-weight="600">4. 3DHeat-vieweren</text>
 <text x="28" y="583" font-size="14" fill="#3d4450">Heatmap-fanen: tabellen</text>
 <text x="28" y="603" font-size="14" fill="#3d4450">Kamp-fanen: kampdokumentet</text>
 <path d="M148,504 C148,519.0 430,519.0 430,533" fill="none" stroke="#5b6270" stroke-width="1.6" marker-end="url(#a)"/>

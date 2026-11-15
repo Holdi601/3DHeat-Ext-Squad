@@ -51,7 +51,7 @@ Hogyan olvasódnak be az események: [Hogyan olvasódik be a demó](how-it-works
 ## A megjelenítőben {#in-the-viewer}
 
 A Parquet lábléce a `heat3d` kulcs alatt olvasási utasításokat tartalmaz: Z felfelé, egyik tengely
-sincs tükrözve, egységskála 1, így a megjelenítőnek nincs szüksége oszlop-hozzárendelésre. Töltse be a
+sincs tükrözve, egységskála 1, így a megjelenítőnek nincs szüksége oszlop-hozzárendelésre. Töltsd be a
 táblázatot a Hőtérkép fülön; lásd a megjelenítő
 [Adatok betöltése](https://holdi601.github.io/3DHeat/getting-data-in.html) és
 [Oszlop-hozzárendelés](https://holdi601.github.io/3DHeat/column-mapping.html) oldalait.

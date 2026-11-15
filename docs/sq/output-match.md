@@ -1,5 +1,5 @@
 ---
-title: "Dokumenti i ndeshjes dhe skedarët ndihmës"
+title: "Dokumenti i ndeshjes dhe skedarët anësorë"
 nav_order: 5
 lang: sq
 source: output-match.md
@@ -7,9 +7,9 @@ source_hash: "715bd3417e47"
 nav_exclude: true
 search_exclude: true
 ---
-# Dokumenti i ndeshjes dhe skedarët ndihmës {#the-match-document-and-sidecars}
+# Dokumenti i ndeshjes dhe skedarët anësorë {#the-match-document-and-sidecars}
 
-Përveç tabelës, çdo demo merr `<demo>.match.json` dhe dy skedarë ndihmës,
+Përveç tabelës, çdo demo merr `<demo>.match.json` dhe dy skedarë anësorë,
 `<demo>.entities.parquet` dhe `<demo>.packets.parquet`. Shikuesi e lexon
 dokumentin e ndeshjes te skeda Ndeshja.
 
@@ -46,7 +46,7 @@ Në demot e vërteta të lexuara, `lost` është 0: sendet e tyre shkojnë nga q
 - çdo frame, paketë dhe bunch (ndarë i plotë në çfarë mbajnë), çdo aktor i hapur (me vendin, rrotullimin, shkallën dhe shpejtësinë e shfaqjes) dhe i mbyllur (me arsyen: `Destroyed`, `Dormancy`...);
 - çdo veti e replikuar, aq sa thonë bitet e saj ([Dekodimi i vetive](how-it-works.md#decoding-properties)), pozicionet nga `FRepMovement` dhe nga komponenti i lëvizjes së helikopterëve, viktimat, shëndeti i automjeteve, ndenjëset;
 - çdo thirrje në distancë me emër, me parametrat e saj aty ku demo eksporton grupin e funksionit: të shtënat (`fire`) dhe goditjet mbi automjete (`hit`) në tabelë;
-- tabelat e eksportit të fushave të rrjetit dhe net GUID-et (numri i tyre; shtigjet janë në skedarin ndihmës entities).
+- tabelat e eksportit të fushave të rrjetit dhe net GUID-et (numri i tyre; shtigjet janë në skedarin anësor entities).
 
 **Ruajtur raw** (i plotë, me atë që lexohet prej tij pranë tij):
 

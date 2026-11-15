@@ -11,7 +11,7 @@ permalink: /lt/
 # 3DHeat Squad {#dheat-squad}
 
 **Kas tai?** Nedidelė programa, kuri paverčia Squad rungtynių įrašą failais, kuriuos
-[3DHeat](https://github.com/Holdi601/3DHeat) žiūrintysis
+[3DHeat](https://github.com/Holdi601/3DHeat) žiūryklė
 ([dokumentacija](https://holdi601.github.io/3DHeat/)) gali nupiešti: kur buvo kiekvienas žaidėjas,
 sekundė po sekundės, ir kas kur įvyko.
 
@@ -34,7 +34,7 @@ Kam tai naudinga:
 - **Visas rungtynes viename dokumente.** Komandos, būriai, žaidimo būsena, kiekvienas objektas,
   eilutė kiekvienam žaidėjui ir botui bei savitikra, kad nieko iš demo nepražuvo.
 
-![Nuo Squad serverio iki žiūrintojo](../assets/img/lt/flow.svg)
+![Nuo Squad serverio iki žiūryklės](../assets/img/lt/flow.svg)
 
 ## Greita pradžia {#quick-start}
 
@@ -46,7 +46,7 @@ heat3d-squad-demo match.replay -o out   # arba aplanką su .replay failais
 ```
 
 Turėtumėte matyti po vieną eilutę kiekvienam demo. Tada įkelkite `out/<map>/<demo>.parquet`
-žiūrintojo skirtuke Šilumos žemėlapis
+žiūryklės skirtuke Šilumos žemėlapis
 ([Duomenų įkėlimas](https://holdi601.github.io/3DHeat/getting-data-in.html)).
 
 ## Puslapiai {#pages}
@@ -57,7 +57,7 @@ Turėtumėte matyti po vieną eilutę kiekvienam demo. Tada įkelkite `out/<map>
 | [Demo įrašymas](recording.md) | kaip serveris įrašo demo ir kaip jį rasti |
 | [Demo konvertavimas](converting.md) | komanda, kiekviena parinktis, pavyzdinis rezultatas |
 | [Lentelė](output-table.md) | kiekvienas stulpelis ir kiekvienas `event` |
-| [Rungtynių dokumentas ir šalutiniai failai](output-match.md) | `.match.json`, du šalutiniai failai, savitikra |
+| [Rungtynių dokumentas ir papildomi failai](output-match.md) | `.match.json`, du papildomi failai, savitikra |
 | [Kaip skaitomas demo](how-it-works.md) | skaitytuvo sluoksniai ir kas patikrinta |
 | [Apribojimai, atnaujinimai ir sąlygos](limits.md) | kas nenuskaitoma, ką gali sugadinti Squad atnaujinimas, asmens duomenys, licencija |
 | [Komandų nuoroda](../cli-reference.md) | kiekviena parinktis ir stulpelis, sugeneruoti iš kodo |
@@ -65,11 +65,11 @@ Turėtumėte matyti po vieną eilutę kiekvienam demo. Tada įkelkite `out/<map>
 
 ## Susiję {#related}
 
-- 3DHeat žiūrintojas: [github.com/Holdi601/3DHeat](https://github.com/Holdi601/3DHeat),
+- 3DHeat žiūryklė: [github.com/Holdi601/3DHeat](https://github.com/Holdi601/3DHeat),
   dokumentacija – [holdi601.github.io/3DHeat](https://holdi601.github.io/3DHeat/).
-- Failų formatai, kuriuos skaito žiūrintojas, įskaitant vieno failo rungtynių konteinerį:
+- Failų formatai, kuriuos skaito žiūryklė, įskaitant vieno failo rungtynių konteinerį:
   [Vienas failas rungtynėms (.3dheat)](https://holdi601.github.io/3DHeat/container.html).
-  Šis konvertuotojas rašo atskirus failus: lentelę, rungtynių dokumentą ir jo šalutinius
+  Šis konvertuotojas rašo atskirus failus: lentelę, rungtynių dokumentą ir jo papildomus
   failus šalia vienas kito.
 - 3DHeat Watcher, įdiegtas, paleidžia šį konvertuotoją naujiems demo
   (adapteris `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
@@ -78,7 +78,7 @@ Turėtumėte matyti po vieną eilutę kiekvienam demo. Tada įkelkite `out/<map>
 
 | Įrankis | Ką daro | Kodas | Dokumentacija |
 |---|---|---|---|
-| 3DHeat žiūrintojas | rodo duomenis: šilumos žemėlapius, lenktynių analizę, rungtynių apžvalgą | [3DHeat](https://github.com/Holdi601/3DHeat) | [dokumentacija](https://holdi601.github.io/3DHeat/) |
+| 3DHeat žiūryklė | rodo duomenis: šilumos žemėlapius, lenktynių analizę, rungtynių apžvalgą | [3DHeat](https://github.com/Holdi601/3DHeat) | [dokumentacija](https://holdi601.github.io/3DHeat/) |
 | GameFiles | lygiai ir trasos iš žaidimo pačio failų | [3DHeat-GameFiles](https://github.com/Holdi601/3DHeat-GameFiles) | [dokumentacija](https://holdi601.github.io/3DHeat-GameFiles/) |
 | GameCapture | ratų telemetrija ir lygiai, atkurti iš žaidimo vaizdo | [3DHeat-GameCapture](https://github.com/Holdi601/3DHeat-GameCapture) | [dokumentacija](https://holdi601.github.io/3DHeat-GameCapture/) |
 | Unreal Exporter | Unreal Editor papildinys: lygis kaip vienas `.glb` | [3DHeat-UnrealExporter](https://github.com/Holdi601/3DHeat-UnrealExporter) | [dokumentacija](https://holdi601.github.io/3DHeat-UnrealExporter/) |

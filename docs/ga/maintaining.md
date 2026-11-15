@@ -28,13 +28,13 @@ Seicliosta do gach eisiúint, ionas nach dtiteann na leathanaigh taobh thiar den
 5. **Aistriúcháin.** Taifeadann gach leathanach aistrithe haisiú an leathanaigh
    Bhéarla óna ndearnadh é. Aistrigh arís na leathanaigh ar athraigh a bhfoinse Bhéarla,
    ansin athbhreithnigh gach teanga: téacs soiléir, lipéid chearta léaráide, na
-   focail chéanna le comhéadan aistrithe an lucht féachana.
+   focail chéanna le comhéadan aistrithe an amharcáin.
 6. **Rith na tástálacha** (`pytest`).
 7. **Brúigh** tar éis cead an úinéara amháin.
 
 ## Aistriúcháin: na horduithe {#translations-the-commands}
 
-Tá an suíomh aistrithe go 40 teanga lucht féachana 3DHeat: Béarla i `docs/`, gach ceann eile
+Tá an suíomh aistrithe go 40 teanga an amharcáin 3DHeat: Béarla i `docs/`, gach ceann eile
 teanga i `docs/<lang>/` leis na hainmneacha comhaid céanna. Déanann `tools/docs_i18n.py` an leabhar-choinneáil:
 
 ```bash
@@ -48,8 +48,8 @@ python tools/docs_i18n.py check              # exit 1 when hashes or labels are 
 ```
 
 Ná haistrigh ach an méid a liostaíonn `todo`: fág Markdown, naisc, cód, ainmneacha comhad agus colún mar atá siad,
-aistrigh teidil agus tuairiscí pictiúr, agus úsáid focail féin an lucht féachana 3DHeat do chnaipí
+aistrigh teidil agus tuairiscí pictiúr, agus úsáid focail féin an amharcáin 3DHeat do chnaipí
 agus painéil (a `src/i18n/locales/<lang>/`). Fanann leathanaigh tagartha ghinte agus pictiúir teirminéil
 i mBéarla. Ar an suíomh, deir aistriúchán as dáta é sin agus nascann sé an leathanach Béarla; titeann ceann ar iarraidh
-siar ar an mBéarla. Tagann roghchlár teangacha an cheanntásc agus athsheoladh teanga brabhsálaí an leathanaigh baile
+siar ar an mBéarla. Tagann roghchlár teangacha an cheanntáisc agus athsheoladh teanga brabhsálaí an leathanaigh baile
 ó `docs/_includes/`.

@@ -26,7 +26,7 @@
 <text x="310" y="467" font-size="14" fill="#3d4450">dokumenti i ndeshjes:</text>
 <text x="310" y="487" font-size="14" fill="#3d4450">skuadra, toga, lojtarë</text>
 <rect x="580" y="420" width="264" height="82" rx="8" fill="#ffffff" stroke="#8c95a3"/>
-<text x="592" y="447" font-size="15" fill="#1f2328" font-weight="600">2 skedarë ndihmës</text>
+<text x="592" y="447" font-size="15" fill="#1f2328" font-weight="600">2 skedarë anësorë</text>
 <text x="592" y="467" font-size="14" fill="#3d4450">gjithçka tjetër,</text>
 <text x="592" y="487" font-size="14" fill="#3d4450">ruajtur e plotë</text>
 <path d="M430,388 C430,403.0 148,403.0 148,417" fill="none" stroke="#5b6270" stroke-width="1.6" marker-end="url(#a)"/>

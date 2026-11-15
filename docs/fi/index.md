@@ -57,7 +57,7 @@ Lämpökartta-välilehdelle ([Tietojen tuominen](https://holdi601.github.io/3DHe
 | [Demon tallentaminen](recording.md) | palvelimen demon tallennus ja sen löytäminen |
 | [Demojen muuntaminen](converting.md) | komento, jokainen asetus, esimerkkitulos |
 | [Taulukko](output-table.md) | jokainen sarake ja jokainen `event` |
-| [Ottelun asiakirja ja liitetiedostot](output-match.md) | `.match.json`, kaksi liitetiedostoa, itsetarkistus |
+| [Ottelun asiakirja ja sivutiedostot](output-match.md) | `.match.json`, kaksi sivutiedostoa, itsetarkistus |
 | [Miten demo luetaan](how-it-works.md) | lukijan kerrokset ja mitä on todennettu |
 | [Rajoitukset, päivitykset ja ehdot](limits.md) | mitä ei lueta, mitä Squad-päivitys voi rikkoa, henkilötiedot, lisenssi |
 | [Komentoviite](../cli-reference.md) | jokainen asetus ja sarake, luotu koodista |
@@ -70,7 +70,7 @@ Lämpökartta-välilehdelle ([Tietojen tuominen](https://holdi601.github.io/3DHe
 - Katselimen lukemat tiedostomuodot, mukaan lukien yhden ottelun yhden tiedoston
   säiliö: [Yksi tiedosto ottelua kohden (.3dheat)](https://holdi601.github.io/3DHeat/container.html).
   Tämä muunnin kirjoittaa irralliset tiedostot: taulukon, ottelun asiakirjan ja sen
-  liitetiedostot rinnakkain.
+  sivutiedostot rinnakkain.
 - 3DHeat Watcher ajaa tätä muunninta uusille demoille, kun se on asennettu
   (sovitin `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
 
@@ -79,14 +79,14 @@ Lämpökartta-välilehdelle ([Tietojen tuominen](https://holdi601.github.io/3DHe
 | Työkalu | Mitä se tekee | Koodi | Dokumentaatio |
 |---|---|---|---|
 | 3DHeat-katselin | näyttää tiedot: lämpökartat, kilpa-analyysin, ottelun tarkastelun | [3DHeat](https://github.com/Holdi601/3DHeat) | [dokumentaatio](https://holdi601.github.io/3DHeat/) |
-| GameFiles | pelien omista tiedostoista saadut tasot ja radat | [3DHeat-GameFiles](https://github.com/Holdi601/3DHeat-GameFiles) | [dokumentaatio](https://holdi601.github.io/3DHeat-GameFiles/) |
-| GameCapture | kierrosten telemetria ja videosta rakennetut tasot | [3DHeat-GameCapture](https://github.com/Holdi601/3DHeat-GameCapture) | [dokumentaatio](https://holdi601.github.io/3DHeat-GameCapture/) |
-| Unreal Exporter | Unreal Editor -liitännäinen: taso yhtenä `.glb`-tiedostona | [3DHeat-UnrealExporter](https://github.com/Holdi601/3DHeat-UnrealExporter) | [dokumentaatio](https://holdi601.github.io/3DHeat-UnrealExporter/) |
+| GameFiles | pelien omista tiedostoista saadut kentät ja radat | [3DHeat-GameFiles](https://github.com/Holdi601/3DHeat-GameFiles) | [dokumentaatio](https://holdi601.github.io/3DHeat-GameFiles/) |
+| GameCapture | kierrosten telemetria ja videosta rakennetut kentät | [3DHeat-GameCapture](https://github.com/Holdi601/3DHeat-GameCapture) | [dokumentaatio](https://holdi601.github.io/3DHeat-GameCapture/) |
+| Unreal Exporter | Unreal Editor -liitännäinen: kenttä yhtenä `.glb`-tiedostona | [3DHeat-UnrealExporter](https://github.com/Holdi601/3DHeat-UnrealExporter) | [dokumentaatio](https://holdi601.github.io/3DHeat-UnrealExporter/) |
 | CS2 | Counter-Strike 2 -demot ja kartat | [3DHeat-CS2](https://github.com/Holdi601/3DHeat-CS2) | [dokumentaatio](https://holdi601.github.io/3DHeat-CS2/) |
 | Watcher | tallentaa sen, mitä pelit julkaisevat pelatessasi | [3DHeat-Watcher](https://github.com/Holdi601/3DHeat-Watcher) | [dokumentaatio](https://holdi601.github.io/3DHeat-Watcher/) |
 | Ext-WarThunder | War Thunder -tallenteet | [3DHeat-Ext-WarThunder](https://github.com/Holdi601/3DHeat-Ext-WarThunder) | [dokumentaatio](https://holdi601.github.io/3DHeat-Ext-WarThunder/) |
 | Ext-WoT | World of Tanks -tallenteet | [3DHeat-Ext-WoT](https://github.com/Holdi601/3DHeat-Ext-WoT) | [dokumentaatio](https://holdi601.github.io/3DHeat-Ext-WoT/) |
 | Ext-WoWs | World of Warships -tallenteet | [3DHeat-Ext-WoWs](https://github.com/Holdi601/3DHeat-Ext-WoWs) | [dokumentaatio](https://holdi601.github.io/3DHeat-Ext-WoWs/) |
 | Ext-Squad | Squad-palvelindemot | [3DHeat-Ext-Squad](https://github.com/Holdi601/3DHeat-Ext-Squad) | [dokumentaatio](https://holdi601.github.io/3DHeat-Ext-Squad/) |
-| Ext-DCS | DCS World -kartat 3D-tasoina | [3DHeat-Ext-DCS](https://github.com/Holdi601/3DHeat-Ext-DCS) | [dokumentaatio](https://holdi601.github.io/3DHeat-Ext-DCS/) |
-| Ext-IL2 | IL-2 Sturmovik -kartat 3D-tasoina | [3DHeat-Ext-IL2](https://github.com/Holdi601/3DHeat-Ext-IL2) | [dokumentaatio](https://holdi601.github.io/3DHeat-Ext-IL2/) |
+| Ext-DCS | DCS World -kartat 3D-kenttinä | [3DHeat-Ext-DCS](https://github.com/Holdi601/3DHeat-Ext-DCS) | [dokumentaatio](https://holdi601.github.io/3DHeat-Ext-DCS/) |
+| Ext-IL2 | IL-2 Sturmovik -kartat 3D-kenttinä | [3DHeat-Ext-IL2](https://github.com/Holdi601/3DHeat-Ext-IL2) | [dokumentaatio](https://holdi601.github.io/3DHeat-Ext-IL2/) |

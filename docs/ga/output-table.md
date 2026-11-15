@@ -32,7 +32,7 @@ fad a ghluaiseann sé.
 | `pawn` | blueprint an tsaighdiúra (`SQSquidBot` do bhot), an gluaisteán, nó do `fire` an t-arm |
 | `seat` | do thuirléad nó d'suíochán paisinéara, pawn an tsuíocháin féin |
 | `detail` | do `fire` glao an airm a chuir an lámhaigh, do `hit` an cineál damáiste, do `removed` cén fáth ar dhúnadh an cainéal (`Destroyed`, `Dormancy`...) |
-| `entity` | an t-aisteoir a bhfuil an tsraith faoi (a net GUID): `entity` sraitheanna na dtaobhchomhad |
+| `entity` | an t-aisteoir a bhfuil an tsraith faoi (a net GUID): `entity` sraitheanna na gcomhad cliatháin |
 | `match` | ainm an demo |
 
 ## Imeachtaí {#events}
@@ -49,9 +49,9 @@ fad a ghluaiseann sé.
 
 Tá an chaoi a léitear na himeachtaí in [Conas a léitear demo](how-it-works.md#how-the-events-are-read).
 
-## Sa lucht féachana {#in-the-viewer}
+## San amharcán {#in-the-viewer}
 
 Tá treoracha léitheoireachta i bhfuiseog an Parquet faoin eochair `heat3d`: Z suas,
-aon ais scáthánaithe, scála aonaid 1, mar sin ní theastaíonn mapáil colúin ón lucht féachana. Lódáil
+aon ais scáthánaithe, scála aonaid 1, mar sin ní theastaíonn mapáil colúin ón amharcán. Lódáil
 an tábla sa chluaisín Léarscáil teasa; féach [Sonraí a thabhairt isteach](https://holdi601.github.io/3DHeat/getting-data-in.html)
-agus [Mapáil colún](https://holdi601.github.io/3DHeat/column-mapping.html) an lucht féachana.
+agus [Mapáil colún](https://holdi601.github.io/3DHeat/column-mapping.html) an amharcáin.

@@ -31,7 +31,7 @@ toimijan liikkeen, enintään 8 kertaa sekunnissa (demon tallennusnopeus) sen li
 | `pawn` | sotilaan blueprint (`SQSquidBot` botille), ajoneuvo, tai `fire`-rivillä ase |
 | `seat` | tykin tai matkustajan istuimelle istuimen oma pawn |
 | `detail` | `fire`-rivillä aseen kutsu, joka teki laukauksen; `hit`-rivillä vahingon tyyppi; `removed`-rivillä syy, miksi kanava suljettiin (`Destroyed`, `Dormancy`...) |
-| `entity` | toimija, jota rivi koskee (sen net GUID): liitetiedostojen rivien `entity` |
+| `entity` | toimija, jota rivi koskee (sen net GUID): sivutiedostojen rivien `entity` |
 | `match` | demon nimi |
 
 ## Tapahtumat {#events}

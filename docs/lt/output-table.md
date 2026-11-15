@@ -29,9 +29,9 @@ iki 8 kartų per sekundę (demo įrašymo dažnis), kol jis juda.
 | `squad` | būrio numeris, -1, kai nėra būryje |
 | `event` | kas yra eilutė (žemiau) |
 | `pawn` | kareivio blueprint (`SQSquidBot` botui), transporto priemonė, o `fire` atveju – ginklas |
-| `seat` | turelio ar keleivio sėdynei – pačios sėdynės pawn |
+| `seat` | bokštelio ar keleivio sėdynei – pačios sėdynės pawn |
 | `detail` | `fire` atveju – ginklo kvietimas, kuris užfiksavo šūvį; `hit` atveju – žalos tipas; `removed` atveju – kodėl kanalas uždarytas (`Destroyed`, `Dormancy`...) |
-| `entity` | veikėjas, apie kurį eilutė (jo tinklo GUID): šalutinių failų eilučių `entity` |
+| `entity` | veikėjas, apie kurį eilutė (jo tinklo GUID): papildomų failų eilučių `entity` |
 | `match` | demo pavadinimas |
 
 ## Įvykiai {#events}
@@ -48,9 +48,9 @@ iki 8 kartų per sekundę (demo įrašymo dažnis), kol jis juda.
 
 Kaip skaitomi įvykiai aprašyta [Kaip skaitomas demo](how-it-works.md#how-the-events-are-read).
 
-## Žiūrintojuje {#in-the-viewer}
+## Žiūryklėje {#in-the-viewer}
 
 Parquet poraštė turi skaitymo nurodymus raktu `heat3d`: Z aukštyn, jokia ašis neveidrodinama, vieneto mastelis 1,
-todėl žiūrintojui nereikia stulpelių susiejimo. Įkelkite lentelę Šilumos žemėlapio skirtuke; žr. žiūrintojo
+todėl žiūryklei nereikia stulpelių susiejimo. Įkelkite lentelę Šilumos žemėlapio skirtuke; žr. žiūryklės
 [Duomenų įkėlimas](https://holdi601.github.io/3DHeat/getting-data-in.html)
 ir [Stulpelių susiejimas](https://holdi601.github.io/3DHeat/column-mapping.html).

@@ -1,5 +1,5 @@
 ---
-title: Vedlikehold av disse dokumentene
+title: "Vedlikeholde dokumentasjonen"
 nav_order: 91
 lang: no
 source: maintaining.md
@@ -7,9 +7,9 @@ source_hash: "b0b7836a5545"
 nav_exclude: true
 search_exclude: true
 ---
-# Vedlikehold av disse dokumentene {#maintaining-these-docs}
+# Vedlikeholde dokumentasjonen {#maintaining-the-documentation}
 
-En sjekkliste for hver utgivelse, slik at sidene aldri henger etter koden.
+For den som gir ut en ny versjon. Gjør stegene i denne rekkefølgen.
 
 1. **Generer referansen på nytt.** `python tools/gen_docs_reference.py` skriver om
    [Kommandoreferanse](../cli-reference.md) fra programmets egen `--help` og
@@ -37,13 +37,13 @@ Nettstedet er oversatt til 3DHeat-visningsprogrammets 40 språk: engelsk i `docs
 språk i `docs/<lang>/` med samme filnavn. `tools/docs_i18n.py` står for bokføringen:
 
 ```bash
-python tools/docs_i18n.py hashes             # after any English change: record each page's hash
-python tools/docs_i18n.py svg-strings        # after any picture change: the labels to translate
-python tools/docs_i18n.py status             # per language: current, outdated, missing pages
-python tools/docs_i18n.py todo --lang de     # the German pages to (re)translate
-python tools/docs_i18n.py svg-build --lang de    # German pictures from docs/assets/i18n/svg/de.json
-python tools/docs_i18n.py finish --lang de   # stamp the German pages with their English hash
-python tools/docs_i18n.py check              # exit 1 when hashes or labels are stale
+python tools/docs_i18n.py hashes             # etter enhver endring i engelsk: lagre hashen til hver side
+python tools/docs_i18n.py svg-strings        # etter enhver endring i et bilde: tekstene som skal oversettes
+python tools/docs_i18n.py status             # per språk: oppdatert, utdatert, manglende sider
+python tools/docs_i18n.py todo --lang de     # de tyske sidene som skal (over)oversettes
+python tools/docs_i18n.py svg-build --lang de    # tyske bilder fra docs/assets/i18n/svg/de.json
+python tools/docs_i18n.py finish --lang de   # merk de tyske sidene med deres engelske hash
+python tools/docs_i18n.py check              # avslutter med 1 når hasher eller tekster er utdaterte
 ```
 
 Oversett bare det `todo` lister: behold Markdown, lenker, kode, fil- og kolonnenavn som de er,

@@ -30,7 +30,7 @@ Kiadásonként egy ellenőrzőlista, hogy az oldalak soha ne maradjanak le a kó
    nyelvet át kell nézni: világos szöveg, helyes ábrafeliratok, és ugyanazok a szavak, mint a 3DHeat
    megjelenítő saját lefordított felületén.
 6. **A tesztek futtatása** (`pytest`).
-7. **Csak a tulajdonos jóváhagyása után** tolja fel (push).
+7. **Csak a tulajdonos jóváhagyása után** tolj fel (push).
 
 ## Fordítások: a parancsok {#translations-the-commands}
 
@@ -47,9 +47,9 @@ python tools/docs_i18n.py finish --lang de   # a német oldalak bélyegzése az 
 python tools/docs_i18n.py check              # 1 kóddal lép ki, ha a hash-ek vagy a feliratok elavultak
 ```
 
-Csak azt fordítsa, amit a `todo` felsorol: a Markdownt, a linkeket, a kódot, a fájl- és oszlopneveket
-hagyja úgy, ahogy vannak; fordítsa a címeket és a képleírásokat; a 3DHeat megjelenítő gombjainak és
-paneljeinek saját szavait használja (a `src/i18n/locales/<lang>/` mappából). A generált referenciaoldalak
+Csak azt fordítsd, amit a `todo` felsorol: a Markdownt, a linkeket, a kódot, a fájl- és oszlopneveket
+hagyd úgy, ahogy vannak; fordítsd a címeket és a képleírásokat; a 3DHeat megjelenítő gombjainak és
+paneljeinek saját szavait használd (a `src/i18n/locales/<lang>/` mappából). A generált referenciaoldalak
 és a terminálképek angolok maradnak. A webhelyen az elavult fordítás ezt jelzi, és az angol oldalra
 hivatkozik; a hiányzó oldal visszaesik az angolra. A fejléc nyelvmenüjét és a főoldal böngészőnyelv-átirányítását
 a `docs/_includes/` adja.

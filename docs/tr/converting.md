@@ -57,9 +57,9 @@ Tablo ve maç belgesi, 3DHeat CS2 aracının yazdığı çiftin aynısıdır. G�
 ## Örnekler {#examples}
 
 ```bash
-heat3d-squad-demo D:\SquadDemos -o out                 # every demo in a folder
-heat3d-squad-demo one.replay two.replay -o out --flat  # straight into out/
-heat3d-squad-demo D:\SquadDemos -o out --json          # one JSON line per demo
+heat3d-squad-demo D:\SquadDemos -o out                 # bir klasördeki her demo
+heat3d-squad-demo one.replay two.replay -o out --flat  # doğrudan out/ içine
+heat3d-squad-demo D:\SquadDemos -o out --json          # demo başına bir JSON satırı
 ```
 
 `D:\SquadDemos` D sürücüsünde örnek bir klasördür: kendinizinkini kullanın.

@@ -15,12 +15,12 @@ amelyeket a [3DHeat](https://github.com/Holdi601/3DHeat) megjelenítő
 ([dokumentáció](https://holdi601.github.io/3DHeat/)) ki tud rajzolni: hogy hol volt minden
 játékos, másodpercről másodpercre, és mi történt hol.
 
-**Mire jó?** Hogy felülnézetből lássa a meccset: hol folyt a harc, milyen útvonalakon
+**Mire jó?** Hogy felülnézetből lásd a meccset: hol folyt a harc, milyen útvonalakon
 mentek a rajok, hol pusztultak el a járművek.
 
 **Példa:** `match.replay` (egy demó, amelyet Squad-szerveren vettek fel) ->
 `match.parquet` (egy sor minden pozícióhoz vagy eseményhez) + `match.match.json` (a
-meccs dokumentuma: csapatok, rajok, játékosok). A kimenet közönséges Parquet- és
+meccsdokumentuma: csapatok, rajok, játékosok). A kimenet közönséges Parquet- és
 JSON-fájl, így bármilyen más program is be tudja olvasni.
 
 Mire használható:
@@ -39,7 +39,7 @@ Mire használható:
 
 ## Gyors kezdés {#quick-start}
 
-Még nem használt parancssort? Először olvassa el a [Mielőtt elkezdi](before-you-start.md)
+Még nem használt parancssort? Először olvasd el a [Mielőtt elkezded](before-you-start.md)
 oldalt.
 
 ```bash
@@ -47,18 +47,18 @@ python -m pip install -e .              # telepíti a heat3d-squad-demo parancso
 heat3d-squad-demo match.replay -o out   # vagy egy .replay fájlokat tartalmazó mappa
 ```
 
-Demónként egy sort kell látnia. Ezután töltse be az `out/<map>/<demo>.parquet` fájlt a
+Demónként egy sort kell látnod. Ezután töltsd be az `out/<map>/<demo>.parquet` fájlt a
 megjelenítő Hőtérkép fülén ([Adatok betöltése](https://holdi601.github.io/3DHeat/getting-data-in.html)).
 
 ## Oldalak {#pages}
 
 | Oldal | Mit tartalmaz |
 |---|---|
-| [Mielőtt elkezdi](before-you-start.md) | Python, egy terminál, az első futtatás |
-| [Demó felvétele](recording.md) | hogyan írassa a szerverrel a demót, és hol találja |
-| [Demók átalakítása](converting.md) | a parancs, minden kapcsoló, példakimenet |
+| [Mielőtt elkezded](before-you-start.md) | Python, egy terminál, az első futtatás |
+| [Demó felvétele](recording.md) | hogyan rögzítsd a demót a szerveren, és hol találod |
+| [Demók konvertálása](converting.md) | a parancs, minden kapcsoló, példakimenet |
 | [A táblázat](output-table.md) | minden oszlop és minden `event` |
-| [A meccs dokumentuma és a kísérőfájlok](output-match.md) | a `.match.json`, a két kísérőfájl, az önellenőrzés |
+| [A meccsdokumentum és a kísérőfájlok](output-match.md) | a `.match.json`, a két kísérőfájl, az önellenőrzés |
 | [Hogyan olvasódik be a demó](how-it-works.md) | az olvasó rétegei és az ellenőrzések |
 | [Korlátok, frissítések és feltételek](limits.md) | mi nem olvasódik be, mit törhet el egy Squad-frissítés, személyes adatok, licenc |
 | [Parancsleírás](../cli-reference.md) | minden kapcsoló és oszlop, a kódból generálva |
@@ -70,9 +70,9 @@ megjelenítő Hőtérkép fülén ([Adatok betöltése](https://holdi601.github.
   dokumentáció: [holdi601.github.io/3DHeat](https://holdi601.github.io/3DHeat/).
 - A megjelenítő által olvasott fájlformátumok, köztük a meccsenkénti egyfájlos tároló:
   [Egy fájl meccsenként (.3dheat)](https://holdi601.github.io/3DHeat/container.html).
-  Ez az átalakító a laza fájlokat írja: a táblázatot, a meccs dokumentumát és a
+  Ez a konverter a laza fájlokat írja: a táblázatot, a meccsdokumentumát és a
   kísérőfájljait egymás mellett.
-- A 3DHeat Watcher az átalakítót futtatja az új demókon, ha telepítve van
+- A 3DHeat Watcher a konvertert futtatja az új demókon, ha telepítve van
   (adapter: `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
 
 ## A 3DHeat eszközei {#the-3dheat-tools}

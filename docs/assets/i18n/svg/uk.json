@@ -8,9 +8,9 @@
  "<demo>.parquet": "<demo>.parquet",
  "<name>.replay, copied": "<name>.replay, скопійовано",
  "From a Squad server to the viewer": "Від сервера Squad до переглядача",
- "Heatmap tab: the table": "Вкладка Heatmap: таблиця",
+ "Heatmap tab: the table": "Вкладка «Теплова карта»: таблиця",
  "How a demo is read: one module per layer": "Як читається демо: один модуль на кожен рівень",
- "Match tab: the match document": "Вкладка Match: документ матчу",
+ "Match tab: the match document": "Вкладка «Матч»: документ матчу",
  "an admin types AdminDemoRec,": "адміністратор вводить AdminDemoRec,",
  "and events": "і події",
  "and writes down who was where": "і записує, хто де був",
@@ -35,6 +35,6 @@
  "the file: info block, chunks": "файл: інформаційний блок, блоки",
  "the match document:": "документ матчу:",
  "the match is played,": "матч зіграно,",
- "the table, the match document, the sidecars": "таблиця, документ матчу, додаткові файли",
+ "the table, the match document, the sidecars": "таблиця, документ матчу, супутні файли",
  "the table: positions": "таблиця: позиції"
 }

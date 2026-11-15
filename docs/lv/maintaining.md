@@ -11,10 +11,10 @@ search_exclude: true
 
 Kontrolsaraksts katrai izlaidei, lai lapas nekad neatpaliek no koda.
 
-1. **Atjauno atsauci.** `python tools/gen_docs_reference.py` pārraksta
+1. **Atjaunojiet atsauci.** `python tools/gen_docs_reference.py` pārraksta
    [Komandu atsauce](../cli-reference.md) no programmas pašas `--help` un izvades kolonnām.
    `python tools/gen_docs_reference.py --check` beidzas ar kodu 1, ja saglabātā lapa ir novecojusi.
-2. **Uzskaiti izmaiņas.** `git log v<VERSION>..HEAD --oneline`, kur
+2. **Uzskaitiet izmaiņas.** `git log v<VERSION>..HEAD --oneline`, kur
    `<VERSION>` ir pēdējā izlaistā versija (fails `VERSION` izlaidē). Katrai jaunai funkcijai,
    iespējai un izvades kolonnai jāatrod vieta lapā un rinda sadaļā **Docs** failā
    [`CHANGELOG.md`](https://github.com/Holdi601/3DHeat-Ext-Squad/blob/main/CHANGELOG.md).
@@ -22,12 +22,12 @@ Kontrolsaraksts katrai izlaidei, lai lapas nekad neatpaliek no koda.
    arī attēlus, trīs reizes: kā iesācējs, kas nekad nav lietojis termināli, kā astoņgadnieks un kā
    eksperts, kas pārbauda katru iespēju pret `--help`. Piemēros izmanto tikai izdomātus nosaukumus
    un skaitļus.
-4. **Labo** visu, ko atrod pārskatīšana.
+4. **Labojiet** visu, ko atrod pārskatīšana.
 5. **Tulkojumi.** Katra tulkotā lapa ieraksta to angļu lapas jaucējkodu, no kuras tā
-   tika izveidota. Tulko no jauna lapas, kuru angļu avots ir mainījies, tad pārskati katru valodu:
+   tika izveidota. Tulkojiet no jauna lapas, kuru angļu avots ir mainījies, tad pārskatiet katru valodu:
    skaidrs teksts, pareizas diagrammu etiķetes, tie paši vārdi, ko lieto skatītāja pašu tulkotajā saskarnē.
-6. **Palaid testus** (`pytest`).
-7. **Augšupielādē** tikai pēc īpašnieka atļaujas.
+6. **Palaidiet testus** (`pytest`).
+7. **Augšupielādējiet** tikai pēc īpašnieka atļaujas.
 
 ## Tulkojumi: komandas {#translations-the-commands}
 
@@ -43,8 +43,8 @@ python tools/docs_i18n.py finish --lang de   # apzīmo vācu lapas ar to angļu 
 python tools/docs_i18n.py check              # beidzas ar kodu 1, ja jaucējkodi vai etiķetes ir novecojušas
 ```
 
-Tulko tikai to, ko `todo` uzskaita: saglabā Markdown, saites, kodu, failu un kolonnu nosaukumus kā tie ir,
-tulko nosaukumus un attēlu aprakstus, un izmanto skatītāja pašu vārdus tā pogām un paneļiem
-(tā `src/i18n/locales/<lang>/`). Ģenerētās atsauces lapas un termināļa attēli paliek angļu valodā.
+Tulkojiet tikai to, ko `todo` uzskaita: saglabājiet Markdown, saites, kodu, failu un kolonnu nosaukumus kā tie ir,
+tulkojiet nosaukumus un attēlu aprakstus, un izmantojiet skatītāja pašu vārdus tā pogām un paneļiem
+(tā `src/i18n/locales/<lang>/`). Ģenerētās atsauces lapas un termināla attēli paliek angļu valodā.
 Vietnē novecojis tulkojums to pasaka un saista ar angļu lapu; trūkstošs tulkojums tiek rādīts angļu valodā.
 Valodu izvēlne galvenē un mājas lapas pārvirzīšana pēc pārlūka valodas nāk no `docs/_includes/`.

@@ -61,7 +61,7 @@ heat3d-squad-demo --version
 heat3d-squad-demo 0.1.0
 ```
 
-Дальше: [Запись демо](recording.md), затем [Конвертация демо](converting.md).
+Дальше: [Запись демо](recording.md), затем [Преобразование демо](converting.md).
 
 ## Как читать команды на этих страницах {#how-to-read-the-commands-on-these-pages}
 

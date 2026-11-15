@@ -11,7 +11,7 @@ permalink: /da/
 # 3DHeat Squad {#dheat-squad}
 
 **Hvad er det?** Et lille program, der laver en optagelse af en Squad-kamp om til
-filer, som [3DHeat](https://github.com/Holdi601/3DHeat)-fremviseren
+filer, som [3DHeat](https://github.com/Holdi601/3DHeat)-vieweren
 ([dokumentation](https://holdi601.github.io/3DHeat/)) kan tegne: hvor hver spiller
 var, sekund for sekund, og hvad der skete hvor.
 
@@ -35,7 +35,7 @@ Det er nyttigt til:
   pr. spiller og pr. bot, og en selvkontrol, der viser, at intet af det, demoen
   indeholder, er gået tabt.
 
-![Fra en Squad-server til fremviseren](../assets/img/da/flow.svg)
+![Fra en Squad-server til vieweren](../assets/img/da/flow.svg)
 
 ## Hurtig start {#quick-start}
 
@@ -47,7 +47,7 @@ heat3d-squad-demo match.replay -o out   # or a folder of .replay files
 ```
 
 Du bør se én linje pr. demo. Indlæs derefter `out/<map>/<demo>.parquet` i
-fremviserens Heatmap-fane ([Hent data ind](https://holdi601.github.io/3DHeat/getting-data-in.html)).
+viewerens Heatmap-fane ([Hent data ind](https://holdi601.github.io/3DHeat/getting-data-in.html)).
 
 ## Sider {#pages}
 
@@ -57,7 +57,7 @@ fremviserens Heatmap-fane ([Hent data ind](https://holdi601.github.io/3DHeat/get
 | [Optag en demo](recording.md) | at få en server til at skrive en demo, og at finde den |
 | [Konverter demoer](converting.md) | kommandoen, alle valgmuligheder, eksempel på resultat |
 | [Tabellen](output-table.md) | hver kolonne og hver `event` |
-| [Kampdokumentet og sidefilerne](output-match.md) | `.match.json`, de to sidefiler, selvkontrollen |
+| [Kampdokumentet og sidecarene](output-match.md) | `.match.json`, de to sidecars, selvkontrollen |
 | [Sådan læses en demo](how-it-works.md) | lagene i læseren, og hvad der er blevet verificeret |
 | [Begrænsninger, opdateringer og vilkår](limits.md) | hvad der ikke læses, hvad en Squad-opdatering kan ødelægge, personlige data, licens |
 | [Kommandoreference](../cli-reference.md) | alle valgmuligheder og kolonner, genereret ud fra koden |
@@ -65,12 +65,12 @@ fremviserens Heatmap-fane ([Hent data ind](https://holdi601.github.io/3DHeat/get
 
 ## Relateret {#related}
 
-- 3DHeat-fremviseren: [github.com/Holdi601/3DHeat](https://github.com/Holdi601/3DHeat),
+- 3DHeat-vieweren: [github.com/Holdi601/3DHeat](https://github.com/Holdi601/3DHeat),
   dokumentation på [holdi601.github.io/3DHeat](https://holdi601.github.io/3DHeat/).
-- De filformater, fremviseren læser, inklusive containeren med én fil pr. kamp:
+- De filformater, vieweren læser, inklusive containeren med én fil pr. kamp:
   [Én fil pr. kamp (.3dheat)](https://holdi601.github.io/3DHeat/container.html).
   Denne konverter skriver de løse filer: tabellen, kampdokumentet og
-  dets sidefiler side om side.
+  dets sidecars side om side.
 - 3DHeat Watcher kører denne konverter på nye demoer, når den er installeret
   (adapter `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
 
@@ -78,7 +78,7 @@ fremviserens Heatmap-fane ([Hent data ind](https://holdi601.github.io/3DHeat/get
 
 | Værktøj | Hvad det gør | Kode | Dokumentation |
 |---|---|---|---|
-| 3DHeat-fremviser | viser data: varmekort, løbsanalyse, kampgennemgang | [3DHeat](https://github.com/Holdi601/3DHeat) | [dokumentation](https://holdi601.github.io/3DHeat/) |
+| 3DHeat-viewer | viser data: varmekort, løbsanalyse, kampgennemgang | [3DHeat](https://github.com/Holdi601/3DHeat) | [dokumentation](https://holdi601.github.io/3DHeat/) |
 | GameFiles | baner og løb fra et spils egne filer | [3DHeat-GameFiles](https://github.com/Holdi601/3DHeat-GameFiles) | [dokumentation](https://holdi601.github.io/3DHeat-GameFiles/) |
 | GameCapture | telemetri fra omgange, og baner genskabt ud fra spilvideo | [3DHeat-GameCapture](https://github.com/Holdi601/3DHeat-GameCapture) | [dokumentation](https://holdi601.github.io/3DHeat-GameCapture/) |
 | Unreal Exporter | et plugin til Unreal Editor: en bane som én `.glb` | [3DHeat-UnrealExporter](https://github.com/Holdi601/3DHeat-UnrealExporter) | [dokumentation](https://holdi601.github.io/3DHeat-UnrealExporter/) |

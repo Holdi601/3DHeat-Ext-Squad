@@ -4,7 +4,7 @@
 <text x="16" y="32" font-size="18" fill="#1f2328" font-weight="600">No Squad servera līdz skatītājam</text>
 <rect x="16" y="52" width="828" height="102" rx="8" fill="#ffffff" stroke="#8c95a3"/>
 <text x="28" y="79" font-size="15" fill="#1f2328" font-weight="600">1. Squad serveris</text>
-<text x="28" y="99" font-size="14" fill="#3d4450">administrators ieraksta AdminDemoRec,</text>
+<text x="28" y="99" font-size="14" fill="#3d4450">admins ieraksta AdminDemoRec,</text>
 <text x="28" y="119" font-size="14" fill="#3d4450">mačs tiek spēlēts,</text>
 <text x="28" y="139" font-size="14" fill="#3d4450">administrators ieraksta AdminDemoStop</text>
 <rect x="16" y="188" width="828" height="82" rx="8" fill="#ffffff" stroke="#8c95a3"/>

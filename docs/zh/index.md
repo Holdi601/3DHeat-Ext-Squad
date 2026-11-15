@@ -55,8 +55,8 @@ heat3d-squad-demo match.replay -o out   # 或者指定一个包含 .replay 文�
 - 3DHeat 查看器：[github.com/Holdi601/3DHeat](https://github.com/Holdi601/3DHeat)，
   文档位于 [holdi601.github.io/3DHeat](https://holdi601.github.io/3DHeat/)。
 - 查看器能读取的文件格式，包括一场对局一个文件的容器格式：[一场对局一个文件（.3dheat）](https://holdi601.github.io/3DHeat/container.html)。
-  本转换工具输出的是散开的文件：表格、对局文档及其附属文件并排存放。
-- 安装后，3DHeat Watcher 会对新录像运行本转换工具（适配器 `squad-demos`）：[3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/)。
+  本转换器输出的是散开的文件：表格、对局文档及其附属文件并排存放。
+- 安装后，3DHeat Watcher 会对新录像运行本转换器（适配器 `squad-demos`）：[3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/)。
 
 ## 3DHeat 工具 {#the-3dheat-tools}
 

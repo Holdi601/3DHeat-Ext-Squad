@@ -16,7 +16,7 @@ filer som [3DHeat](https://github.com/Holdi601/3DHeat)-visaren
 spelare var, sekund för sekund, och vad som hände var.
 
 **Varför skulle jag använda det?** För att se en match uppifrån: var striderna
-var, vilka vägar truppera tog, var fordon förstördes.
+var, vilka vägar trupperna tog, var fordon förstördes.
 
 **Exempel:** `match.replay` (en demo, inspelad på en Squad-server) ->
 `match.parquet` (en rad per position eller händelse) + `match.match.json` (matchdokumentet: lag,
@@ -71,7 +71,7 @@ Du ser en rad per demo. Läs sedan in `out/<map>/<demo>.parquet` i visarens Vär
 
 | Verktyg | Vad det gör | Kod | Dokumentation |
 |---|---|---|---|
-| 3DHeat-visaren | visar datan: värmekartor, racinganalys, matchgenomgång | [3DHeat](https://github.com/Holdi601/3DHeat) | [dokumentation](https://holdi601.github.io/3DHeat/) |
+| 3DHeat-visaren | visar datan: värmekartor, Racinganalys, matchgenomgång | [3DHeat](https://github.com/Holdi601/3DHeat) | [dokumentation](https://holdi601.github.io/3DHeat/) |
 | GameFiles | nivåer och banor från ett spels egna filer | [3DHeat-GameFiles](https://github.com/Holdi601/3DHeat-GameFiles) | [dokumentation](https://holdi601.github.io/3DHeat-GameFiles/) |
 | GameCapture | varvtelemetri, och nivåer återskapade från spelvideo | [3DHeat-GameCapture](https://github.com/Holdi601/3DHeat-GameCapture) | [dokumentation](https://holdi601.github.io/3DHeat-GameCapture/) |
 | Unreal Exporter | ett Unreal Editor-tillägg: en nivå som en `.glb`-fil | [3DHeat-UnrealExporter](https://github.com/Holdi601/3DHeat-UnrealExporter) | [dokumentation](https://holdi601.github.io/3DHeat-UnrealExporter/) |

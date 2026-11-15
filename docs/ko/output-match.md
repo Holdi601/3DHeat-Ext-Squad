@@ -1,5 +1,5 @@
 ---
-title: 경기 문서와 보조 파일
+title: 매치 문서와 보조 파일
 nav_order: 5
 lang: ko
 source: output-match.md
@@ -7,17 +7,17 @@ source_hash: "715bd3417e47"
 nav_exclude: true
 search_exclude: true
 ---
-# 경기 문서와 보조 파일 {#the-match-document-and-sidecars}
+# 매치 문서와 보조 파일 {#the-match-document-and-sidecars}
 
-표 옆에 데모마다 `<demo>.match.json`과 보조 파일 두 개, `<demo>.entities.parquet`와 `<demo>.packets.parquet`가 생깁니다. 뷰어는 경기 문서를 매치 탭에서 읽습니다.
+표 옆에 데모마다 `<demo>.match.json`과 보조 파일 두 개, `<demo>.entities.parquet`와 `<demo>.packets.parquet`가 생깁니다. 뷰어는 매치 문서를 매치 탭에서 읽습니다.
 
-## 경기 문서 {#the-match-document}
+## 매치 문서 {#the-match-document}
 
-`<demo>.match.json`(경기 문서)은 최상위에 `map`, `layer`, `level_path`, `game_version`, `engine_version`, `recorded_unix`, `duration_s`, `teams`, `squads`, `game_state`, `actors`, `players`, `rows`, `events`, `not_read`, `file`, `header`, `chunks`, `stream`, `shots`, `selfCheck`를 담습니다(전체 목록: [명령 참조](../cli-reference.md)). 말로 풀면 다음과 같습니다. 맵과 레이어, 게임과 엔진 버전, 녹화 시각, 길이, 그리고:
+`<demo>.match.json`(매치 문서)은 최상위에 `map`, `layer`, `level_path`, `game_version`, `engine_version`, `recorded_unix`, `duration_s`, `teams`, `squads`, `game_state`, `actors`, `players`, `rows`, `events`, `not_read`, `file`, `header`, `chunks`, `stream`, `shots`, `selfCheck`를 담습니다(전체 목록: [명령 참조](../cli-reference.md)). 말로 풀면 다음과 같습니다. 맵과 레이어, 게임과 엔진 버전, 녹화 시각, 길이, 그리고:
 
 - **팀**: 번호, 진영, 그리고 팀 상태가 복제한 모든 것(티켓, 가용성, 지휘관)을 바뀐 순서대로;
 - **분대**: 번호, 팀, 이름, 만든 사람, 리더, 구성원;
-- **게임 상태**: 서버 이름과 설정, 게임 모드, 경기 상태와 ID, 맵과 레이어 순환, 투표, 타이머, 오늘의 공지;
+- **게임 상태**: 서버 이름과 설정, 게임 모드, 매치 상태와 ID, 맵과 레이어 순환, 투표, 타이머, 오늘의 공지;
 - **액터**: 모든 차량, 설치물, 거치 진지, 탄약 상자, 헬리콥터. 각각 클래스, 생성된 곳과 때, 사라진 때, 소유자, 복제된 상태(체력, 건설 상태, 좌석...);
 - **플레이어마다 한 줄**: 보행과 탑승 중의 샘플, 걸은 거리, 플레이한 보병 클래스, 사용한 차량, 팀 변경, 앉은 좌석, 그리고 플레이어 상태가 복제한 모든 것(핑, 레벨, 역할, 현재 좌석...). 봇마다 한 줄;
 - **이벤트** 집계, **속성 목록**(클래스별 속성이 얼마나 자주 전송되었는지), **원격 호출 목록**, 발사와 명중, **읽지 않은** 것, 그리고 리더의 진단 정보;
@@ -34,11 +34,11 @@ python -c "import json; d = json.load(open('out/<map>/<demo>.match.json')); prin
 
 ## 완전성 {#completeness}
 
-이 리더는 모든 3DHeat 변환기가 공유하는 원칙을 따릅니다. 지금 읽을 수 있는 것은 해석하고, 나머지는 통째로 보관하며, 종류별로 얼마나 해석했는지 밝힙니다([변환기는 모든 것을 보관합니다](https://github.com/Holdi601/3DHeat/blob/main/docs/converters.md)). 경기 문서마다 `selfCheck.completeness`가 있습니다. 데모에서 만난 항목 종류마다, `seen`(본 개수), `decoded`(완전히 해석한 개수), `partial`(일부만 해석하고 통째로 보관한 개수), `raw`(통째로만 보관한 개수), `lost`(반드시 0이어야 함)를 셉니다. 항목 종류는 리더가 만나는 곳에서 셉니다: `file.info`, `chunk.<kind>`, `frame`, `packet`, `bunch`, `open`, `close`, `export.field`, `export.guid`, `external`, `property:<class>`, `rpc:<class>`, `block:<object>`, `subobject.*`.
+이 리더는 모든 3DHeat 변환기가 공유하는 원칙을 따릅니다. 지금 읽을 수 있는 것은 해석하고, 나머지는 통째로 보관하며, 종류별로 얼마나 해석했는지 밝힙니다([변환기는 모든 것을 보관합니다](https://github.com/Holdi601/3DHeat/blob/main/docs/converters.md)). 매치 문서마다 `selfCheck.completeness`가 있습니다. 데모에서 만난 항목 종류마다, `seen`(본 개수), `decoded`(완전히 해석한 개수), `partial`(일부만 해석하고 통째로 보관한 개수), `raw`(통째로만 보관한 개수), `lost`(반드시 0이어야 함)를 셉니다. 항목 종류는 리더가 만나는 곳에서 셉니다: `file.info`, `chunk.<kind>`, `frame`, `packet`, `bunch`, `open`, `close`, `export.field`, `export.guid`, `external`, `property:<class>`, `rpc:<class>`, `block:<object>`, `subobject.*`.
 
 실제 데모를 읽었을 때 `lost`는 0입니다. 항목은 수십만에서 수백만 개에 이르고, 약 절반은 완전히 해석되며 나머지는 일부만 해석되거나 통째로 보관됩니다.
 
-**읽는 것**(표와 경기 문서에 들어갑니다):
+**읽는 것**(표와 매치 문서에 들어갑니다):
 
 - 정보 블록, 데모 헤더(모든 필드. 아직 모르는 끝의 두 바이트는 16진수로 보관), 청크 표;
 - 모든 프레임, 패킷, 번치(담긴 내용으로 통째로 나눔), 열린 모든 액터(생성 위치, 회전, 크기, 속도 포함)와 닫힌 모든 액터(이유: `Destroyed`, `Dormancy`...);

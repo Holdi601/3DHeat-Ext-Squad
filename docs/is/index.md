@@ -19,7 +19,7 @@ leikmaður var, sekúndu fyrir sekúndu, og hvað gerðist hvar.
 hvaða leiðir sveitir fóru, hvar ökutæki eyðilögðust.
 
 **Dæmi:** `match.replay` (demo, tekið upp á Squad-þjóni) ->
-`match.parquet` (ein röð fyrir hverja staðsetningu eða atburð) + `match.match.json` (leikskjalið:
+`match.parquet` (ein röð fyrir hverja staðsetningu eða atburð) + `match.match.json` (leikjaskjalið:
 lið, sveitir, leikmenn). Úttakið eru venjulegar Parquet- og JSON-skrár,
 svo allt annað getur lesið þær líka.
 
@@ -39,7 +39,7 @@ Til hvers það nýtist:
 
 ## Fljótleg byrjun {#quick-start}
 
-Ertu ný/r í skipanalínunni? Lestu fyrst [Áður en þú byrjar](before-you-start.md).
+Hefurðu aldrei notað skipanalínu? Lestu fyrst [Áður en þú byrjar](before-you-start.md).
 
 ```bash
 python -m pip install -e .              # installs the heat3d-squad-demo command
@@ -57,7 +57,7 @@ heat3d-squad-demo match.replay -o out   # or a folder of .replay files
 | [Upptaka á demo](recording.md) | að láta þjón skrifa demo og finna það |
 | [Umbreyting á demo](converting.md) | skipunin, hver valkostur, dæmi um úttak |
 | [Taflan](output-table.md) | hver dálkur og hver `event` |
-| [Leikskjalið og hliðarskrár](output-match.md) | `.match.json`, hliðarskrárnar tvær, sjálfsskoðunin |
+| [Leikjaskjalið og hliðarskrár](output-match.md) | `.match.json`, hliðarskrárnar tvær, sjálfsskoðunin |
 | [Hvernig demo er lesið](how-it-works.md) | lög lesarans og hvað var staðfest |
 | [Takmarkanir, uppfærslur og skilmálar](limits.md) | hvað er ekki lesið, hvað Squad-uppfærsla getur brotið, persónuupplýsingar, leyfi |
 | [Skipanayfirlit](../cli-reference.md) | hver valkostur og dálkur, búið til úr kóðanum |
@@ -69,16 +69,16 @@ heat3d-squad-demo match.replay -o out   # or a folder of .replay files
   skjöl á [holdi601.github.io/3DHeat](https://holdi601.github.io/3DHeat/).
 - Skráasniðin sem skoðarinn les, þar á meðal gámurinn með eina skrá fyrir hvern leik:
   [Ein skrá fyrir hvern leik (.3dheat)](https://holdi601.github.io/3DHeat/container.html).
-  Þessi umbreytir skrifar lausu skrárnar: töfluna, leikskjalið og
+  Þessi umbreytir skrifar lausu skrárnar: töfluna, leikjaskjalið og
   hliðarskrár þess hlið við hlið.
 - 3DHeat Watcher keyrir þennan umbreyti á ný demo þegar hann er uppsettur
   (adapter `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
 
-## 3DHeat tólin {#the-3dheat-tools}
+## 3DHeat verkfærin {#the-3dheat-tools}
 
-| Tól | Hvað það gerir | Kóði | Skjöl |
+| Verkfæri | Hvað það gerir | Kóði | Skjöl |
 |---|---|---|---|
-| 3DHeat viewer | sýnir gögnin: hitakort, kappakstursgreiningu, leikjayfirlit | [3DHeat](https://github.com/Holdi601/3DHeat) | [skjöl](https://holdi601.github.io/3DHeat/) |
+| 3DHeat-skoðari | sýnir gögnin: hitakort, kappakstursgreiningu, leikjayfirlit | [3DHeat](https://github.com/Holdi601/3DHeat) | [skjöl](https://holdi601.github.io/3DHeat/) |
 | GameFiles | borð og brautir úr eigin skrám leiks | [3DHeat-GameFiles](https://github.com/Holdi601/3DHeat-GameFiles) | [skjöl](https://holdi601.github.io/3DHeat-GameFiles/) |
 | GameCapture | hringtímagögn og borð endurbyggð úr leikmyndbandi | [3DHeat-GameCapture](https://github.com/Holdi601/3DHeat-GameCapture) | [skjöl](https://holdi601.github.io/3DHeat-GameCapture/) |
 | Unreal Exporter | viðbót fyrir Unreal Editor: borð sem ein `.glb` | [3DHeat-UnrealExporter](https://github.com/Holdi601/3DHeat-UnrealExporter) | [skjöl](https://holdi601.github.io/3DHeat-UnrealExporter/) |
@@ -87,6 +87,6 @@ heat3d-squad-demo match.replay -o out   # or a folder of .replay files
 | Ext-WarThunder | War Thunder upptökur | [3DHeat-Ext-WarThunder](https://github.com/Holdi601/3DHeat-Ext-WarThunder) | [skjöl](https://holdi601.github.io/3DHeat-Ext-WarThunder/) |
 | Ext-WoT | World of Tanks upptökur | [3DHeat-Ext-WoT](https://github.com/Holdi601/3DHeat-Ext-WoT) | [skjöl](https://holdi601.github.io/3DHeat-Ext-WoT/) |
 | Ext-WoWs | World of Warships upptökur | [3DHeat-Ext-WoWs](https://github.com/Holdi601/3DHeat-Ext-WoWs) | [skjöl](https://holdi601.github.io/3DHeat-Ext-WoWs/) |
-| Ext-Squad | Squad þjónadem | [3DHeat-Ext-Squad](https://github.com/Holdi601/3DHeat-Ext-Squad) | [skjöl](https://holdi601.github.io/3DHeat-Ext-Squad/) |
+| Ext-Squad | Squad þjónsdemo | [3DHeat-Ext-Squad](https://github.com/Holdi601/3DHeat-Ext-Squad) | [skjöl](https://holdi601.github.io/3DHeat-Ext-Squad/) |
 | Ext-DCS | DCS World kort sem 3D borð | [3DHeat-Ext-DCS](https://github.com/Holdi601/3DHeat-Ext-DCS) | [skjöl](https://holdi601.github.io/3DHeat-Ext-DCS/) |
 | Ext-IL2 | IL-2 Sturmovik kort sem 3D borð | [3DHeat-Ext-IL2](https://github.com/Holdi601/3DHeat-Ext-IL2) | [skjöl](https://holdi601.github.io/3DHeat-Ext-IL2/) |

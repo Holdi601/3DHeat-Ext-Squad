@@ -13,7 +13,7 @@ search_exclude: true
 
 - **Kas ką nužudė ir žala kareiviams pagal pataikymą.** Tai keliauja per ginklų ir žaidėjo būsenų nuotolinių kvietimų
   pataikymo rezultatus (`HitResultsZeroBased`, `MulticastOnImpact.Hit`), kurių struktūra neskaitoma; jie išsaugomi visi
-  šalutiniame veikėjų faile. Dekoduojama tik aukų sveikata.
+  papildomame veikėjų faile. Dekoduojama tik aukų sveikata.
 - **Boto komanda.** Boto būsena turi skaičių, kuris gali būti jo komanda; nepatvirtinta, nenaudojama.
 - **Kur kareivis žiūri į šonus** už kūno posūkio ribų.
 
@@ -30,14 +30,14 @@ nuo savybių išdėstymų, kurių nemato: tuos išdėstymus įrašas pats įvard
 - **Iris replikacija.** Jei Squad perjungtų į Iris, srautas dalyse būtų naujas ir šis skaitytuvas jo neskaitytų. Squad v10.3.1
   naudoja klasikinę sistemą (ji veikia su ReplicationGraph).
 - **Pervadinti klasės ar savybės.** Jei Squad pervadintų savo žaidėjo, komandos ar būrio klases ar jų savybes, pavadinimų ar
-  komandų pasigestų, bet pozicijų – ne.
+  komandų duomenų trūktų, bet pozicijų – ne.
 - **Kas nutinka gedimo atveju.** Kai formatas pasikeičia, skaitytuvas garsiai nutrūksta su srauto ar judėjimo klaidomis diagnostikoje.
   Jis neišduoda tyliai klaidingų pozicijų: `FRepMovement` priimamas tik tada, kai jo bitai tiksliai susideda.
 
 ## Asmens duomenys {#personal-data}
 
-Demo saugo visų serveryje esančių žmonių vardus ir tiesioginio ryšio ID. Lentelėje ir rungtynių dokumente yra vardai, ne ID.
-Šalutiniai failai saugo kiekvienos savybės bitus, todėl juose ID yra tokie, kaip demo (nedekoduoti). Traktuokite visus juos
+Demo saugo visų serveryje esančių žmonių vardus ir prisijungimo ID. Lentelėje ir rungtynių dokumente yra vardai, ne ID.
+Papildomi failai saugo kiekvienos savybės bitus, todėl juose ID yra tokie, kaip demo (nedekoduoti). Traktuokite visus juos
 kaip patį demo failą.
 
 ## Licencija ir šaltiniai {#licence-and-sources}

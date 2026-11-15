@@ -36,11 +36,11 @@ Til hva det er nyttig:
 
 ## Hurtigstart {#quick-start}
 
-Ny til kommandolinjen? Les [Før du begynner](before-you-start.md) først.
+Ny til kommandolinjen? Les [Før du starter](before-you-start.md) først.
 
 ```bash
-python -m pip install -e .              # installs the heat3d-squad-demo command
-heat3d-squad-demo match.replay -o out   # or a folder of .replay files
+python -m pip install -e .              # installerer kommandoen heat3d-squad-demo
+heat3d-squad-demo match.replay -o out   # eller en mappe med .replay-filer
 ```
 
 Du bør se én linje per demo. Last deretter inn `out/<map>/<demo>.parquet` i visningsprogrammets Varmekart-fane
@@ -50,7 +50,7 @@ Du bør se én linje per demo. Last deretter inn `out/<map>/<demo>.parquet` i vi
 
 | Side | Hva den dekker |
 |---|---|
-| [Før du begynner](before-you-start.md) | Python, en terminal, en første kjøring |
+| [Før du starter](before-you-start.md) | Python, en terminal, en første kjøring |
 | [Ta opp en demo](recording.md) | få en server til å skrive en demo, og finne den |
 | [Konverter demoer](converting.md) | kommandoen, hvert alternativ, eksempelutdata |
 | [Tabellen](output-table.md) | hver kolonne og hver `event` |
@@ -58,7 +58,7 @@ Du bør se én linje per demo. Last deretter inn `out/<map>/<demo>.parquet` i vi
 | [Slik leses en demo](how-it-works.md) | lagene i leseren, og hva som ble kontrollert |
 | [Begrensninger, oppdateringer og vilkår](limits.md) | hva som ikke leses, hva en Squad-oppdatering kan ødelegge, personopplysninger, lisens |
 | [Kommandoreferanse](../cli-reference.md) | hvert alternativ og hver kolonne, generert fra koden |
-| [Vedlikehold av disse dokumentene](maintaining.md) | sjekklisten for utgivelse |
+| [Vedlikeholde dokumentasjonen](maintaining.md) | sjekklisten for utgivelse |
 
 ## Relatert {#related}
 
@@ -76,14 +76,14 @@ Du bør se én linje per demo. Last deretter inn `out/<map>/<demo>.parquet` i vi
 | Verktøy | Hva det gjør | Kode | Dokumentasjon |
 |---|---|---|---|
 | 3DHeat-visningsprogram | viser dataene: varmekart, løpsanalyse, kampgjennomgang | [3DHeat](https://github.com/Holdi601/3DHeat) | [dokumentasjon](https://holdi601.github.io/3DHeat/) |
-| GameFiles | baner og løyper fra et spills egne filer | [3DHeat-GameFiles](https://github.com/Holdi601/3DHeat-GameFiles) | [dokumentasjon](https://holdi601.github.io/3DHeat-GameFiles/) |
-| GameCapture | telemetri fra runder, og baner bygget opp fra spillopptak | [3DHeat-GameCapture](https://github.com/Holdi601/3DHeat-GameCapture) | [dokumentasjon](https://holdi601.github.io/3DHeat-GameCapture/) |
-| Unreal Exporter | en Unreal Editor-plugin: en bane som én `.glb` | [3DHeat-UnrealExporter](https://github.com/Holdi601/3DHeat-UnrealExporter) | [dokumentasjon](https://holdi601.github.io/3DHeat-UnrealExporter/) |
+| GameFiles | nivåer og løyper fra et spills egne filer | [3DHeat-GameFiles](https://github.com/Holdi601/3DHeat-GameFiles) | [dokumentasjon](https://holdi601.github.io/3DHeat-GameFiles/) |
+| GameCapture | telemetri fra runder, og nivåer bygget opp fra spillopptak | [3DHeat-GameCapture](https://github.com/Holdi601/3DHeat-GameCapture) | [dokumentasjon](https://holdi601.github.io/3DHeat-GameCapture/) |
+| Unreal Exporter | en Unreal Editor-plugin: et nivå som én `.glb` | [3DHeat-UnrealExporter](https://github.com/Holdi601/3DHeat-UnrealExporter) | [dokumentasjon](https://holdi601.github.io/3DHeat-UnrealExporter/) |
 | CS2 | Counter-Strike 2-demoer og kart | [3DHeat-CS2](https://github.com/Holdi601/3DHeat-CS2) | [dokumentasjon](https://holdi601.github.io/3DHeat-CS2/) |
 | Watcher | tar opp det spill publiserer mens du spiller | [3DHeat-Watcher](https://github.com/Holdi601/3DHeat-Watcher) | [dokumentasjon](https://holdi601.github.io/3DHeat-Watcher/) |
 | Ext-WarThunder | War Thunder-replayer | [3DHeat-Ext-WarThunder](https://github.com/Holdi601/3DHeat-Ext-WarThunder) | [dokumentasjon](https://holdi601.github.io/3DHeat-Ext-WarThunder/) |
 | Ext-WoT | World of Tanks-replayer | [3DHeat-Ext-WoT](https://github.com/Holdi601/3DHeat-Ext-WoT) | [dokumentasjon](https://holdi601.github.io/3DHeat-Ext-WoT/) |
 | Ext-WoWs | World of Warships-replayer | [3DHeat-Ext-WoWs](https://github.com/Holdi601/3DHeat-Ext-WoWs) | [dokumentasjon](https://holdi601.github.io/3DHeat-Ext-WoWs/) |
 | Ext-Squad | Squad-serverdemoer | [3DHeat-Ext-Squad](https://github.com/Holdi601/3DHeat-Ext-Squad) | [dokumentasjon](https://holdi601.github.io/3DHeat-Ext-Squad/) |
-| Ext-DCS | DCS World-kart som 3D-baner | [3DHeat-Ext-DCS](https://github.com/Holdi601/3DHeat-Ext-DCS) | [dokumentasjon](https://holdi601.github.io/3DHeat-Ext-DCS/) |
-| Ext-IL2 | IL-2 Sturmovik-kart som 3D-baner | [3DHeat-Ext-IL2](https://github.com/Holdi601/3DHeat-Ext-IL2) | [dokumentasjon](https://holdi601.github.io/3DHeat-Ext-IL2/) |
+| Ext-DCS | DCS World-kart som 3D-nivåer | [3DHeat-Ext-DCS](https://github.com/Holdi601/3DHeat-Ext-DCS) | [dokumentasjon](https://holdi601.github.io/3DHeat-Ext-DCS/) |
+| Ext-IL2 | IL-2 Great Battles-kart som 3D-nivåer | [3DHeat-Ext-IL2](https://github.com/Holdi601/3DHeat-Ext-IL2) | [dokumentasjon](https://holdi601.github.io/3DHeat-Ext-IL2/) |

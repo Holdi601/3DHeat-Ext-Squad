@@ -37,9 +37,9 @@ Për çfarë është e dobishme:
 
 ![Nga një server Squad te shikuesi](../assets/img/sq/flow.svg)
 
-## Fillim i shpejtë {#quick-start}
+## Fillimi i shpejtë {#quick-start}
 
-Je i ri me vijën e komandës? Lexo së pari [Para se të fillosh](before-you-start.md).
+Je i ri me rreshtin e komandave? Lexo së pari [Para se të fillosh](before-you-start.md).
 
 ```bash
 python -m pip install -e .              # installs the heat3d-squad-demo command
@@ -57,7 +57,7 @@ Duhet të shohësh një rresht për çdo demo. Pastaj ngarko `out/<map>/<demo>.p
 | [Regjistrimi i një demoje](recording.md) | si ta bëj një server të shkruajë një demo, dhe ta gjej |
 | [Konvertimi i demove](converting.md) | komanda, çdo opsion, dalje shembull |
 | [Tabela](output-table.md) | çdo kolonë dhe çdo `event` |
-| [Dokumenti i ndeshjes dhe skedarët ndihmës](output-match.md) | `.match.json`, dy skedarët ndihmës, vetëkontrolli |
+| [Dokumenti i ndeshjes dhe skedarët anësorë](output-match.md) | `.match.json`, dy skedarët anësorë, vetëkontrolli |
 | [Si lexohet një demo](how-it-works.md) | shtresat e lexuesit, dhe çfarë u verifikua |
 | [Kufizimet, përditësimet dhe kushtet](limits.md) | çfarë nuk lexohet, çfarë mund të prishë një përditësim i Squad, të dhënat personale, licenca |
 | [Referenca e komandave](../cli-reference.md) | çdo opsion dhe kolonë, e gjeneruar nga kodi |
@@ -70,7 +70,7 @@ Duhet të shohësh një rresht për çdo demo. Pastaj ngarko `out/<map>/<demo>.p
 - Formatet e skedarëve që lexon shikuesi, përfshirë kontejnerin një-skedar-për-ndeshje:
   [One file a match (.3dheat)](https://holdi601.github.io/3DHeat/container.html).
   Ky konvertues shkruan skedarët e veçantë: tabelën, dokumentin e ndeshjes dhe
-  skedarët e tij ndihmës përkrah njëri-tjetrit.
+  skedarët e tij anësorë përkrah njëri-tjetrit.
 - 3DHeat Watcher e ekzekuton këtë konvertues mbi demot e reja kur është i instaluar
   (adapteri `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
 

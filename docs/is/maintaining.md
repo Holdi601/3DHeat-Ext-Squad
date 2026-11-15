@@ -14,7 +14,7 @@ Gátlisti fyrir hverja útgáfu, svo síðurnar dragist aldrei aftur úr kóðan
 1. **Endurgerðu tilvísunina.** `python tools/gen_docs_reference.py` endurskrifar
    [Skipanayfirlit](../cli-reference.md) út frá `--help` forritsins og
    úttaksdálkum þess. `python tools/gen_docs_reference.py --check` skilar 1 þegar
-   innchecka síðan er úrelt.
+   innritaða tilvísunarsíðan er úrelt.
 2. **Taktu saman hvað breyttist.** `git log v<VERSION>..HEAD --oneline`, þar sem
    `<VERSION>` er síðasta útgefna útgáfa (`VERSION` skráin við útgáfu).
    Gefðu hverjum nýjum eiginleika, valkosti og úttaksdálki stað á síðu, og
@@ -25,7 +25,7 @@ Gátlisti fyrir hverja útgáfu, svo síðurnar dragist aldrei aftur úr kóðan
    sem ber hvern valkost saman við `--help`. Dæmi nota aðeins tilbúin nöfn og
    tölur.
 4. **Lagaðu** allt sem yfirlesturinn finnur.
-5. **Þýðingar.** Sérhver þýdd síða geymir hakkið af ensku síðunni
+5. **Þýðingar.** Sérhver þýdd síða geymir tætigildi ensku síðunnar
    sem hún var gerð úr. Þýddu aftur þær síður þar sem enska frumtextanum var breytt,
    og yfirfarðu síðan hvert tungumál: skýran texta, réttar skýringar á myndritum, sömu
    orð og í þýddu viðmóti skoðarans sjálfs.

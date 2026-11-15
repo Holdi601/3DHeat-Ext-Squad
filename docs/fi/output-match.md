@@ -1,5 +1,5 @@
 ---
-title: "Ottelun asiakirja ja liitetiedostot"
+title: "Ottelun asiakirja ja sivutiedostot"
 nav_order: 5
 lang: fi
 source: output-match.md
@@ -7,9 +7,9 @@ source_hash: "715bd3417e47"
 nav_exclude: true
 search_exclude: true
 ---
-# Ottelun asiakirja ja liitetiedostot {#the-match-document-and-sidecars}
+# Ottelun asiakirja ja sivutiedostot {#the-match-document-and-sidecars}
 
-Taulukon rinnalla jokainen demo saa tiedoston `<demo>.match.json` ja kaksi liitetiedostoa,
+Taulukon rinnalla jokainen demo saa tiedoston `<demo>.match.json` ja kaksi sivutiedostoa,
 `<demo>.entities.parquet` ja `<demo>.packets.parquet`. Katselin lukee ottelun asiakirjan
 Ottelu-välilehdellään.
 
@@ -18,13 +18,13 @@ Ottelu-välilehdellään.
 `<demo>.match.json` (ottelun asiakirja) sisältää ylimmällä tasollaan kentät `map`, `layer`, `level_path`,
 `game_version`, `engine_version`, `recorded_unix`, `duration_s`, `teams`, `squads`, `game_state`, `actors`,
 `players`, `rows`, `events`, `not_read`, `file`, `header`, `chunks`, `stream`, `shots` ja `selfCheck`
-(koko luettelo: [Komentoviite](../cli-reference.md)). Sanoin: kartta ja taso, pelin ja moottorin versiot,
+(koko luettelo: [Komentoviite](../cli-reference.md)). Lyhyesti: kartta ja kenttä, pelin ja moottorin versiot,
 tallennusaika, pituus, ja:
 
 - **joukkueet**: numero, puoli ja kaikki, mitä niiden tila replikoi (lippuja, saatavuuksia, komentaja),
   sitä mukaa kun se muuttui;
 - **joukkueiden ryhmät**: numero, joukkue, nimi, perustaja, johtaja, jäsenet;
-- **pelin tila**: palvelimen nimi ja asetukset, pelimuoto, ottelun tila ja tunnus, kartta- ja tasokierrot,
+- **pelin tila**: palvelimen nimi ja asetukset, pelimuoto, ottelun tila ja tunnus, kartta- ja kenttäkierrot,
   äänestykset, ajastimet, päivän viesti;
 - **toimijat**: jokainen ajoneuvo, siirrettävä tukikohta, asema, ammuslaatikko ja helikopteri – luokka, missä
   ja milloin se syntyi, milloin se poistui, kenen se oli ja sen replikoitu tila (terveys, rakennustila, istuimet...);
@@ -48,8 +48,8 @@ python -c "import json; d = json.load(open('out/<map>/<demo>.match.json')); prin
 
 ## Täydellisyys {#completeness}
 
-Tämä lukija noudattaa kaikkien 3DHeat-muuntajien yhteistä sääntöä: lue, mikä voidaan lukea heti, säilytä loput
-kokonaisina ja kerro, kuinka paljon kutakin lajia on ([Muuntajat säilyttävät kaiken](https://github.com/Holdi601/3DHeat/blob/main/docs/converters.md)).
+Tämä lukija noudattaa kaikkien 3DHeat-muuntimien yhteistä sääntöä: lue, mikä voidaan lukea heti, säilytä loput
+kokonaisina ja kerro, kuinka paljon kutakin lajia on ([Muuntimet säilyttävät kaiken](https://github.com/Holdi601/3DHeat/blob/main/docs/converters.md)).
 Jokaisella ottelun asiakirjalla on `selfCheck.completeness`: jokaista demossa kohdattua kohdetyyppiä kohden,
 kuinka monta oli `seen` (nähty), `decoded` (purettu), `partial` (purettu osittain ja säilytetty kokonaisena),
 `raw` (vain säilytetty kokonaisena) ja `lost` (pitää olla 0). Tyypit lasketaan siellä, missä lukija ne kohtaa:
@@ -69,7 +69,7 @@ kokonaan, loput ovat osittaisia tai raakoja.
   sijainnit `FRepMovementista` ja helikoptereiden liikekomponentista, kuolemat, ajoneuvojen terveys, istuimet;
 - jokainen etäkutsu nimeltään, parametreineen silloin, kun demo vie funktion ryhmän: laukaukset (`fire`) ja
   ajoneuvojen osumat (`hit`) taulukkoon;
-- net field -vientitaulukot ja net GUIDit (niiden määrä; polut ovat liitetiedostossa entities).
+- net field -vientitaulukot ja net GUIDit (niiden määrä; polut ovat sivutiedostossa entities).
 
 **Säilytetty raakana** (kokonaisena, ja siitä luettu näkyy sen rinnalla):
 

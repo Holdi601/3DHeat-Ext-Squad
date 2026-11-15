@@ -42,7 +42,7 @@ Nem függ olyan tulajdonságelrendezésektől, amelyeket nem lát: a visszajáts
 
 Egy demó tartalmazza a szerveren lévők mindenkijének nevét és online azonosítóját. A táblázat és a meccs
 dokumentuma neveket tartalmaz, nem azonosítókat. A kísérőfájlok minden tulajdonság bitjeit megtartják,
-így az azonosítókat úgy tartalmazzák, ahogy a demó (nincsenek dekódolva). Mindegyiket úgy kezelje, mint maga a demót.
+így az azonosítókat úgy tartalmazzák, ahogy a demó (nincsenek dekódolva). Mindegyiket úgy kezeld, mint maga a demót.
 
 ## Licenc és források {#licence-and-sources}
 

@@ -38,21 +38,21 @@ Kam tas noder:
 
 ## Ātrais sākums {#quick-start}
 
-Nekad nav strādāts ar komandrindu? Vispirms izlasi [Pirms sākat](before-you-start.md).
+Nekad neesat strādājis ar komandrindu? Vispirms izlasiet [Pirms sākat](before-you-start.md).
 
 ```bash
 python -m pip install -e .              # uzstāda komandu heat3d-squad-demo
 heat3d-squad-demo match.replay -o out   # vai mape ar .replay failiem
 ```
 
-Redzēsi pa vienai rindai katram demo. Pēc tam ielādē `out/<map>/<demo>.parquet` skatītāja
+Redzēsiet pa vienai rindai katram demo. Pēc tam ielādējiet `out/<map>/<demo>.parquet` skatītāja
 cilnē Siltumkarte ([Datu ievade](https://holdi601.github.io/3DHeat/getting-data-in.html)).
 
 ## Lapas {#pages}
 
 | Lapa | Ko tā aptver |
 |---|---|
-| [Pirms sākat](before-you-start.md) | Python, terminālis, pirmā palaišana |
+| [Pirms sākat](before-you-start.md) | Python, termināls, pirmā palaišana |
 | [Demo ierakstīšana](recording.md) | kā panākt, lai serveris ieraksta demo, un kā to atrast |
 | [Demo konvertēšana](converting.md) | komanda, katra iespēja, piemēra izvade |
 | [Tabula](output-table.md) | katra kolonna un katrs `event` |

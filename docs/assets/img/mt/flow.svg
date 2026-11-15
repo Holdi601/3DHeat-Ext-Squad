@@ -35,7 +35,7 @@
 <rect x="16" y="536" width="828" height="82" rx="8" fill="#eef4ff" stroke="#8c95a3"/>
 <text x="28" y="563" font-size="15" fill="#1f2328" font-weight="600">4. Il-viewer ta' 3DHeat</text>
 <text x="28" y="583" font-size="14" fill="#3d4450">Tab Heatmap: it-tabella</text>
-<text x="28" y="603" font-size="14" fill="#3d4450">Tab Match: id-dokument tal-partita</text>
+<text x="28" y="603" font-size="14" fill="#3d4450">Tab Partita: id-dokument tal-partita</text>
 <path d="M148,504 C148,519.0 430,519.0 430,533" fill="none" stroke="#5b6270" stroke-width="1.6" marker-end="url(#a)"/>
 <path d="M430,504 C430,519.0 430,519.0 430,533" fill="none" stroke="#5b6270" stroke-width="1.6" marker-end="url(#a)"/>
 <path d="M712,504 C712,519.0 430,519.0 430,533" fill="none" stroke="#5b6270" stroke-width="1.6" marker-end="url(#a)"/>

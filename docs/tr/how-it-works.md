@@ -17,7 +17,7 @@ Bir Unreal ağ tekrarı, sunucunun kendi çoğaltma trafiğidir ve demo sürüc�
 
 | Modül | Katman |
 |---|---|
-| `container.py` | Yerel dosya akışçısının dosyası: bir bilgi bloğu (sihirli sayı `0x1CA2E27F`), ardından parçalar. Parça türleri: başlık (`FNetworkDemoHeader`, sihirli sayı `0x2CF5A13D`), tekrar verisi, denetim noktaları ve olaylar. |
+| `container.py` | Dosya kapsayıcısı: bir bilgi bloğu (sihirli sayı `0x1CA2E27F`), ardından parçalar. Parça türleri: başlık (`FNetworkDemoHeader`, sihirli sayı `0x2CF5A13D`), tekrar verisi, denetim noktaları ve olaylar. |
 | `bits.py` | Kareler için bayt arşivleri, paketler için bit arşivleri. Paketler en düşük bitten başlanarak okunur. |
 | `stream.py` | Kareler, paketler, bunch'lar (kısmi bunch'lar birleştirilmiş), aktör kanalları, aktör doğuşları ve içerik blokları. Her blok çoğaltılan özellikleri tutamaç, bit sayısı ve bitler olarak tutar; ardından uzak çağrılar ve özel delta alanları, sınıfın `_ClassNetCache` grubundaki tutamaçlar olarak gelir. Dışa aktarmaların adını vermediği nesnelere, tüm demo okunduktan sonra sınıfları verilir (aşağıya bakın). |
 | `movement.py` | Motorun `FRepMovement` yapısı ve Squad'un helikopter hareketi. |
@@ -59,6 +59,6 @@ Testler, kendileri tarafından oluşturulan demolar üzerinde kapsayıcıyı, ar
 
 ```bash
 python -m pip install -e .[test]
-pytest                                   # synthetic demos
-HEAT3D_SQUAD_DEMOS=<folder> pytest       # plus real demos in that folder
+pytest                                   # sentetik demolar
+HEAT3D_SQUAD_DEMOS=<folder> pytest       # ayrıca o klasördeki gerçek demolar
 ```

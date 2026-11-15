@@ -22,11 +22,11 @@ controlador de demo. Llegir-la és llegir aquest trànsit tal com ho faria un cl
 |---|---|
 | `container.py` | El fitxer del transmissor local de fitxers: un bloc d'informació (magic `0x1CA2E27F`), i després blocs. Els tipus de bloc són la capçalera (`FNetworkDemoHeader`, magic `0x2CF5A13D`), les dades de repetició, els punts de control i els esdeveniments. |
 | `bits.py` | Arxius de bytes per als fotogrames i arxius de bits per als paquets. Els paquets es llegeixen primer el bit més baix. |
-| `stream.py` | Fotogrames, paquets, paquets (els paquets parcials units), canals d'actor, aparicions d'actors i blocs de contingut. Cada bloc conté les propietats replicades com a identificador, nombre de bits i bits, després les crides remotes i els camps de delta personalitzats com a identificadors dins del grup `_ClassNetCache` de la classe. Els objectes que les exportacions no anomenen reben la seva classe quan s'ha llegit tota la demo (vegi més avall). |
+| `stream.py` | Fotogrames, paquets, paquets (els paquets parcials units), canals d'actor, aparicions d'actors i blocs de contingut. Cada bloc conté les propietats replicades com a identificador, nombre de bits i bits, després les crides remotes i els camps de delta personalitzats com a identificadors dins del grup `_ClassNetCache` de la classe. Els objectes que les exportacions no anomenen reben la seva classe quan s'ha llegit tota la demo (mira més avall). |
 | `movement.py` | El `FRepMovement` del motor, i el moviment d'helicòpter de Squad. |
-| `keep.py` | Cada element trobat, comptat i guardat: les files dels fitxers auxiliars i la comprovació. |
+| `keep.py` | Cada element trobat, comptat i guardat: les files dels annexos i la comprovació. |
 | `squad.py` | Quines classes de Squad porten què. `SQPlayerState` conté el nom, l'estat d'equip, l'estat d'esquadró i el peó actual; `SQTeamState` el número d'equip i la facció; `SQSquadState` el número d'esquadró. El propietari d'un peó de seient és el seu vehicle. |
-| `output.py`, `cli.py` | La taula i el document de la partida. |
+| `output.py`, `cli.py` | La taula i el document de partida. |
 
 Una repetició anomena els seus propis camps. Porta les rutes de classe i els noms de propietat de
 cada identificador, i les rutes dels objectes als quals fa referència. Així, cada propietat es pot
@@ -41,10 +41,10 @@ en el fotograma on s'envia per primera vegada (cert per a cada primer enviament 
 a les demos de prova), de manera que la classe és l'únic grup que va exportar exactament aquests
 identificadors en els fotogrames on l'objecte els va enviar per primera vegada; si no, qualsevol grup que
 ja tingués tots els seus identificadors en aquell moment, quan tots donen els mateixos noms; o si no, la
-classe d'un objecte del mateix nom, sense els números, o el únic grup el nom del qual conté el de l'objecte.
+classe d'un objecte del mateix nom, sense els números, o l'únic grup el nom del qual conté el de l'objecte.
 Dels identificadors dels objectes anomenats d'aquesta manera, la classe dels quals els envia amb un
 nombre de bits fix, tots han arribat amb aquest nombre (cap amb un altre). Allò que cap d'aquests
-criteris resol es queda al fitxer auxiliar d'entitats, sencer.
+criteris resol es queda a l'annex d'entitats, sencer.
 
 ## Descodificar propietats {#decoding-properties}
 

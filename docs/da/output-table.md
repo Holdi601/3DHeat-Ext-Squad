@@ -32,7 +32,7 @@ mens den bevæger sig.
 | `pawn` | soldat-blueprintet (`SQSquidBot` for en bot), køretøjet, eller for `fire` våbnet |
 | `seat` | for et tårn- eller passagersæde, sædets egen pawn |
 | `detail` | for `fire` våbnets kald, der placerede skuddet, for `hit` skadetypen, for `removed` hvorfor kanalen lukkede (`Destroyed`, `Dormancy`...) |
-| `entity` | aktøren, rækken handler om (dens net-GUID): `entity` i sidefilernes rækker |
+| `entity` | aktøren, rækken handler om (dens net-GUID): `entity` i sidecarenes rækker |
 | `match` | demoens navn |
 
 ## Hændelser {#events}
@@ -49,10 +49,10 @@ mens den bevæger sig.
 
 Hvordan hændelserne læses, står i [Sådan læses en demo](how-it-works.md#how-the-events-are-read).
 
-## I fremviseren {#in-the-viewer}
+## I vieweren {#in-the-viewer}
 
 Parquet-footeren bærer læsevejledninger under nøglen `heat3d`: Z op, ingen
-akse spejlet, enhedsskala 1, så fremviseren ikke behøver nogen kolonnekortlægning. Indlæs
-tabellen i Heatmap-fanen; se fremviserens
+akse spejlet, enhedsskala 1, så vieweren ikke behøver nogen kolonnekortlægning. Indlæs
+tabellen i Heatmap-fanen; se viewerens
 [Hent data ind](https://holdi601.github.io/3DHeat/getting-data-in.html)
 og [Kolonnekortlægning](https://holdi601.github.io/3DHeat/column-mapping.html).

@@ -24,7 +24,7 @@ ylös. Sen lukeminen on sen liikenteen lukemista samalla tavalla kuin asiakas se
 | `bits.py` | Tavuarkistot kehyksille ja bittiarkistot paketeille. Paketit luetaan alimmasta bitistä ylöspäin. |
 | `stream.py` | Kehykset, paketit, niput (osittaiset nipput yhdistetään), toimijakanavat, toimijoiden synnyt ja sisältölohkot. Jokainen lohko sisältää replikoidut ominaisuudet kahvana, bittimääränä ja bitteinä, sitten etäkutsut ja mukautetut delta-kentät kahvoina luokan `_ClassNetCache`-ryhmään. Objektit, joita viennit eivät nimeä, saavat luokkansa, kun koko demo on luettu (ks. alla). |
 | `movement.py` | Moottorin `FRepMovement` ja Squadin helikopterin liike. |
-| `keep.py` | Jokainen kohdattu kohde laskettuna ja säilytettynä: liitetiedostojen rivit ja itsetarkistus. |
+| `keep.py` | Jokainen kohdattu kohde laskettuna ja säilytettynä: sivutiedostojen rivit ja itsetarkistus. |
 | `squad.py` | Mitä Squad-luokat kantavat. `SQPlayerState` pitää nimen, joukkueen tilan, ryhmän tilan ja nykyisen pawnin; `SQTeamState` joukkueen numeron ja puolen; `SQSquadState` ryhmän numeron. Istuinpawnin omistaja on sen ajoneuvo. |
 | `output.py`, `cli.py` | Taulukko ja ottelun asiakirja. |
 
@@ -34,7 +34,7 @@ Ominaisuuden bitit tarvitsevat tyypin vain sitä varten. Liikkeelle tyyppi on mo
 Squadin ominaisuuksien tyypit ovat yksinkertaisia: merkkijonoja, kokonaislukuja,
 objektiviittauksia ja nimiä.
 
-Jotkin objektit nimetään vain itsensä kautta: tason toimijat ilmentymänimellään
+Jotkin objektit nimetään vain itsensä kautta: kentän toimijat ilmentymänimellään
 (`Team1SpawnPoint3`), komponentit omillaan (`MovementComponent`, `wheel_L1`). Niiden luokka
 selvitetään vientitauluista striimin jälkeen: demoajuri vie luokan kentän siinä kehyksessä,
 jossa se lähetetään ensimmäisen kerran (pitää paikkansa jokaiselle nimetyn objektin ensimmäiselle
@@ -43,7 +43,7 @@ kehyksissä, joissa objekti lähetti ne ensimmäisen kerran; muuten mikä tahans
 kaikki kahvansa siihen mennessä, kun kaikki antavat niille samat nimet; tai muuten saman nimisen
 objektin luokka, numerot pois lukien, tai se yksi ryhmä, jonka nimi sisältää objektin nimen.
 Näin nimettyjen objektien kahvoista, joiden luokka lähettää ne kiinteällä bittimäärällä, kaikki
-tulivat sillä määrällä (ei yksikään toisella). Mitä mikään näistä ei ratkaise, jää liitetiedostoon
+tulivat sillä määrällä (ei yksikään toisella). Mitä mikään näistä ei ratkaise, jää sivutiedostoon
 entities kokonaisena.
 
 ## Ominaisuuksien purkaminen {#decoding-properties}
@@ -82,7 +82,7 @@ moottorin verkkoversio 36), squad-replay-projektin testiaineistosta:
   kuuluu. Tämä piti myös pelaajalla, joka vaihtoi puolta ottelun aikana.
 - **Virheet.** Demoa kohden jää yksi striimivirhe: eksyvä bitti tallentajan oman katsojatoimijan
   avaavan nipun lopussa; se ei kanna mitään tässä käytettyä.
-- **Kaatumiset verrattuna tuon projektin tappoihin.** Jokainen sen luettelema tappo on täällä luettu
+- **Haavoittuneet ja kuolleet verrattuna tuon projektin tappoihin.** Jokainen sen luettelema tappo on täällä luettu
   haavoittuminen tai kuolema samalla hetkellä ja samalle pelaajalle; sen ajoneuvotappot ovat täällä
   luettuja ajoneuvoja, joiden terveys saavuttaa 0 tai alle.
 - **Siirrettävät tukikohdat.** Täällä luetut toimijat, joilla on rakennustila tai FOB-vaatimus,

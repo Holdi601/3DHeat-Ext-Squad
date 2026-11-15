@@ -16,7 +16,7 @@ python -m heat3d_ext_squad ...          the same, without installing
 
 ## Hap pas hapi {#step-by-step}
 
-Je i ri me vijën e komandës? Lexo së pari [Para se të fillosh](before-you-start.md).
+Je i ri me rreshtin e komandave? Lexo së pari [Para se të fillosh](before-you-start.md).
 
 1. Instalo një herë: `git clone https://github.com/Holdi601/3DHeat-Ext-Squad`,
    hap një terminal në atë dosje, ekzekuto `python -m pip install -e .`
@@ -29,7 +29,7 @@ Je i ri me vijën e komandës? Lexo së pari [Para se të fillosh](before-you-st
 
 ![Një ekzekutim mbi një demo sintetike](../assets/img/run.svg)
 
-Fotoja tregon një ekzekutim mbi një demo që e ndërtojnë testet (`tests/test_stream.py`),
+Pamja tregon një ekzekutim mbi një demo që e ndërtojnë testet (`tests/test_stream.py`),
 jo një ndeshje të vërtetë.
 
 ## Opsionet {#options}
@@ -47,7 +47,7 @@ jo një ndeshje të vërtetë.
 Dosja e hartës është emri i hartës i marrë nga shtegu i nivelit që emërton demo
 (`/Game/Maps/<Map>/Gameplay_Layers/<Layer>` jep `<Map>`).
 
-Kodi i daljes: 0 kur çdo demo u konvertua; 1 kur ndonjë dështoi (të tjerat shkruhen prapë)
+Statusi i daljes: 0 kur çdo demo u konvertua; 1 kur ndonjë dështoi (të tjerat shkruhen prapë)
 ose kur nuk u gjet asnjë skedar `.replay`.
 
 ## Çfarë del {#what-comes-out}
@@ -56,11 +56,11 @@ ose kur nuk u gjet asnjë skedar `.replay`.
 |---|---|
 | `<demo>.parquet` | tabela: pozicionet dhe ngjarjet, nga një rresht secila ([Tabela](output-table.md)) |
 | `<demo>.match.json` | dokumenti i ndeshjes ([Dokumenti i ndeshjes](output-match.md)) |
-| `<demo>.entities.parquet` | skedar ndihmës: çdo përditësim vetie dhe çdo thirrje në distancë, e plotë |
-| `<demo>.packets.parquet` | skedar ndihmës: copat e skedarit dhe çdo gjë që nuk u lexua, e plotë |
+| `<demo>.entities.parquet` | skedar anësor: çdo përditësim vetie dhe çdo thirrje në distancë, e plotë |
+| `<demo>.packets.parquet` | skedar anësor: copat e skedarit dhe çdo gjë që nuk u lexua, e plotë |
 
 Tabela dhe dokumenti i ndeshjes janë i njëjti çift që e shkruan mjeti 3DHeat CS2.
-Shikuesi e hap tabelën drejtpërdrejt dhe i lë jashtë skedarët ndihmës kur ngarkohet një
+Shikuesi e hap tabelën drejtpërdrejt dhe i lë jashtë skedarët anësorë kur ngarkohet një
 dosje e tërë.
 
 ## Shembuj {#examples}

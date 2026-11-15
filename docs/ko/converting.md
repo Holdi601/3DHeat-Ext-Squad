@@ -16,17 +16,17 @@ python -m heat3d_ext_squad ...          설치 없이 같은 동작
 
 ## 단계별 안내 {#step-by-step}
 
-명령줄이 처음이신가요? 먼저 [시작하기 전에](before-you-start.md)를 읽으세요.
+명령줄이 처음입니까? 먼저 [시작하기 전에](before-you-start.md)를 읽으세요.
 
 1. 한 번만 설치하세요: `git clone https://github.com/Holdi601/3DHeat-Ext-Squad`, 그 폴더에서 터미널을 열고 `python -m pip install -e .`를 실행합니다.
    (Python 3.10 이상이 필요하며, pyarrow와 numpy도 함께 설치됩니다.)
 2. `.replay` 파일을 한 폴더에 모으거나, 파일 이름을 하나씩 지정하세요.
 3. `heat3d-squad-demo <folder> -o out`을 실행하세요.
-4. 데모마다 한 줄씩 출력됩니다. 레이어, 플레이어 수, 행 수, 그리고 표를 어디에 저장했는지 보여줍니다. 각 데모는 `out/<map>/` 폴더 안의 독립된 파일 네 개가 됩니다 (`.3dheat` 컨테이너가 아닙니다). `.parquet` 파일을 3DHeat 뷰어에 불러오세요.
+4. 데모마다 한 줄씩 출력됩니다. 레이어, 플레이어 수, 행 수, 그리고 표를 어디에 저장했는지 보여 줍니다. 각 데모는 `out/<map>/` 폴더 안의 독립된 파일 네 개가 됩니다 (`.3dheat` 컨테이너가 아닙니다). `.parquet` 파일을 3DHeat 뷰어에 불러오세요.
 
 ![테스트가 만든 가상 데모를 실행한 모습](../assets/img/run.svg)
 
-그림은 실제 경기가 아니라, 테스트(`tests/test_stream.py`)가 만든 데모를 실행한 모습입니다.
+그림은 실제 매치가 아니라, 테스트(`tests/test_stream.py`)가 만든 데모를 실행한 모습입니다.
 
 ## 옵션 {#options}
 
@@ -49,11 +49,11 @@ python -m heat3d_ext_squad ...          설치 없이 같은 동작
 | 파일 | 내용 |
 |---|---|
 | `<demo>.parquet` | 표: 위치와 이벤트, 한 줄에 하나씩 ([표 설명](output-table.md)) |
-| `<demo>.match.json` | 경기 문서 ([경기 문서 설명](output-match.md)) |
+| `<demo>.match.json` | 매치 문서 ([매치 문서 설명](output-match.md)) |
 | `<demo>.entities.parquet` | 보조 파일: 모든 속성 갱신과 원격 호출을 빠짐없이 담습니다 |
 | `<demo>.packets.parquet` | 보조 파일: 파일의 조각들과, 읽지 못한 모든 내용을 빠짐없이 담습니다 |
 
-표와 경기 문서는 3DHeat CS2 도구가 쓰는 것과 같은 한 쌍입니다. 뷰어는 표를 바로 열며, 폴더 전체를 불러올 때는 보조 파일을 제외합니다.
+표와 매치 문서는 3DHeat CS2 도구가 쓰는 것과 같은 한 쌍입니다. 뷰어는 표를 바로 열며, 폴더 전체를 불러올 때는 보조 파일을 제외합니다.
 
 ## 예시 {#examples}
 

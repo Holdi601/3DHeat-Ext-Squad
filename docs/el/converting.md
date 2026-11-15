@@ -21,7 +21,7 @@ python -m heat3d_ext_squad ...          the same, without installing
 1. Εγκαταστήστε μία φορά: `git clone https://github.com/Holdi601/3DHeat-Ext-Squad`,
    ανοίξτε τερματικό μέσα σε αυτόν τον φάκελο, τρέξτε `python -m pip install -e .`
    (Python 3.10 ή νεότερη· φέρνει μαζί τα pyarrow και numpy).
-2. Βάλτε τα αρχεία `.replay` σε έναν φάκελο, ή ονομάστε τα ένα ένα.
+2. Βάλτε τα αρχεία `.replay` σε έναν φάκελο, ή δώστε τα ένα ένα στην εντολή.
 3. Τρέξτε `heat3d-squad-demo <folder> -o out`.
 4. Θα δείτε μία γραμμή για κάθε demo: το επίπεδο του, τους παίκτες και τις γραμμές του,
    και πού γράφτηκε ο πίνακας. Κάθε demo γίνεται τέσσερα χαλαρά αρχεία μέσα στο `out/<map>/` (όχι
@@ -42,7 +42,7 @@ python -m heat3d_ext_squad ...          the same, without installing
 | `--json` | ανενεργό | τυπώνει μία γραμμή JSON ανά demo στην έξοδο (για προγράμματα που καλούν την εντολή): `demo`, `ok`, `parquet`, `match`, `sidecars`, `lost`, `rows`, `players`, `layer`, `recorded_unix`· ένα demo που απέτυχε τυπώνει `demo`, `ok: false` και `error` αντί για αυτά |
 | `--version` | - | τυπώνει την έκδοση και σταματά |
 
-Κάθε επιλογή, όπως τη τυπώνει το πρόγραμμα: [Αναφορά εντολών](../cli-reference.md).
+Κάθε επιλογή, όπως την τυπώνει το πρόγραμμα: [Αναφορά εντολών](../cli-reference.md).
 
 Ο φάκελος του χάρτη είναι το όνομα του χάρτη, όπως προκύπτει από τη διαδρομή επιπέδου που αναφέρει το demo
 (το `/Game/Maps/<Map>/Gameplay_Layers/<Layer>` δίνει `<Map>`).

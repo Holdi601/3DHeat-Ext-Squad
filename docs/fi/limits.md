@@ -13,7 +13,7 @@ search_exclude: true
 
 - **Kuka tappoi kenet, ja vahinko sotilaille osumittain.** Nämä kulkevat aseiden ja pelaajatilojen
   etäkutsujen osumatuloksissa (`HitResultsZeroBased`, `MulticastOnImpact.Hit`), joiden rakennetta ei
-  lueta; ne säilytetään kokonaisina liitetiedostossa entities. Vain uhrien terveys puretaan.
+  lueta; ne säilytetään kokonaisina sivutiedostossa entities. Vain uhrien terveys puretaan.
 - **Botin joukkue.** Botin tilassa on luku, joka saattaa olla sen joukkue; ei vahvistettu, ei käytetty.
 - **Missä sotilas katsoo sivulle** rungon kääntymän ylittäen.
 
@@ -28,7 +28,7 @@ Se ei riipu ominaisuuksien asetteluista, joita se ei näe: toisto nimeää ne it
   voi muuttaa niputtimen otsikkoa, synnyt-dataa tai `FRepMovementia`. Nämä ovat koodissa versiosidonnaisia
   siellä, missä askel tunnetaan. Tuntemattomat askeleet (`ENG_PARTIAL_CUSTOM_EXPORTS`, lopullinen
   liikebitti) on lukittu siihen, mitä v10.3.1 tekee.
-- **Iris-replikointi.** Jos Squad siirtyisi Irikseen, tarkistuksien sisäinen striimi olisi uusi, eikä tämä
+- **Iris-replikointi.** Jos Squad siirtyisi Iris-järjestelmään, nippujen sisäinen striimi olisi uusi, eikä tämä
   lukija lukisi sitä. Squad v10.3.1 käyttää klassista järjestelmää (se ajaa ReplicationGraphia).
 - **Uudelleennimetyt luokat tai ominaisuudet.** Jos Squad nimeäisi uudelleen pelaaja-, joukkue- tai
   ryhmäluokkansa tai niiden ominaisuudet, nimet tai joukkueet katoaisivat, mutta sijainnit eivät.
@@ -39,7 +39,7 @@ Se ei riipu ominaisuuksien asetteluista, joita se ei näe: toisto nimeää ne it
 ## Henkilötiedot {#personal-data}
 
 Demo sisältää kaikkien palvelimella olevien nimet ja verkkotunnukset. Taulukko ja ottelun asiakirja
-kantavat nimiä, eivät tunnuksia. Liitetiedostot säilyttävät jokaisen ominaisuuden bitit, joten ne
+kantavat nimiä, eivät tunnuksia. Sivutiedostot säilyttävät jokaisen ominaisuuden bitit, joten ne
 sisältävät tunnukset siinä muodossa kuin demo ne sisältää (ei purettuina). Käsittele kaikkia niitä kuten
 itse demoa.
 

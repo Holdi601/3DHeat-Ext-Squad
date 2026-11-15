@@ -57,7 +57,7 @@ Dir sollt eng Zeil pro Demo gesinn. Dann lued `out/<map>/<demo>.parquet` am Heat
 | [Eng Demo ophuelen](recording.md) | e Server eng Demo schreiwe loossen, a se fannen |
 | [Demoe konvertéieren](converting.md) | de Kommando, all Optioun, Beispill-Ausgab |
 | [D'Tabell](output-table.md) | all Kolonn an all `event` |
-| [D'Match-Dokument a Begleetdateien](output-match.md) | den `.match.json`, déi zwou Begleetdateien, de Selbstcheck |
+| [D'Match-Dokument a Niewendateien](output-match.md) | den `.match.json`, déi zwou Niewendateien, de Selbstcheck |
 | [Wéi eng Demo gelies gëtt](how-it-works.md) | d'Schichte vum Reader, a wat gepréift gouf |
 | [Grenzen, Updates a Bedingungen](limits.md) | wat net gelies gëtt, wat en Squad-Update futti maache kann, perséinlech Daten, Lizenz |
 | [Kommando-Referenz](../cli-reference.md) | all Optioun an all Kolonn, aus dem Code generéiert |
@@ -70,7 +70,7 @@ Dir sollt eng Zeil pro Demo gesinn. Dann lued `out/<map>/<demo>.parquet` am Heat
 - D'Dateiformater, déi de Viewer liest, och de Container mat enger Datei pro Match:
   [Eng Datei pro Match (.3dheat)](https://holdi601.github.io/3DHeat/container.html).
   Dëse Konverter schreift déi lose Dateien: d'Tabell, d'Match-Dokument an
-  seng Begleetdateien niewenteneen.
+  seng Niewendateien niewenteneen.
 - De 3DHeat Watcher féiert dëse Konverter op nei Demoen aus, wann en installéiert ass
   (Adapter `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
 

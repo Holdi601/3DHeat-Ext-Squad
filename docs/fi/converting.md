@@ -23,7 +23,7 @@ Uusi komentorivin kanssa? Lue ensin [Ennen aloittamista](before-you-start.md).
    (Python 3.10 tai uudempi; se tuo mukanaan pyarrow- ja numpy-kirjastot).
 2. Laita `.replay`-tiedostot kansioon tai nimeä ne yksi kerrallaan.
 3. Suorita `heat3d-squad-demo <folder> -o out`.
-4. Näet yhden rivin demoa kohden: sen tason, pelaajat ja rivit sekä sen, minne taulukko
+4. Näet yhden rivin demoa kohden: sen kentän, pelaajat ja rivit sekä sen, minne taulukko
    kirjoitettiin. Jokainen demo muuttuu neljäksi irralliseksi tiedostoksi kansioon
    `out/<map>/` (ei `.3dheat`-säiliöksi); lataa `.parquet` 3DHeat-katselimeen.
 
@@ -44,7 +44,7 @@ ei oikealla ottelulla.
 
 Jokainen asetus sellaisena kuin ohjelma ne tulostaa: [Komentoviite](../cli-reference.md).
 
-Kansion nimi on kartan nimi, joka otetaan demon nimeämästä tason polusta
+Kansion nimi on kartan nimi, joka otetaan demon nimeämästä kentän polusta
 (`/Game/Maps/<Map>/Gameplay_Layers/<Layer>` antaa `<Map>`).
 
 Poistumistila: 0, kun jokainen demo muunnettiin; 1, kun jokin epäonnistui (muut
@@ -56,11 +56,11 @@ kirjoitetaan silti) tai kun yhtään `.replay`-tiedostoa ei löytynyt.
 |---|---|
 | `<demo>.parquet` | taulukko: sijainnit ja tapahtumat, yksi rivi kumpikin ([Taulukko](output-table.md)) |
 | `<demo>.match.json` | ottelun asiakirja ([Ottelun asiakirja](output-match.md)) |
-| `<demo>.entities.parquet` | liitetiedosto: jokainen ominaisuuspäivitys ja etäkutsu kokonaisena |
-| `<demo>.packets.parquet` | liitetiedosto: tiedoston osat ja kaikki, mitä ei luettu, kokonaisena |
+| `<demo>.entities.parquet` | sivutiedosto: jokainen ominaisuuspäivitys ja etäkutsu kokonaisena |
+| `<demo>.packets.parquet` | sivutiedosto: tiedoston osat ja kaikki, mitä ei luettu, kokonaisena |
 
 Taulukko ja ottelun asiakirja ovat sama pari, jonka 3DHeat CS2 -työkalu kirjoittaa.
-Katselin avaa taulukon suoraan ja jättää liitetiedostot pois, kun koko kansio ladataan.
+Katselin avaa taulukon suoraan ja jättää sivutiedostot pois, kun koko kansio ladataan.
 
 ## Esimerkit {#examples}
 

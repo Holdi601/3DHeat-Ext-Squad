@@ -22,11 +22,11 @@ Egy Unreal-hálózati visszajátszás a szerver saját replikációs forgalma, a
 |---|---|
 | `container.py` | A helyi fájlfolyam-kezelő fájlja: egy információs blokk (`0x1CA2E27F` mágikus számmal), utána darabok. A darabtípusok: a fejléc (`FNetworkDemoHeader`, `0x2CF5A13D` mágikus számmal), a replikált adatok, az ellenőrzőpontok és az események. |
 | `bits.py` | Bájtarchívumok a keretekhez és bitarchívumok a csomagokhoz. A csomagokat a legkisebb helyi bittel kezdve olvassa. |
-| `stream.py` | Keretek, csomagok, kötegek (a részleges kötegek összeillesztve), aktor-csatornák, aktor-megjelenések és tartalmi blokkok. Minden blokk replikált tulajdonságokat tartalmaz: kezelő, bitszám és bitek formájában, majd távoli hívásokat és egyéni delta-mezőket, amelyek a osztály `_ClassNetCache` csoportjának kezelőire hivatkoznak. Azokat az objektumokat, amelyeket az exportok nem neveznek meg, az egész demó beolvasása után kapják meg osztályukat (lásd lent). |
-| `movement.py` | Az motor `FRepMovement` és a Squad helikopter-mozgása. |
+| `stream.py` | Keretek, csomagok, kötegek (a részleges kötegek összeillesztve), aktor-csatornák, aktor-megjelenések és tartalmi blokkok. Minden blokk replikált tulajdonságokat tartalmaz: kezelő, bitszám és bitek formájában, majd távoli hívásokat és egyéni delta-mezőket, amelyek az osztály `_ClassNetCache` csoportjának kezelőire hivatkoznak. Azokat az objektumokat, amelyeket az exportok nem neveznek meg, az egész demó beolvasása után kapják meg osztályukat (lásd lent). |
+| `movement.py` | A motor `FRepMovement` és a Squad helikopter-mozgása. |
 | `keep.py` | Minden elem, amelyet találtunk, megszámolva és megtartva: a kísérőfájlok sorai és az önellenőrzés. |
 | `squad.py` | Melyik Squad-osztály mit hordoz. A `SQPlayerState` tartja a nevet, a csapatállapotot, a rajállapotot és az aktuális figurát; a `SQTeamState` a csapatszámot és a frakciót; a `SQSquadState` a rajszámot. Egy ülés figurájának tulajdonosa a járműve. |
-| `output.py`, `cli.py` | A táblázat és a meccs dokumentuma. |
+| `output.py`, `cli.py` | A táblázat és a meccsdokumentuma. |
 
 A visszajátszás a saját mezőit megnevezi. Minden kezelőhöz megadja az osztályútvonalakat és
 a tulajdonságneveket, valamint az általa hivatkozott objektumok útvonalait. Így minden tulajdonság

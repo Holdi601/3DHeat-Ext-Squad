@@ -1,5 +1,5 @@
 ---
-title: Kampdokumentet og sidefilerne
+title: Kampdokumentet og sidecarene
 nav_order: 5
 lang: da
 source: output-match.md
@@ -7,9 +7,9 @@ source_hash: "715bd3417e47"
 nav_exclude: true
 search_exclude: true
 ---
-# Kampdokumentet og sidefilerne {#the-match-document-and-sidecars}
+# Kampdokumentet og sidecarene {#the-match-document-and-sidecars}
 
-Ved siden af tabellen får hver demo `<demo>.match.json` og to sidefiler,
+Ved siden af tabellen får hver demo `<demo>.match.json` og to sidecars,
 `<demo>.entities.parquet` og `<demo>.packets.parquet`. Fremviseren læser
 kampdokumentet i sin Kamp-fane.
 
@@ -46,7 +46,7 @@ På de rigtige demoer, der er læst, er `lost` 0: deres elementer løber fra hun
 - hver frame, pakke og bunch (opdelt helt i det, de bærer), hver aktør åbnet (med dens spawn-position, rotation, skala og hastighed) og lukket (med årsag: `Destroyed`, `Dormancy`...);
 - hver replikeret egenskab, så langt dens bits siger ([Afkodning af egenskaber](how-it-works.md#decoding-properties)), positioner fra `FRepMovement` og fra helikoptrenes bevægelseskomponent, dødsfaldene, køretøjernes helbred, sæder;
 - hvert remote call med navn, med dets parametre, hvor demoen eksporterer funktionens gruppe: skud (`fire`) og køretøjstræf (`hit`) ind i tabellen;
-- netfelt-eksporttabellerne og net-GUID'erne (deres antal; stierne er i entitets-sidefilen).
+- netfelt-eksporttabellerne og net-GUID'erne (deres antal; stierne er i entitets-sidecaren).
 
 **Gemt rå** (helt, med det, der læses af det, ved siden af):
 

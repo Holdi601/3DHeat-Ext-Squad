@@ -23,7 +23,7 @@ Jį skaityti reiškia skaityti tą srautą taip, kaip jį skaitytų klientas.
 | `bits.py` | baitų archyvai kadrams ir bitų archyvai paketams. Paketai skaitomi nuo mažiausio bito. |
 | `stream.py` | kadrai, paketai, bunch'ai (dalinai bunch'ai sujungiami), veikėjų kanalai, veikėjų atsiradimai ir turinio blokai. Kiekviename bloke replikuojamos savybės kaip rankenėlė, bitų skaičius ir bitai, tada nuotoliniai kvietimai ir pasirinktinių delta laukai kaip rankenėlės į klasės `_ClassNetCache` grupę. Objektams, kurių eksportai neįvardija, klasė priskiriama, kai perskaitomas visas demo (žr. žemiau). |
 | `movement.py` | variklio `FRepMovement` ir Squad sraigtasparnio judėjimas. |
-| `keep.py` | kiekvienas sutiktas, suskaičiuotas ir išsaugotas elementas: šalutinių failų eilutės ir savitikra. |
+| `keep.py` | kiekvienas sutiktas, suskaičiuotas ir išsaugotas elementas: papildomų failų eilutės ir savitikra. |
 | `squad.py` | kokios Squad klasės ką saugo. `SQPlayerState` turi vardą, komandos būseną, būrio būseną ir dabartinį pawn; `SQTeamState` – komandos numerį ir frakciją; `SQSquadState` – būrio numerį. Sėdynės pawn savininkas yra jo transporto priemonė. |
 | `output.py`, `cli.py` | lentelė ir rungtynių dokumentas. |
 
@@ -40,7 +40,7 @@ kuri tiksliai eksportavo tuos rankenėles kadruose, kuriuose objektas jas pirmą
 turinti visas savo rankenėles iki tol, kai visos jos suteikia tuos pačius vardus; kitaip – objekto, turinčio tokį patį vardą
 (be skaičių), klasė, arba vienintelė grupė, kurios vardas apima objekto vardą. Iš rankenėlių objektų, įvardytų šiuo
 būdu, kurių klasė jas siunčia su vienu fiksuotu bitų skaičiumi, visos atėjo su tuo skaičiumi (nė viena su kitu).
-Tai, ko nieko iš šių nesprendžia, lieka šalutiniame veikėjų faile, visa.
+Tai, ko nieko iš šių nesprendžia, lieka papildomame veikėjų faile, visa.
 
 ## Savybių dekodavimas {#decoding-properties}
 
@@ -70,7 +70,7 @@ iš squad-replay projekto testinių pavyzdžių:
   su to projekto nepriklausomu skaitytuvu. Tiksliai sutampa ir kareivio judėjimo matavimų skaičius.
 - **Judėjimas pagal greitį.** Kiekvieno kareivio matavimo žingsnis nuo ankstesnio, padalintas iš laiko tarp jų, sutampa
   su greičiu, kurį matavimas nešioja. Mediana santykio judantiems žaidėjams yra nuo 0,8 iki 1,2.
-- **Komandos pagal kraujo linijas.** Kiekvienos eilutės komanda yra ta komanda, kurios frakcijai priklauso kareivio blueprint.
+- **Komandos pagal blueprint'us.** Kiekvienos eilutės komanda yra ta komanda, kurios frakcijai priklauso kareivio blueprint.
   Tai galioja ir žaidėjui, kuris rungtynių metu perėjo į kitą pusę.
 - **Klaidos.** Vienas srauto klaidos pranešimas kiekviename demo lieka: klaidingas bitas pirmojo bunch'o pabaigoje
   įrašytojo paties stebėtojo veikėjo, kuris čia nenaudojamas.
@@ -82,7 +82,7 @@ iš squad-replay projekto testinių pavyzdžių:
 - **Žvilgsnio kampas.** Žvilgsnio kampo baitas ramybėje yra apie 120 ir pasiekia 255 (tiesiai aukštyn): skaitomas kaip
   baitas, nuo -90 iki +90. Jei būtų skaitomas kaip įprastas variklio baitas visam apsisukimui, kareiviai atrodytų
   iki 128 laipsnių po horizontu, ko jie negali.
-- **Botai.** Demo su rinkimu kiekvienas botas (`SQSquidBot`) turi savo trajektoriją, o botai, kurie žūva, nuskaitomi kaip mirtys.
+- **Botai.** Demo iš pasirengimo (seeding) laiko kiekvienas botas (`SQSquidBot`) turi savo trajektoriją, o botai, kurie žūva, nuskaitomi kaip mirtys.
 - **Sraigtasparnio judėjimas** (`SQHelicopterMovementComponent.ReplicatedMovement`, Squad'o paties išdėstymas: be žymių,
   vieta šimtosiomis, greitis ir kampinis greitis, trys neprivalomi 16 bitų kampai, serverio laikrodis kaip slankiojo kablelio skaičius).
   Kiekvienas sraigtasparnio matavimas tiksliai užpildo savo bitus. Stovinčio sraigtasparnio vieta ir kryptis yra jo atsiradimo vieta

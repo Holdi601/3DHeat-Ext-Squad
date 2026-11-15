@@ -11,7 +11,7 @@ search_exclude: true
 
 ## No es llegeix {#not-read}
 
-- **Qui va matar a qui, i el dany als soldats per impacte.** Això viatja als resultats d'impacte de les crides remotes de les armes i dels estats dels jugadors (`HitResultsZeroBased`, `MulticastOnImpact.Hit`), l'estructura de les quals no es llegeix; es guarda sencera al fitxer auxiliar d'entitats. Només es descodifica la salut de les víctimes.
+- **Qui va matar a qui, i el dany als soldats per impacte.** Això viatja als resultats d'impacte de les crides remotes de les armes i dels estats dels jugadors (`HitResultsZeroBased`, `MulticastOnImpact.Hit`), l'estructura de les quals no es llegeix; es guarda sencera a l'annex d'entitats. Només es descodifica la salut de les víctimes.
 - **L'equip del bot.** L'estat d'un bot porta un número que podria ser el seu equip; no confirmat, no utilitzat.
 - **Cap a on mira un soldat de costat**, més enllà del guinyament del cos.
 
@@ -28,15 +28,15 @@ El lector depèn del format de repetició del motor i d'un grapat de noms de cla
 
 ## Dades personals {#personal-data}
 
-Una demo conté els noms i els identificadors en línia de tots els del servidor. La taula i el document de la partida porten noms, no identificadors. Els fitxers auxiliars guarden els bits de cada propietat, de manera que contenen els identificadors tal com els té la demo (sense descodificar). Tracteu-los tots com la pròpia demo.
+Una demo conté els noms i els identificadors en línia de tots els del servidor. La taula i el document de partida porten noms, no identificadors. Els annexos guarden els bits de cada propietat, de manera que contenen els identificadors tal com els té la demo (sense descodificar). Tracta-los tots com la pròpia demo.
 
 ## Llicència i fonts {#licence-and-sources}
 
-MIT; vegi [`LICENSE`](https://github.com/Holdi601/3DHeat-Ext-Squad/blob/main/LICENSE). Tot el que hi ha aquí s'ha escrit per a aquest paquet. No s'inclou ni s'enllaça cap codi de tercers: les úniques dependències són pyarrow (Apache-2.0) i numpy (BSD-3-Clause).
+MIT; mira [`LICENSE`](https://github.com/Holdi601/3DHeat-Ext-Squad/blob/main/LICENSE). Tot el que hi ha aquí s'ha escrit per a aquest paquet. No s'inclou ni s'enllaça cap codi de tercers: les úniques dependències són pyarrow (Apache-2.0) i numpy (BSD-3-Clause).
 
 Les dades sobre el format provenen d'aquestes fonts:
 
 - **Unreal.Core** a [FortniteReplayDecompressor](https://github.com/Shiqan/FortniteReplayDecompressor) (MIT). Descriu la disposició genèrica de les repeticions d'Unreal: el bloc d'informació, els blocs, els fotogrames, els paquets i les exportacions de camps de xarxa.
-- **[squad-replay](https://github.com/Codycody31/squad-replay)** (MPL-2.0). Se'n va llegir el analitzador per a la disposició tal com l'escriu Squad v10.3.1, per a les comprovacions de versió, i per saber quines classes de Squad porten les dades de la plantilla. Les seves demos de prova publicades i els recomptes d'instantànies es van utilitzar com a verificació creuada independent. Cap dels seus codis no es va copiar ni traduir: aquest lector està estructurat d'una altra manera (un arxiu de bits en Python sobre paquets sencers, paquets parcials units bit a bit, propietats despatxades pel nom), i dues coses que no fa es van trobar aquí sobre les mateixes demos: el tercer indicador de paquet parcial i el bit de moviment final.
+- **[squad-replay](https://github.com/Codycody31/squad-replay)** (MPL-2.0). Se'n va llegir l'analitzador per a la disposició tal com l'escriu Squad v10.3.1, per a les comprovacions de versió, i per saber quines classes de Squad porten les dades de la plantilla. Les seves demos de prova publicades i els recomptes d'instantànies es van utilitzar com a verificació creuada independent. Cap dels seus codis no es va copiar ni traduir: aquest lector està estructurat d'una altra manera (un arxiu de bits en Python sobre paquets sencers, paquets parcials units bit a bit, propietats despatxades pel nom), i dues coses que no fa es van trobar aquí sobre les mateixes demos: el tercer indicador de paquet parcial i el bit de moviment final.
 
 Squad és una marca registrada d'Offworld Industries. Aquest paquet llegeix fitxers que escriu un servidor de Squad; no toca el joc, el seu codi ni els seus arxius. La política de llicències i administració de servidors d'Offworld no diu res sobre la gravació o l'anàlisi de demos. El EULA de Squad prohibeix l'enginyeria inversa del propi joc, cosa que això no fa.

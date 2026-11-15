@@ -11,7 +11,7 @@ permalink: /ru/
 # 3DHeat Squad {#dheat-squad}
 
 **Что это?** Небольшая программа, которая превращает запись матча Squad в файлы, которые
-визуализатор [3DHeat](https://github.com/Holdi601/3DHeat)
+просмотрщик [3DHeat](https://github.com/Holdi601/3DHeat)
 ([документация](https://holdi601.github.io/3DHeat/)) умеет рисовать: где был каждый
 игрок, секунда за секундой, и что где произошло.
 
@@ -34,7 +34,7 @@ permalink: /ru/
   каждого игрока и каждого бота, и самопроверка, что ничего из того, что содержит демо,
   не потеряно.
 
-![От сервера Squad до визуализатора](../assets/img/ru/flow.svg)
+![От сервера Squad до просмотрщика](../assets/img/ru/flow.svg)
 
 ## Быстрый старт {#quick-start}
 
@@ -46,7 +46,7 @@ heat3d-squad-demo match.replay -o out   # или папка с файлами .r
 ```
 
 Вы увидите по одной строке на демо. Затем загрузите `out/<map>/<demo>.parquet` на вкладку
-«Тепловая карта» визуализатора ([Загрузка данных](https://holdi601.github.io/3DHeat/getting-data-in.html)).
+«Тепловая карта» просмотрщика ([Загрузка данных](https://holdi601.github.io/3DHeat/getting-data-in.html)).
 
 ## Страницы {#pages}
 
@@ -54,7 +54,7 @@ heat3d-squad-demo match.replay -o out   # или папка с файлами .r
 |---|---|
 | [С чего начать](before-you-start.md) | Python, терминал, первый запуск |
 | [Запись демо](recording.md) | как заставить сервер записать демо и где его найти |
-| [Конвертация демо](converting.md) | команда, все параметры, пример вывода |
+| [Преобразование демо](converting.md) | команда, все параметры, пример вывода |
 | [Таблица](output-table.md) | каждый столбец и каждое `event` |
 | [Документ матча и вспомогательные файлы](output-match.md) | `.match.json`, два вспомогательных файла, самопроверка |
 | [Как читается демо](how-it-works.md) | слои читателя и то, что проверено |
@@ -64,28 +64,28 @@ heat3d-squad-demo match.replay -o out   # или папка с файлами .r
 
 ## Связанное {#related}
 
-- Визуализатор 3DHeat: [github.com/Holdi601/3DHeat](https://github.com/Holdi601/3DHeat),
+- Просмотрщик 3DHeat: [github.com/Holdi601/3DHeat](https://github.com/Holdi601/3DHeat),
   документация на [holdi601.github.io/3DHeat](https://holdi601.github.io/3DHeat/).
-- Форматы файлов, которые читает визуализатор, включая контейнер «один файл на матч»:
+- Форматы файлов, которые читает просмотрщик, включая контейнер «один файл на матч»:
   [Один файл на матч (.3dheat)](https://holdi601.github.io/3DHeat/container.html).
-  Этот конвертер записывает отдельные файлы: таблицу, документ матча и его вспомогательные
+  Этот преобразователь записывает отдельные файлы: таблицу, документ матча и его вспомогательные
   файлы рядом.
-- Watcher 3DHeat запускает этот конвертер для новых демо, когда установлен
+- Watcher 3DHeat запускает этот преобразователь для новых демо, когда установлен
   (адаптер `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
 
 ## Инструменты 3DHeat {#the-3dheat-tools}
 
 | Инструмент | Что делает | Код | Документация |
 |---|---|---|---|
-| Визуализатор 3DHeat | показывает данные: тепловые карты, анализ заездов, разбор матчей | [3DHeat](https://github.com/Holdi601/3DHeat) | [docs](https://holdi601.github.io/3DHeat/) |
+| Просмотрщик 3DHeat | показывает данные: тепловые карты, анализ заездов, разбор матчей | [3DHeat](https://github.com/Holdi601/3DHeat) | [docs](https://holdi601.github.io/3DHeat/) |
 | GameFiles | уровни и трассы из собственных файлов игры | [3DHeat-GameFiles](https://github.com/Holdi601/3DHeat-GameFiles) | [docs](https://holdi601.github.io/3DHeat-GameFiles/) |
 | GameCapture | телеметрия кругов и уровни, восстановленные по видео игры | [3DHeat-GameCapture](https://github.com/Holdi601/3DHeat-GameCapture) | [docs](https://holdi601.github.io/3DHeat-GameCapture/) |
 | Unreal Exporter | плагин редактора Unreal: уровень одним `.glb` | [3DHeat-UnrealExporter](https://github.com/Holdi601/3DHeat-UnrealExporter) | [docs](https://holdi601.github.io/3DHeat-UnrealExporter/) |
 | CS2 | демо и карты Counter-Strike 2 | [3DHeat-CS2](https://github.com/Holdi601/3DHeat-CS2) | [docs](https://holdi601.github.io/3DHeat-CS2/) |
 | Watcher | записывает то, что игры публикуют во время игры | [3DHeat-Watcher](https://github.com/Holdi601/3DHeat-Watcher) | [docs](https://holdi601.github.io/3DHeat-Watcher/) |
-| Ext-WarThunder | повторы War Thunder | [3DHeat-Ext-WarThunder](https://github.com/Holdi601/3DHeat-Ext-WarThunder) | [docs](https://holdi601.github.io/3DHeat-Ext-WarThunder/) |
-| Ext-WoT | повторы World of Tanks | [3DHeat-Ext-WoT](https://github.com/Holdi601/3DHeat-Ext-WoT) | [docs](https://holdi601.github.io/3DHeat-Ext-WoT/) |
-| Ext-WoWs | повторы World of Warships | [3DHeat-Ext-WoWs](https://github.com/Holdi601/3DHeat-Ext-WoWs) | [docs](https://holdi601.github.io/3DHeat-Ext-WoWs/) |
+| Ext-WarThunder | реплеи War Thunder | [3DHeat-Ext-WarThunder](https://github.com/Holdi601/3DHeat-Ext-WarThunder) | [docs](https://holdi601.github.io/3DHeat-Ext-WarThunder/) |
+| Ext-WoT | реплеи World of Tanks | [3DHeat-Ext-WoT](https://github.com/Holdi601/3DHeat-Ext-WoT) | [docs](https://holdi601.github.io/3DHeat-Ext-WoT/) |
+| Ext-WoWs | реплеи World of Warships | [3DHeat-Ext-WoWs](https://github.com/Holdi601/3DHeat-Ext-WoWs) | [docs](https://holdi601.github.io/3DHeat-Ext-WoWs/) |
 | Ext-Squad | демо серверов Squad | [3DHeat-Ext-Squad](https://github.com/Holdi601/3DHeat-Ext-Squad) | [docs](https://holdi601.github.io/3DHeat-Ext-Squad/) |
 | Ext-DCS | карты DCS World как 3D-уровни | [3DHeat-Ext-DCS](https://github.com/Holdi601/3DHeat-Ext-DCS) | [docs](https://holdi601.github.io/3DHeat-Ext-DCS/) |
 | Ext-IL2 | карты IL-2 Sturmovik как 3D-уровни | [3DHeat-Ext-IL2](https://github.com/Holdi601/3DHeat-Ext-IL2) | [docs](https://holdi601.github.io/3DHeat-Ext-IL2/) |

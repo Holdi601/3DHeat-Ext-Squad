@@ -28,7 +28,7 @@ actori liikumise, kuni 8 korda sekundis (demo salvestuskiirus), kui see liigub.
 | `team`, `faction` | Squadi meeskonna number (1, 2) ja tema vormi seadistus, **sel hetkel**: mängijad võivad pooli vahetada |
 | `squad` | squadi number, -1, kui ei ole squadis |
 | `event` | mis see rida on (allpool) |
-| `pawn` | sõduri plaan (`SQSquidBot` botile), sõiduk, või `fire` puhul relv |
+| `pawn` | sõduri pawn (`SQSquidBot` botile), sõiduk, või `fire` puhul relv |
 | `seat` | pöörlevale või reisijaistmele see istme enda pawn |
 | `detail` | `fire` puhul relva käsk, mis lasu paigutas; `hit` puhul kahjutüüp; `removed` puhul põhjus, miks kanal suleti (`Destroyed`, `Dormancy`...) |
 | `entity` | actor, millest rida räägib (tema net GUID): lisafailide ridade `entity` |
@@ -50,7 +50,7 @@ Kuidas sündmused loetakse, on kirjas [Kuidas demo loetakse](how-it-works.md#how
 
 ## Vaatajas {#in-the-viewer}
 
-Parquet'i jalus kannab lugemisjuhiseid võtme `heat3d` all: Z üles, ühtegi telge ei peegeldata,
+Parquet-faili jalus kannab lugemisjuhiseid võtme `heat3d` all: Z üles, ühtegi telge ei peegeldata,
 ühikumõõt 1, nii et vaataja ei vaja veergude vastendamist. Laadi tabel Soojuskaardi
 vahelehel; vt vaataja
 [Andmete sisestamine](https://holdi601.github.io/3DHeat/getting-data-in.html)

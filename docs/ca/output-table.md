@@ -32,7 +32,7 @@ de la demo) mentre es mou.
 | `pawn` | el pla del soldat (`SQSquidBot` per a un bot), el vehicle o, per a `fire`, l'arma |
 | `seat` | per a una torreta o un seient de passatger, el peó del mateix seient |
 | `detail` | per a `fire`, la crida d'arma que va col·locar el tret; per a `hit`, el tipus de dany; per a `removed`, per què es va tancar el canal (`Destroyed`, `Dormancy`...) |
-| `entity` | l'actor a què fa referència la fila (el seu GUID de xarxa): el `entity` de les files dels fitxers auxiliars |
+| `entity` | l'actor a què fa referència la fila (el seu GUID de xarxa): el `entity` de les files dels annexos |
 | `match` | el nom de la demo |
 
 ## Esdeveniments {#events}
@@ -53,7 +53,7 @@ Com es llegeixen els esdeveniments és a [Com es llegeix una demo](how-it-works.
 
 El peu del fitxer Parquet porta instruccions de lectura sota la clau `heat3d`: Z cap amunt,
 cap eix reflectit, escala d'unitat 1, de manera que el visualitzador no necessita
-cap assignació de columnes. Carregui la taula a la pestanya Mapa de calor; vegi
+cap assignació de columnes. Carrega la taula a la pestanya Mapa de calor; mira
 [Introduir dades](https://holdi601.github.io/3DHeat/getting-data-in.html)
 i [Assignació de columnes](https://holdi601.github.io/3DHeat/column-mapping.html)
 del visualitzador.

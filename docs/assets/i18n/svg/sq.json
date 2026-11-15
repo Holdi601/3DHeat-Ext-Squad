@@ -1,6 +1,6 @@
 {
  "1. The Squad server": "1. Serveri Squad",
- "2 sidecars": "2 skedarë ndihmës",
+ "2 sidecars": "2 skedarë anësorë",
  "2. The demo file": "2. Skedari demo",
  "3. heat3d-squad-demo": "3. heat3d-squad-demo",
  "4. The 3DHeat viewer": "4. Shikuesi 3DHeat",
@@ -35,6 +35,6 @@
  "the file: info block, chunks": "skedari: blloku i informacionit, copat",
  "the match document:": "dokumenti i ndeshjes:",
  "the match is played,": "ndeshja luhet,",
- "the table, the match document, the sidecars": "tabela, dokumenti i ndeshjes, skedarët ndihmës",
+ "the table, the match document, the sidecars": "tabela, dokumenti i ndeshjes, skedarët anësorë",
  "the table: positions": "tabela: pozicionet"
 }

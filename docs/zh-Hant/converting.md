@@ -37,10 +37,10 @@ python -m heat3d_ext_squad ...          the same, without installing
 | `demos`（一或多個） | - | `.replay` 檔，或放有這些檔案的資料夾 |
 | `-o`、`--out` | 必填 | 寫入的資料夾；每場對戰會寫入 `<out>/<map>/` |
 | `--flat` | 關閉 | 直接寫入該資料夾，不建立 `<map>/` 資料夾 |
-| `--json` | 關閉 | 在標準輸出印出每場對戰一行 JSON（供呼叫此命令的程式使用）：`demo`、`ok`、`parquet`、`match`、`sidecars`、`lost`、`rows`、`players`、`layer`、`recorded_unix`；失敗的對戰則印出 `demo`、`ok: false` 與 `error` |
+| `--json` | 關閉 | 在標準輸出印出每場對戰一行 JSON（供呼叫此指令的程式使用）：`demo`、`ok`、`parquet`、`match`、`sidecars`、`lost`、`rows`、`players`、`layer`、`recorded_unix`；失敗的對戰則印出 `demo`、`ok: false` 與 `error` |
 | `--version` | - | 印出版本並結束 |
 
-程式列出的每個選項：[命令參考](../cli-reference.md)。
+程式列出的每個選項：[指令參考](../cli-reference.md)。
 
 地圖資料夾的名稱取自對戰所記錄的關卡路徑
 （`/Game/Maps/<Map>/Gameplay_Layers/<Layer>` 會得到 `<Map>`）。

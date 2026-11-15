@@ -1,5 +1,5 @@
 ---
-title: "A meccs dokumentuma és a kísérőfájlok"
+title: "A meccsdokumentum és a kísérőfájlok"
 nav_order: 5
 lang: hu
 source: output-match.md
@@ -7,15 +7,15 @@ source_hash: "715bd3417e47"
 nav_exclude: true
 search_exclude: true
 ---
-# A meccs dokumentuma és a kísérőfájlok {#the-match-document-and-sidecars}
+# A meccsdokumentum és a kísérőfájlok {#the-match-document-and-sidecars}
 
 A táblázat mellett minden demó kap egy `<demo>.match.json` fájlt és két kísérőfájlt,
 a `<demo>.entities.parquet`-et és a `<demo>.packets.parquet`-et. A megjelenítő a meccs
 dokumentumát a Meccs fülén olvassa be (a Meccs fül: `Meccs`).
 
-## A meccs dokumentuma {#the-match-document}
+## A meccsdokumentum {#the-match-document}
 
-A `<demo>.match.json` (a meccs dokumentuma) legfelső szintjén ezek vannak: `map`, `layer`,
+A `<demo>.match.json` (a meccsdokumentuma) legfelső szintjén ezek vannak: `map`, `layer`,
 `level_path`, `game_version`, `engine_version`, `recorded_unix`, `duration_s`, `teams`, `squads`,
 `game_state`, `actors`, `players`, `rows`, `events`, `not_read`, `file`, `header`, `chunks`, `stream`,
 `shots` és `selfCheck` (a teljes lista: [Parancsleírás](../cli-reference.md)). Szavakkal: a térkép és a
@@ -42,7 +42,7 @@ pálya, a játék és a motor verziója, a rögzítés ideje, a hossz, és:
 
 Az online azonosítók (Steam, EOS) szándékosan kimaradnak.
 
-Egy átalakított demó gyors megtekintése:
+Egy konvertált demó gyors megtekintése:
 
 ```bash
 python -c "import json; d = json.load(open('out/<map>/<demo>.match.json')); print(d['map'], d['layer'], d['duration_s'], len(d['players']))"
@@ -50,10 +50,10 @@ python -c "import json; d = json.load(open('out/<map>/<demo>.match.json')); prin
 
 ## Teljesség {#completeness}
 
-Ez az olvasó azt a szabályt követi, amelyet az összes 3DHeat átalakító közösen használ: most dekódolja, ami
+Ez az olvasó azt a szabályt követi, amelyet az összes 3DHeat konverter közösen használ: most dekódolja, ami
 már most olvasható, a többit egészben megtartja, és elmondja, hogy az egyes fajtákból mennyit tett így
-([Az átalakítók mindent megtartanak](https://github.com/Holdi601/3DHeat/blob/main/docs/converters.md)). Minden
-meccs dokumentumában van `selfCheck.completeness`: a demóban talált elemek típusonként megmutatják, hány volt
+([A konverterek mindent megtartanak](https://github.com/Holdi601/3DHeat/blob/main/docs/converters.md)). Minden
+meccsdokumentumában van `selfCheck.completeness`: a demóban talált elemek típusonként megmutatják, hány volt
 `seen` (látott), `decoded` (dekódolt), `partial` (részben dekódolt és egészben megtartott), `raw` (csak egészben
 megtartott) és `lost` (ennek 0-nak kell lennie). A típusokat ott számolja meg, ahol találkozik velük: `file.info`,
 `chunk.<kind>`, `frame`, `packet`, `bunch`, `open`, `close`, `export.field`, `export.guid`, `external`,
@@ -62,7 +62,7 @@ megtartott) és `lost` (ennek 0-nak kell lennie). A típusokat ott számolja meg
 A beolvasott valódi demókon a `lost` 0: elemeik százezrektől milliókig terjednek; körülbelül fele teljesen
 dekódolódik, a többi részleges vagy nyers.
 
-**Beolvasva** (a táblázatba és a meccs dokumentumába):
+**Beolvasva** (a táblázatba és a meccsdokumentumába):
 
 - az információs blokk, a demófejléc (minden mező; a két ismeretlen záró bájt hexadecimálisan megmarad), a
   darabtábla;
@@ -99,8 +99,8 @@ dekódolódik, a többi részleges vagy nyers.
   az adott időben, amelyet a folyam az elejétől is tartalmaz), minden eseménydarab, és minden keret, csomag vagy köteg,
   amely nem olvasódik be (demónként egy köteg: az ügynök saját megfigyelőjének nyitó köteggé), egészben.
 
-A entities sorok `kind`, `type` és `entity` szerint csoportosítva, mindegyik időrendben; a folyam sorrendjéhez
-rendezze `time` szerint.
+Az entities sorok `kind`, `type` és `entity` szerint csoportosítva, mindegyik időrendben; a folyam sorrendjéhez
+rendezd `time` szerint.
 
 **Nem elérhető:**
 

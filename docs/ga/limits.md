@@ -11,7 +11,7 @@ search_exclude: true
 
 ## Gan léamh {#not-read}
 
-- **Cé a mharaigh cé, agus damáiste do shaighdiúirí de réir buille.** Taistealaíonn siad i dtorthaí buille glaonna cianda na n-arm agus staideanna na n-imreoirí (`HitResultsZeroBased`, `MulticastOnImpact.Hit`), nach léitear a struchtúr; coinnítear iad iomlán sa taobhchomhad entities. Ní dhíchódaítear ach sláinte na n-íospartach.
+- **Cé a mharaigh cé, agus damáiste do shaighdiúirí de réir buille.** Taistealaíonn siad i dtorthaí buille glaonna cianda na n-arm agus staideanna na n-imreoirí (`HitResultsZeroBased`, `MulticastOnImpact.Hit`), nach léitear a struchtúr; coinnítear iad iomlán sa chomhad cliatháin entities. Ní dhíchódaítear ach sláinte na n-íospartach.
 - **Foireann an bhota.** Iompraíonn staid bhota uimhir a d'fhéadfadh a foireann a bheith; níl sé deimhnithe, ní úsáidtear é.
 - **An áit a mbreathnaíonn saighdiúir ar an taobh** thar yaw an choirp.
 
@@ -28,7 +28,7 @@ Braitheann an léitheoir ar fhormáid athsheinm an innill agus ar chúpla ainm a
 
 ## Sonraí pearsanta {#personal-data}
 
-Coinníonn demo ainmneacha agus ID ar líne gach duine ar an bhfreastalaí. Iompraíonn an tábla agus doiciméad an chluiche ainmneacha, ní ID. Coinníonn na taobhchomhaid giotáin gach airí, mar sin coinníonn siad na ID mar a dhéanann an demo (gan díchódú). Caith leo go léir mar a chaitheann tú leis an demo féin.
+Coinníonn demo ainmneacha agus ID ar líne gach duine ar an bhfreastalaí. Iompraíonn an tábla agus cáipéis an chluiche ainmneacha, ní ID. Coinníonn na comhaid chliatháin giotáin gach airí, mar sin coinníonn siad na ID mar a dhéanann an demo (gan díchódú). Caith leo go léir mar a chaitheann tú leis an demo féin.
 
 ## Ceadúnas agus foinsí {#licence-and-sources}
 

@@ -1,6 +1,6 @@
 {
  "1. The Squad server": "1. Сервер Squad",
- "2 sidecars": "2 дадатк. файлы",
+ "2 sidecars": "2 дапамож. файлы",
  "2. The demo file": "2. Файл дэма",
  "3. heat3d-squad-demo": "3. heat3d-squad-demo",
  "4. The 3DHeat viewer": "4. Праглядальнік 3DHeat",
@@ -35,6 +35,6 @@
  "the file: info block, chunks": "файл: інфа-блок, часткі",
  "the match document:": "дакумент матча:",
  "the match is played,": "матч ідзе,",
- "the table, the match document, the sidecars": "табліца, дакумент матча, дадатк. файлы",
+ "the table, the match document, the sidecars": "табліца, дакумент матча, дапамож. файлы",
  "the table: positions": "табліца: пазіцыі"
 }

@@ -22,7 +22,7 @@ Squad demo įrašomi **serveryje**, ne žaidimo kliento.
 `Server.cfg` taip pat turi nustatymą `RecordDemos`, pagal numatytuosius išjungtą. Mažoms rungtynėms tikėkitės maždaug
 70–80 MB per valandą; pilno 100 žaidėjų serverio dydis neišmatuotas.
 
-Demo saugo visų serveryje esančių žmonių vardus ir tiesioginio ryšio ID: traktuokite jį kaip asmens duomenis
+Demo saugo visų serveryje esančių žmonių vardus ir prisijungimo ID: traktuokite jį kaip asmens duomenis
 ([Apribojimai, atnaujinimai ir sąlygos](limits.md#personal-data)).
 
 Toliau: [Demo konvertavimas](converting.md).

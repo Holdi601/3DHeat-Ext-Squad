@@ -11,12 +11,12 @@ search_exclude: true
 
 ```text
 heat3d-squad-demo <demos or folders> -o <folder> [--flat] [--json]
-python -m heat3d_ext_squad ...          the same, without installing
+python -m heat3d_ext_squad ...          det samme, uten å installere
 ```
 
 ## Steg for steg {#step-by-step}
 
-Ny til kommandolinjen? Les [Før du begynner](before-you-start.md) først.
+Ny til kommandolinjen? Les [Før du starter](before-you-start.md) først.
 
 1. Installer én gang: `git clone https://github.com/Holdi601/3DHeat-Ext-Squad`,
    åpne en terminal i den mappen, kjør `python -m pip install -e .`

@@ -47,7 +47,7 @@ python tools/docs_i18n.py check              # päättyy tilaan 1, kun tiivistee
 
 Käännä vain se, minkä `todo` listaa: säilytä Markdown, linkit, koodi sekä tiedosto- ja sarakenimet
 sellaisina kuin ne ovat, käännä otsikot ja kuvakuvaukset sekä käytä katselimen omia sanoja sen
-painikkeille ja paneeleille (sen `src/i18n/locales/<lang>/`). Luodut viitesivut ja terminaalikuvat
+painikkeille ja paneeleille (sen `src/i18n/locales/<lang>/`). Luodut viitesivut ja päätekuvat
 pysyvät englanninkielisinä. Sivustolla vanhentunut käännös kertoo sen ja linkittää englanninkieliseen
 sivuun; puuttuva sivu palautuu englantiin. Otsikon kielivalikko ja etusivun selaimen kielen mukainen
 uudelleenohjaus tulevat kansiosta `docs/_includes/`.

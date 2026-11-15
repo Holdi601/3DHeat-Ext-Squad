@@ -27,7 +27,7 @@ Unreali võrgu-replay on serveri enda replikatsiooniliiklus, mille kirjutab üle
 
 Replay nimetab ise oma väljad. See sisaldab iga handle'i klassi teid ja omaduste nimesid ning viidatud objektide teid. Seega saab iga omaduse leida nime järgi ilma mängu koodita. Ainult omaduse bitid vajavad tüüpi. Liikumise puhul on see mootori enda tüüp; Squadi omaduste tüübid on lihtsad: stringid, täisarvud, objektiviited ja nimed.
 
-Mõned objektid on nimetatud ainult iseenda järgi: taseme actorid oma eksemplari nime järgi (`Team1SpawnPoint3`), komponendid oma nime järgi (`MovementComponent`, `wheel_L1`). Nende klassi leitakse eksporditabelitest pärast voogu. Demo-draiver ekspordib klassi välja selle kaadris, kus see saadetakse esimest korda (kõigi nimetatud objektide esimeste saatmiste puhul testdemodes), nii et klass on see ainus rühm, mis eksportis täpselt need handle'id nende kaadrite jooksul, kus objekt neid esimest korda saatis; muidu mis tahes rühm, millel olid kõik handle'id siiani, kui kõik annavad neile samad nimed; või siis objekti sama nimega eksemplari klass, numbrid välja arvatud, või ainus rühm, mille nimi sisaldab objekti nime. Nii nimetatud objektide handle'idest, mille klass saadab fikseeritud bittide arvuga, tulid kõik selle arvuga (ükski mitte teisega). Mida need kõik ei lahenda, jääb olemisse sidefailis tervena.
+Mõned objektid on nimetatud ainult iseenda järgi: taseme actorid oma eksemplari nime järgi (`Team1SpawnPoint3`), komponendid oma nime järgi (`MovementComponent`, `wheel_L1`). Nende klassi leitakse eksporditabelitest pärast voogu. Demo-draiver ekspordib klassi välja selle kaadris, kus see saadetakse esimest korda (kõigi nimetatud objektide esimeste saatmiste puhul testdemodes), nii et klass on see ainus rühm, mis eksportis täpselt need handle'id nende kaadrite jooksul, kus objekt neid esimest korda saatis; muidu mis tahes rühm, millel olid kõik handle'id siiani, kui kõik annavad neile samad nimed; või siis objekti sama nimega eksemplari klass, numbrid välja arvatud, või ainus rühm, mille nimi sisaldab objekti nime. Nii nimetatud objektide handle'idest, mille klass saadab fikseeritud bittide arvuga, tulid kõik selle arvuga (ükski mitte teisega). Mida need kõik ei lahenda, jääb sidefailis tervena.
 
 ## Omaduste dekodeerimine {#decoding-properties}
 
@@ -55,7 +55,7 @@ Need kontrolliti kahe avaliku Squad v10.3.1 serverdemo vastu (Unreal Engine 5.5.
 - **Sõiduki sisendid.** Ujuvkomadena loetuna jäävad roomikutega sõidukite gaas, pidur ja käsipidur vahemikku 0..1 ja juhtimine vahemikku -1..1, igas uuenduses.
 - **Sulgemise põhjused.** Iga actor, kelle kanal avati uuesti, oli suletud `Dormancy`-ga; ükski, mis suleti `Destroyed`-ga, ei avanenud uuesti.
 
-Testid testide enda koostatud demodel katavad konteinerit, arhiive, voogu ja kogu teed tabelini, ning et demo, millel on iga liiki üks üksus, ei kaota ühtegi ([`tests/test_completeness.py`](https://github.com/Holdi601/3DHeat-Ext-Squad/blob/main/tests/test_completeness.py)):
+Testid katavad enda koostatud demodel konteinerit, arhiive, voogu ja kogu teed tabelini, ning et demo, millel on iga liiki üks üksus, ei kaota ühtegi ([`tests/test_completeness.py`](https://github.com/Holdi601/3DHeat-Ext-Squad/blob/main/tests/test_completeness.py)):
 
 ```bash
 python -m pip install -e .[test]

@@ -34,7 +34,7 @@ mhux partita vera.
 
 ## Għażliet {#options}
 
-| Għażla | Default | Tagħmel |
+| Għażla | Default | X'jagħmel |
 |---|---|---|
 | `demos` (waħda jew aktar) | - | fajls `.replay`, jew folders li fihom |
 | `-o`, `--out` | meħtieġa | il-folder fejn tinkiteb; kull demo tmur f'`<out>/<map>/` |
@@ -47,7 +47,7 @@ Kull għażla, kif tistampaha l-programm: [Referenza tal-kmandi](../cli-referenc
 Il-folder tal-mappa huwa l-isem tal-mappa meħud mit-triq tal-livell li semmiet id-demo
 (`/Game/Maps/<Map>/Gameplay_Layers/<Layer>` jagħti `<Map>`).
 
-Exit status: 0 meta kull demo ġiet ikkonvertita; 1 meta xi waħda falliet (l-oħrajn
+Status tal-ħruġ: 0 meta kull demo ġiet ikkonvertita; 1 meta xi waħda falliet (l-oħrajn
 xorta jinkitbu) jew meta ma nstab ebda fajl `.replay`.
 
 ## X'toħroġ {#what-comes-out}

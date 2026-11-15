@@ -49,4 +49,4 @@ search_exclude: true
 
 ## ビューアで {#in-the-viewer}
 
-Parquetのフッターには、`heat3d` キーの下に読み込みの指示があります。Zが上、どの軸も反転なし、単位スケールは 1。そのため、ビューアには列の対応づけが要りません。テーブルは、ヒートマップタブで読み込んでください。ビューア自身の[データの取り込み](https://holdi601.github.io/3DHeat/getting-data-in.html)と[列マッピング](https://holdi601.github.io/3DHeat/column-mapping.html)を参照してください。
+Parquetのフッターには、`heat3d` キーの下に読み込みの指示があります。Zが上、どの軸も反転なし、単位スケールは 1。そのため、ビューアには列の対応づけが要りません。テーブルは、ヒートマップ タブで読み込んでください。ビューア自身の[データの取り込み](https://holdi601.github.io/3DHeat/getting-data-in.html)と[列マッピング](https://holdi601.github.io/3DHeat/column-mapping.html)を参照してください。

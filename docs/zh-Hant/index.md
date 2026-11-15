@@ -42,12 +42,12 @@ heat3d-squad-demo match.replay -o out   # or a folder of .replay files
 |---|---|
 | [開始之前](before-you-start.md) | Python、終端機、第一次執行 |
 | [錄製對戰](recording.md) | 讓伺服器寫出對戰檔，並找到它 |
-| [轉換對戰](converting.md) | 命令、每個選項、輸出範例 |
+| [轉換對戰](converting.md) | 指令、每個選項、輸出範例 |
 | [表格](output-table.md) | 每一欄與每一個 `event` |
 | [對戰文件與附屬檔](output-match.md) | `.match.json`、兩個附屬檔、自我檢查 |
 | [對戰如何被讀取](how-it-works.md) | 讀取器的各層，以及已驗證的內容 |
 | [限制、更新與條款](limits.md) | 未被讀取的內容、Squad 更新可能造成的問題、個人資料、授權 |
-| [命令參考](../cli-reference.md) | 每個選項與欄位，由程式碼產生 |
+| [指令參考](../cli-reference.md) | 每個選項與欄位，由程式碼產生 |
 | [維護這些文件](maintaining.md) | 發行檢查清單 |
 
 ## 相關連結 {#related}

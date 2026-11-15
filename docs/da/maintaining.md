@@ -21,19 +21,19 @@ En tjekliste for hver udgivelse, så siderne aldrig halter efter koden.
    række i afsnittet **Docs** i [`CHANGELOG.md`](https://github.com/Holdi601/3DHeat-Ext-Squad/blob/main/CHANGELOG.md).
 3. **Uafhængig gennemgang.** En person, der ikke skrev siderne, læser README og
    hver ændret side, billederne inklusive, tre gange: som en begynder, der aldrig har
-   brugt en terminal, som en otteårig, og som en ekspert, der tjekker hver
+   brugt en terminal, som en 8-årig, og som en professionel, der tjekker hver
    valgmulighed mod `--help`. Eksempler bruger kun opdigtede navne og tal.
 4. **Ret** alt, gennemgangen finder.
 5. **Oversættelser.** Hver oversat side noterer hashen af den engelske side, den
    blev lavet ud fra. Oversæt de sider igen, hvis engelske kilde er ændret,
    og gennemgå derefter hvert sprog: klar tekst, korrekte diagramtekster, de samme
-   ord som fremviserens egen oversatte grænseflade.
+   ord som viewerens egen oversatte grænseflade.
 6. **Kør testene** (`pytest`).
 7. **Push** først efter ejerens grønne lys.
 
 ## Oversættelser: kommandoerne {#translations-the-commands}
 
-Siden er oversat til 3DHeat-fremviserens 40 sprog: engelsk i `docs/`, hvert andet
+Siden er oversat til 3DHeat-viewerens 40 sprog: engelsk i `docs/`, hvert andet
 sprog i `docs/<lang>/` med de samme filnavne. `tools/docs_i18n.py` står for bogholderiet:
 
 ```bash
@@ -47,7 +47,7 @@ python tools/docs_i18n.py check              # exit 1 when hashes or labels are 
 ```
 
 Oversæt kun det, `todo` lister: behold Markdown, links, kode, fil- og kolonnenavne, som de er,
-oversæt titler og billedbeskrivelser, og brug 3DHeat-fremviserens egne ord til dens knapper
+oversæt titler og billedbeskrivelser, og brug 3DHeat-viewerens egne ord til dens knapper
 og paneler (dens `src/i18n/locales/<lang>/`). Genererede referencesider og terminalbilleder bliver
 engelske. På siden viser en forældet oversættelse det og linker til den engelske side; en manglende
 falder tilbage til engelsk. Sprogmenuen i sidehovedet og browsersprogets omdirigering på startsiden

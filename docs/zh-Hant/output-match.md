@@ -14,7 +14,7 @@ search_exclude: true
 
 ## 對戰文件 {#the-match-document}
 
-`<demo>.match.json`（對戰文件）的頂層包含 `map`、`layer`、`level_path`、`game_version`、`engine_version`、`recorded_unix`、`duration_s`、`teams`、`squads`、`game_state`、`actors`、`players`、`rows`、`events`、`not_read`、`file`、`header`、`chunks`、`stream`、`shots` 與 `selfCheck`（完整清單：[命令參考](../cli-reference.md)）。簡單來說：地圖與圖層、遊戲與引擎版本、錄製時間、長度，以及：
+`<demo>.match.json`（對戰文件）的頂層包含 `map`、`layer`、`level_path`、`game_version`、`engine_version`、`recorded_unix`、`duration_s`、`teams`、`squads`、`game_state`、`actors`、`players`、`rows`、`events`、`not_read`、`file`、`header`、`chunks`、`stream`、`shots` 與 `selfCheck`（完整清單：[指令參考](../cli-reference.md)）。簡單來說：地圖與圖層、遊戲與引擎版本、錄製時間、長度，以及：
 
 - **隊伍**：編號、陣營，以及其狀態所複製的所有內容（點數、可用性、指揮官），依變動時間排列；
 - **小隊**：編號、隊伍、名稱、建立者、隊長、成員；
@@ -61,6 +61,6 @@ python -c "import json; d = json.load(open('out/<map>/<demo>.match.json')); prin
 
 **不可用：**
 
-- 伺服器對戰未記錄的內容：用戶端的輸入、玩家所看到的畫面；
-- 用戶端的效果：命中標記、音效、擊殺提示的文字（伺服器傳送的是呼叫，而非其顯示畫面）；
+- 伺服器對戰未記錄的內容：客戶端的輸入、玩家所看到的畫面；
+- 客戶端的效果：命中標記、音效、擊殺提示的文字（伺服器傳送的是呼叫，而非其顯示畫面）；
 - 已解碼的線上 ID：只以位元形式保留（見[個人資料](limits.md#personal-data)）。

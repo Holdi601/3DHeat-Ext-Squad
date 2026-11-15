@@ -11,7 +11,7 @@ search_exclude: true
 
 每次發行版本時都要檢查的清單，確保文件永遠跟得上程式碼。
 
-1. **重新產生參考資料。** `python tools/gen_docs_reference.py` 會根據程式自身的 `--help` 與輸出欄位，重寫[命令參考](../cli-reference.md)。
+1. **重新產生參考資料。** `python tools/gen_docs_reference.py` 會根據程式自身的 `--help` 與輸出欄位，重寫[指令參考](../cli-reference.md)。
    `python tools/gen_docs_reference.py --check` 在已提交的頁面過時時會以結束碼 1 結束。
 2. **列出有什麼改變。** `git log v<VERSION>..HEAD --oneline`，其中
    `<VERSION>` 是最近一次發行的版本（發行時的 `VERSION` 檔案）。每一項新功能、選項與輸出欄位，都要在某一頁中有對應的位置，並在 [`CHANGELOG.md`](https://github.com/Holdi601/3DHeat-Ext-Squad/blob/main/CHANGELOG.md) 的 **Docs** 區段中有一列。
@@ -21,7 +21,7 @@ search_exclude: true
 6. **執行測試**（`pytest`）。
 7. **推送** 只能在擁有者同意之後進行。
 
-## 翻譯：命令 {#translations-the-commands}
+## 翻譯：指令 {#translations-the-commands}
 
 本網站以 3DHeat 檢視器支援的 40 種語言翻譯：英文位於 `docs/`，其他每種語言位於 `docs/<lang>/`，檔名相同。`tools/docs_i18n.py` 負責記錄管理：
 

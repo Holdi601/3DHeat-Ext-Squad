@@ -51,7 +51,7 @@ Kā notikumi tiek nolasīti, ir aprakstīts [Kā tiek nolasīts demo](how-it-wor
 ## Skatītājā {#in-the-viewer}
 
 Parquet kājene satur lasīšanas norādes zem atslēgas `heat3d`: Z uz augšu, neviena ass nav
-apgriezta, vienību mērogs 1, tāpēc skatītājam nav vajadzīga kolonnu kartēšana. Ielādē
+apgriezta, vienību mērogs 1, tāpēc skatītājam nav vajadzīga kolonnu kartēšana. Ielādējiet
 tabulu cilnē Siltumkarte; skat. skatītāja
 [Datu ievade](https://holdi601.github.io/3DHeat/getting-data-in.html)
 un [Kolonnu kartēšana](https://holdi601.github.io/3DHeat/column-mapping.html).

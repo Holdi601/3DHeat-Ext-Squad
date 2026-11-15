@@ -11,7 +11,7 @@ search_exclude: true
 
 ## Çfarë nuk lexohet {#not-read}
 
-- **Kush vrau kë, dhe dëmi mbi ushtarët sipas goditjes.** Këto udhëtojnë në rezultatet e goditjeve të thirrjeve në distancë të armëve dhe të gjendjeve të lojtarëve (`HitResultsZeroBased`, `MulticastOnImpact.Hit`), struktura e të cilave nuk lexohet; ruhen të plota në skedarin ndihmës entities. Dekodohet vetëm shëndeti i viktimave.
+- **Kush vrau kë, dhe dëmi mbi ushtarët sipas goditjes.** Këto udhëtojnë në rezultatet e goditjeve të thirrjeve në distancë të armëve dhe të gjendjeve të lojtarëve (`HitResultsZeroBased`, `MulticastOnImpact.Hit`), struktura e të cilave nuk lexohet; ruhen të plota në skedarin anësor entities. Dekodohet vetëm shëndeti i viktimave.
 - **Skuadra e botit.** Gjendja e një boti mban një numër që mund të jetë skuadra e tij; nuk u konfirmua, nuk përdoret.
 - **Ku shikon një ushtar anash** përtej kthesës (yaw) së trupit.
 
@@ -28,7 +28,7 @@ Lexuesi varet nga formati i riluajtjes së motorit dhe nga një grusht emrash kl
 
 ## Të dhënat personale {#personal-data}
 
-Një demo mban emrat dhe ID-të online të të gjithëve në server. Tabela dhe dokumenti i ndeshjes mbajnë emra, jo ID. Skedarët ndihmës ruajnë bitet e çdo vetie, kështu që mbajnë ID-të ashtu si i ka demo (të padekoduara). Trajtoji të gjithë si vetë demon.
+Një demo mban emrat dhe ID-të online të të gjithëve në server. Tabela dhe dokumenti i ndeshjes mbajnë emra, jo ID. Skedarët anësorë ruajnë bitet e çdo vetie, kështu që mbajnë ID-të ashtu si i ka demo (të padekoduara). Trajtoji të gjithë si vetë demon.
 
 ## Licenca dhe burimet {#licence-and-sources}
 

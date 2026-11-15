@@ -1,5 +1,5 @@
 ---
-title: "試合文書とサイドカー"
+title: "マッチドキュメントとサイドカー"
 nav_order: 5
 lang: ja
 source: output-match.md
@@ -7,13 +7,13 @@ source_hash: "715bd3417e47"
 nav_exclude: true
 search_exclude: true
 ---
-# 試合文書とサイドカー {#the-match-document-and-sidecars}
+# マッチドキュメントとサイドカー {#the-match-document-and-sidecars}
 
-テーブルのほかに、各デモからは `<demo>.match.json` と、二つのサイドカー `<demo>.entities.parquet` と `<demo>.packets.parquet` が出力されます。ビューアは試合文書を、マッチタブで読みます。
+テーブルのほかに、各デモからは `<demo>.match.json` と、二つのサイドカー `<demo>.entities.parquet` と `<demo>.packets.parquet` が出力されます。ビューアはマッチドキュメントを、マッチ タブで読みます。
 
-## 試合文書 {#the-match-document}
+## マッチドキュメント {#the-match-document}
 
-`<demo>.match.json`（試合文書）は、最上位に `map`、`layer`、`level_path`、`game_version`、`engine_version`、`recorded_unix`、`duration_s`、`teams`、`squads`、`game_state`、`actors`、`players`、`rows`、`events`、`not_read`、`file`、`header`、`chunks`、`stream`、`shots`、`selfCheck` を持ちます（全項目: [コマンドリファレンス](../cli-reference.md)）。言葉で言えば、マップとレイヤー、ゲームとエンジンのバージョン、録画の時刻、長さ、そして:
+`<demo>.match.json`（マッチドキュメント）は、最上位に `map`、`layer`、`level_path`、`game_version`、`engine_version`、`recorded_unix`、`duration_s`、`teams`、`squads`、`game_state`、`actors`、`players`、`rows`、`events`、`not_read`、`file`、`header`、`chunks`、`stream`、`shots`、`selfCheck` を持ちます（全項目: [コマンドリファレンス](../cli-reference.md)）。言葉で言えば、マップとレイヤー、ゲームとエンジンのバージョン、録画の時刻、長さ、そして:
 
 - **チーム**: 番号、陣営、そしてその状態がレプリケートしたすべて（チケット、利用可能数、指揮官）を、変化するごとに。
 - **分隊**: 番号、チーム、名前、作成者、リーダー、メンバー。
@@ -34,11 +34,11 @@ python -c "import json; d = json.load(open('out/<map>/<demo>.match.json')); prin
 
 ## 完全性 {#completeness}
 
-このリーダーは、すべての3DHeat変換器が共有する規則に従っています。今読めるものはデコードし、残りはそのまま保持し、種類ごとにどれだけ扱ったかを示す（[コンバーターはすべてを保持する](https://github.com/Holdi601/3DHeat/blob/main/docs/converters.md)）。各試合文書には `selfCheck.completeness` があります。デモで出会った項目の種類ごとに、`seen`（見た）、`decoded`（完全にデコード）、`partial`（一部をデコードし、全体を保持）、`raw`（そのまま保持のみ）、`lost`（0でなければならない）の数です。種類は、リーダーが出会う場所で数えます: `file.info`、`chunk.<kind>`、`frame`、`packet`、`bunch`、`open`、`close`、`export.field`、`export.guid`、`external`、`property:<class>`、`rpc:<class>`、`block:<object>`、`subobject.*`。
+このリーダーは、すべての3DHeat変換ツールが共有する規則に従っています。今読めるものはデコードし、残りはそのまま保持し、種類ごとにどれだけ扱ったかを示す（[変換ツールはすべてを保持する](https://github.com/Holdi601/3DHeat/blob/main/docs/converters.md)）。各マッチドキュメントには `selfCheck.completeness` があります。デモで出会った項目の種類ごとに、`seen`（見た）、`decoded`（完全にデコード）、`partial`（一部をデコードし、全体を保持）、`raw`（そのまま保持のみ）、`lost`（0でなければならない）の数です。種類は、リーダーが出会う場所で数えます: `file.info`、`chunk.<kind>`、`frame`、`packet`、`bunch`、`open`、`close`、`export.field`、`export.guid`、`external`、`property:<class>`、`rpc:<class>`、`block:<object>`、`subobject.*`。
 
 読んだ実デモでは、`lost` は 0 です。項目数は数十万から数百万にのぼり、約半分は完全にデコードされ、残りは部分的またはそのまま保持されます。
 
-**読まれるもの**（テーブルと試合文書に）:
+**読まれるもの**（テーブルとマッチドキュメントに）:
 
 - 情報ブロック、デモヘッダー（すべてのフィールド。わからない末尾の2バイトは16進数で保持）、チャンクの表。
 - すべてのフレーム、パケット、バンチ（そのまま全体を、含むものに分けて）。開かれたすべてのアクター（スポーンの位置、向き、スケール、速度つき）と、閉じられたもの（理由つき: `Destroyed`、`Dormancy`...）。

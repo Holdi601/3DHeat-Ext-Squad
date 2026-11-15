@@ -27,7 +27,7 @@ Bu araç **Python 3.10 veya daha yeni** bir sürüm ister.
 
 Terminal, komutları yazdığınız bir penceredir.
 
-- **Windows:** klasörü Explorer'da açın, adres çubuğuna tıklayın, `powershell` yazın ve Enter'a basın. Mavi ya da siyah bir pencere açılır ve zaten o klasörde olursunuz.
+- **Windows:** klasörü Dosya Gezgini'nde açın, adres çubuğuna tıklayın, `powershell` yazın ve Enter'a basın. Mavi ya da siyah bir pencere açılır ve zaten o klasörde olursunuz.
 - **macOS:** **Terminal**'i açın, `cd ` yazın (sonunda bir boşlukla), klasörü pencereye sürükleyin ve Enter'a basın.
 
 `cd` "klasör değiştir" demektir: `cd C:\Tools\3DHeat-Ext-Squad` o klasöre gider.

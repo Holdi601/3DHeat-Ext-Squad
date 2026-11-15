@@ -30,15 +30,15 @@ Lasītājs ir atkarīgs no motora atkārtošanas formāta un no neliela skaita S
 
 ## Personas dati {#personal-data}
 
-Demo satur visu servera spēlētāju vārdus un tiešsaistes ID. Tabulā un mača dokumentā ir vārdi, nevis ID. Papildfailos ir katra īpašības biti, tāpēc tie satur ID tā, kā tos satur demo (nedekodēti). Izturies pret visiem šiem failiem tāpat kā pret pašu demo.
+Demo satur visu servera spēlētāju vārdus un tiešsaistes ID. Tabulā un mača dokumentā ir vārdi, nevis ID. Papildfailos ir katra īpašības biti, tāpēc tie satur ID tā, kā tos satur demo (nedekodēti). Izturieties pret visiem šiem failiem tāpat kā pret pašu demo.
 
 ## Licence un avoti {#licence-and-sources}
 
-MIT; skat. [`LICENSE`](https://github.com/Holdi601/3DHeat-Ext-Squad/blob/main/LICENSE). Viss šeit ir rakstīts šim pakotnei. Nav iekļauts un nav saistīts neviens trešās puses kods: vienīgās atkarības ir pyarrow (Apache-2.0) un numpy (BSD-3-Clause).
+MIT; skat. [`LICENSE`](https://github.com/Holdi601/3DHeat-Ext-Squad/blob/main/LICENSE). Viss šeit ir rakstīts šai pakotnei. Nav iekļauts un nav saistīts neviens trešās puses kods: vienīgās atkarības ir pyarrow (Apache-2.0) un numpy (BSD-3-Clause).
 
 Faktus par formātu guva no šiem avotiem:
 
 - **Unreal.Core** [FortniteReplayDecompressor](https://github.com/Shiqan/FortniteReplayDecompressor) (MIT). Tas apraksta vispārīgo Unreal atkārtošanas izkārtojumu: informācijas bloku, fragmentus, kadrus, grupas un tīkla lauku eksportus.
 - **[squad-replay](https://github.com/Codycody31/squad-replay)** (MPL-2.0). Tā parsētājs tika lasīts par izkārtojumu, kādu Squad v10.3.1 to raksta, par versiju pārbaudēm un par to, kuras Squad klases satur dalībnieku datus. Tā publicētie testa demo un skaitļi tika izmantoti kā neatkarīga pārbaude. Neviens no tā kodiem nav kopēts vai tulkots: šis lasītājs ir citādi strukturēts (Python bitu arhīvs pār veseliem paketēm, daļējas grupas savienotas pa bitiem, īpašības izsūtītas pēc nosaukuma), un divas lietas, ko tas nedara, tika atrastas šeit uz pašiem demo: trešais daļējas grupas karogs un pēdējais kustības bits.
 
-Squad ir Offworld Industries preču zīme. Šis pakotne nolasa failus, ko raksta Squad serveris; tā neskar spēli, tās kodu vai arhīvus. Offworld servera licencēšanas un administrēšanas politika neko nesaka par demo ierakstīšanu vai analīzi. Squad EULA aizliedz spēles reversēšanu, ko šī pakotne nedara.
+Squad ir Offworld Industries preču zīme. Šī pakotne nolasa failus, ko raksta Squad serveris; tā neskar spēli, tās kodu vai arhīvus. Offworld servera licencēšanas un administrēšanas politika neko nesaka par demo ierakstīšanu vai analīzi. Squad EULA aizliedz spēles reversēšanu, ko šī pakotne nedara.

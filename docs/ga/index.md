@@ -11,7 +11,7 @@ permalink: /ga/
 # 3DHeat Squad {#dheat-squad}
 
 **Cad é?** Clár beag a thiontaíonn taifeadadh de chluiche Squad ina chomhaid a
-fhéadann an lucht féachana [3DHeat](https://github.com/Holdi601/3DHeat)
+fhéadann an t-amharcán [3DHeat](https://github.com/Holdi601/3DHeat)
 ([doiciméadúchán](https://holdi601.github.io/3DHeat/)) a tharraingt: cá raibh gach
 imreoir, soicind ar shoicind, agus cad a tharla cén áit.
 
@@ -35,7 +35,7 @@ Cad chuige a bhfuil sé úsáideach:
   aisteoir, líne in aghaidh an imreora agus an bhota, agus féin-seic nár cailleadh aon rud a
   bhí sa demo.
 
-![Ó fhreastalaí Squad go dtí an lucht féachana](../assets/img/ga/flow.svg)
+![Ó fhreastalaí Squad go dtí an t-amharcán](../assets/img/ga/flow.svg)
 
 ## Tús tapa {#quick-start}
 
@@ -46,7 +46,7 @@ python -m pip install -e .              # installs the heat3d-squad-demo command
 heat3d-squad-demo match.replay -o out   # or a folder of .replay files
 ```
 
-Ba chóir duit líne amháin a fheiceáil in aghaidh an demo. Ansin lódáil `out/<map>/<demo>.parquet` i gcluaisín Léarscáil teasa an lucht féachana
+Ba chóir duit líne amháin a fheiceáil in aghaidh an demo. Ansin lódáil `out/<map>/<demo>.parquet` i gcluaisín Léarscáil teasa an amharcáin
 ([Sonraí a thabhairt isteach](https://holdi601.github.io/3DHeat/getting-data-in.html)).
 
 ## Leathanaigh {#pages}
@@ -54,10 +54,10 @@ Ba chóir duit líne amháin a fheiceáil in aghaidh an demo. Ansin lódáil `ou
 | Leathanach | Cad a chlúdaíonn sé |
 |---|---|
 | [Sula dtosaíonn tú](before-you-start.md) | Python, teirminéal, céad rith |
-| [Demo a thaifead](recording.md) | freastalaí a chur ag scríobh demo, agus é a aimsiú |
+| [Demo a thaifeadadh](recording.md) | freastalaí a chur ag scríobh demo, agus é a aimsiú |
 | [Demos a thiontú](converting.md) | an t-ordú, gach rogha, aschur samplach |
 | [An tábla](output-table.md) | gach colún agus gach `event` |
-| [Doiciméad an chluiche agus na taobhchomhaid](output-match.md) | an `.match.json`, an dá thaobhchomhad, an féin-seic |
+| [Cáipéis an chluiche agus na comhaid chliatháin](output-match.md) | an `.match.json`, an dá chomhad cliatháin, an féin-seic |
 | [Conas a léitear demo](how-it-works.md) | sraitheanna an léitheora, agus cad a fíoraíodh |
 | [Teorainneacha, nuashonruithe agus téarmaí](limits.md) | cad nach léitear, cad a fhéadfadh nuashonrú Squad a bhriseadh, sonraí pearsanta, ceadúnas |
 | [Tagairt orduithe](../cli-reference.md) | gach rogha agus colún, ginte ón gcód |
@@ -65,12 +65,12 @@ Ba chóir duit líne amháin a fheiceáil in aghaidh an demo. Ansin lódáil `ou
 
 ## Gaolmhar {#related}
 
-- An lucht féachana 3DHeat: [github.com/Holdi601/3DHeat](https://github.com/Holdi601/3DHeat),
+- An t-amharcán 3DHeat: [github.com/Holdi601/3DHeat](https://github.com/Holdi601/3DHeat),
   doiciméadúchán ag [holdi601.github.io/3DHeat](https://holdi601.github.io/3DHeat/).
-- Na formáidí comhaid a léann an lucht féachana, an coimeádán comhaid-amháin-in-aghaidh-an-chluiche san áireamh:
+- Na formáidí comhaid a léann an t-amharcán, an coimeádán comhaid-amháin-in-aghaidh-an-chluiche san áireamh:
   [Comhad amháin in aghaidh an chluiche (.3dheat)](https://holdi601.github.io/3DHeat/container.html).
-  Scríobhann an tiontaire seo na comhaid scaoilte: an tábla, doiciméad an chluiche agus
-  a thaobhchomhaid taobh le taobh.
+  Scríobhann an tiontaire seo na comhaid scaoilte: an tábla, cáipéis an chluiche agus
+  a chomhaid chliatháin taobh le taobh.
 - Ritheann 3DHeat Watcher an tiontaire seo ar demos nua nuair atá sé suiteáilte
   (adapter `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
 
@@ -78,7 +78,7 @@ Ba chóir duit líne amháin a fheiceáil in aghaidh an demo. Ansin lódáil `ou
 
 | Uirlis | Cad a dhéanann sí | Cód | Doiciméid |
 |---|---|---|---|
-| Lucht féachana 3DHeat | taispeánann sé na sonraí: léarscáileanna teasa, anailís rása, athbhreithniú cluiche | [3DHeat](https://github.com/Holdi601/3DHeat) | [docs](https://holdi601.github.io/3DHeat/) |
+| Amharcán 3DHeat | taispeánann sé na sonraí: léarscáileanna teasa, anailís rása, athbhreithniú cluiche | [3DHeat](https://github.com/Holdi601/3DHeat) | [docs](https://holdi601.github.io/3DHeat/) |
 | GameFiles | leibhéil agus cúrsaí ó chomhaid féin cluiche | [3DHeat-GameFiles](https://github.com/Holdi601/3DHeat-GameFiles) | [docs](https://holdi601.github.io/3DHeat-GameFiles/) |
 | GameCapture | telemetry cuarta, agus leibhéil atógtha ó fhíseán cluiche | [3DHeat-GameCapture](https://github.com/Holdi601/3DHeat-GameCapture) | [docs](https://holdi601.github.io/3DHeat-GameCapture/) |
 | Unreal Exporter | breiseán d'Unreal Editor: leibhéal mar `.glb` amháin | [3DHeat-UnrealExporter](https://github.com/Holdi601/3DHeat-UnrealExporter) | [docs](https://holdi601.github.io/3DHeat-UnrealExporter/) |

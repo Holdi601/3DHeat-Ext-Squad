@@ -12,16 +12,16 @@ search_exclude: true
 Squad demo tiek ierakstīti **serverī**, nevis ar spēles klientu.
 
 1. Servera `Admins.cfg` failā dod administratora grupai atļauju `demos`.
-2. Spēles konsolē, kad mačs sākas, palaid `AdminDemoRec <name>`.
+2. Spēles konsolē, kad mačs sākas, palaidiet `AdminDemoRec <name>`.
    Administratoram šo jāieraksta pašā spēlē; viens ziņojums vēsta, ka RCON to nepieņem.
-3. Nospēlē maču, tad palaid `AdminDemoStop`.
+3. Nospēlējiet maču, tad palaidiet `AdminDemoStop`.
 4. Demo tiek saglabāts `<server>/SquadGame/Saved/Demos/<name>.replay`.
-   Nokopē to no servera uz datoru, kurā to konvertēsi.
+   Nokopējiet to no servera uz datoru, kurā to konvertēsiet.
 
 `Server.cfg` ir arī iestatījums `RecordDemos`, pēc noklusējuma izslēgts. Mazam
-maču sagaidi apmēram 70 līdz 80 MB stundā; pilna 100 spēlētāju servera izmērs nav izmērīts.
+maču sagaidiet apmēram 70 līdz 80 MB stundā; pilna 100 spēlētāju servera izmērs nav izmērīts.
 
-Demo satur visu servera spēlētāju vārdus un tiešsaistes ID: traktē to kā personas datus
+Demo satur visu servera spēlētāju vārdus un tiešsaistes ID: traktējiet to kā personas datus
 ([Ierobežojumi, atjauninājumi un noteikumi](limits.md#personal-data)).
 
 Tālāk: [Demo konvertēšana](converting.md).

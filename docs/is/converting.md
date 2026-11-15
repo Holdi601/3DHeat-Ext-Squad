@@ -16,7 +16,7 @@ python -m heat3d_ext_squad ...          the same, without installing
 
 ## Skref fyrir skref {#step-by-step}
 
-Ertu ný/r í skipanalínunni? Lestu fyrst [Áður en þú byrjar](before-you-start.md).
+Hefurðu aldrei notað skipanalínu? Lestu fyrst [Áður en þú byrjar](before-you-start.md).
 
 1. Settu upp einu sinni: `git clone https://github.com/Holdi601/3DHeat-Ext-Squad`,
    opnaðu skipanalínu í þeirri möppu og keyrðu `python -m pip install -e .`
@@ -55,11 +55,11 @@ eru samt skrifuð) eða þegar engin `.replay` skrá fannst.
 | Skrá | Hvað hún geymir |
 |---|---|
 | `<demo>.parquet` | taflan: staðsetningar og atburðir, ein röð hvert ([Taflan](output-table.md)) |
-| `<demo>.match.json` | leikskjalið ([Leikskjalið](output-match.md)) |
+| `<demo>.match.json` | leikjaskjalið ([Leikjaskjalið](output-match.md)) |
 | `<demo>.entities.parquet` | hliðarskrá: sérhver eigindauppfærsla og fjarkall, í heild |
 | `<demo>.packets.parquet` | hliðarskrá: bútar skrárinnar og allt sem ekki las, í heild |
 
-Taflan og leikskjalið eru sama parið og 3DHeat CS2 tólið skrifar.
+Taflan og leikjaskjalið eru sama parið og 3DHeat CS2 verkfærið skrifar.
 Skoðarinn opnar töfluna beint og sleppir hliðarskránum þegar heil
 mappa er hlaðin inn.
 

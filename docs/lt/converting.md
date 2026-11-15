@@ -25,7 +25,7 @@ Nesate įpratę prie komandinės eilutės? Pirmiausia perskaitykite [Prieš prad
 3. Vykdykite `heat3d-squad-demo <folder> -o out`.
 4. Turėtumėte matyti po vieną eilutę kiekvienam demo: jo sluoksnį, žaidėjus ir eilutes bei kur
    įrašyta lentelė. Kiekvienas demo tampa keturiais atskirais failais `out/<map>/` aplanke (ne
-   `.3dheat` konteineriu); įkelkite `.parquet` 3DHeat žiūrintuve.
+   `.3dheat` konteineriu); įkelkite `.parquet` 3DHeat žiūryklėje.
 
 ![Paleidimas su sintetiniu demo](../assets/img/run.svg)
 
@@ -56,11 +56,11 @@ Išeities kodas: 0, kai kiekvienas demo konvertuotas; 1, kai nepavyko bent viena
 |---|---|
 | `<demo>.parquet` | lentelė: pozicijos ir įvykiai, po vieną eilutę ([Lentelė](output-table.md)) |
 | `<demo>.match.json` | rungtynių dokumentas ([Rungtynių dokumentas](output-match.md)) |
-| `<demo>.entities.parquet` | šalutinis failas: kiekvienas savybių atnaujinimas ir nuotolinis kvietimas, visi |
-| `<demo>.packets.parquet` | šalutinis failas: failo dalys ir viskas, ko nepavyko nuskaityti, visa |
+| `<demo>.entities.parquet` | papildomas failas: kiekvienas savybių atnaujinimas ir nuotolinis kvietimas, visi |
+| `<demo>.packets.parquet` | papildomas failas: failo dalys ir viskas, ko nepavyko nuskaityti, visa |
 
 Lentelė ir rungtynių dokumentas yra ta pati pora, kurią rašo 3DHeat CS2 įrankis.
-Žiūrintojas atidaro lentelę tiesiogiai, o kai įkeliamas visas aplankas, šalutinių failų neįtraukia.
+Žiūryklė atidaro lentelę tiesiogiai, o kai įkeliamas visas aplankas, papildomų failų neįtraukia.
 
 ## Pavyzdžiai {#examples}
 

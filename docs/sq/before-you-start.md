@@ -9,7 +9,7 @@ search_exclude: true
 ---
 # Para se të fillosh {#before-you-start}
 
-Je i ri me vijën e komandës? Kjo faqe të çon nga zero te një ekzekutim i parë.
+Je i ri me rreshtin e komandave? Kjo faqe të çon nga zero te një ekzekutim i parë.
 Duhen rreth dhjetë minuta, vetëm një herë.
 
 ## 1. Instalo Python {#install-python}
@@ -25,7 +25,7 @@ Ky mjet kërkon **Python 3.10 ose më të ri**.
 ## 2. Merr këtë mjet {#get-this-tool}
 
 Hap [github.com/Holdi601/3DHeat-Ext-Squad](https://github.com/Holdi601/3DHeat-Ext-Squad), kliko butonin
-jeshil **Code**, pastaj **Download ZIP**, dhe çzipoje në një dosje të zgjedhjes tënde.
+jeshil **Code**, pastaj **Download ZIP**, dhe shpaketoje në një dosje të zgjedhjes tënde.
 Nëse përdor git: `git clone https://github.com/Holdi601/3DHeat-Ext-Squad`.
 
 ## 3. Hap një terminal në atë dosje {#open-a-terminal-in-that-folder}
@@ -85,5 +85,5 @@ Më pas: [Regjistrimi i një demoje](recording.md), pastaj [Konvertimi i demove]
 | `No module named pip` | Ekzekuto `python -m ensurepip`, pastaj hapin 4. |
 | çdo gjë tjetër | Lexo rreshtin e fundit të mesazhit, pastaj hap një issue në GitHub me të. |
 
-Çdo komandë përfundon edhe me një **kod daljeje**: 0 do të thotë se funksionoi. Për ta parë,
+Çdo komandë përfundon edhe me një **status dalje**: 0 do të thotë se funksionoi. Për ta parë,
 shkruaj `echo $LASTEXITCODE` në PowerShell ose `echo $?` në macOS dhe Linux.

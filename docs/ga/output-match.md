@@ -1,5 +1,5 @@
 ---
-title: Doiciméad an chluiche agus na taobhchomhaid
+title: Cáipéis an chluiche agus na comhaid chliatháin
 nav_order: 5
 lang: ga
 source: output-match.md
@@ -7,15 +7,15 @@ source_hash: "715bd3417e47"
 nav_exclude: true
 search_exclude: true
 ---
-# Doiciméad an chluiche agus na taobhchomhaid {#the-match-document-and-sidecars}
+# Cáipéis an chluiche agus na comhaid chliatháin {#the-match-document-and-sidecars}
 
-Taobh leis an tábla, faigheann gach demo `<demo>.match.json` agus dhá thaobhchomhad,
-`<demo>.entities.parquet` agus `<demo>.packets.parquet`. Léann an lucht féachana
-doiciméad an chluiche ina chluaisín Cluiche.
+Taobh leis an tábla, faigheann gach demo `<demo>.match.json` agus dhá chomhad cliatháin,
+`<demo>.entities.parquet` agus `<demo>.packets.parquet`. Léann an t-amharcán
+cáipéis an chluiche ina chluaisín Cluiche.
 
-## Doiciméad an chluiche {#the-match-document}
+## Cáipéis an chluiche {#the-match-document}
 
-Coinníonn `<demo>.match.json` (doiciméad an chluiche) ar a barrleibhéal `map`, `layer`, `level_path`, `game_version`, `engine_version`, `recorded_unix`, `duration_s`, `teams`, `squads`, `game_state`, `actors`, `players`, `rows`, `events`, `not_read`, `file`, `header`, `chunks`, `stream`, `shots` agus `selfCheck` (an liosta iomlán: [Tagairt orduithe](../cli-reference.md)). I bhfocail: an léarscáil agus an layer, leaganacha an chluiche agus an innill, am an taifeadta, fad, agus:
+Coinníonn `<demo>.match.json` (cáipéis an chluiche) ar a barrleibhéal `map`, `layer`, `level_path`, `game_version`, `engine_version`, `recorded_unix`, `duration_s`, `teams`, `squads`, `game_state`, `actors`, `players`, `rows`, `events`, `not_read`, `file`, `header`, `chunks`, `stream`, `shots` agus `selfCheck` (an liosta iomlán: [Tagairt orduithe](../cli-reference.md)). I bhfocail: an léarscáil agus an layer, leaganacha an chluiche agus an innill, am an taifeadta, fad, agus:
 
 - **na foirne**: uimhir, faction agus gach rud a mhacasamhlaigh a staid (ticéid, infhaighteachtaí, ceannasaí) de réir mar a d'athraigh sé;
 - **na scuaidí**: uimhir, foireann, ainm, cruthaitheoir, ceannaire, baill;
@@ -36,17 +36,17 @@ python -c "import json; d = json.load(open('out/<map>/<demo>.match.json')); prin
 
 ## Iomláine {#completeness}
 
-Leanann an léitheoir seo an riail a roinneann gach tiontaire 3DHeat: díchódaigh an méid is féidir a léamh anois, coinnigh an chuid eile iomlán, agus abair cé mhéad de gach cineál a rinneadh ([Coinníonn tiontairí gach rud](https://github.com/Holdi601/3DHeat/blob/main/docs/converters.md)). Tá `selfCheck.completeness` i ngach doiciméad cluiche: in aghaidh gach cineál míre a casadh sa demo, cé mhéad a bhí `seen`, `decoded`, `partial` (díchódaithe go páirteach agus coinnithe iomlán), `raw` (coinnithe iomlán amháin) agus `lost` (caithfidh 0 a bheith ann). Comhairtear na cineálacha san áit a gcasann an léitheoir leo: `file.info`, `chunk.<kind>`, `frame`, `packet`, `bunch`, `open`, `close`, `export.field`, `export.guid`, `external`, `property:<class>`, `rpc:<class>`, `block:<object>`, `subobject.*`.
+Leanann an léitheoir seo an riail a roinneann gach tiontaire 3DHeat: díchódaigh an méid is féidir a léamh anois, coinnigh an chuid eile iomlán, agus abair cé mhéad de gach cineál a rinneadh ([Coinníonn tiontairí gach rud](https://github.com/Holdi601/3DHeat/blob/main/docs/converters.md)). Tá `selfCheck.completeness` i ngach cáipéis chluiche: in aghaidh gach cineál míre a casadh sa demo, cé mhéad a bhí `seen`, `decoded`, `partial` (díchódaithe go páirteach agus coinnithe iomlán), `raw` (coinnithe iomlán amháin) agus `lost` (caithfidh 0 a bheith ann). Comhairtear na cineálacha san áit a gcasann an léitheoir leo: `file.info`, `chunk.<kind>`, `frame`, `packet`, `bunch`, `open`, `close`, `export.field`, `export.guid`, `external`, `property:<class>`, `rpc:<class>`, `block:<object>`, `subobject.*`.
 
 Ar na demos fíora a léadh, is 0 é `lost`: ritheann a míreanna ó na céadta mílte go dtí milliúin; déantar thart ar leath a dhíchódú go hiomlán, tá an chuid eile páirteach nó amh.
 
-**Léite** (isteach sa tábla agus i ndoiciméad an chluiche):
+**Léite** (isteach sa tábla agus i ncáipéis an chluiche):
 
 - an bloc faisnéise, ceannteideal an demo (gach réimse; coinnítear dhá bheart deiridh nach bhfuil aithne orthu mar heicsidheachúlach), tábla na gcodanna;
 - gach fráma, paicéad agus bunch (scoilte iomlán ina bhfuil iontu), gach aisteoir a osclaíodh (lena shuíomh spawn, rothlú, scála agus treoluas) agus a dúnadh (agus cén fáth: `Destroyed`, `Dormancy`...);
 - gach aireach macasamhlaithe, chomh fada agus a deir a ghiotáin ([Airí a dhíchódú](how-it-works.md#decoding-properties)), suíomhanna ó `FRepMovement` agus ó chomhpháirt ghluaiseachta na n-héileacaptar, na taismigh, sláinte gluaisteán, suíocháin;
 - gach glao cianda de réir ainm, lena pharaiméadair nuair a onnmhairíonn an demo grúpa na feidhme: lámhaigh (`fire`) agus buillí ar ghluaisteáin (`hit`) isteach sa tábla;
-- na táblaí onnmhairithe réimsí líonra agus na net GUIDs (a n-uimhir; tá na cosáin sa taobhchomhad entities).
+- na táblaí onnmhairithe réimsí líonra agus na net GUIDs (a n-uimhir; tá na cosáin sa chomhad cliatháin entities).
 
 **Coinnithe amh** (iomlán, leis an méid a léitear de taobh leis):
 
@@ -56,7 +56,7 @@ Ar na demos fíora a léadh, is 0 é `lost`: ritheann a míreanna ó na céadta 
   - gach bloc ábhair de réad nach bhféadfaí a aicme a aimsiú (`block`: `Buoyancy`, `GameplayTasksComponent`, `AmmoRackComponent`...), a cheannteideal díchódaithe;
   - gach cainéal aisteora a osclaíodh agus a dúnadh (`open`, `close`), gach fo-réad a scriosadh nó a millíodh;
   - an comhthéacs a theastaíonn ó dhíchódóir níos déanaí chun an comhad a léamh leis féin: gach onnmhairiú réimse líonra (`export.field`: cosán grúpa, láimhseáil, ainm airí, seicsum) agus gach net GUID onnmhairithe (`export.guid`: a chosán, a sheachtrach agus brataí), ag an am a thug an sruth iad.
-- `<demo>.packets.parquet`, colúin `time`, `type`, `name`, `channel`, `offset` (sa chomhad), `decoded`, `bits`, `payload`: an bloc faisnéise, an chuid cheannteidil, gach cuid seicphointe (is é seicphointe staid gach aisteora ag a am, atá sa sruth ón tús freisin), gach cuid imeachta, agus gach fráma, paicéad nó bunch nach léitear (bunch amháin in aghaidh an demo: bunch oscailte aisteora lucht féachana an taifeadáin féin), iomlán.
+- `<demo>.packets.parquet`, colúin `time`, `type`, `name`, `channel`, `offset` (sa chomhad), `decoded`, `bits`, `payload`: an bloc faisnéise, an chuid cheannteidil, gach cuid seicphointe (is é seicphointe staid gach aisteora ag a am, atá sa sruth ón tús freisin), gach cuid imeachta, agus gach fráma, paicéad nó bunch nach léitear (bunch amháin in aghaidh an demo: bunch oscailte aisteora féachadóra an taifeadáin féin), iomlán.
 
 Tá sraitheanna entities grúpáilte de réir `kind`, `type` agus `entity`, gach ceann in ord ama; sórtáil de réir `time` d'ord an tsrutha.
 

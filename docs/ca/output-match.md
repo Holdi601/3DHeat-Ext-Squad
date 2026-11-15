@@ -1,5 +1,5 @@
 ---
-title: El document de la partida i els fitxers auxiliars
+title: El document de partida i els annexos
 nav_order: 5
 lang: ca
 source: output-match.md
@@ -7,15 +7,15 @@ source_hash: "715bd3417e47"
 nav_exclude: true
 search_exclude: true
 ---
-# El document de la partida i els fitxers auxiliars {#the-match-document-and-sidecars}
+# El document de partida i els annexos {#the-match-document-and-sidecars}
 
-Al costat de la taula, cada demo obté `<demo>.match.json` i dos fitxers auxiliars,
+Al costat de la taula, cada demo obté `<demo>.match.json` i dos annexos,
 `<demo>.entities.parquet` i `<demo>.packets.parquet`. El visualitzador llegeix el
-document de la partida a la seva pestanya Partida.
+document de partida a la seva pestanya Partida.
 
-## El document de la partida {#the-match-document}
+## El document de partida {#the-match-document}
 
-`<demo>.match.json` (el document de la partida) conté al seu nivell superior `map`, `layer`, `level_path`, `game_version`, `engine_version`, `recorded_unix`, `duration_s`, `teams`, `squads`, `game_state`, `actors`, `players`, `rows`, `events`, `not_read`, `file`, `header`, `chunks`, `stream`, `shots` i `selfCheck` (la llista completa: [Referència de l'ordre](../cli-reference.md)). Amb paraules: el mapa i el nivell, les versions del joc i del motor, el moment de la gravació, la durada, i:
+`<demo>.match.json` (el document de partida) conté al seu nivell superior `map`, `layer`, `level_path`, `game_version`, `engine_version`, `recorded_unix`, `duration_s`, `teams`, `squads`, `game_state`, `actors`, `players`, `rows`, `events`, `not_read`, `file`, `header`, `chunks`, `stream`, `shots` i `selfCheck` (la llista completa: [Referència de l'ordre](../cli-reference.md)). Amb paraules: el mapa i el nivell, les versions del joc i del motor, el moment de la gravació, la durada, i:
 
 - **els equips**: número, facció i tot el que han replicat els seus estats (tiquets, disponibilitats, comandant) a mesura que canviava;
 - **els esquadrons**: número, equip, nom, creador, líder, membres;
@@ -24,7 +24,7 @@ document de la partida a la seva pestanya Partida.
 - **una línia per a cada jugador**: mostres a peu i en vehicles, distància recorreguda, classes de soldat jugades, vehicles utilitzats, canvis d'equip, seients ocupats, i tot el que ha replicat l'estat del jugador (ping, nivell, rol, seient actual...); i una línia per a cada bot;
 - **els esdeveniments** comptats, el **cens de propietats** (quantes vegades es va enviar cada propietat de cada classe) i el **cens de crides remotes**, els trets i impactes, el que **no** es va llegir, i els diagnòstics del lector;
 - **el fitxer i la capçalera**: cada camp del bloc d'informació i de la capçalera de la demo, la taula de blocs, les taules d'exportació de camps de xarxa (`net_field_exports`), els motius de tancament dels canals, i les classes trobades per als objectes que les exportacions no anomenen (`stream.class_resolution`);
-- **la comprovació** (`selfCheck.completeness`, vegi [Completesa](#completeness)).
+- **la comprovació** (`selfCheck.completeness`, mira [Completesa](#completeness)).
 
 Els identificadors en línia (Steam, EOS) s'han deixat fora a propòsit.
 
@@ -40,13 +40,13 @@ Aquest lector segueix la regla que comparteixen tots els convertidors de 3DHeat:
 
 A les demos reals llegides, `lost` és 0: els seus elements van de centenars de milers a milions; uns la meitat es descodifiquen del tot, la resta són parcials o crues.
 
-**Llegit** (a la taula i al document de la partida):
+**Llegit** (a la taula i al document de partida):
 
 - el bloc d'informació, la capçalera de la demo (cada camp; dos bytes finals que no es coneixen es guarden en hexadecimal), la taula de blocs;
 - cada fotograma, paquet i paquet (dividit sencer en el que porta), cada actor obert (amb la seva ubicació d'aparició, rotació, escala i velocitat) i tancat (amb el motiu: `Destroyed`, `Dormancy`...);
 - cada propietat replicada, fins on diguin els seus bits ([Descodificar propietats](how-it-works.md#decoding-properties)), posicions de `FRepMovement` i del component de moviment dels helicòpters, les baixes, la salut dels vehicles, els seients;
 - cada crida remota pel nom, amb els seus paràmetres quan la demo exporta el grup de la funció: trets (`fire`) i impactes en vehicles (`hit`) a la taula;
-- les taules d'exportació de camps de xarxa i els GUID de xarxa (el seu recompte; les rutes són al fitxer auxiliar d'entitats).
+- les taules d'exportació de camps de xarxa i els GUID de xarxa (el seu recompte; les rutes són a l'annex d'entitats).
 
 **Guardat cru** (sencer, amb el que s'ha llegit al costat):
 
@@ -58,10 +58,10 @@ A les demos reals llegides, `lost` és 0: els seus elements van de centenars de 
   - el context que necessita un descodificador posterior per llegir el fitxer sol: cada exportació de camp de xarxa (`export.field`: ruta del grup, identificador, nom de propietat, suma de verificació) i cada GUID de xarxa exportat (`export.guid`: la seva ruta, extern i indicadors), en el moment en què el flux els va donar.
 - `<demo>.packets.parquet`, columnes `time`, `type`, `name`, `channel`, `offset` (al fitxer), `decoded`, `bits`, `payload`: el bloc d'informació, el bloc de capçalera, cada bloc de punt de control (un punt de control és l'estat de cada actor en el seu moment, que el flux des de l'inici també conté), cada bloc d'esdeveniment, i cada fotograma, paquet o paquet que no es llegeix (un paquet per demo: el paquet d'obertura de l'espectador propi del gravador), sencer.
 
-Les files de l'entitats s'agrupen per `kind`, `type` i `entity`, cada una en ordre de temps; ordeni per `time` per a l'ordre del flux.
+Les files de les entitats s'agrupen per `kind`, `type` i `entity`, cada una en ordre de temps; ordena per `time` per a l'ordre del flux.
 
 **No disponible:**
 
 - el que una demo de servidor no grava: les entrades dels clients, el que veia un jugador;
 - els efectes del costat del client: marques d'impacte, sons, el text del registre de baixes (el servidor envia les crides, no la seva visualització);
-- els identificadors en línia descodificats: guardats només com a bits (vegi [Dades personals](limits.md#personal-data)).
+- els identificadors en línia descodificats: guardats només com a bits (mira [Dades personals](limits.md#personal-data)).

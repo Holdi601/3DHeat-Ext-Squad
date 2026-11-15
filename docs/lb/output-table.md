@@ -24,7 +24,7 @@ während en sech beweegt.
 | `dirX`, `dirY`, `dirZ` | wouhin e Zaldot kuckt: de Yaw vum Kierper an de Pitch vum Bléck, als Eenheetsvektor (bei engem Gefier: horizontal) |
 | `yaw`, `pitch` | datselwecht a Grad; `pitch` no uewen vum Horizont, nëmmen bei Zaldoten |
 | `health` | d'Gesondheet vum Zaldot, Bot oder Gefier an deem Moment, wou de Server se geschéckt huet (bei engem Zaldot fällt se ënner 0, während en verwonnt ass) |
-| `speed` | déi replizéiert Vitesse, cm/s |
+| `speed` | déi replizéiert Geschwindegkeet, cm/s |
 | `player` | den Numm vum Spiller; `bot <id>` fir e Bot; bei engem Gefier oder Deployable, dat kengem gehéiert, seng Klass; bei engem Schoss vun der Waff vun engem Gefier de Spiller, deen op deem Gefier sëtzt |
 | `team`, `faction` | Squads Teamnummer (1, 2) a seng Fraktiounsopstellung, **an deem Moment**: Spiller kënnen d'Säit wiesselen |
 | `squad` | d'Squad-Nummer, -1 wann net an engem |
@@ -32,7 +32,7 @@ während en sech beweegt.
 | `pawn` | de Blueprint vum Zaldot (`SQSquidBot` fir e Bot), d'Gefier, oder bei `fire` d'Waff |
 | `seat` | bei engem Tuerm oder Passagéierplaz de Pawn vun der Plaz selwer |
 | `detail` | bei `fire` den Opruff vun der Waff, deen de Schoss gesat huet, bei `hit` den Schuedenstyp, bei `removed` firwat de Kanal zougaangen ass (`Destroyed`, `Dormancy`...) |
-| `entity` | den Akteur, ëm deen et an der Zeil geet (säin Net GUID): den `entity` vun de Zeilen an de Begleetdateien |
+| `entity` | den Akteur, ëm deen et an der Zeil geet (säin Net GUID): den `entity` vun de Zeilen an de Niewendateien |
 | `match` | den Numm vun der Demo |
 
 ## Evenementer {#events}
