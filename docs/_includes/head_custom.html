@@ -1,0 +1,63 @@
+{%- comment -%} Languages: the home page sends a visitor to their browser's language (or the one they picked before); a translation older than its English page says so; the menu of a translated page leads to the translated pages. Kept in step with tools/docs_i18n.py. {%- endcomment -%}
+{%- assign ui = site.data.i18n_ui -%}
+{%- assign cur = page.lang | default: "en" -%}
+{%- assign homes = site.pages | where: "source", "index.md" -%}
+<script>
+(function () {
+  var cur = {{ cur | jsonify }};
+  document.documentElement.lang = cur;
+  var ui = {{ ui | jsonify }};
+{%- if page.path == "index.md" %}
+  var homes = { {% for h in homes %}{{ h.lang | jsonify }}: {{ h.url | relative_url | jsonify }}{% unless forloop.last %}, {% endunless %}{% endfor %} };
+  var alias = { nb: 'no', nn: 'no', 'zh-tw': 'zh-Hant', 'zh-hk': 'zh-Hant', 'zh-mo': 'zh-Hant', 'zh-hant': 'zh-Hant', 'zh-hans': 'zh', 'zh-cn': 'zh', 'zh-sg': 'zh', cnr: 'sr' };
+  function match(tag) {
+    var t = String(tag).toLowerCase();
+    if (alias[t]) return alias[t];
+    var p = t.split('-');
+    if (p[0] === 'zh') return (p.indexOf('hant') >= 0 || ['tw', 'hk', 'mo'].indexOf(p[1]) >= 0) ? 'zh-Hant' : 'zh';
+    if (p[0] === 'en' || ui[p[0]]) return p[0];
+    return alias[p[0]] || null;
+  }
+  var want = null;
+  try { want = localStorage.getItem('h3d-docs-lang'); } catch (e) {}
+  if (!want) {
+    var tags = navigator.languages || [navigator.language || 'en'];
+    for (var i = 0; i < tags.length && !want; i++) want = match(tags[i]);
+  }
+  if (want && want !== 'en' && homes[want] && location.search.indexOf('lang=') < 0) location.replace(homes[want] + location.hash);
+{%- endif %}
+{%- if page.lang %}
+  var mine = { {% assign lp = site.pages | where: "lang", page.lang %}{% for p in lp %}{{ p.source | jsonify }}: [{{ p.url | relative_url | jsonify }}, {{ p.title | jsonify }}]{% unless forloop.last %}, {% endunless %}{% endfor %} };
+  var stale = {% if site.data.i18n_sources[page.source] and site.data.i18n_sources[page.source] != page.source_hash %}true{% else %}false{% endif %};
+  var english = {% assign en = site.pages | where: "path", page.source | first %}{{ en.url | relative_url | jsonify }};
+{%- else %}
+  var mine = null, stale = false, english = null;
+{%- endif %}
+  document.addEventListener('DOMContentLoaded', function () {
+    var main = document.querySelector('#main-content') || document.querySelector('main');
+    function note(text, link, href) {
+      if (!main) return;
+      var d = document.createElement('p');
+      d.className = 'h3d-note';
+      d.textContent = text + ' ';
+      if (link) { var a = document.createElement('a'); a.href = href; a.textContent = link; d.appendChild(a); }
+      main.insertBefore(d, main.firstChild);
+    }
+    if (stale && ui[cur]) note(ui[cur].outdated, ui[cur].english, english);
+    var q = /[?&]lang=([A-Za-z-]+)/.exec(location.search);
+    if (!mine && q && ui[q[1]]) note(ui[q[1]].missing);
+    if (mine) {
+      var links = document.querySelectorAll('.site-nav a.nav-list-link, .site-title');
+      for (var i = 0; i < links.length; i++) {
+        var a = links[i], u = a.getAttribute('href') || '';
+        var name = u.replace(/[?#].*$/, '').split('/').pop() || 'index.html';
+        var src = name.replace(/\.html$/, '') + '.md';
+        var t = mine[src];
+        if (t) { a.setAttribute('href', t[0]); if (a.classList.contains('nav-list-link')) a.textContent = t[1]; }
+        else if (a.classList.contains('nav-list-link')) a.setAttribute('href', u + (u.indexOf('?') < 0 ? '?' : '&') + 'lang=' + cur);
+        if (t && t[0] === location.pathname) a.classList.add('active');
+      }
+    }
+  });
+})();
+</script>

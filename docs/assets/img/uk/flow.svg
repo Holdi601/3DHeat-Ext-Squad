@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="634" viewBox="0 0 860 634" font-family="Segoe UI,Helvetica,Arial,sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#5b6270"/></marker></defs>
+<rect width="860" height="634" rx="10" fill="#f6f7f9"/>
+<text x="16" y="32" font-size="18" fill="#1f2328" font-weight="600">Від сервера Squad до переглядача</text>
+<rect x="16" y="52" width="828" height="102" rx="8" fill="#ffffff" stroke="#8c95a3"/>
+<text x="28" y="79" font-size="15" fill="#1f2328" font-weight="600">1. Сервер Squad</text>
+<text x="28" y="99" font-size="14" fill="#3d4450">адміністратор вводить AdminDemoRec,</text>
+<text x="28" y="119" font-size="14" fill="#3d4450">матч зіграно,</text>
+<text x="28" y="139" font-size="14" fill="#3d4450">адміністратор вводить AdminDemoStop</text>
+<rect x="16" y="188" width="828" height="82" rx="8" fill="#ffffff" stroke="#8c95a3"/>
+<text x="28" y="215" font-size="15" fill="#1f2328" font-weight="600">2. Файл демо</text>
+<text x="28" y="235" font-size="14" fill="#3d4450">&lt;name&gt;.replay, скопійовано</text>
+<text x="28" y="255" font-size="14" fill="#3d4450">з сервера</text>
+<path d="M430,156 C430,171.0 430,171.0 430,185" fill="none" stroke="#5b6270" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="16" y="304" width="828" height="82" rx="8" fill="#eef4ff" stroke="#8c95a3"/>
+<text x="28" y="331" font-size="15" fill="#1f2328" font-weight="600">3. heat3d-squad-demo</text>
+<text x="28" y="351" font-size="14" fill="#3d4450">відтворює запис</text>
+<text x="28" y="371" font-size="14" fill="#3d4450">і записує, хто де був</text>
+<path d="M430,272 C430,287.0 430,287.0 430,301" fill="none" stroke="#5b6270" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="16" y="420" width="264" height="82" rx="8" fill="#ffffff" stroke="#8c95a3"/>
+<text x="28" y="447" font-size="15" fill="#1f2328" font-weight="600">&lt;demo&gt;.parquet</text>
+<text x="28" y="467" font-size="14" fill="#3d4450">таблиця: позиції</text>
+<text x="28" y="487" font-size="14" fill="#3d4450">і події</text>
+<rect x="298" y="420" width="264" height="82" rx="8" fill="#ffffff" stroke="#8c95a3"/>
+<text x="310" y="447" font-size="15" fill="#1f2328" font-weight="600">&lt;demo&gt;.match.json</text>
+<text x="310" y="467" font-size="14" fill="#3d4450">документ матчу:</text>
+<text x="310" y="487" font-size="14" fill="#3d4450">команди, загони, гравці</text>
+<rect x="580" y="420" width="264" height="82" rx="8" fill="#ffffff" stroke="#8c95a3"/>
+<text x="592" y="447" font-size="15" fill="#1f2328" font-weight="600">2 додаткових файли</text>
+<text x="592" y="467" font-size="14" fill="#3d4450">усе інше,</text>
+<text x="592" y="487" font-size="14" fill="#3d4450">збережено цілком</text>
+<path d="M430,388 C430,403.0 148,403.0 148,417" fill="none" stroke="#5b6270" stroke-width="1.6" marker-end="url(#a)"/>
+<path d="M430,388 C430,403.0 430,403.0 430,417" fill="none" stroke="#5b6270" stroke-width="1.6" marker-end="url(#a)"/>
+<path d="M430,388 C430,403.0 712,403.0 712,417" fill="none" stroke="#5b6270" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="16" y="536" width="828" height="82" rx="8" fill="#eef4ff" stroke="#8c95a3"/>
+<text x="28" y="563" font-size="15" fill="#1f2328" font-weight="600">4. Переглядач 3DHeat</text>
+<text x="28" y="583" font-size="14" fill="#3d4450">Вкладка Heatmap: таблиця</text>
+<text x="28" y="603" font-size="14" fill="#3d4450">Вкладка Match: документ матчу</text>
+<path d="M148,504 C148,519.0 430,519.0 430,533" fill="none" stroke="#5b6270" stroke-width="1.6" marker-end="url(#a)"/>
+<path d="M430,504 C430,519.0 430,519.0 430,533" fill="none" stroke="#5b6270" stroke-width="1.6" marker-end="url(#a)"/>
+<path d="M712,504 C712,519.0 430,519.0 430,533" fill="none" stroke="#5b6270" stroke-width="1.6" marker-end="url(#a)"/>
+</svg>

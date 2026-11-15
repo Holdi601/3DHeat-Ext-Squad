@@ -27,3 +27,25 @@ A checklist for each release, so the pages never fall behind the code.
    words as the viewer's own translated interface.
 6. **Run the tests** (`pytest`).
 7. **Push** only after the owner's go-ahead.
+
+## Translations: the commands
+
+The site is translated into the 3DHeat viewer's 40 languages: English in `docs/`, each other
+language in `docs/<lang>/` with the same file names. `tools/docs_i18n.py` does the bookkeeping:
+
+```bash
+python tools/docs_i18n.py hashes             # after any English change: record each page's hash
+python tools/docs_i18n.py svg-strings        # after any picture change: the labels to translate
+python tools/docs_i18n.py status             # per language: current, outdated, missing pages
+python tools/docs_i18n.py todo --lang de     # the German pages to (re)translate
+python tools/docs_i18n.py svg-build --lang de    # German pictures from docs/assets/i18n/svg/de.json
+python tools/docs_i18n.py finish --lang de   # stamp the German pages with their English hash
+python tools/docs_i18n.py check              # exit 1 when hashes or labels are stale
+```
+
+Translate only what `todo` lists: keep Markdown, links, code, file and column names as they are,
+translate titles and picture descriptions, and use the 3DHeat viewer's own words for its buttons
+and panels (its `src/i18n/locales/<lang>/`). Generated reference pages and terminal pictures stay
+English. On the site, an outdated translation says so and links the English page; a missing one
+falls back to English. The header's language menu and the home page's browser-language redirect
+come from `docs/_includes/`.

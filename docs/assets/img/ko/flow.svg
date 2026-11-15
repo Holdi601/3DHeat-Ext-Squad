@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="634" viewBox="0 0 860 634" font-family="Segoe UI,Helvetica,Arial,sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#5b6270"/></marker></defs>
+<rect width="860" height="634" rx="10" fill="#f6f7f9"/>
+<text x="16" y="32" font-size="18" fill="#1f2328" font-weight="600">Squad 서버에서 뷰어까지</text>
+<rect x="16" y="52" width="828" height="102" rx="8" fill="#ffffff" stroke="#8c95a3"/>
+<text x="28" y="79" font-size="15" fill="#1f2328" font-weight="600">1. Squad 서버</text>
+<text x="28" y="99" font-size="14" fill="#3d4450">관리자가 AdminDemoRec 입력,</text>
+<text x="28" y="119" font-size="14" fill="#3d4450">경기가 끝나면,</text>
+<text x="28" y="139" font-size="14" fill="#3d4450">관리자가 AdminDemoStop 입력</text>
+<rect x="16" y="188" width="828" height="82" rx="8" fill="#ffffff" stroke="#8c95a3"/>
+<text x="28" y="215" font-size="15" fill="#1f2328" font-weight="600">2. 데모 파일</text>
+<text x="28" y="235" font-size="14" fill="#3d4450">&lt;name&gt;.replay, 복사됨</text>
+<text x="28" y="255" font-size="14" fill="#3d4450">서버에서 꺼내기</text>
+<path d="M430,156 C430,171.0 430,171.0 430,185" fill="none" stroke="#5b6270" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="16" y="304" width="828" height="82" rx="8" fill="#eef4ff" stroke="#8c95a3"/>
+<text x="28" y="331" font-size="15" fill="#1f2328" font-weight="600">3. heat3d-squad-demo</text>
+<text x="28" y="351" font-size="14" fill="#3d4450">녹화를 다시 재생</text>
+<text x="28" y="371" font-size="14" fill="#3d4450">누가 어디에 있었는지 적음</text>
+<path d="M430,272 C430,287.0 430,287.0 430,301" fill="none" stroke="#5b6270" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="16" y="420" width="264" height="82" rx="8" fill="#ffffff" stroke="#8c95a3"/>
+<text x="28" y="447" font-size="15" fill="#1f2328" font-weight="600">&lt;demo&gt;.parquet</text>
+<text x="28" y="467" font-size="14" fill="#3d4450">표: 위치</text>
+<text x="28" y="487" font-size="14" fill="#3d4450">그리고 이벤트</text>
+<rect x="298" y="420" width="264" height="82" rx="8" fill="#ffffff" stroke="#8c95a3"/>
+<text x="310" y="447" font-size="15" fill="#1f2328" font-weight="600">&lt;demo&gt;.match.json</text>
+<text x="310" y="467" font-size="14" fill="#3d4450">경기 문서:</text>
+<text x="310" y="487" font-size="14" fill="#3d4450">팀, 분대, 플레이어</text>
+<rect x="580" y="420" width="264" height="82" rx="8" fill="#ffffff" stroke="#8c95a3"/>
+<text x="592" y="447" font-size="15" fill="#1f2328" font-weight="600">보조 파일 2개</text>
+<text x="592" y="467" font-size="14" fill="#3d4450">나머지 전부,</text>
+<text x="592" y="487" font-size="14" fill="#3d4450">통째로 보관</text>
+<path d="M430,388 C430,403.0 148,403.0 148,417" fill="none" stroke="#5b6270" stroke-width="1.6" marker-end="url(#a)"/>
+<path d="M430,388 C430,403.0 430,403.0 430,417" fill="none" stroke="#5b6270" stroke-width="1.6" marker-end="url(#a)"/>
+<path d="M430,388 C430,403.0 712,403.0 712,417" fill="none" stroke="#5b6270" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="16" y="536" width="828" height="82" rx="8" fill="#eef4ff" stroke="#8c95a3"/>
+<text x="28" y="563" font-size="15" fill="#1f2328" font-weight="600">4. 3DHeat 뷰어</text>
+<text x="28" y="583" font-size="14" fill="#3d4450">히트맵 탭: 표</text>
+<text x="28" y="603" font-size="14" fill="#3d4450">매치 탭: 경기 문서</text>
+<path d="M148,504 C148,519.0 430,519.0 430,533" fill="none" stroke="#5b6270" stroke-width="1.6" marker-end="url(#a)"/>
+<path d="M430,504 C430,519.0 430,519.0 430,533" fill="none" stroke="#5b6270" stroke-width="1.6" marker-end="url(#a)"/>
+<path d="M712,504 C712,519.0 430,519.0 430,533" fill="none" stroke="#5b6270" stroke-width="1.6" marker-end="url(#a)"/>
+</svg>

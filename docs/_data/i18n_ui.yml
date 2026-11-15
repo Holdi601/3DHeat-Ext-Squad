@@ -1,0 +1,43 @@
+# The documentation site's own few words, per language: the language's own name,
+# the switcher's label, and the notes on an outdated or missing translation.
+# Maintained by hand with tools/docs_i18n.py; the languages are the 3DHeat viewer's.
+en: {name: "English", label: "Language", outdated: "This translation is older than the English page.", english: "Read the English page", missing: "This page is not translated yet; here is the English page."}
+de: {name: "Deutsch", label: "Sprache", outdated: "Diese Übersetzung ist älter als die englische Seite.", english: "Englische Seite lesen", missing: "Diese Seite ist noch nicht übersetzt; hier ist die englische Seite."}
+fr: {name: "Français", label: "Langue", outdated: "Cette traduction est plus ancienne que la page anglaise.", english: "Lire la page en anglais", missing: "Cette page n'est pas encore traduite ; voici la page anglaise."}
+es: {name: "Español", label: "Idioma", outdated: "Esta traducción es anterior a la página en inglés.", english: "Leer la página en inglés", missing: "Esta página aún no está traducida; aquí está la página en inglés."}
+it: {name: "Italiano", label: "Lingua", outdated: "Questa traduzione è più vecchia della pagina inglese.", english: "Leggi la pagina in inglese", missing: "Questa pagina non è ancora tradotta; ecco la pagina in inglese."}
+pt: {name: "Português", label: "Idioma", outdated: "Esta tradução é mais antiga do que a página em inglês.", english: "Ler a página em inglês", missing: "Esta página ainda não foi traduzida; aqui está a página em inglês."}
+nl: {name: "Nederlands", label: "Taal", outdated: "Deze vertaling is ouder dan de Engelse pagina.", english: "Lees de Engelse pagina", missing: "Deze pagina is nog niet vertaald; hier is de Engelse pagina."}
+pl: {name: "Polski", label: "Język", outdated: "To tłumaczenie jest starsze niż strona angielska.", english: "Przeczytaj stronę po angielsku", missing: "Ta strona nie jest jeszcze przetłumaczona; oto strona angielska."}
+cs: {name: "Čeština", label: "Jazyk", outdated: "Tento překlad je starší než anglická stránka.", english: "Přečíst anglickou stránku", missing: "Tato stránka ještě není přeložena; zde je anglická stránka."}
+sk: {name: "Slovenčina", label: "Jazyk", outdated: "Tento preklad je starší ako anglická stránka.", english: "Prečítať anglickú stránku", missing: "Táto stránka ešte nie je preložená; tu je anglická stránka."}
+sl: {name: "Slovenščina", label: "Jezik", outdated: "Ta prevod je starejši od angleške strani.", english: "Preberi angleško stran", missing: "Ta stran še ni prevedena; tukaj je angleška stran."}
+hr: {name: "Hrvatski", label: "Jezik", outdated: "Ovaj je prijevod stariji od engleske stranice.", english: "Pročitaj englesku stranicu", missing: "Ova stranica još nije prevedena; ovdje je engleska stranica."}
+bs: {name: "Bosanski", label: "Jezik", outdated: "Ovaj prijevod je stariji od engleske stranice.", english: "Pročitaj englesku stranicu", missing: "Ova stranica još nije prevedena; ovdje je engleska stranica."}
+sr: {name: "Српски", label: "Језик", outdated: "Овај превод је старији од енглеске странице.", english: "Прочитај енглеску страницу", missing: "Ова страница још није преведена; ево енглеске странице."}
+mk: {name: "Македонски", label: "Јазик", outdated: "Овој превод е постар од англиската страница.", english: "Прочитај ја англиската страница", missing: "Оваа страница сè уште не е преведена; еве ја англиската страница."}
+bg: {name: "Български", label: "Език", outdated: "Този превод е по-стар от английската страница.", english: "Прочетете английската страница", missing: "Тази страница още не е преведена; ето английската страница."}
+ro: {name: "Română", label: "Limbă", outdated: "Această traducere este mai veche decât pagina în engleză.", english: "Citește pagina în engleză", missing: "Această pagină nu este încă tradusă; iată pagina în engleză."}
+hu: {name: "Magyar", label: "Nyelv", outdated: "Ez a fordítás régebbi az angol oldalnál.", english: "Az angol oldal elolvasása", missing: "Ez az oldal még nincs lefordítva; itt az angol oldal."}
+el: {name: "Ελληνικά", label: "Γλώσσα", outdated: "Αυτή η μετάφραση είναι παλαιότερη από την αγγλική σελίδα.", english: "Διαβάστε την αγγλική σελίδα", missing: "Αυτή η σελίδα δεν έχει μεταφραστεί ακόμη· ορίστε η αγγλική σελίδα."}
+sq: {name: "Shqip", label: "Gjuha", outdated: "Ky përkthim është më i vjetër se faqja në anglisht.", english: "Lexo faqen në anglisht", missing: "Kjo faqe nuk është përkthyer ende; ja faqja në anglisht."}
+tr: {name: "Türkçe", label: "Dil", outdated: "Bu çeviri İngilizce sayfadan daha eski.", english: "İngilizce sayfayı oku", missing: "Bu sayfa henüz çevrilmedi; işte İngilizce sayfa."}
+da: {name: "Dansk", label: "Sprog", outdated: "Denne oversættelse er ældre end den engelske side.", english: "Læs den engelske side", missing: "Denne side er endnu ikke oversat; her er den engelske side."}
+sv: {name: "Svenska", label: "Språk", outdated: "Den här översättningen är äldre än den engelska sidan.", english: "Läs den engelska sidan", missing: "Den här sidan är inte översatt än; här är den engelska sidan."}
+"no": {name: "Norsk", label: "Språk", outdated: "Denne oversettelsen er eldre enn den engelske siden.", english: "Les den engelske siden", missing: "Denne siden er ikke oversatt ennå; her er den engelske siden."}
+fi: {name: "Suomi", label: "Kieli", outdated: "Tämä käännös on vanhempi kuin englanninkielinen sivu.", english: "Lue englanninkielinen sivu", missing: "Tätä sivua ei ole vielä käännetty; tässä englanninkielinen sivu."}
+is: {name: "Íslenska", label: "Tungumál", outdated: "Þessi þýðing er eldri en enska síðan.", english: "Lesa ensku síðuna", missing: "Þessi síða hefur ekki verið þýdd enn; hér er enska síðan."}
+et: {name: "Eesti", label: "Keel", outdated: "See tõlge on vanem kui ingliskeelne leht.", english: "Loe ingliskeelset lehte", missing: "Seda lehte pole veel tõlgitud; siin on ingliskeelne leht."}
+lv: {name: "Latviešu", label: "Valoda", outdated: "Šis tulkojums ir vecāks par angļu lapu.", english: "Lasīt angļu lapu", missing: "Šī lapa vēl nav iztulkota; šeit ir angļu lapa."}
+lt: {name: "Lietuvių", label: "Kalba", outdated: "Šis vertimas senesnis už anglišką puslapį.", english: "Skaityti anglišką puslapį", missing: "Šis puslapis dar neišverstas; štai angliškas puslapis."}
+ga: {name: "Gaeilge", label: "Teanga", outdated: "Tá an t-aistriúchán seo níos sine ná an leathanach Béarla.", english: "Léigh an leathanach Béarla", missing: "Níl an leathanach seo aistrithe fós; seo an leathanach Béarla."}
+mt: {name: "Malti", label: "Lingwa", outdated: "Din it-traduzzjoni hija eqdem mill-paġna bl-Ingliż.", english: "Aqra l-paġna bl-Ingliż", missing: "Din il-paġna għadha mhix tradotta; hawn il-paġna bl-Ingliż."}
+lb: {name: "Lëtzebuergesch", label: "Sprooch", outdated: "Dës Iwwersetzung ass méi al wéi déi englesch Säit.", english: "Déi englesch Säit liesen", missing: "Dës Säit ass nach net iwwersat; hei ass déi englesch Säit."}
+ca: {name: "Català", label: "Idioma", outdated: "Aquesta traducció és més antiga que la pàgina en anglès.", english: "Llegeix la pàgina en anglès", missing: "Aquesta pàgina encara no està traduïda; aquí tens la pàgina en anglès."}
+uk: {name: "Українська", label: "Мова", outdated: "Цей переклад старіший за англійську сторінку.", english: "Читати англійську сторінку", missing: "Цю сторінку ще не перекладено; ось англійська сторінка."}
+ru: {name: "Русский", label: "Язык", outdated: "Этот перевод старее английской страницы.", english: "Читать английскую страницу", missing: "Эта страница ещё не переведена; вот английская страница."}
+be: {name: "Беларуская", label: "Мова", outdated: "Гэты пераклад старэйшы за англійскую старонку.", english: "Чытаць англійскую старонку", missing: "Гэтая старонка яшчэ не перакладзена; вось англійская старонка."}
+ja: {name: "日本語", label: "言語", outdated: "この翻訳は英語のページより古くなっています。", english: "英語のページを読む", missing: "このページはまだ翻訳されていません。英語のページを表示しています。"}
+ko: {name: "한국어", label: "언어", outdated: "이 번역은 영어 페이지보다 오래되었습니다.", english: "영어 페이지 읽기", missing: "이 페이지는 아직 번역되지 않았습니다. 영어 페이지를 표시합니다."}
+zh: {name: "简体中文", label: "语言", outdated: "此译文比英文页面旧。", english: "阅读英文页面", missing: "此页面尚未翻译；这是英文页面。"}
+zh-Hant: {name: "繁體中文", label: "語言", outdated: "此譯文比英文頁面舊。", english: "閱讀英文頁面", missing: "此頁面尚未翻譯；這是英文頁面。"}

@@ -1,0 +1,45 @@
+{%- comment -%} Language switcher: every language that has this site's home page, pointing at this page in it, or at the English page when this one is not translated yet. Kept in step with tools/docs_i18n.py. {%- endcomment -%}
+{%- assign ui = site.data.i18n_ui -%}
+{%- assign cur = page.lang | default: "en" -%}
+{%- assign src = page.source | default: page.path -%}
+{%- assign enpage = site.pages | where: "path", src | first -%}
+{%- assign trs = site.pages | where: "source", src -%}
+{%- assign homes = site.pages | where: "source", "index.md" -%}
+<div class="h3d-lang">
+  <select id="h3d-lang" aria-label="{{ ui[cur].label }}" title="{{ ui[cur].label }}">
+  {%- for l in ui -%}
+    {%- assign code = l[0] -%}
+    {%- assign url = nil -%}
+    {%- if code == "en" -%}
+      {%- assign url = enpage.url | relative_url -%}
+    {%- else -%}
+      {%- assign t = trs | where: "lang", code | first -%}
+      {%- if t -%}
+        {%- assign url = t.url | relative_url -%}
+      {%- else -%}
+        {%- assign h = homes | where: "lang", code | first -%}
+        {%- if h -%}{%- capture url -%}{{ enpage.url | relative_url }}?lang={{ code }}{%- endcapture -%}{%- endif -%}
+      {%- endif -%}
+    {%- endif -%}
+    {%- if url -%}
+    <option value="{{ code }}" data-url="{{ url }}"{% if code == cur %} selected{% endif %}>{{ l[1].name }}</option>
+    {%- endif -%}
+  {%- endfor -%}
+  </select>
+</div>
+<style>
+.h3d-lang{display:flex;align-items:center;padding:0 .75rem}
+.h3d-lang select{font:inherit;font-size:.875rem;padding:.25rem .4rem;border:1px solid #c8c8d0;border-radius:4px;background:#fff;color:#27262b;max-width:11rem}
+.h3d-note{margin:0 0 1rem;padding:.6rem .8rem;border-left:4px solid #f0a020;background:#fff8e6;color:#27262b;font-size:.9rem}
+</style>
+<script>
+(function () {
+  var s = document.getElementById('h3d-lang');
+  if (!s) return;
+  s.addEventListener('change', function () {
+    var o = s.options[s.selectedIndex];
+    try { localStorage.setItem('h3d-docs-lang', o.value); } catch (e) {}
+    location.href = o.getAttribute('data-url');
+  });
+})();
+</script>
