@@ -1,25 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="656" height="374" viewBox="0 0 656 374" role="img" aria-label="heat3d-squad-demo on a synthetic demo">
-<rect width="656" height="374" rx="8" fill="#1e1f24"/>
-<rect width="656" height="26" rx="8" fill="#2c2e35"/><rect y="18" width="656" height="8" fill="#2c2e35"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="843" height="192" viewBox="0 0 843 192" role="img" aria-label="heat3d-squad-demo on a synthetic demo">
+<rect width="843" height="192" rx="8" fill="#1e1f24"/>
+<rect width="843" height="26" rx="8" fill="#2c2e35"/><rect y="18" width="843" height="8" fill="#2c2e35"/>
 <circle cx="16" cy="13" r="5" fill="#ff5f57"/><circle cx="32" cy="13" r="5" fill="#febc2e"/><circle cx="48" cy="13" r="5" fill="#28c840"/>
-<text x="328.0" y="17" fill="#9aa0aa" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="12" text-anchor="middle">heat3d-squad-demo on a synthetic demo</text>
-<g font-family="Consolas,Menlo,DejaVu Sans Mono,monospace" font-size="13" xml:space="preserve" style="white-space:pre">
-<text x="16" y="46" fill="#7ee787" xml:space="preserve" style="white-space:pre">$&#160;heat3d-squad-demo&#160;in&#160;-o&#160;out</text>
-<text x="16" y="64" fill="#d6d9df" xml:space="preserve" style="white-space:pre">example.replay:&#160;Test_Layer_v1,&#160;1&#160;players,&#160;5&#160;rows&#160;-&gt;&#160;out\Test_Map\example.parquet</text>
-<text x="16" y="82" fill="#7ee787" xml:space="preserve" style="white-space:pre">$&#160;heat3d-squad-demo&#160;in&#160;-o&#160;out2&#160;--json</text>
-<text x="16" y="100" fill="#d6d9df" xml:space="preserve" style="white-space:pre">{</text>
-<text x="16" y="118" fill="#d6d9df" xml:space="preserve" style="white-space:pre">&#160;&quot;demo&quot;:&#160;&quot;in\\example.replay&quot;,</text>
-<text x="16" y="136" fill="#d6d9df" xml:space="preserve" style="white-space:pre">&#160;&quot;ok&quot;:&#160;true,</text>
-<text x="16" y="154" fill="#d6d9df" xml:space="preserve" style="white-space:pre">&#160;&quot;parquet&quot;:&#160;&quot;out2\\Test_Map\\example.parquet&quot;,</text>
-<text x="16" y="172" fill="#d6d9df" xml:space="preserve" style="white-space:pre">&#160;&quot;match&quot;:&#160;&quot;out2\\Test_Map\\example.match.json&quot;,</text>
-<text x="16" y="190" fill="#d6d9df" xml:space="preserve" style="white-space:pre">&#160;&quot;sidecars&quot;:&#160;[</text>
-<text x="16" y="208" fill="#d6d9df" xml:space="preserve" style="white-space:pre">&#160;&#160;&quot;out2\\Test_Map\\example.entities.parquet&quot;,</text>
-<text x="16" y="226" fill="#d6d9df" xml:space="preserve" style="white-space:pre">&#160;&#160;&quot;out2\\Test_Map\\example.packets.parquet&quot;</text>
-<text x="16" y="244" fill="#d6d9df" xml:space="preserve" style="white-space:pre">&#160;],</text>
-<text x="16" y="262" fill="#d6d9df" xml:space="preserve" style="white-space:pre">&#160;&quot;lost&quot;:&#160;0,</text>
-<text x="16" y="280" fill="#d6d9df" xml:space="preserve" style="white-space:pre">&#160;&quot;rows&quot;:&#160;5,</text>
-<text x="16" y="298" fill="#d6d9df" xml:space="preserve" style="white-space:pre">&#160;&quot;players&quot;:&#160;1,</text>
-<text x="16" y="316" fill="#d6d9df" xml:space="preserve" style="white-space:pre">&#160;&quot;layer&quot;:&#160;&quot;Test_Layer_v1&quot;,</text>
-<text x="16" y="334" fill="#d6d9df" xml:space="preserve" style="white-space:pre">&#160;&quot;recorded_unix&quot;:&#160;null</text>
-<text x="16" y="352" fill="#d6d9df" xml:space="preserve" style="white-space:pre">}</text>
+<text x="421.5" y="18" fill="#9aa0aa" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="14" text-anchor="middle">heat3d-squad-demo on a synthetic demo</text>
+<g font-family="Consolas,Menlo,DejaVu Sans Mono,monospace" font-size="14" xml:space="preserve" style="white-space:pre">
+<text x="16" y="50" fill="#7ee787" xml:space="preserve" style="white-space:pre">$&#160;heat3d-squad-demo&#160;in&#160;-o&#160;out</text>
+<text x="16" y="70" fill="#d6d9df" xml:space="preserve" style="white-space:pre">example.replay:&#160;Test_Layer_v1,&#160;1&#160;players,&#160;5&#160;rows&#160;-&gt;&#160;out\Test_Map\example.parquet</text>
+<text x="16" y="90" fill="#7ee787" xml:space="preserve" style="white-space:pre">$&#160;heat3d-squad-demo&#160;in&#160;-o&#160;out2&#160;--json&#160;&#160;&#160;#&#160;one&#160;line&#160;per&#160;demo,&#160;shown&#160;wrapped</text>
+<text x="16" y="110" fill="#d6d9df" xml:space="preserve" style="white-space:pre">{&quot;demo&quot;:&#160;&quot;in\\example.replay&quot;,&#160;&quot;ok&quot;:&#160;true,&#160;&quot;parquet&quot;:&#160;&quot;out2\\Test_Map\\example.parquet&quot;,&#160;&quot;match&quot;</text>
+<text x="16" y="130" fill="#d6d9df" xml:space="preserve" style="white-space:pre">:&#160;&quot;out2\\Test_Map\\example.match.json&quot;,&#160;&quot;sidecars&quot;:&#160;[&quot;out2\\Test_Map\\example.entities.parquet&quot;,</text>
+<text x="16" y="150" fill="#d6d9df" xml:space="preserve" style="white-space:pre">&#160;&quot;out2\\Test_Map\\example.packets.parquet&quot;],&#160;&quot;lost&quot;:&#160;0,&#160;&quot;rows&quot;:&#160;5,&#160;&quot;players&quot;:&#160;1,&#160;&quot;layer&quot;:&#160;&quot;Test_</text>
+<text x="16" y="170" fill="#d6d9df" xml:space="preserve" style="white-space:pre">Layer_v1&quot;,&#160;&quot;recorded_unix&quot;:&#160;null}</text>
 </g></svg>

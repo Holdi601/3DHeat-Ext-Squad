@@ -5,6 +5,8 @@ nav_order: 6
 
 # How a demo is read
 
+In plain words: a Squad server sends every player's position to every other player. The demo file is a recording of that traffic. This tool plays it back and writes down who was where.
+
 ![The reader's layers](assets/img/layers.svg)
 
 An Unreal network replay is the server's own replication traffic, written down by its demo driver. Reading one is reading that traffic as a client would.
@@ -21,7 +23,7 @@ An Unreal network replay is the server's own replication traffic, written down b
 
 A replay names its own fields. It carries the class paths and property names for every handle, and the paths of the objects it references. So every property can be found by name without the game's code. Only the bits of a property need its type. For movement that is the engine's own type; for Squad's properties the types are simple: strings, integers, object references and names.
 
-Some objects are named only by themselves: a level's actors by their instance name (`Team1SpawnPoint3`), components by their own (`MovementComponent`, `wheel_L1`). Their class is found from the export tables, after the stream: the demo driver exports a class's field in the frame where it is first sent (true of every one of the 1,991 first sends of named objects in the Jensen's Range demo), so the class is the one group that exported exactly those handles in the frames where the object first sent them; else any group that had all its handles by then, when all give them the same names; else the class of an object of the same name, numbers left out, or the one group whose name holds the object's. Of the handles of objects named this way whose class sends them with one fixed bit count, all came with that count (468 on Jensen's Range, 25 on Fallujah; 0 with another). What none of these settles stays in the entities sidecar, whole.
+Some objects are named only by themselves: a level's actors by their instance name (`Team1SpawnPoint3`), components by their own (`MovementComponent`, `wheel_L1`). Their class is found from the export tables, after the stream: the demo driver exports a class's field in the frame where it is first sent (true of every first send of a named object in the test demos), so the class is the one group that exported exactly those handles in the frames where the object first sent them; else any group that had all its handles by then, when all give them the same names; else the class of an object of the same name, numbers left out, or the one group whose name holds the object's. Of the handles of objects named this way whose class sends them with one fixed bit count, all came with that count (none with another). What none of these settles stays in the entities sidecar, whole.
 
 ## Decoding properties
 
@@ -39,20 +41,20 @@ These were checked against two public Squad v10.3.1 server demos (Unreal Engine 
 - **Movement against velocity.** Each soldier sample's step from the previous one, divided by the time between them, matches the velocity the sample carries. The median ratio is within 0.8 to 1.2 on moving players.
 - **Teams against blueprints.** Every row's team is the team whose faction the soldier's blueprint belongs to. This held for a player who changed sides during the match.
 - **Errors.** One stream error per demo remains: a stray bit at the end of the opening bunch of the recorder's own spectator actor, which carries nothing used here.
-- **Casualties against that project's kills.** On the Fallujah demo it counts 11 kills, the first at 75.399 s (the victim incapacitated), the last at 1,527.853 s; read here: 6 wounds and 5 deaths of players, the first wound of the same player at 75.399 s, the last wound of that kill's victim at 1,527.853 s. On the Jensen's Range demo its last kill, at 553.392 s, is when the M60T read here is destroyed (health -104).
-- **Deployables.** 51 actors with a build state or an FOB requirement on Jensen's Range, against that project's 52 deployables.
-- **Pitch.** The view pitch byte lies around 120 at rest and spans 34 to 255 over both demos: -66 to +90 degrees read as a byte over -90..+90. Read as the engine's usual byte of a whole turn it would put soldiers up to 128 degrees under the horizon, which they cannot look.
-- **Bots.** The Fallujah seeding demo has 622 bots (`SQSquidBot`), each with its own track; 388 of them die.
-- **Helicopter movement** (`SQHelicopterMovementComponent.ReplicatedMovement`, Squad's own layout: no flags, the location in hundredths, the velocity and angular velocity, three optional 16-bit angles, the server's clock as a float). All 7,209 samples of the five helicopters on Jensen's Range fill their bits exactly. A parked helicopter's location and yaw are its spawn's, to the centimetre and the angle unit. In flight, the step between samples over the clock's step is the velocity (median ratio 0.997 over 899 steps), and the clock steps with the demo's time (median 0.4 ms apart). The angular velocity follows the yaw rate (correlation 0.91), but its unit is not pinned down: it is kept, not used.
-- **Seats.** A player state's `CurrentSeat` is a reference (a packed net GUID), not a number as read before: read so, it is at each of its 9 changes on Jensen's Range the seat the soldier's own `MulticastUpdateCurrentSeat` names a moment earlier, and those are squad-replay's 9 seat changes.
-- **Shots and hits.** Every `ShootDir` is a unit vector (length 1 within 0.00003, 493 calls on Jensen's Range); every `MulticastFireMultipleProjectileEffects` origin, divided by 10, is the `OriginZeroBased` of the matching `MulticastFireProjectile` within 1 mm (217 pairs); where the shooter's or the hit vehicle's position is known (298 of 869 calls), the shot's origin or the impact is a median 0.45 m from it. On Jensen's Range, all 276 shots are the one player's, through his seat.
+- **Casualties against that project's kills.** Every kill it lists is a wound or a death read here, at the same time and of the same player; its vehicle kills are vehicles read here reaching health 0 or below.
+- **Deployables.** The actors read here with a build state or an FOB requirement match that project's deployables, to within one.
+- **Pitch.** The view pitch byte lies around 120 at rest and reaches 255 (straight up): read read as a byte over -90..+90. Read as the engine's usual byte of a whole turn it would put soldiers up to 128 degrees under the horizon, which they cannot look.
+- **Bots.** On a seeding demo every bot (`SQSquidBot`) has its own track, and the bots that die are read as deaths.
+- **Helicopter movement** (`SQHelicopterMovementComponent.ReplicatedMovement`, Squad's own layout: no flags, the location in hundredths, the velocity and angular velocity, three optional 16-bit angles, the server's clock as a float). Every helicopter sample fills its bits exactly. A parked helicopter's location and yaw are its spawn's, to the centimetre and the angle unit. In flight, the step between samples over the clock's step is the velocity (median ratio 0.997), and the clock steps with the demo's time (median 0.4 ms apart). The angular velocity follows the yaw rate (correlation 0.91), but its unit is not pinned down: it is kept, not used.
+- **Seats.** A player state's `CurrentSeat` is a reference (a packed net GUID), not a number as read before: read so, at each change it is the seat the soldier's own `MulticastUpdateCurrentSeat` names a moment earlier, and the changes are squad-replay's.
+- **Shots and hits.** Every `ShootDir` is a unit vector (length 1 within 0.00003); every `MulticastFireMultipleProjectileEffects` origin, divided by 10, is the `OriginZeroBased` of the matching `MulticastFireProjectile` within 1 mm; where the shooter's or the hit vehicle's position is known, the shot's origin or the impact is a median 0.45 m from it.
 - **Vehicle inputs.** Read as floats, the tracked vehicles' throttle, brake and handbrake lie in 0..1 and their steering in -1..1, in every update.
-- **Close reasons.** Each of the 64 actors whose channel opened again on Fallujah had been closed with `Dormancy`; none of the 1,763 closed with `Destroyed` opened again.
+- **Close reasons.** Every actor whose channel opened again had been closed with `Dormancy`; none closed with `Destroyed` opened again.
 
 Tests on demos built by the tests themselves cover the container, the archives, the stream and the whole path to the table, and that a demo holding one of every kind of item loses none ([`tests/test_completeness.py`](https://github.com/Holdi601/3DHeat-Ext-Squad/blob/main/tests/test_completeness.py)):
 
 ```bash
-pip install -e .[test]
+python -m pip install -e .[test]
 pytest                                   # synthetic demos
 HEAT3D_SQUAD_DEMOS=<folder> pytest       # plus real demos in that folder
 ```

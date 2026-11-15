@@ -12,12 +12,16 @@ python -m heat3d_ext_squad ...          the same, without installing
 
 ## Step by step
 
-1. Install once, from a clone of this repository:
-   `pip install -e .` (Python 3.10 or later; needs pyarrow and numpy).
+New to the command line? Read [Before you start](before-you-start.md) first.
+
+1. Install once: `git clone https://github.com/Holdi601/3DHeat-Ext-Squad`,
+   open a terminal in that folder, run `python -m pip install -e .`
+   (Python 3.10 or later; it brings pyarrow and numpy).
 2. Put the `.replay` files in a folder, or name them one by one.
 3. Run `heat3d-squad-demo <folder> -o out`.
-4. Each demo becomes four files in `out/<map>/`; load the `.parquet` in the
-   3DHeat viewer.
+4. You should see one line per demo: its layer, players and rows, and where
+   the table went. Each demo becomes four loose files in `out/<map>/` (not a
+   `.3dheat` container); load the `.parquet` in the 3DHeat viewer.
 
 ![A run on a synthetic demo](assets/img/run.svg)
 
@@ -31,8 +35,10 @@ not a real match.
 | `demos` (one or more) | - | `.replay` files, or folders holding them |
 | `-o`, `--out` | required | the folder to write into; each demo goes into `<out>/<map>/` |
 | `--flat` | off | write straight into the folder, without the `<map>/` folder |
-| `--json` | off | print one line of JSON per demo on stdout (for programs that call the command): the files written, `ok`, `lost`, `rows`, `players`, `layer`, `recorded_unix` |
+| `--json` | off | print one line of JSON per demo on stdout (for programs that call the command): `demo`, `ok`, `parquet`, `match`, `sidecars`, `lost`, `rows`, `players`, `layer`, `recorded_unix`; a demo that failed prints `demo`, `ok: false` and `error` instead |
 | `--version` | - | print the version and stop |
+
+Every option, as the program prints it: [Command reference](cli-reference.md).
 
 The map folder is the map's name taken from the level path the demo names
 (`/Game/Maps/<Map>/Gameplay_Layers/<Layer>` gives `<Map>`).
@@ -60,3 +66,5 @@ heat3d-squad-demo D:\SquadDemos -o out                 # every demo in a folder
 heat3d-squad-demo one.replay two.replay -o out --flat  # straight into out/
 heat3d-squad-demo D:\SquadDemos -o out --json          # one JSON line per demo
 ```
+
+`D:\SquadDemos` is an example folder on drive D: use your own.

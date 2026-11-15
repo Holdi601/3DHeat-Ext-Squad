@@ -5,11 +5,18 @@ nav_order: 1
 
 # 3DHeat Squad
 
-3DHeat Squad reads **Squad server demos** (`.replay`) and writes, per demo, a
-heatmap table and a match document for the
-[3DHeat](https://github.com/Holdi601/3DHeat) viewer
-([documentation](https://holdi601.github.io/3DHeat/)). The outputs are
-ordinary Parquet and JSON files, so anything else can read them too.
+**What is it?** A small program that turns a recording of a Squad match into
+files the [3DHeat](https://github.com/Holdi601/3DHeat) viewer
+([documentation](https://holdi601.github.io/3DHeat/)) can draw: where every
+player was, second by second, and what happened where.
+
+**Why would I use it?** To see a match from above: where the fighting was,
+which routes squads took, where vehicles died.
+
+**Example:** `match.replay` (a demo, recorded on a Squad server) ->
+`match.parquet` (one row per position or event) + `match.match.json` (the
+match document: teams, squads, players). The outputs are ordinary Parquet
+and JSON files, so anything else can read them too.
 
 What it is useful for:
 
@@ -27,24 +34,29 @@ What it is useful for:
 
 ## Quick start
 
+New to the command line? Read [Before you start](before-you-start.md) first.
+
 ```bash
-pip install -e .                        # installs the heat3d-squad-demo command
+python -m pip install -e .              # installs the heat3d-squad-demo command
 heat3d-squad-demo match.replay -o out   # or a folder of .replay files
 ```
 
-Then load `out/<map>/<demo>.parquet` in the viewer's Heatmap tab
+You should see one line per demo. Then load `out/<map>/<demo>.parquet` in the viewer's Heatmap tab
 ([Getting data in](https://holdi601.github.io/3DHeat/getting-data-in.html)).
 
 ## Pages
 
 | Page | What it covers |
 |---|---|
+| [Before you start](before-you-start.md) | Python, a terminal, a first run |
 | [Recording a demo](recording.md) | making a server write a demo, and finding it |
 | [Converting demos](converting.md) | the command, every option, example output |
 | [The table](output-table.md) | every column and every `event` |
 | [The match document and sidecars](output-match.md) | the `.match.json`, the two sidecars, the self-check |
 | [How a demo is read](how-it-works.md) | the layers of the reader, and what was verified |
 | [Limits, updates and terms](limits.md) | what is not read, what a Squad update can break, personal data, licence |
+| [Command reference](cli-reference.md) | every option and column, generated from the code |
+| [Maintaining these docs](maintaining.md) | the release checklist |
 
 ## Related
 
@@ -56,3 +68,20 @@ Then load `out/<map>/<demo>.parquet` in the viewer's Heatmap tab
   its sidecars side by side.
 - The 3DHeat Watcher runs this converter on new demos when it is installed
   (adapter `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+
+## The 3DHeat tools
+
+| Tool | What it does | Code | Docs |
+|---|---|---|---|
+| 3DHeat viewer | shows the data: heatmaps, race analysis, match review | [3DHeat](https://github.com/Holdi601/3DHeat) | [docs](https://holdi601.github.io/3DHeat/) |
+| GameFiles | levels and courses from a game's own files | [3DHeat-GameFiles](https://github.com/Holdi601/3DHeat-GameFiles) | [docs](https://holdi601.github.io/3DHeat-GameFiles/) |
+| GameCapture | lap telemetry, and levels rebuilt from gameplay video | [3DHeat-GameCapture](https://github.com/Holdi601/3DHeat-GameCapture) | [docs](https://holdi601.github.io/3DHeat-GameCapture/) |
+| Unreal Exporter | an Unreal Editor plugin: a level as one `.glb` | [3DHeat-UnrealExporter](https://github.com/Holdi601/3DHeat-UnrealExporter) | [docs](https://holdi601.github.io/3DHeat-UnrealExporter/) |
+| CS2 | Counter-Strike 2 demos and maps | [3DHeat-CS2](https://github.com/Holdi601/3DHeat-CS2) | [docs](https://holdi601.github.io/3DHeat-CS2/) |
+| Watcher | records what games publish while you play | [3DHeat-Watcher](https://github.com/Holdi601/3DHeat-Watcher) | [docs](https://holdi601.github.io/3DHeat-Watcher/) |
+| Ext-WarThunder | War Thunder replays | [3DHeat-Ext-WarThunder](https://github.com/Holdi601/3DHeat-Ext-WarThunder) | [docs](https://holdi601.github.io/3DHeat-Ext-WarThunder/) |
+| Ext-WoT | World of Tanks replays | [3DHeat-Ext-WoT](https://github.com/Holdi601/3DHeat-Ext-WoT) | [docs](https://holdi601.github.io/3DHeat-Ext-WoT/) |
+| Ext-WoWs | World of Warships replays | [3DHeat-Ext-WoWs](https://github.com/Holdi601/3DHeat-Ext-WoWs) | [docs](https://holdi601.github.io/3DHeat-Ext-WoWs/) |
+| Ext-Squad | Squad server demos | [3DHeat-Ext-Squad](https://github.com/Holdi601/3DHeat-Ext-Squad) | [docs](https://holdi601.github.io/3DHeat-Ext-Squad/) |
+| Ext-DCS | DCS World maps as 3D levels | [3DHeat-Ext-DCS](https://github.com/Holdi601/3DHeat-Ext-DCS) | [docs](https://holdi601.github.io/3DHeat-Ext-DCS/) |
+| Ext-IL2 | IL-2 Sturmovik maps as 3D levels | [3DHeat-Ext-IL2](https://github.com/Holdi601/3DHeat-Ext-IL2) | [docs](https://holdi601.github.io/3DHeat-Ext-IL2/) |
