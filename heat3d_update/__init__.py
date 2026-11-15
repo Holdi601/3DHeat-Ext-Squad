@@ -2,7 +2,7 @@
 Keeping the tools current: a check against the project's GitHub releases, a
 notice when a newer one is out, and the update itself.
 
-3DHeat Watcher calls `startup()` when it begins. That check costs one HTTPS request at most
+Every command calls `startup()` when it begins. That check costs one HTTPS request at most
 every few hours (the answer is cached), never blocks for more than a few
 seconds, and never stops a tool from running: offline, rate-limited or behind a
 proxy, the tool simply carries on with the version it has.
@@ -243,7 +243,7 @@ def startup(tool: str, *, ask: bool | None = None) -> None:
     if release is None:
         return
     print(
-        f"[{tool}] 3DHeat Watcher {release.version} is out (this is {installed_version()}). {release.url}",
+        f"[{tool}] {REPO.split('/')[1]} {release.version} is out (this is {installed_version()}). {release.url}",
         file=sys.stderr,
     )
     if ask is None:
