@@ -225,6 +225,11 @@ def _sync(src: Path, dst: Path) -> None:
         for old in mine.rglob("*.py"):
             if not (package / old.relative_to(mine)).exists():
                 old.unlink()
+    # Releases before this one shipped the updater as a top-level `heat3d_update`
+    # package; it lives in the tool's own package now.
+    stale = dst / "heat3d_update"
+    if stale.is_dir() and not (src / "heat3d_update").exists():
+        shutil.rmtree(stale, ignore_errors=True)
 
 
 # --------------------------------------------------------------------- startup
@@ -249,7 +254,7 @@ def startup(tool: str, *, ask: bool | None = None) -> None:
     if ask is None:
         ask = sys.stdin.isatty() and sys.stderr.isatty()
     if not ask:
-        print(f"[{tool}] Run `python -m heat3d_update` in {ROOT} to update.", file=sys.stderr)
+        print(f"[{tool}] Run `python -m {__name__}` in {ROOT} to update.", file=sys.stderr)
         return
     try:
         answer = input("Update now? [Y/n] ").strip().lower()
@@ -279,7 +284,40 @@ def restart() -> None:
 
 
 def ensure_importable() -> None:
-    """Make `heat3d_update` importable from a tool started inside its own folder."""
+    """Make this tool importable when it is started inside its own folder."""
     root = str(ROOT)
     if root not in sys.path:
         sys.path.insert(0, root)
+
+
+# --------------------------------------------------------------------- command
+
+
+def main(argv: list[str] | None = None) -> int:
+    """`python -m <tool package>.update [--check]`: update this copy to the newest release."""
+    import argparse
+
+    p = argparse.ArgumentParser(prog=f"python -m {__spec__.name if __spec__ else __name__}", description=main.__doc__)
+    p.add_argument("--check", action="store_true", help="only say whether a newer release is out")
+    args = p.parse_args(argv)
+    release = latest(use_cache=False)
+    current = installed_version()
+    if release is None:
+        print(f"No release found (this is {current}); offline, or nothing published yet.")
+        return 0
+    if not is_newer(release.version, current):
+        print(f"Up to date: {current}.")
+        return 0
+    print(f"{release.version} is out (this is {current}): {release.url}")
+    if args.check:
+        return 0
+    try:
+        print(apply(release))
+    except RuntimeError as e:
+        print(f"Not updated: {e}", file=sys.stderr)
+        return 1
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

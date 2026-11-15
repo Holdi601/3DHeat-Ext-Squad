@@ -44,9 +44,9 @@ def map_folder(level: str) -> str:
 def main(argv: list[str] | None = None) -> int:
     # A newer release is offered, and installed only if the user says yes (notified only when nobody can be asked).
     try:
-        import heat3d_update
+        from . import update
 
-        heat3d_update.startup("heat3d_ext_squad")
+        update.startup("heat3d_ext_squad")
     except Exception:  # an update check never stops a conversion
         pass
     ap = argparse.ArgumentParser(prog="heat3d-squad-demo", description="Squad server demos (.replay) into "

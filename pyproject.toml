@@ -18,7 +18,7 @@ test = ["pytest>=8.0"]
 heat3d-squad-demo = "heat3d_ext_squad.cli:main"
 
 [tool.setuptools]
-packages = ["heat3d_ext_squad", "heat3d_update"]
+packages = ["heat3d_ext_squad"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
