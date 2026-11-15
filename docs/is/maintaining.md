@@ -1,7 +1,7 @@
 ---
 title: "Viðhald þessara skjala"
 nav_order: 91
-lang: is
+lang: "is"
 source: maintaining.md
 source_hash: "b0b7836a5545"
 nav_exclude: true

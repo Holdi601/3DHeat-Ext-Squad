@@ -1,7 +1,7 @@
 ---
 title: "Startseite"
 nav_order: 1
-lang: de
+lang: "de"
 source: index.md
 source_hash: "18753c85e378"
 nav_exclude: true

@@ -1,7 +1,7 @@
 ---
 title: "Umbreyting á demo"
 nav_order: 3
-lang: is
+lang: "is"
 source: converting.md
 source_hash: "e8c77423085b"
 nav_exclude: true

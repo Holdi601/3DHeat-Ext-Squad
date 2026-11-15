@@ -1,7 +1,7 @@
 ---
 title: 데모 변환하기
 nav_order: 3
-lang: ko
+lang: "ko"
 source: converting.md
 source_hash: "e8c77423085b"
 nav_exclude: true

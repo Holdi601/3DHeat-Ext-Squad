@@ -1,7 +1,7 @@
 ---
 title: 데모를 읽는 방법
 nav_order: 6
-lang: ko
+lang: "ko"
 source: how-it-works.md
 source_hash: "d8eafbabbd2a"
 nav_exclude: true

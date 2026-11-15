@@ -1,7 +1,7 @@
 ---
 title: "Avaleht"
 nav_order: 1
-lang: et
+lang: "et"
 source: index.md
 source_hash: "18753c85e378"
 nav_exclude: true

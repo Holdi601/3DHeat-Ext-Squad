@@ -1,7 +1,7 @@
 ---
 title: "Obmedzenia, aktualizácie a podmienky"
 nav_order: 7
-lang: sk
+lang: "sk"
 source: limits.md
 source_hash: "ef3802087acc"
 nav_exclude: true

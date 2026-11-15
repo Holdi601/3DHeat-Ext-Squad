@@ -1,7 +1,7 @@
 ---
 title: El documento de la partida y los auxiliares
 nav_order: 5
-lang: es
+lang: "es"
 source: output-match.md
 source_hash: "715bd3417e47"
 nav_exclude: true

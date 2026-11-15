@@ -1,7 +1,7 @@
 ---
 title: "Documentul de meci și fișierele auxiliare"
 nav_order: 5
-lang: ro
+lang: "ro"
 source: output-match.md
 source_hash: "715bd3417e47"
 nav_exclude: true

@@ -1,7 +1,7 @@
 ---
 title: "Grenzen, Updates a Bedingungen"
 nav_order: 7
-lang: lb
+lang: "lb"
 source: limits.md
 source_hash: "ef3802087acc"
 nav_exclude: true

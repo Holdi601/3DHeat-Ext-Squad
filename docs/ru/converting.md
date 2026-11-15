@@ -1,7 +1,7 @@
 ---
 title: Преобразование демо
 nav_order: 3
-lang: ru
+lang: "ru"
 source: converting.md
 source_hash: "e8c77423085b"
 nav_exclude: true

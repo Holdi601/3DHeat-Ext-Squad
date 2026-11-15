@@ -1,7 +1,7 @@
 ---
 title: "Snemanje posnetka"
 nav_order: 2
-lang: sl
+lang: "sl"
 source: recording.md
 source_hash: "5139aa7d896f"
 nav_exclude: true

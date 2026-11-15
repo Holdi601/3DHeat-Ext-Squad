@@ -1,7 +1,7 @@
 ---
 title: Hoe een demo wordt gelezen
 nav_order: 6
-lang: nl
+lang: "nl"
 source: how-it-works.md
 source_hash: "d8eafbabbd2a"
 nav_exclude: true

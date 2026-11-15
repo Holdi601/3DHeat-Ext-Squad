@@ -1,7 +1,7 @@
 ---
 title: "Ograničenja, ažuriranja i uvjeti"
 nav_order: 7
-lang: bs
+lang: "bs"
 source: limits.md
 source_hash: "ef3802087acc"
 nav_exclude: true

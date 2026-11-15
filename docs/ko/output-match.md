@@ -1,7 +1,7 @@
 ---
 title: 매치 문서와 보조 파일
 nav_order: 5
-lang: ko
+lang: "ko"
 source: output-match.md
 source_hash: "715bd3417e47"
 nav_exclude: true

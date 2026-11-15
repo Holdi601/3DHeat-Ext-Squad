@@ -1,7 +1,7 @@
 ---
 title: Optag en demo
 nav_order: 2
-lang: da
+lang: "da"
 source: recording.md
 source_hash: "5139aa7d896f"
 nav_exclude: true

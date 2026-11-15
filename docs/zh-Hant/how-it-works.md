@@ -1,7 +1,7 @@
 ---
 title: "對戰如何被讀取"
 nav_order: 6
-lang: zh-Hant
+lang: "zh-Hant"
 source: how-it-works.md
 source_hash: "d8eafbabbd2a"
 nav_exclude: true

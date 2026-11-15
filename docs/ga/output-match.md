@@ -1,7 +1,7 @@
 ---
 title: Cáipéis an chluiche agus na comhaid chliatháin
 nav_order: 5
-lang: ga
+lang: "ga"
 source: output-match.md
 source_hash: "715bd3417e47"
 nav_exclude: true

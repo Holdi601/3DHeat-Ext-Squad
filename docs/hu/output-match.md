@@ -1,7 +1,7 @@
 ---
 title: "A meccsdokumentum és a kísérőfájlok"
 nav_order: 5
-lang: hu
+lang: "hu"
 source: output-match.md
 source_hash: "715bd3417e47"
 nav_exclude: true

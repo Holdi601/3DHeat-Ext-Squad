@@ -1,7 +1,7 @@
 ---
 title: Как читается демо
 nav_order: 6
-lang: ru
+lang: "ru"
 source: how-it-works.md
 source_hash: "d8eafbabbd2a"
 nav_exclude: true

@@ -1,7 +1,7 @@
 ---
 title: "對戰文件與附屬檔"
 nav_order: 5
-lang: zh-Hant
+lang: "zh-Hant"
 source: output-match.md
 source_hash: "715bd3417e47"
 nav_exclude: true

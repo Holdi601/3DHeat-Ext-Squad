@@ -1,7 +1,7 @@
 ---
 title: "Zanim zaczniesz"
 nav_order: 1.5
-lang: pl
+lang: "pl"
 source: before-you-start.md
 source_hash: "ca4b6281fdfc"
 nav_exclude: true

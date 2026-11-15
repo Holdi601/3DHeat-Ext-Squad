@@ -1,7 +1,7 @@
 ---
 title: Το έγγραφο αγώνα και τα βοηθητικά αρχεία
 nav_order: 5
-lang: el
+lang: "el"
 source: output-match.md
 source_hash: "715bd3417e47"
 nav_exclude: true

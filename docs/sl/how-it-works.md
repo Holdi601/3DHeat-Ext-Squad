@@ -1,7 +1,7 @@
 ---
 title: "Kako se posnetek bere"
 nav_order: 6
-lang: sl
+lang: "sl"
 source: how-it-works.md
 source_hash: "d8eafbabbd2a"
 nav_exclude: true

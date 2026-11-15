@@ -1,7 +1,7 @@
 ---
 title: "Kufizimet, përditësimet dhe kushtet"
 nav_order: 7
-lang: sq
+lang: "sq"
 source: limits.md
 source_hash: "ef3802087acc"
 nav_exclude: true

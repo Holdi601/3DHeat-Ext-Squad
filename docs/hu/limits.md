@@ -1,7 +1,7 @@
 ---
 title: "Korlátok, frissítések és feltételek"
 nav_order: 7
-lang: hu
+lang: "hu"
 source: limits.md
 source_hash: "ef3802087acc"
 nav_exclude: true

@@ -1,7 +1,7 @@
 ---
 title: Претворање демоа
 nav_order: 3
-lang: mk
+lang: "mk"
 source: converting.md
 source_hash: "e8c77423085b"
 nav_exclude: true

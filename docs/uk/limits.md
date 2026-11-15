@@ -1,7 +1,7 @@
 ---
 title: Обмеження, оновлення та умови
 nav_order: 7
-lang: uk
+lang: "uk"
 source: limits.md
 source_hash: "ef3802087acc"
 nav_exclude: true

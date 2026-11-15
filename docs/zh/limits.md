@@ -1,7 +1,7 @@
 ---
 title: 限制、更新与条款
 nav_order: 7
-lang: zh
+lang: "zh"
 source: limits.md
 source_hash: "ef3802087acc"
 nav_exclude: true

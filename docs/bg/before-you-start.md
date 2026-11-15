@@ -1,7 +1,7 @@
 ---
 title: "Преди да започнете"
 nav_order: 1.5
-lang: bg
+lang: "bg"
 source: before-you-start.md
 source_hash: "ca4b6281fdfc"
 nav_exclude: true

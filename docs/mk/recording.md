@@ -1,7 +1,7 @@
 ---
 title: Снимање демо
 nav_order: 2
-lang: mk
+lang: "mk"
 source: recording.md
 source_hash: "5139aa7d896f"
 nav_exclude: true

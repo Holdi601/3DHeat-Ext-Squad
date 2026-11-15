@@ -1,7 +1,7 @@
 ---
 title: Kā tiek nolasīts demo
 nav_order: 6
-lang: lv
+lang: "lv"
 source: how-it-works.md
 source_hash: "d8eafbabbd2a"
 nav_exclude: true

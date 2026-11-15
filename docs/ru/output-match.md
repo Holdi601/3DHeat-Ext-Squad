@@ -1,7 +1,7 @@
 ---
 title: Документ матча и вспомогательные файлы
 nav_order: 5
-lang: ru
+lang: "ru"
 source: output-match.md
 source_hash: "715bd3417e47"
 nav_exclude: true

@@ -1,7 +1,7 @@
 ---
 title: "Преобразуване на демота"
 nav_order: 3
-lang: bg
+lang: "bg"
 source: converting.md
 source_hash: "e8c77423085b"
 nav_exclude: true

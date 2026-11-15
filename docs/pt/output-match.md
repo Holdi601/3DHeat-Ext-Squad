@@ -1,7 +1,7 @@
 ---
 title: O documento da partida e os auxiliares
 nav_order: 5
-lang: pt
+lang: "pt"
 source: output-match.md
 source_hash: "715bd3417e47"
 nav_exclude: true

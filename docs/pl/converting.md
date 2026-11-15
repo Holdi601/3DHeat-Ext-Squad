@@ -1,7 +1,7 @@
 ---
 title: "Konwersja dem"
 nav_order: 3
-lang: pl
+lang: "pl"
 source: converting.md
 source_hash: "e8c77423085b"
 nav_exclude: true

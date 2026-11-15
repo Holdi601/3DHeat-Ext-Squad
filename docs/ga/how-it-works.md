@@ -1,7 +1,7 @@
 ---
 title: Conas a léitear demo
 nav_order: 6
-lang: ga
+lang: "ga"
 source: how-it-works.md
 source_hash: "d8eafbabbd2a"
 nav_exclude: true

@@ -1,7 +1,7 @@
 ---
 title: "デモの変換"
 nav_order: 3
-lang: ja
+lang: "ja"
 source: converting.md
 source_hash: "e8c77423085b"
 nav_exclude: true

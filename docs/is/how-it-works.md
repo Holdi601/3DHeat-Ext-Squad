@@ -1,7 +1,7 @@
 ---
 title: "Hvernig demo er lesið"
 nav_order: 6
-lang: is
+lang: "is"
 source: how-it-works.md
 source_hash: "d8eafbabbd2a"
 nav_exclude: true

@@ -1,7 +1,7 @@
 ---
 title: El document de partida i els annexos
 nav_order: 5
-lang: ca
+lang: "ca"
 source: output-match.md
 source_hash: "715bd3417e47"
 nav_exclude: true

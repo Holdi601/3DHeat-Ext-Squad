@@ -1,7 +1,7 @@
 ---
 title: "ホーム"
 nav_order: 1
-lang: ja
+lang: "ja"
 source: index.md
 source_hash: "18753c85e378"
 nav_exclude: true

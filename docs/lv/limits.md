@@ -1,7 +1,7 @@
 ---
 title: Ierobežojumi, atjauninājumi un noteikumi
 nav_order: 7
-lang: lv
+lang: "lv"
 source: limits.md
 source_hash: "ef3802087acc"
 nav_exclude: true

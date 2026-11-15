@@ -1,7 +1,7 @@
 ---
 title: Come viene letta una demo
 nav_order: 6
-lang: it
+lang: "it"
 source: how-it-works.md
 source_hash: "d8eafbabbd2a"
 nav_exclude: true

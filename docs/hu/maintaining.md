@@ -1,7 +1,7 @@
 ---
 title: "A dokumentáció karbantartása"
 nav_order: 91
-lang: hu
+lang: "hu"
 source: maintaining.md
 source_hash: "b0b7836a5545"
 nav_exclude: true

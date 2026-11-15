@@ -1,7 +1,7 @@
 ---
 title: "Le document de match et les fichiers annexes"
 nav_order: 5
-lang: fr
+lang: "fr"
 source: output-match.md
 source_hash: "715bd3417e47"
 nav_exclude: true

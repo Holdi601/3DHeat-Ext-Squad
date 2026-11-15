@@ -1,7 +1,7 @@
 ---
 title: "Održavanje ove dokumentacije"
 nav_order: 91
-lang: bs
+lang: "bs"
 source: maintaining.md
 source_hash: "b0b7836a5545"
 nav_exclude: true

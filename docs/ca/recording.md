@@ -1,7 +1,7 @@
 ---
 title: Gravar una demo
 nav_order: 2
-lang: ca
+lang: "ca"
 source: recording.md
 source_hash: "5139aa7d896f"
 nav_exclude: true

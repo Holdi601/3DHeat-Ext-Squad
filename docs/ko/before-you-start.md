@@ -1,7 +1,7 @@
 ---
 title: 시작하기 전에
 nav_order: 1.5
-lang: ko
+lang: "ko"
 source: before-you-start.md
 source_hash: "ca4b6281fdfc"
 nav_exclude: true

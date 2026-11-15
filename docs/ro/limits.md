@@ -1,7 +1,7 @@
 ---
 title: "Limite, actualizări și condiții"
 nav_order: 7
-lang: ro
+lang: "ro"
 source: limits.md
 source_hash: "ef3802087acc"
 nav_exclude: true

@@ -1,7 +1,7 @@
 ---
 title: Límites, actualizaciones y condiciones
 nav_order: 7
-lang: es
+lang: "es"
 source: limits.md
 source_hash: "ef3802087acc"
 nav_exclude: true

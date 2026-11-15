@@ -1,7 +1,7 @@
 ---
 title: "首頁"
 nav_order: 1
-lang: zh-Hant
+lang: "zh-Hant"
 source: index.md
 source_hash: "18753c85e378"
 nav_exclude: true

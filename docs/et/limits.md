@@ -1,7 +1,7 @@
 ---
 title: "Piirangud, uuendused ja tingimused"
 nav_order: 7
-lang: et
+lang: "et"
 source: limits.md
 source_hash: "ef3802087acc"
 nav_exclude: true

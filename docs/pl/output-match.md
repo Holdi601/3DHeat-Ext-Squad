@@ -1,7 +1,7 @@
 ---
 title: "Dokument meczu i pliki towarzyszące"
 nav_order: 5
-lang: pl
+lang: "pl"
 source: output-match.md
 source_hash: "715bd3417e47"
 nav_exclude: true

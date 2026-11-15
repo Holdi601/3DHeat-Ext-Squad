@@ -1,7 +1,7 @@
 ---
 title: "Абмежаванні, абнаўленні і ўмовы"
 nav_order: 7
-lang: be
+lang: "be"
 source: limits.md
 source_hash: "ef3802087acc"
 nav_exclude: true

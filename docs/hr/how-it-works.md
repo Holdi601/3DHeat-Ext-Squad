@@ -1,7 +1,7 @@
 ---
 title: Kako se demo čita
 nav_order: 6
-lang: hr
+lang: "hr"
 source: how-it-works.md
 source_hash: "d8eafbabbd2a"
 nav_exclude: true

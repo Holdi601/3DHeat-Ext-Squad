@@ -10,3 +10,8 @@ aux_links:
   "3DHeat": "https://holdi601.github.io/3DHeat/"
 exclude:
   - "*.py"
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"

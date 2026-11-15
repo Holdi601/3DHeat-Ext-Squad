@@ -1,7 +1,7 @@
 ---
 title: Como uma demo é lida
 nav_order: 6
-lang: pt
+lang: "pt"
 source: how-it-works.md
 source_hash: "d8eafbabbd2a"
 nav_exclude: true

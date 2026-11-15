@@ -246,7 +246,14 @@ def cmd_finish(args):
         keep = {"title": d.get("title") or en_d.get("title", n[:-3])}
         if en_d.get("nav_order"):
             keep["nav_order"] = en_d["nav_order"]
-        keep.update({"lang": lang, "source": n, "source_hash": f"\"{pages.get(n, '')}\"",
+        # Named pages were just (re)translated: they take the English page's hash now. Without names,
+        # a page keeps the hash it has, so a fix-up run never hides that the English moved on.
+        old = d.get("source_hash", "").strip('"')
+        stamp = pages.get(n, "") if (rest or not old) else old
+        title = keep["title"]
+        if ":" in title and not title.startswith(('"', "'")):
+            keep["title"] = '"' + title.replace('"', '\\"') + '"'
+        keep.update({"lang": f"\"{lang}\"", "source": n, "source_hash": f"\"{stamp}\"",
                      "nav_exclude": "true", "search_exclude": "true"})
         if n == "index.md":
             keep["permalink"] = f"/{lang}/"

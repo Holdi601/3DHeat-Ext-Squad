@@ -1,7 +1,7 @@
 ---
 title: "Înainte de a începe"
 nav_order: 1.5
-lang: ro
+lang: "ro"
 source: before-you-start.md
 source_hash: "ca4b6281fdfc"
 nav_exclude: true

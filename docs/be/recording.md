@@ -1,7 +1,7 @@
 ---
 title: "Запіс дэма"
 nav_order: 2
-lang: be
+lang: "be"
 source: recording.md
 source_hash: "5139aa7d896f"
 nav_exclude: true

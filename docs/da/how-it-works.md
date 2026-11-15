@@ -1,7 +1,7 @@
 ---
 title: Sådan læses en demo
 nav_order: 6
-lang: da
+lang: "da"
 source: how-it-works.md
 source_hash: "d8eafbabbd2a"
 nav_exclude: true

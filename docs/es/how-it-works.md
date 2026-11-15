@@ -1,7 +1,7 @@
 ---
 title: Cómo se lee una demo
 nav_order: 6
-lang: es
+lang: "es"
 source: how-it-works.md
 source_hash: "d8eafbabbd2a"
 nav_exclude: true

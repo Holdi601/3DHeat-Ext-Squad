@@ -1,7 +1,7 @@
 ---
 title: "Maç belgesi ve yan dosyalar"
 nav_order: 5
-lang: tr
+lang: "tr"
 source: output-match.md
 source_hash: "715bd3417e47"
 nav_exclude: true

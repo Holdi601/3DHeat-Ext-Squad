@@ -1,7 +1,7 @@
 ---
 title: "Ako sa demo číta"
 nav_order: 6
-lang: sk
+lang: "sk"
 source: how-it-works.md
 source_hash: "d8eafbabbd2a"
 nav_exclude: true

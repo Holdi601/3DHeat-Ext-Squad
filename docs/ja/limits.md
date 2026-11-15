@@ -1,7 +1,7 @@
 ---
 title: "制限、更新、利用条件"
 nav_order: 7
-lang: ja
+lang: "ja"
 source: limits.md
 source_hash: "ef3802087acc"
 nav_exclude: true

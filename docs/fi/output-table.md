@@ -1,7 +1,7 @@
 ---
 title: "Taulukko"
 nav_order: 4
-lang: fi
+lang: "fi"
 source: output-table.md
 source_hash: "0f3cfed1c108"
 nav_exclude: true

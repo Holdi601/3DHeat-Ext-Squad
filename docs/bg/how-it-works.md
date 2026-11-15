@@ -1,7 +1,7 @@
 ---
 title: "Как се чете демото"
 nav_order: 6
-lang: bg
+lang: "bg"
 source: how-it-works.md
 source_hash: "d8eafbabbd2a"
 nav_exclude: true

@@ -1,7 +1,7 @@
 ---
 title: "Канвертаванне дэма"
 nav_order: 3
-lang: be
+lang: "be"
 source: converting.md
 source_hash: "e8c77423085b"
 nav_exclude: true

@@ -1,7 +1,7 @@
 ---
 title: "Cum se citește un demo"
 nav_order: 6
-lang: ro
+lang: "ro"
 source: how-it-works.md
 source_hash: "d8eafbabbd2a"
 nav_exclude: true

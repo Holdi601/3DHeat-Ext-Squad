@@ -1,7 +1,7 @@
 ---
 title: 如何读取录像
 nav_order: 6
-lang: zh
+lang: "zh"
 source: how-it-works.md
 source_hash: "d8eafbabbd2a"
 nav_exclude: true

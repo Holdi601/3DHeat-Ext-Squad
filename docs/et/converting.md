@@ -1,7 +1,7 @@
 ---
 title: "Demode teisendamine"
 nav_order: 3
-lang: et
+lang: "et"
 source: converting.md
 source_hash: "e8c77423085b"
 nav_exclude: true

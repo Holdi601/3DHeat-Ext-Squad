@@ -1,7 +1,7 @@
 ---
 title: Com es llegeix una demo
 nav_order: 6
-lang: ca
+lang: "ca"
 source: how-it-works.md
 source_hash: "d8eafbabbd2a"
 nav_exclude: true

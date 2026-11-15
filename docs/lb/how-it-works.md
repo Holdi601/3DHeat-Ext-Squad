@@ -1,7 +1,7 @@
 ---
 title: "Wéi eng Demo gelies gëtt"
 nav_order: 6
-lang: lb
+lang: "lb"
 source: how-it-works.md
 source_hash: "d8eafbabbd2a"
 nav_exclude: true

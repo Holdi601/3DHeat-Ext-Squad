@@ -1,7 +1,7 @@
 ---
 title: Het wedstrijddocument en de bijbestanden
 nav_order: 5
-lang: nl
+lang: "nl"
 source: output-match.md
 source_hash: "715bd3417e47"
 nav_exclude: true

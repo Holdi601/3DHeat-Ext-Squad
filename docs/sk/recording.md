@@ -1,7 +1,7 @@
 ---
 title: "Nahrávanie dema"
 nav_order: 2
-lang: sk
+lang: "sk"
 source: recording.md
 source_hash: "5139aa7d896f"
 nav_exclude: true

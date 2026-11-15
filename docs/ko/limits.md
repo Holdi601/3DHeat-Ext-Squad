@@ -1,7 +1,7 @@
 ---
 title: 한계, 업데이트, 약관
 nav_order: 7
-lang: ko
+lang: "ko"
 source: limits.md
 source_hash: "ef3802087acc"
 nav_exclude: true

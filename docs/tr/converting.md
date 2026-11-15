@@ -1,7 +1,7 @@
 ---
 title: "Demoları dönüştürme"
 nav_order: 3
-lang: tr
+lang: "tr"
 source: converting.md
 source_hash: "e8c77423085b"
 nav_exclude: true

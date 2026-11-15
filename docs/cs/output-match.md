@@ -1,7 +1,7 @@
 ---
 title: "Dokument zápasu a doplňková data"
 nav_order: 5
-lang: cs
+lang: "cs"
 source: output-match.md
 source_hash: "715bd3417e47"
 nav_exclude: true

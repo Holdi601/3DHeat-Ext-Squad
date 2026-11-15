@@ -1,7 +1,7 @@
 ---
 title: "Як чытаецца дэма"
 nav_order: 6
-lang: be
+lang: "be"
 source: how-it-works.md
 source_hash: "d8eafbabbd2a"
 nav_exclude: true

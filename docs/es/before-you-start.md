@@ -1,7 +1,7 @@
 ---
 title: Antes de empezar
 nav_order: 1.5
-lang: es
+lang: "es"
 source: before-you-start.md
 source_hash: "ca4b6281fdfc"
 nav_exclude: true

@@ -1,7 +1,7 @@
 ---
 title: Begrensninger, oppdateringer og vilkår
 nav_order: 7
-lang: no
+lang: "no"
 source: limits.md
 source_hash: "ef3802087acc"
 nav_exclude: true

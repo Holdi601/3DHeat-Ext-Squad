@@ -1,7 +1,7 @@
 ---
 title: Запис демо
 nav_order: 2
-lang: uk
+lang: "uk"
 source: recording.md
 source_hash: "5139aa7d896f"
 nav_exclude: true

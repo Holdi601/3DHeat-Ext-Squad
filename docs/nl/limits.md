@@ -1,7 +1,7 @@
 ---
 title: Beperkingen, updates en voorwaarden
 nav_order: 7
-lang: nl
+lang: "nl"
 source: limits.md
 source_hash: "ef3802087acc"
 nav_exclude: true

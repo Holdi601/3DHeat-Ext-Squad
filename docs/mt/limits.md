@@ -1,7 +1,7 @@
 ---
 title: Limiti, aġġornamenti u termini
 nav_order: 7
-lang: mt
+lang: "mt"
 source: limits.md
 source_hash: "ef3802087acc"
 nav_exclude: true

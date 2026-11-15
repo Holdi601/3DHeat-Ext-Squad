@@ -1,7 +1,7 @@
 ---
 title: "Takmarkanir, uppfærslur og skilmálar"
 nav_order: 7
-lang: is
+lang: "is"
 source: limits.md
 source_hash: "ef3802087acc"
 nav_exclude: true

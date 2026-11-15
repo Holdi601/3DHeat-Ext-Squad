@@ -1,7 +1,7 @@
 ---
 title: 对局文档与附属文件
 nav_order: 5
-lang: zh
+lang: "zh"
 source: output-match.md
 source_hash: "715bd3417e47"
 nav_exclude: true

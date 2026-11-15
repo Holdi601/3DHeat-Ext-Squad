@@ -1,7 +1,7 @@
 ---
 title: Како се чита едно демо
 nav_order: 6
-lang: mk
+lang: "mk"
 source: how-it-works.md
 source_hash: "d8eafbabbd2a"
 nav_exclude: true

@@ -1,7 +1,7 @@
 ---
 title: Il documento della partita e i file accessori
 nav_order: 5
-lang: it
+lang: "it"
 source: output-match.md
 source_hash: "715bd3417e47"
 nav_exclude: true

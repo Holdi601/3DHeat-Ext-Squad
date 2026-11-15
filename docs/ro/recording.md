@@ -1,7 +1,7 @@
 ---
 title: "Înregistrarea unui demo"
 nav_order: 2
-lang: ro
+lang: "ro"
 source: recording.md
 source_hash: "5139aa7d896f"
 nav_exclude: true

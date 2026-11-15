@@ -1,7 +1,7 @@
 ---
 title: Kampdokumentet og sidefilene
 nav_order: 5
-lang: no
+lang: "no"
 source: output-match.md
 source_hash: "715bd3417e47"
 nav_exclude: true

@@ -1,7 +1,7 @@
 ---
 title: "Convertir les démos"
 nav_order: 3
-lang: fr
+lang: "fr"
 source: converting.md
 source_hash: "e8c77423085b"
 nav_exclude: true

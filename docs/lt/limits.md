@@ -1,7 +1,7 @@
 ---
 title: "Apribojimai, atnaujinimai ir sąlygos"
 nav_order: 7
-lang: lt
+lang: "lt"
 source: limits.md
 source_hash: "ef3802087acc"
 nav_exclude: true

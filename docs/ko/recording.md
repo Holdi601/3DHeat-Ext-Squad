@@ -1,7 +1,7 @@
 ---
 title: 데모 녹화하기
 nav_order: 2
-lang: ko
+lang: "ko"
 source: recording.md
 source_hash: "5139aa7d896f"
 nav_exclude: true

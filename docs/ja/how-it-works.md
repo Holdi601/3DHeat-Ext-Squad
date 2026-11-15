@@ -1,7 +1,7 @@
 ---
 title: "デモの読み方"
 nav_order: 6
-lang: ja
+lang: "ja"
 source: how-it-works.md
 source_hash: "d8eafbabbd2a"
 nav_exclude: true

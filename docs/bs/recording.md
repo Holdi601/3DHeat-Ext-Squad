@@ -1,7 +1,7 @@
 ---
 title: "Snimanje demoa"
 nav_order: 2
-lang: bs
+lang: "bs"
 source: recording.md
 source_hash: "5139aa7d896f"
 nav_exclude: true

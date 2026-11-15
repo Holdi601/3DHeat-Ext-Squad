@@ -1,7 +1,7 @@
 ---
 title: Како се демо чита
 nav_order: 6
-lang: sr
+lang: "sr"
 source: how-it-works.md
 source_hash: "d8eafbabbd2a"
 nav_exclude: true

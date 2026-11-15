@@ -1,7 +1,7 @@
 ---
 title: "Wie eine Demo gelesen wird"
 nav_order: 6
-lang: de
+lang: "de"
 source: how-it-works.md
 source_hash: "d8eafbabbd2a"
 nav_exclude: true
