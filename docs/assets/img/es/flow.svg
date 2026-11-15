@@ -5,7 +5,7 @@
 <rect x="16" y="52" width="828" height="102" rx="8" fill="#ffffff" stroke="#8c95a3"/>
 <text x="28" y="79" font-size="15" fill="#1f2328" font-weight="600">1. El servidor de Squad</text>
 <text x="28" y="99" font-size="14" fill="#3d4450">un admin escribe AdminDemoRec,</text>
-<text x="28" y="119" font-size="14" fill="#3d4450">termina la partida,</text>
+<text x="28" y="119" font-size="14" fill="#3d4450">se juega la partida,</text>
 <text x="28" y="139" font-size="14" fill="#3d4450">el admin escribe AdminDemoStop</text>
 <rect x="16" y="188" width="828" height="82" rx="8" fill="#ffffff" stroke="#8c95a3"/>
 <text x="28" y="215" font-size="15" fill="#1f2328" font-weight="600">2. El archivo demo</text>
@@ -23,12 +23,12 @@
 <text x="28" y="487" font-size="14" fill="#3d4450">y eventos</text>
 <rect x="298" y="420" width="264" height="82" rx="8" fill="#ffffff" stroke="#8c95a3"/>
 <text x="310" y="447" font-size="15" fill="#1f2328" font-weight="600">&lt;demo&gt;.match.json</text>
-<text x="310" y="467" font-size="14" fill="#3d4450">el documento de partida:</text>
+<text x="310" y="467" font-size="14" fill="#3d4450">documento de la partida:</text>
 <text x="310" y="487" font-size="14" fill="#3d4450">equipos, escuadras, jugadores</text>
 <rect x="580" y="420" width="264" height="82" rx="8" fill="#ffffff" stroke="#8c95a3"/>
 <text x="592" y="447" font-size="15" fill="#1f2328" font-weight="600">2 auxiliares</text>
 <text x="592" y="467" font-size="14" fill="#3d4450">todo lo demás,</text>
-<text x="592" y="487" font-size="14" fill="#3d4450">guardado entero</text>
+<text x="592" y="487" font-size="14" fill="#3d4450">completo</text>
 <path d="M430,388 C430,403.0 148,403.0 148,417" fill="none" stroke="#5b6270" stroke-width="1.6" marker-end="url(#a)"/>
 <path d="M430,388 C430,403.0 430,403.0 430,417" fill="none" stroke="#5b6270" stroke-width="1.6" marker-end="url(#a)"/>
 <path d="M430,388 C430,403.0 712,403.0 712,417" fill="none" stroke="#5b6270" stroke-width="1.6" marker-end="url(#a)"/>

@@ -31,7 +31,7 @@ pendant qu'il se déplace.
 | `event` | ce que représente la ligne (ci-dessous) |
 | `pawn` | le blueprint du soldat (`SQSquidBot` pour un bot), le véhicule, ou pour `fire` l'arme |
 | `seat` | pour un siège de tourelle ou de passager, le pion propre au siège |
-| `detail` | pour `fire`, l'appel de l'arme qui a placé le tir ; pour `hit`, le type de dégât ; pour `removed`, la raison de la fermeture du canal (`Destroyed`, `Dormancy`...) |
+| `detail` | pour `fire`, l'appel de l'arme qui a placé le tir ; pour `hit`, le type de dégâts ; pour `removed`, la raison de la fermeture du canal (`Destroyed`, `Dormancy`...) |
 | `entity` | l'acteur concerné par la ligne (son GUID réseau) : le `entity` des lignes des fichiers annexes |
 | `match` | le nom de la démo |
 
@@ -47,7 +47,7 @@ pendant qu'il se déplace.
 | `fire` | le tireur | un tir : d'où il est parti, sa direction en `yaw`/`pitch`/`dirX..Z` |
 | `hit` | le véhicule | un impact sur véhicule : où |
 
-La manière dont les événements sont lus est expliquée dans [Comment une démo est lue](how-it-works.md#comment-les-evenements-sont-lus).
+La manière dont les événements sont lus est expliquée dans [Comment une démo est lue](how-it-works.md#how-the-events-are-read).
 
 ## Dans la visionneuse {#in-the-viewer}
 

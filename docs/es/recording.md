@@ -18,7 +18,7 @@ Las demos de Squad se graban **en el servidor**, no por el cliente del juego.
 4. La demo se escribe en `<server>/SquadGame/Saved/Demos/<name>.replay`.
    Cópiala desde el servidor a la máquina que la convierte.
 
-`Server.cfg` también tiene un ajuste `RecordDemos`, desactivado por defecto. Calcula unos 70 a 80 MB
+`Server.cfg` también tiene un ajuste `RecordDemos`, desactivado por defecto. Cabe esperar unos 70 a 80 MB
 por hora para una partida pequeña; el tamaño de un servidor completo de 100 jugadores no se ha medido.
 
 Una demo contiene los nombres y los identificadores en línea de todas las personas del servidor:

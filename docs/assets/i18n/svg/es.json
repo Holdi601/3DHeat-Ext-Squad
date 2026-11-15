@@ -21,7 +21,7 @@
  "everything else,": "todo lo demás,",
  "frames, packets, bunches, actors": "tramas, paquetes, bunches, actores",
  "keep.py": "keep.py",
- "kept whole": "guardado entero",
+ "kept whole": "completo",
  "movement.py": "movement.py",
  "off the server": "desde el servidor",
  "output.py, cli.py": "output.py, cli.py",
@@ -32,9 +32,9 @@
  "stream.py": "stream.py",
  "teams, squads, players": "equipos, escuadras, jugadores",
  "the admin types AdminDemoStop": "el admin escribe AdminDemoStop",
- "the file: info block, chunks": "el archivo: cabecera, chunks",
- "the match document:": "el documento de partida:",
- "the match is played,": "termina la partida,",
- "the table, the match document, the sidecars": "la tabla, el documento de partida, los auxiliares",
+ "the file: info block, chunks": "el archivo: bloque info, fragmentos",
+ "the match document:": "documento de la partida:",
+ "the match is played,": "se juega la partida,",
+ "the table, the match document, the sidecars": "la tabla, documento de la partida, auxiliares",
  "the table: positions": "la tabla: posiciones"
 }

@@ -10,7 +10,7 @@
   "From a Squad server to the viewer": "D'un serveur Squad à la visionneuse",
   "Heatmap tab: the table": "Carte de chaleur : la table",
   "How a demo is read: one module per layer": "Comment une démo est lue : un module par couche",
-  "Match tab: the match document": "Onglet Match : le document de partie",
+  "Match tab: the match document": "Onglet Match : le document de match",
   "an admin types AdminDemoRec,": "un admin tape AdminDemoRec,",
   "and events": "et événements",
   "and writes down who was where": "et note qui était où",
@@ -33,8 +33,8 @@
   "teams, squads, players": "équipes, escouades, joueurs",
   "the admin types AdminDemoStop": "l'admin tape AdminDemoStop",
   "the file: info block, chunks": "le fichier : bloc d'info, blocs",
-  "the match document:": "le document de partie :",
+  "the match document:": "le document de match :",
   "the match is played,": "la partie est jouée,",
-  "the table, the match document, the sidecars": "la table, le document de partie, les annexes",
+  "the table, the match document, the sidecars": "la table, le document de match, les annexes",
   "the table: positions": "la table : positions"
 }

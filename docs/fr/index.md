@@ -70,9 +70,9 @@ dans l'onglet Carte de chaleur de la visionneuse
 - La visionneuse 3DHeat : [github.com/Holdi601/3DHeat](https://github.com/Holdi601/3DHeat),
   documentation sur [holdi601.github.io/3DHeat](https://holdi601.github.io/3DHeat/).
 - Les formats de fichiers que lit la visionneuse, dont le conteneur d'un
-  fichier par partie : [Un fichier par partie (.3dheat)](https://holdi601.github.io/3DHeat/container.html).
+  fichier par match : [Un fichier par match (.3dheat)](https://holdi601.github.io/3DHeat/container.html).
   Ce convertisseur écrit les fichiers séparés : la table, le document de
-  partie et ses fichiers annexes, côte à côte.
+  match et ses fichiers annexes, côte à côte.
 - L'outil 3DHeat Watcher exécute ce convertisseur sur les nouvelles démos
   lorsqu'il est installé (adaptateur `squad-demos`) : [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
 

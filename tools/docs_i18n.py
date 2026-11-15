@@ -40,8 +40,8 @@ def write(p, s):
 
 
 def generated(text):
-    head = text[:900].lower()
-    return "generated" in head and "do not edit" in head
+    body = re.sub(r"^---.*?---\s*", "", text, count=1, flags=re.S)[:500].lower()
+    return re.search(r"(?m)^\s*generated from the code", body) is not None or ("generated" in body and "do not edit" in body)
 
 
 def english_pages():
@@ -271,6 +271,8 @@ def cmd_check():
 
 if __name__ == "__main__":
     a = sys.argv[1:]
+    if "-h" in a or "--help" in a:
+        a = []
     {"hashes": lambda: cmd_hashes(), "status": lambda: cmd_status(a), "todo": lambda: cmd_todo(a),
      "svg-strings": lambda: cmd_svg_strings(), "svg-build": lambda: cmd_svg_build(a),
      "finish": lambda: cmd_finish(a[1:]), "check": lambda: cmd_check()}.get(a[0] if a else "", lambda: print(__doc__))()

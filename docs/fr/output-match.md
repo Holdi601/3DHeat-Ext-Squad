@@ -24,7 +24,7 @@ document de match dans son onglet Match.
 - **une ligne par joueur** : positions à pied et dans les véhicules, distance parcourue, classes de soldat jouées, véhicules utilisés, changements d'équipe, sièges occupés, et tout ce que l'état du joueur a transmis (ping, niveau, rôle, siège actuel...) ; et une ligne par bot ;
 - **les événements** comptés, le **recensement des propriétés** (combien de fois les propriétés de chaque classe ont été envoyées) et le **recensement des appels distants**, les tirs et impacts, ce qui n'a **pas** été lu, et les diagnostics du lecteur ;
 - **le fichier et l'en-tête** : chaque champ du bloc d'information et de l'en-tête de la démo, la table des blocs, les tables d'export des champs réseau (`net_field_exports`), les raisons de fermeture des canaux, et les classes trouvées pour les objets que les exports ne nomment pas (`stream.class_resolution`) ;
-- **la vérification** (`selfCheck.completeness`, voir [Vérification](#verification)).
+- **la vérification** (`selfCheck.completeness`, voir [Vérification](#completeness)).
 
 Les identifiants en ligne (Steam, EOS) sont volontairement omis.
 
@@ -48,13 +48,13 @@ Sur les vraies démos lues, `lost` vaut 0 : leurs éléments vont de quelques ce
 
 - le bloc d'information, l'en-tête de la démo (chaque champ ; deux octets de fin non identifiés sont gardés en hexadécimal), la table des blocs ;
 - chaque trame, paquet et bunch (découpés entiers en ce qu'ils contiennent), chaque acteur ouvert (avec son lieu d'apparition, sa rotation, son échelle et sa vitesse) et fermé (avec la raison : `Destroyed`, `Dormancy`...) ;
-- chaque propriété répliquée, dans la mesure où ses bits l'indiquent ([Décodage des propriétés](how-it-works.md#decodage-des-proprietes)), positions issues de `FRepMovement` et du composant de mouvement des hélicoptères, les blessures, la santé des véhicules, les sièges ;
+- chaque propriété répliquée, dans la mesure où ses bits l'indiquent ([Décodage des propriétés](how-it-works.md#decoding-properties)), positions issues de `FRepMovement` et du composant de mouvement des hélicoptères, les blessures, la santé des véhicules, les sièges ;
 - chaque appel distant par son nom, avec ses paramètres lorsque la démo exporte le groupe de la fonction : tirs (`fire`) et impacts sur véhicules (`hit`) dans la table ;
 - les tables d'export des champs réseau et les GUID réseau (leur nombre ; les chemins sont dans le fichier annexe des entités).
 
 **Gardé brut** (en entier, avec ce qui en est lu à côté) :
 
-- `<démo>.entities.parquet`, colonnes `time`, `type` (`<classe>.<propriété>`, `<classe>.<appel>`, ou le nom de l'objet), `name` (la classe de l'acteur), `entity` (le GUID réseau de l'acteur, comme la colonne `entity` de la table), `kind`, `object` (le sous-objet), `channel`, `handle`, `group` (le chemin de classe du groupe d'export), `decoded` (JSON), `bits` et `payload` (les bits, du moins significatif, complétés à l'octet) :
+- `<démo>.entities.parquet`, colonnes `time`, `type` (`<classe>.<propriété>`, `<classe>.<appel>`, ou le nom de l'objet), `name` (la classe de l'acteur), `entity` (le GUID réseau de l'acteur, comme la colonne `entity` de la table), `kind`, `object` (le sous-objet), `channel`, `handle`, `group` (le chemin de classe du groupe d'export), `decoded` (JSON), `bits` et `payload` (les bits, du bit de poids faible au bit de poids fort, complétés à l'octet) :
   - chaque mise à jour de propriété (`kind` `property`), mouvement compris, avec ce qui est décodé ; brut seulement là où rien ne l'est (poignées sans nom, structures comme `RotationReplicatedMovement` des tourelles, et propriétés laissées en bits) ;
   - chaque appel distant et chaque champ de delta personnalisé (`rpc`), les paramètres décodés quand le groupe de la fonction a été exporté ; brut sinon (`RepInventory`, `PlayerStateData`) ;
   - chaque bloc de contenu d'un objet dont la classe n'a pas pu être trouvée (`block` : `Buoyancy`, `GameplayTasksComponent`, `AmmoRackComponent`...), avec son en-tête décodé ;
@@ -68,4 +68,4 @@ Les lignes des entités sont regroupées par `kind`, `type` et `entity`, chacune
 
 - ce qu'une démo de serveur n'enregistre pas : les commandes des clients, ce que le joueur voyait ;
 - les effets côté client : marqueurs de touche, sons, texte du journal des éliminations (le serveur envoie les appels, pas leur affichage) ;
-- les identifiants en ligne décodés : gardés seulement en bits (voir [Données personnelles](limits.md#donnees-personnelles)).
+- les identifiants en ligne décodés : gardés seulement en bits (voir [Données personnelles](limits.md#personal-data)).
