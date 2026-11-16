@@ -14,7 +14,7 @@ Les démos Squad sont enregistrées **sur le serveur**, et non par le client de 
 1. Dans le fichier `Admins.cfg` du serveur, donnez au groupe de l'admin la
    permission `demos`.
 2. Dans la console du jeu, tapez `AdminDemoRec <nom>` au début de la partie.
-   Un admin doit taper cette commande dans le jeu lui-même ; un retour dit que RCON
+   Un admin doit taper cette commande dans le jeu lui-même ; un signalement dit que RCON
    ne l'accepte pas.
 3. Jouez la partie, puis tapez `AdminDemoStop`.
 4. La démo est écrite dans `<serveur>/SquadGame/Saved/Demos/<nom>.replay`.

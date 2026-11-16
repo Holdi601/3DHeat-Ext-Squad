@@ -28,7 +28,7 @@ Le lecteur dépend du format de réplication du moteur et d'une poignée de noms
 
 ## Données personnelles {#personal-data}
 
-Une démo contient les noms et identifiants en ligne de tous les joueurs du serveur. La table et le document de match portent des noms, non des identifiants. Les fichiers annexes gardent les bits de chaque propriété, donc les identifiants tels que la démo les contient (non décodés). Traitez-les tous comme la démo elle-même.
+Une démo contient les noms et identifiants en ligne de tous les joueurs du serveur. La table et le document de partie portent des noms, non des identifiants. Les fichiers annexes gardent les bits de chaque propriété, donc les identifiants tels que la démo les contient (non décodés). Traitez-les tous comme la démo elle-même.
 
 ## Licence et sources {#licence-and-sources}
 

@@ -83,7 +83,7 @@ Suite : [Enregistrer une démo](recording.md), puis [Convertir les démos](conve
 | `'heat3d-squad-demo' is not recognized` | Relancez l'étape 4 dans le dossier de l'outil, ou tapez `python -m heat3d_ext_squad` à la place de `heat3d-squad-demo` : cela fait la même chose. |
 | `No module named heat3d_ext_squad` | Vous n'êtes pas dans le dossier de l'outil, ou l'étape 4 a échoué : faites `cd` jusque-là et relancez l'étape 4. |
 | `No module named pip` | Lancez `python -m ensurepip`, puis l'étape 4. |
-| autre chose | Lisez la dernière ligne du message, puis ouvrez un ticket sur GitHub avec cette ligne. |
+| autre chose | Lisez la dernière ligne du message, puis ouvrez une issue sur GitHub avec cette ligne. |
 
 Chaque commande se termine aussi par un **code de sortie** : 0 signifie que cela a réussi. Pour le voir,
 tapez `echo $LASTEXITCODE` dans PowerShell, ou `echo $?` sur macOS et Linux.

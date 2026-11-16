@@ -26,7 +26,7 @@ Vous débutez avec la ligne de commande ? Lisez d'abord [Avant de commencer](bef
 4. Vous devez voir une ligne par démo : sa couche, ses joueurs et ses lignes, et
    l'endroit où la table a été écrite. Chaque démo devient quatre fichiers séparés dans
    `out/<carte>/` (et non un conteneur `.3dheat`) ; chargez le `.parquet` dans
-   la visionneuse 3DHeat.
+   le visualiseur 3DHeat.
 
 ![Une conversion sur une démo synthétique](../assets/img/run.svg)
 
@@ -56,12 +56,12 @@ Code de sortie : 0 quand toutes les démos ont été converties ; 1 quand l'une 
 | Fichier | Ce qu'il contient |
 |---|---|
 | `<démo>.parquet` | la table : positions et événements, une ligne chacun ([La table](output-table.md)) |
-| `<démo>.match.json` | le document de match ([Le document de match](output-match.md)) |
+| `<démo>.match.json` | le document de partie ([Le document de partie](output-match.md)) |
 | `<démo>.entities.parquet` | fichier annexe : chaque mise à jour de propriété et chaque appel distant, en entier |
 | `<démo>.packets.parquet` | fichier annexe : les blocs du fichier et tout ce qui n'a pas pu être lu, en entier |
 
-La table et le document de match forment la même paire que celle qu'écrit l'outil 3DHeat CS2.
-La visionneuse ouvre la table directement, et laisse les fichiers annexes de côté
+La table et le document de partie forment la même paire que celle qu'écrit l'outil 3DHeat CS2.
+Le visualiseur ouvre la table directement, et laisse les fichiers annexes de côté
 lorsqu'un dossier entier est chargé.
 
 ## Exemples {#examples}

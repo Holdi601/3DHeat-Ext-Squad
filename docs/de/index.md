@@ -3,7 +3,7 @@ title: "Startseite"
 nav_order: 1
 lang: "de"
 source: index.md
-source_hash: "18753c85e378"
+source_hash: "08b02831e1d4"
 nav_exclude: true
 search_exclude: true
 permalink: /de/
@@ -28,7 +28,7 @@ Wofür es nützlich ist:
 - **Wo ein Match ausgetragen wurde.** Die Position jedes Spielers und Bots, zu Fuß, in Bodenfahrzeugen
   und in Helikoptern, etwa achtmal pro Sekunde, mit Team, Fraktion, Squad, Gesundheit und Blickwinkel.
 - **Was wo passiert ist.** Verwundungen, Wiederbelebungen und Tode; jeder Schuss und jeder Treffer auf
-  ein Fahrzeug; jedes Fahrzeug, jeder Verbrauchsgegenstand und jedes Geschütz, das erzeugt, beschädigt,
+  ein Fahrzeug; jedes Fahrzeug, jedes aufstellbare Gerät und jedes Geschütz, das erzeugt, beschädigt,
   zerstört und entfernt wurde.
 - **Das ganze Match in einem Dokument.** Teams, Squads, der Spielstand, jeder Akteur, eine Zeile pro
   Spieler und pro Bot, und eine Selbstprüfung, dass nichts verloren ging, was die Demo enthält.
@@ -44,7 +44,7 @@ python -m pip install -e .              # installs the heat3d-squad-demo command
 heat3d-squad-demo match.replay -o out   # or a folder of .replay files
 ```
 
-Du solltest pro Demo eine Zeile sehen. Lade dann `out/<map>/<demo>.parquet` im Heatmap-Reiter des Viewers
+Du solltest pro Demo eine Zeile sehen. Lade dann `out/<map>/<demo>.parquet` im Heatmap-Tab des Viewers
 ([Daten hineinbringen](https://holdi601.github.io/3DHeat/getting-data-in.html)).
 
 ## Seiten {#pages}
@@ -88,3 +88,12 @@ Du solltest pro Demo eine Zeile sehen. Lade dann `out/<map>/<demo>.parquet` im H
 | Ext-Squad | Squad-Server-Demos | [3DHeat-Ext-Squad](https://github.com/Holdi601/3DHeat-Ext-Squad) | [Doku](https://holdi601.github.io/3DHeat-Ext-Squad/) |
 | Ext-DCS | DCS-World-Karten als 3D-Levels | [3DHeat-Ext-DCS](https://github.com/Holdi601/3DHeat-Ext-DCS) | [Doku](https://holdi601.github.io/3DHeat-Ext-DCS/) |
 | Ext-IL2 | IL-2-Sturmovik-Karten als 3D-Levels | [3DHeat-Ext-IL2](https://github.com/Holdi601/3DHeat-Ext-IL2) | [Doku](https://holdi601.github.io/3DHeat-Ext-IL2/) |
+| Ext-Dota | die Dota-2-Karte aus deiner eigenen Installation als 3D-Level | [3DHeat-Ext-Dota](https://github.com/Holdi601/3DHeat-Ext-Dota) | [Doku](https://holdi601.github.io/3DHeat-Ext-Dota/) |
+| Ext-DotaReplay | Dota-2-Replays | [3DHeat-Ext-DotaReplay](https://github.com/Holdi601/3DHeat-Ext-DotaReplay) | [Doku](https://holdi601.github.io/3DHeat-Ext-DotaReplay/) |
+| Ext-Riot | Replays von League of Legends und VALORANT (was sie unverschlüsselt enthalten) | [3DHeat-Ext-Riot](https://github.com/Holdi601/3DHeat-Ext-Riot) | [Doku](https://holdi601.github.io/3DHeat-Ext-Riot/) |
+| Ext-Forza | Forza-Strecken, Rennen und Autos aus deiner eigenen Installation | [3DHeat-Ext-Forza](https://github.com/Holdi601/3DHeat-Ext-Forza) | [Doku](https://holdi601.github.io/3DHeat-Ext-Forza/) |
+| Ext-Battlefield | Battlefield-Level (Frostbite) als 3D-Levels | [3DHeat-Ext-Battlefield](https://github.com/Holdi601/3DHeat-Ext-Battlefield) | [Doku](https://holdi601.github.io/3DHeat-Ext-Battlefield/) |
+| Ext-BeamNG | Strecken von BeamNG.drive | [3DHeat-Ext-BeamNG](https://github.com/Holdi601/3DHeat-Ext-BeamNG) | [Doku](https://holdi601.github.io/3DHeat-Ext-BeamNG/) |
+| Ext-ACRally | Etappen von Assetto Corsa Rally als Strecken | [3DHeat-Ext-ACRally](https://github.com/Holdi601/3DHeat-Ext-ACRally) | [Doku](https://holdi601.github.io/3DHeat-Ext-ACRally/) |
+| Ext-Reforger | Welten von Arma Reforger (Enfusion) als 3D-Levels | [3DHeat-Ext-Reforger](https://github.com/Holdi601/3DHeat-Ext-Reforger) | [Doku](https://holdi601.github.io/3DHeat-Ext-Reforger/) |
+| Ext-R6 | Replays von Rainbow Six Siege | [3DHeat-Ext-R6](https://github.com/Holdi601/3DHeat-Ext-R6) | [Doku](https://holdi601.github.io/3DHeat-Ext-R6/) |

@@ -25,14 +25,14 @@ Une liste de contrôle pour chaque version, pour que les pages ne soient jamais 
 4. **Corriger** tout ce que la relecture trouve.
 5. **Traductions.** Chaque page traduite enregistre l'empreinte de la page anglaise dont elle est issue.
    Retraduisez les pages dont la source anglaise a changé, puis relisez chaque langue : texte clair, libellés
-   corrects des schémas, mêmes mots que l'interface traduite de la visionneuse.
+   corrects des schémas, mêmes mots que l'interface traduite du visualiseur.
 6. **Lancer les tests** (`pytest`).
 7. **Publier** seulement après le feu vert du propriétaire.
 
 ## Traductions : les commandes {#translations-the-commands}
 
-Le site est traduit dans les 40 langues de la visionneuse 3DHeat : l'anglais dans `docs/`, chaque autre
-langue dans `docs/<langue>/` avec les mêmes noms de fichiers. `tools/docs_i18n.py` gère l'intendance :
+Le site est traduit dans les 40 langues du visualiseur 3DHeat : l'anglais dans `docs/`, chaque autre
+langue dans `docs/<langue>/` avec les mêmes noms de fichiers. `tools/docs_i18n.py` tient les comptes :
 
 ```bash
 python tools/docs_i18n.py hashes             # après tout changement anglais : enregistrer l'empreinte de chaque page
@@ -45,7 +45,7 @@ python tools/docs_i18n.py check              # quitte avec 1 quand les empreinte
 ```
 
 Ne traduisez que ce que `todo` liste : gardez le Markdown, les liens, le code, les noms de fichiers et de colonnes tels quels ;
-traduisez les titres et les descriptions d'images, et utilisez les mots propres à l'interface de la visionneuse 3DHeat pour ses boutons
+traduisez les titres et les descriptions d'images, et utilisez les mots propres à l'interface du visualiseur 3DHeat pour ses boutons
 et panneaux (son `src/i18n/locales/<langue>/`). Les pages de référence générées et les images de terminal restent
 en anglais. Sur le site, une traduction périmée l'indique et renvoie vers la page anglaise ; une traduction
 manquante revient à l'anglais. Le menu de langue de l'en-tête et la redirection de la page d'accueil selon la langue du navigateur

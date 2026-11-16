@@ -7,6 +7,7 @@
     python tools/docs_i18n.py svg-build [--lang xx]   docs/assets/img/<lang>/*.svg from docs/assets/i18n/svg/<lang>.json
     python tools/docs_i18n.py finish --lang xx [pages...]  stamp translated pages (lang, source, source_hash, menu
                                                   and search flags) and point their pictures and links at the right files
+    python tools/docs_i18n.py orphans [--lang xx] [--delete]  translations whose English page is gone
     python tools/docs_i18n.py check               exit 1 when i18n_sources.yml or svg/en.json is stale
 
 A translation records the hash of the English text it was made from (`source_hash`, the first 12 hex
@@ -108,6 +109,8 @@ def terminal(svg):
 
 
 def svg_files():
+    if not os.path.isdir(IMG):
+        return []
     return sorted(n for n in os.listdir(IMG) if n.endswith(".svg") and not terminal(read(os.path.join(IMG, n))))
 
 
@@ -265,6 +268,21 @@ def cmd_finish(args):
     print(lang, len(names), "pages stamped")
 
 
+def cmd_orphans(args):
+    """Translations whose English page is gone (moved or deleted) or is generated; --delete removes them."""
+    pages = english_pages()
+    langs = [args[args.index("--lang") + 1]] if "--lang" in args else LANGS
+    for lang in langs:
+        folder = os.path.join(DOCS, lang)
+        if not os.path.isdir(folder):
+            continue
+        for n in sorted(os.listdir(folder)):
+            if n.endswith(".md") and n not in pages:
+                print(f"{lang}/{n}")
+                if "--delete" in args:
+                    os.remove(os.path.join(folder, n))
+
+
 def cmd_check():
     bad = 0
     p = os.path.join(DOCS, "_data", "i18n_sources.yml")
@@ -282,4 +300,4 @@ if __name__ == "__main__":
         a = []
     {"hashes": lambda: cmd_hashes(), "status": lambda: cmd_status(a), "todo": lambda: cmd_todo(a),
      "svg-strings": lambda: cmd_svg_strings(), "svg-build": lambda: cmd_svg_build(a),
-     "finish": lambda: cmd_finish(a[1:]), "check": lambda: cmd_check()}.get(a[0] if a else "", lambda: print(__doc__))()
+     "finish": lambda: cmd_finish(a[1:]), "orphans": lambda: cmd_orphans(a), "check": lambda: cmd_check()}.get(a[0] if a else "", lambda: print(__doc__))()

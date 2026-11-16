@@ -29,7 +29,7 @@ mentre si muove.
 | `team`, `faction` | il numero di squadra di Squad (1, 2) e la sua configurazione di fazione, **in quel momento**: i giocatori possono cambiare schieramento |
 | `squad` | il numero del plotone, -1 quando non è in un plotone |
 | `event` | che cosa rappresenta la riga (sotto) |
-| `pawn` | il progetto del soldato (`SQSquidBot` per un bot), il veicolo, o per `fire` l'arma |
+| `pawn` | il blueprint del soldato (`SQSquidBot` per un bot), il veicolo, o per `fire` l'arma |
 | `seat` | per un posto di mitragliatrice o di passeggero, il pawn stesso del posto |
 | `detail` | per `fire` la chiamata dell'arma che ha piazzato il colpo, per `hit` il tipo di danno, per `removed` il motivo per cui il canale si è chiuso (`Destroyed`, `Dormancy`...) |
 | `entity` | l'attore a cui si riferisce la riga (il suo GUID di rete): l'`entity` delle righe dei file accessori |

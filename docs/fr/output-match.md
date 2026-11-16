@@ -1,5 +1,5 @@
 ---
-title: "Le document de match et les fichiers annexes"
+title: "Le document de partie et les fichiers annexes"
 nav_order: 5
 lang: "fr"
 source: output-match.md
@@ -7,15 +7,15 @@ source_hash: "715bd3417e47"
 nav_exclude: true
 search_exclude: true
 ---
-# Le document de match et les fichiers annexes {#the-match-document-and-sidecars}
+# Le document de partie et les fichiers annexes {#the-match-document-and-sidecars}
 
 À côté de la table, chaque démo produit `<démo>.match.json` et deux fichiers annexes,
-`<démo>.entities.parquet` et `<démo>.packets.parquet`. La visionneuse lit le
-document de match dans son onglet Match.
+`<démo>.entities.parquet` et `<démo>.packets.parquet`. Le visualiseur lit le
+document de partie dans son onglet Match.
 
-## Le document de match {#the-match-document}
+## Le document de partie {#the-match-document}
 
-`<démo>.match.json` (le document de match) contient au premier niveau `map`, `layer`, `level_path`, `game_version`, `engine_version`, `recorded_unix`, `duration_s`, `teams`, `squads`, `game_state`, `actors`, `players`, `rows`, `events`, `not_read`, `file`, `header`, `chunks`, `stream`, `shots` et `selfCheck` (la liste complète : [Référence des commandes](../cli-reference.md)). En clair : la carte et la couche, les versions du jeu et du moteur, l'heure d'enregistrement, la durée, et :
+`<démo>.match.json` (le document de partie) contient au premier niveau `map`, `layer`, `level_path`, `game_version`, `engine_version`, `recorded_unix`, `duration_s`, `teams`, `squads`, `game_state`, `actors`, `players`, `rows`, `events`, `not_read`, `file`, `header`, `chunks`, `stream`, `shots` et `selfCheck` (la liste complète : [Référence des commandes](../cli-reference.md)). En clair : la carte et la couche, les versions du jeu et du moteur, l'heure d'enregistrement, la durée, et :
 
 - **les équipes** : numéro, faction et tout ce que leur état a transmis (tickets, disponibilités, commandant), au fil des changements ;
 - **les escouades** : numéro, équipe, nom, créateur, chef, membres ;
@@ -37,14 +37,14 @@ python -c "import json; d = json.load(open('out/<carte>/<démo>.match.json')); p
 ## Vérification {#completeness}
 
 Ce lecteur suit la règle que partagent tous les convertisseurs 3DHeat : décoder ce qui peut être lu
-maintenant, garder le reste en entier, et dire combien de chaque sorte il a traité ([Les convertisseurs gardent tout](https://github.com/Holdi601/3DHeat/blob/main/docs/converters.md)). Chaque document de match
+maintenant, garder le reste en entier, et dire combien de chaque sorte il a traité ([Les convertisseurs gardent tout](https://github.com/Holdi601/3DHeat/blob/main/docs/converters.md)). Chaque document de partie
 contient `selfCheck.completeness` : pour chaque type d'élément rencontré dans la démo, le nombre `seen` (vus),
 `decoded` (décodés), `partial` (décodés en partie et gardés en entier), `raw` (gardés en entier seulement) et `lost`
-(perdus, qui doit valoir 0). Les types sont comptés là où le lecteur les rencontre : `file.info`, `chunk.<genre>`, `frame`, `packet`, `bunch`, `open`, `close`, `export.field`, `export.guid`, `external`, `property:<classe>`, `rpc:<classe>`, `block:<objet>`, `subobject.*`.
+(perdus, qui doit valoir 0). Les types sont comptés là où le lecteur les rencontre : `file.info`, `chunk.<type>`, `frame`, `packet`, `bunch`, `open`, `close`, `export.field`, `export.guid`, `external`, `property:<classe>`, `rpc:<classe>`, `block:<objet>`, `subobject.*`.
 
 Sur les vraies démos lues, `lost` vaut 0 : leurs éléments vont de quelques centaines de milliers à plusieurs millions ; environ la moitié se décodent entièrement, le reste est partiel ou brut.
 
-**Lu** (dans la table et le document de match) :
+**Lu** (dans la table et le document de partie) :
 
 - le bloc d'information, l'en-tête de la démo (chaque champ ; deux octets de fin non identifiés sont gardés en hexadécimal), la table des blocs ;
 - chaque trame, paquet et bunch (découpés entiers en ce qu'ils contiennent), chaque acteur ouvert (avec son lieu d'apparition, sa rotation, son échelle et sa vitesse) et fermé (avec la raison : `Destroyed`, `Dormancy`...) ;

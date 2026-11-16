@@ -49,9 +49,9 @@ pendant qu'il se déplace.
 
 La manière dont les événements sont lus est expliquée dans [Comment une démo est lue](how-it-works.md#how-the-events-are-read).
 
-## Dans la visionneuse {#in-the-viewer}
+## Dans le visualiseur {#in-the-viewer}
 
 Le pied du fichier Parquet contient des consignes de lecture sous la clé `heat3d` : Z vers le haut,
-aucun axe miroir, échelle unitaire 1, donc la visionneuse n'a besoin d'aucune correspondance de colonnes. Chargez
+aucun axe miroir, échelle unitaire 1, donc le visualiseur n'a besoin d'aucune correspondance de colonnes. Chargez
 la table dans l'onglet Carte de chaleur ; voir [Charger des données](https://holdi601.github.io/3DHeat/getting-data-in.html)
-et [Correspondance des colonnes](https://holdi601.github.io/3DHeat/column-mapping.html) de la visionneuse.
+et [Correspondance des colonnes](https://holdi601.github.io/3DHeat/column-mapping.html) du visualiseur.

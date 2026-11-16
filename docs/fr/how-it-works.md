@@ -23,7 +23,7 @@ Une démo de réplication réseau Unreal est le trafic de réplication du serveu
 | `movement.py` | Le `FRepMovement` du moteur, et le mouvement des hélicoptères de Squad. |
 | `keep.py` | Chaque élément rencontré, compté et gardé : les lignes des fichiers annexes et la vérification. |
 | `squad.py` | Quelles classes Squad portent quelles données. `SQPlayerState` porte le nom, l'état d'équipe, l'état d'escouade et le pion courant ; `SQTeamState` le numéro d'équipe et la faction ; `SQSquadState` le numéro d'escouade. Le propriétaire d'un pion de siège est son véhicule. |
-| `output.py`, `cli.py` | La table et le document de match. |
+| `output.py`, `cli.py` | La table et le document de partie. |
 
 Une réplication nomme ses propres champs. Elle porte les chemins de classe et les noms de propriétés pour chaque poignée, et les chemins des objets qu'elle référence. Ainsi chaque propriété peut être retrouvée par son nom, sans le code du jeu. Seuls les bits d'une propriété ont besoin de son type. Pour le mouvement, c'est le type propre du moteur ; pour les propriétés de Squad, les types sont simples : chaînes, entiers, références d'objets et noms.
 
