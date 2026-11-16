@@ -73,6 +73,7 @@ Ba chóir duit líne amháin a fheiceáil in aghaidh an demo. Ansin lódáil `ou
   a chomhaid chliatháin taobh le taobh.
 - Ritheann 3DHeat Watcher an tiontaire seo ar demos nua nuair atá sé suiteáilte
   (adapter `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Is tionscadal beag dá chuid féin é gach léitheoir cluiche, lena chomhad ceadúnais, a eisiúintí agus a rianaire fadhbanna féin, ionas gur féidir é a shuiteáil, a nuashonrú, a chothabháil - nó a tharraingt siar ar iarratas ó shealbhóir cearta - leis féin, gan tionchar a imirt ar an amharcán ná ar na huirlisí eile.
 
 ## Uirlisí 3DHeat {#the-3dheat-tools}
 

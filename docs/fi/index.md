@@ -73,6 +73,7 @@ Lämpökartta-välilehdelle ([Tietojen tuominen](https://holdi601.github.io/3DHe
   sivutiedostot rinnakkain.
 - 3DHeat Watcher ajaa tätä muunninta uusille demoille, kun se on asennettu
   (sovitin `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Jokainen pelinlukija on oma pieni projektinsa, jolla on oma lisenssitiedosto, omat julkaisut ja oma vikaseuranta, joten sen voi asentaa, päivittää, ylläpitää - tai vetää pois oikeudenhaltijan pyynnöstä - erikseen ilman, että se vaikuttaa katseluohjelmaan tai muihin työkaluihin.
 
 ## 3DHeat-työkalut {#the-3dheat-tools}
 

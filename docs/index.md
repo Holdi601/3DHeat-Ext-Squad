@@ -68,6 +68,10 @@ You should see one line per demo. Then load `out/<map>/<demo>.parquet` in the vi
   its sidecars side by side.
 - The 3DHeat Watcher runs this converter on new demos when it is installed
   (adapter `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Each game reader is its own small project with its own licence file, releases
+  and issue tracker, so it can be installed, updated, maintained - or withdrawn
+  on a rights holder's request - on its own, without affecting the viewer or
+  the other tools.
 
 ## The 3DHeat tools
 

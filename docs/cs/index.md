@@ -72,6 +72,7 @@ Teplotní mapa prohlížeče ([Získání dat](https://holdi601.github.io/3DHeat
   doplňková data vedle sebe.
 - Sledovací nástroj 3DHeat Watcher spouští tento převodník na nová dema, když je nainstalovaný
   (adaptér `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Každá čtečka hry je samostatný malý projekt s vlastním licenčním souborem, vydáními a evidencí problémů, takže ji lze instalovat, aktualizovat, udržovat - nebo na žádost držitele práv stáhnout - samostatně, bez vlivu na prohlížeč a ostatní nástroje.
 
 ## Nástroje 3DHeat {#the-3dheat-tools}
 

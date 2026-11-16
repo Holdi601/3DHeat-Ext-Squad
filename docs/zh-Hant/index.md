@@ -57,6 +57,7 @@ heat3d-squad-demo match.replay -o out   # or a folder of .replay files
 - 檢視器所讀取的檔案格式，包括每場對戰一個檔案的容器：[每場對戰一個檔案（.3dheat）](https://holdi601.github.io/3DHeat/container.html)。
   本轉換器寫出的是獨立檔案：表格、對戰文件與其附屬檔並排存放。
 - 3DHeat Watcher 安裝後，會對新的對戰執行本轉換器（轉接器 `squad-demos`）：[3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/)。
+- 每個遊戲讀取器都是獨立的小專案，有自己的授權檔案、發行版本與問題追蹤，因此可以單獨安裝、更新、維護，也可以應權利人的要求單獨撤下，而不影響檢視器或其他工具。
 
 ## 3DHeat 工具 {#the-3dheat-tools}
 

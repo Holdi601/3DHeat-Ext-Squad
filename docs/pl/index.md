@@ -70,6 +70,7 @@ Mapa cieplna przeglądarki ([Wczytywanie danych](https://holdi601.github.io/3DHe
   Ten konwerter zapisuje pliki luźno: tabelę, dokument meczu i jego pliki towarzyszące obok siebie.
 - Program 3DHeat Watcher uruchamia ten konwerter na nowych demach, gdy jest zainstalowany
   (adapter `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Każdy czytnik gry to osobny mały projekt z własnym plikiem licencji, wydaniami i systemem zgłoszeń, więc można go instalować, aktualizować, utrzymywać - albo wycofać na prośbę posiadacza praw - osobno, bez wpływu na przeglądarkę i pozostałe narzędzia.
 
 ## Narzędzia 3DHeat {#the-3dheat-tools}
 

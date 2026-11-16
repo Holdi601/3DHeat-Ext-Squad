@@ -3,7 +3,7 @@ title: "Omejitve, posodobitve in pogoji"
 nav_order: 7
 lang: "sl"
 source: limits.md
-source_hash: "ef3802087acc"
+source_hash: "8a9c7c448411"
 nav_exclude: true
 search_exclude: true
 ---
@@ -62,7 +62,8 @@ Podatki o formatu so prišli iz teh virov:
   lastnosti razpošiljane po imenu), dve stvari, ki jih ne počne, pa sta bili ugotovljeni na samih posnetkih:
   tretja zastavica delnega snopa in zadnji bit gibanja.
 
-Squad je blagovna znamka Offworld Industries. Ta paket bere datoteke, ki jih zapisuje strežnik Squad; ne
-dotika se igre, njene kode ali njenih arhivov. Pravilnik Offworld o licenciranju in upravljanju strežnikov
-ne govori o snemanju ali analizi posnetkov. Squadova licenčna pogodba (EULA) prepoveduje povratni inženiring
-same igre, kar to ne počne.
+Ta paket bere demo datoteke, ki jih zapiše strežnik Squad; ne posega v igro, njeno kodo ali arhive, in nič iz igre ni vključeno ali naprej razširjano. Kar zapiše, ostane na vašem računalniku.
+
+3DHeat ni povezan z družbo Offworld Industries in ga ta ni odobrila. Squad ter povezana imena in blagovne znamke pripadajo njihovim lastnikom.
+
+Imetniki pravic: odprite issue na <https://github.com/Holdi601/3DHeat-Ext-Squad/issues> - odgovorimo hitro in na zahtevo odstranimo karkoli.

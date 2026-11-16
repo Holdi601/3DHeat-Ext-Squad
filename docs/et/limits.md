@@ -3,7 +3,7 @@ title: "Piirangud, uuendused ja tingimused"
 nav_order: 7
 lang: "et"
 source: limits.md
-source_hash: "ef3802087acc"
+source_hash: "8a9c7c448411"
 nav_exclude: true
 search_exclude: true
 ---
@@ -39,4 +39,8 @@ Faktid vormingu kohta pärinevad neist allikatest:
 - **Unreal.Core** projektis [FortniteReplayDecompressor](https://github.com/Shiqan/FortniteReplayDecompressor) (MIT). See kirjeldab üldist Unreali replay-paigutust: infoplokki, tükke, kaadreid, bunche ja võrgu-väljade eksporte.
 - **[squad-replay](https://github.com/Codycody31/squad-replay)** (MPL-2.0). Selle parserit loeti paigutuse jaoks, nagu Squad v10.3.1 seda kirjutab, versioonikontrollide jaoks ja selle jaoks, millised Squadi klassid kannavad koosseisuandmeid. Selle avaldatud testdemosid ja loendusi kasutati sõltumatu kontrollina. Ühtegi selle koodi ei kopeeritud ega tõlgitud: see lugeja on üles ehitatud teisiti (Pythoni bitiarhiiv terve paketi kohta, osalised bunchid ühendatakse bititi, omadused suunatakse nime järgi), ja kaks asja, mida see ei tee, leiti siin endi demodelt: kolmas osalise bunchi lipp ja lõpu liikumisbitt.
 
-Squad on Offworld Industriesi kaubamärk. See pakett loeb faile, mida Squadi server kirjutab; see ei puuduta mängu, selle koodi ega arhiive. Offworldi serverilitsentsimise ja administreerimise poliitika ei ütle midagi demode salvestamise ja analüüsimise kohta. Squadi EULA keelab mängu enda pöördprojekteerimise, mida see ei tee.
+See pakett loeb demofaile, mida Squadi server kirjutab; see ei puuduta mängu, selle koodi ega arhiive ning mängust ei ole midagi kaasas ega levitata edasi. See, mida ta kirjutab, jääb sinu arvutisse.
+
+3DHeat ei ole seotud ettevõttega Offworld Industries ega selle poolt heaks kiidetud. Squad ja sellega seotud nimed ning kaubamärgid kuuluvad nende omanikele.
+
+Õiguste omajad: avage issue aadressil <https://github.com/Holdi601/3DHeat-Ext-Squad/issues> - vastame kiiresti ja eemaldame soovi korral kõik.

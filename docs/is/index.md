@@ -73,6 +73,7 @@ heat3d-squad-demo match.replay -o out   # or a folder of .replay files
   hliðarskrár þess hlið við hlið.
 - 3DHeat Watcher keyrir þennan umbreyti á ný demo þegar hann er uppsettur
   (adapter `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Hver leikjalesari er sérstakt lítið verkefni með eigin leyfisskrá, útgáfur og villurakningu, svo hægt er að setja hann upp, uppfæra, viðhalda - eða draga til baka að beiðni rétthafa - einan og sér, án þess að það hafi áhrif á skoðarann eða önnur verkfæri.
 
 ## 3DHeat verkfærin {#the-3dheat-tools}
 

@@ -3,7 +3,7 @@ title: Home
 nav_order: 1
 lang: "it"
 source: index.md
-source_hash: "08b02831e1d4"
+source_hash: "4b780cd569c8"
 nav_exclude: true
 search_exclude: true
 permalink: /it/
@@ -73,6 +73,7 @@ Mappa di calore del visualizzatore ([Come caricare i dati](https://holdi601.gith
   file accessori, uno accanto all'altro.
 - Il 3DHeat Watcher esegue questo convertitore sulle nuove demo quando è installato
   (adattatore `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Ogni lettore di gioco è un piccolo progetto a sé, con il proprio file di licenza, le proprie release e il proprio issue tracker, così può essere installato, aggiornato, mantenuto - o ritirato su richiesta di un titolare dei diritti - da solo, senza toccare il visualizzatore né gli altri strumenti.
 
 ## Gli strumenti 3DHeat {#the-3dheat-tools}
 

@@ -70,6 +70,7 @@ Je ziet één regel per demo. Laad daarna `out/<map>/<demo>.parquet` in het tabb
   de bijbestanden naast elkaar.
 - De 3DHeat Watcher draait deze converter op nieuwe demo's als hij is geïnstalleerd
   (adapter `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Elke spellezer is een eigen klein project met een eigen licentiebestand, eigen releases en een eigen issuetracker, zodat hij los geïnstalleerd, bijgewerkt, onderhouden - of op verzoek van een rechthebbende teruggetrokken - kan worden, zonder dat de viewer of de andere tools daar iets van merken.
 
 ## De 3DHeat-tools {#the-3dheat-tools}
 

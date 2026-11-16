@@ -73,6 +73,7 @@ Trebao bi vidjeti jedan red po demou. Zatim učitaj `out/<map>/<demo>.parquet` u
   pomoćne datoteke jedne pored drugih.
 - 3DHeat Watcher pokreće ovaj konverter na novim demoima kada je instaliran
   (adapter `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Svaki čitač igre je zaseban mali projekat sa vlastitom datotekom licence, izdanjima i sistemom za prijavu problema, pa se može instalirati, ažurirati, održavati - ili povući na zahtjev nosioca prava - zasebno, bez uticaja na preglednik ili ostale alate.
 
 ## 3DHeat alati {#the-3dheat-tools}
 

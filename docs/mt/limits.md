@@ -3,7 +3,7 @@ title: Limiti, aġġornamenti u termini
 nav_order: 7
 lang: "mt"
 source: limits.md
-source_hash: "ef3802087acc"
+source_hash: "8a9c7c448411"
 nav_exclude: true
 search_exclude: true
 ---
@@ -39,4 +39,8 @@ Il-fatti dwar il-format ġew minn dawn is-sorsi:
 - **Unreal.Core** f'[FortniteReplayDecompressor](https://github.com/Shiqan/FortniteReplayDecompressor) (MIT). Jiddeskrivi l-layout ġeneriku tar-replay ta' Unreal: l-info block, chunks, frames, bunches u net field exports.
 - **[squad-replay](https://github.com/Codycody31/squad-replay)** (MPL-2.0). Il-parser tiegħu nqara għal-layout kif jikteb Squad v10.3.1, għall-verifiki tal-verżjoni, u għal liema klassijiet ta' Squad iġorru d-dejta tar-roster. Id-demos tat-test tiegħu ppubblikati u l-għadd tas-snapshots intużaw bħala kontroll indipendenti. Ebda kodiċi tiegħu ma ġie kkopjat jew tradott: dan il-qarrej huwa strutturat differenti (arkivju tal-bits ta' Python fuq pakketti sħaħ, bunches parzjali magħquda bit-bit, proprjetajiet mibgħuta skont l-isem), u żewġ affarijiet li ma jagħmilx ġew misjuba hawn fuq id-demos nfushom: it-tielet flag tal-bunch parzjali u l-bit tal-moviment fl-aħħar.
 
-Squad huwa trademark ta' Offworld Industries. Dan il-pakkett jaqra fajls li jikteb server ta' Squad; ma jmissx il-logħba, il-kodiċi tagħha jew l-arkivji tagħha. Il-politika ta' Offworld dwar il-liċenzjar u l-amministrazzjoni tas-servers ma tgħid xejn dwar ir-rekordjar jew l-analiżi tad-demos. L-EULA ta' Squad tipprojbixxi r-reverse engineering tal-logħba nnifisha, li dan ma jagħmilx.
+Dan il-pakkett jaqra l-fajls tad-demo li jikteb server ta' Squad; ma jmissx il-logħba, il-kodiċi jew l-arkivji tagħha, u xejn mil-logħba mhu inkluż jew imqassam mill-ġdid. Dak li jikteb jibqa' fuq il-magna tiegħek.
+
+3DHeat mhuwiex affiljat ma' Offworld Industries u mhux approvat minnha. Squad u l-ismijiet u t-trademarks relatati jappartjenu lis-sidien tagħhom.
+
+Detenturi tad-drittijiet: iftħu issue fuq <https://github.com/Holdi601/3DHeat-Ext-Squad/issues> - inwieġbu malajr u nneħħu kull ħaġa fuq talba.

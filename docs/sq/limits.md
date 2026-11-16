@@ -3,7 +3,7 @@ title: "Kufizimet, përditësimet dhe kushtet"
 nav_order: 7
 lang: "sq"
 source: limits.md
-source_hash: "ef3802087acc"
+source_hash: "8a9c7c448411"
 nav_exclude: true
 search_exclude: true
 ---
@@ -39,4 +39,8 @@ Faktet për formatin erdhën nga këto burime:
 - **Unreal.Core** në [FortniteReplayDecompressor](https://github.com/Shiqan/FortniteReplayDecompressor) (MIT). Përshkruan skemën e përgjithshme të riluajtjes së Unreal: bllokun e informacionit, copat, frame-et, bunch-et dhe eksportet e fushave të rrjetit.
 - **[squad-replay](https://github.com/Codycody31/squad-replay)** (MPL-2.0). Parseri i tij u lexua për skemën ashtu si e shkruan Squad v10.3.1, për kontrollet e versionit, dhe për cilat klasa të Squad mbajnë të dhënat e listës. Demot e tij të provës të botuara dhe numrat e snapshot-eve u përdorën si kontroll i pavarur. Nuk u kopjua dhe nuk u përkthye asnjë kod i tij: ky lexues është strukturuar ndryshe (një arkiv bitesh në Python mbi paketa të plota, bunch-e të pjesshëm të bashkuar bit pas biti, veti të dërguara sipas emrit), dhe dy gjëra që ai nuk i bën u gjetën këtu në vetë demot: flamuri i tretë i bunch-it të pjesshëm dhe biti i fundit i lëvizjes.
 
-Squad është markë tregtare e Offworld Industries. Kjo paketë lexon skedarë që i shkruan një server Squad; nuk prek lojën, kodin e saj ose arkivat e saj. Politika e Offworld për licencimin dhe administrimin e serverëve nuk thotë asgjë për regjistrimin ose analizimin e demove. EULA e Squad ndalon inxhinierinë e kundërt të vetë lojës, gjë që kjo nuk e bën.
+Kjo paketë lexon skedarët demo që shkruan një server Squad; nuk prek lojën, kodin apo arkivat e saj, dhe asgjë nga loja nuk përfshihet ose rishpërndahet. Ajo që shkruan mbetet në kompjuterin tënd.
+
+3DHeat nuk është i lidhur me Offworld Industries dhe nuk është i miratuar nga Offworld Industries. Squad dhe emrat e markat tregtare përkatëse u përkasin pronarëve të tyre.
+
+Mbajtësit e të drejtave: hapni një issue në <https://github.com/Holdi601/3DHeat-Ext-Squad/issues> - përgjigjemi shpejt dhe heqim çdo gjë me kërkesë.

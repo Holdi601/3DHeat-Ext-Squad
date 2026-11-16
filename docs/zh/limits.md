@@ -3,7 +3,7 @@ title: 限制、更新与条款
 nav_order: 7
 lang: "zh"
 source: limits.md
-source_hash: "ef3802087acc"
+source_hash: "8a9c7c448411"
 nav_exclude: true
 search_exclude: true
 ---
@@ -39,4 +39,8 @@ MIT 许可证；参见 [`LICENSE`](https://github.com/Holdi601/3DHeat-Ext-Squad/
 - **Unreal.Core**，见 [FortniteReplayDecompressor](https://github.com/Shiqan/FortniteReplayDecompressor)（MIT）。它描述了通用的虚幻录像布局：信息块、数据块、帧、数据束和网络字段导出。
 - **[squad-replay](https://github.com/Codycody31/squad-replay)**（MPL-2.0）。我们阅读了它的解析器，以了解 Squad v10.3.1 写入的布局、版本检查，以及哪些 Squad 类携带名单数据。它发布的测试录像和快照计数被用作独立的交叉验证。它的代码没有被复制或翻译：本读取器的结构不同（基于整个数据包的 Python 位归档，按位拼接的部分数据束，按名称分派的属性），并且在录像本身上发现了它没有处理的两件事：第三个部分数据束标志，以及末尾的移动位。
 
-Squad 是 Offworld Industries 的商标。本软件包读取的是 Squad 服务器写出的文件；它不会接触游戏本身、其代码或其归档。Offworld 的服务器许可和管理政策未对录制或分析录像作出规定。Squad 的最终用户许可协议禁止对游戏本身进行逆向工程，而本软件不做这件事。
+本软件包读取 Squad 服务器写出的 demo 文件；它不触碰游戏本身、游戏代码或游戏归档，也不包含或再分发游戏的任何内容。它写出的内容留在你的电脑上。
+
+3DHeat 与 Offworld Industries 无关联，也未获得其认可。Squad 及相关名称和商标归其各自所有者所有。
+
+权利人：请在 <https://github.com/Holdi601/3DHeat-Ext-Squad/issues> 提交 issue - 我们会尽快回复，并按要求删除任何内容。

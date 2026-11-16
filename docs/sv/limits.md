@@ -3,7 +3,7 @@ title: Begränsningar, uppdateringar och villkor
 nav_order: 7
 lang: "sv"
 source: limits.md
-source_hash: "ef3802087acc"
+source_hash: "8a9c7c448411"
 nav_exclude: true
 search_exclude: true
 ---
@@ -39,4 +39,8 @@ Fakta om formatet kom från de här källorna:
 - **Unreal.Core** i [FortniteReplayDecompressor](https://github.com/Shiqan/FortniteReplayDecompressor) (MIT). Den beskriver det generiska Unreal-repriselayouten: infoblocket, delarna, bildrutorna, buntarna och exporterna för nätfält.
 - **[squad-replay](https://github.com/Codycody31/squad-replay)** (MPL-2.0). Dess läsare lästes för layouten så som Squad v10.3.1 skriver den, för versionskontrollerna, och för vilka Squad-klasser som bär lagdata. Dess publicerade testdemos och räkningar av poster användes som en oberoende kontroll. Ingen av dess kod kopierades eller översattes: den här läsaren är uppbyggd på ett annat sätt (ett Python-bitarkiv över hela paket, delvisa buntar sammanfogade bitvis, egenskaper skickade efter namn), och två saker den inte gör hittades här på demos själva: den tredje flaggan för delvisa buntar och den avslutande rörelsebiten.
 
-Squad är ett varumärke för Offworld Industries. Paketet läser filer som en Squad-server skriver; det rör inte spelet, dess kod eller dess arkiv. Offworlds policy för serverlicensiering och administration säger ingenting om inspelning eller analys av demos. Squads EULA förbjuder omvänd utveckling av spelet självt, vilket detta inte gör.
+Det här paketet läser de demofiler som en Squad-server skriver; det rör inte spelet, dess kod eller arkiv, och inget från spelet ingår eller sprids vidare. Det paketet skriver stannar på din dator.
+
+3DHeat är inte knutet till eller godkänt av Offworld Industries. Squad och tillhörande namn och varumärken tillhör sina ägare.
+
+Rättighetshavare: öppna ett ärende på <https://github.com/Holdi601/3DHeat-Ext-Squad/issues> - vi svarar snabbt och tar bort vad som helst på begäran.

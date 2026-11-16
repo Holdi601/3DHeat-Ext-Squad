@@ -3,7 +3,7 @@ title: "Sınırlar, güncellemeler ve koşullar"
 nav_order: 7
 lang: "tr"
 source: limits.md
-source_hash: "ef3802087acc"
+source_hash: "8a9c7c448411"
 nav_exclude: true
 search_exclude: true
 ---
@@ -39,4 +39,8 @@ Biçim hakkındaki bilgiler şu kaynaklardan geldi:
 - **Unreal.Core**, [FortniteReplayDecompressor](https://github.com/Shiqan/FortniteReplayDecompressor) içinde (MIT). Genel Unreal tekrar düzenini anlatır: bilgi bloğu, parçalar, kareler, bunch'lar ve net alan dışa aktarmaları.
 - **[squad-replay](https://github.com/Codycody31/squad-replay)** (MPL-2.0). Ayrıştırıcısı; Squad v10.3.1'in yazdığı düzen, sürüm denetimleri ve hangi Squad sınıflarının kadro verisi taşıdığı için okundu. Yayımlanmış test demoları ve anlık görüntü sayıları bağımsız bir çapraz denetim olarak kullanıldı. Kodundan hiçbir şey kopyalanmadı ya da çevrilmedi: bu okuyucu farklı yapılandırılmıştır (tam paketler üzerinde Python bit arşivi, kısmi bunch'lar bitlerle birleştirilmiş, özellikler adla gönderilmiş). Onun yapmadığı iki şey demolarda bu okuyucu tarafından bulundu: üçüncü kısmi bunch bayrağı ve sondaki hareket biti.
 
-Squad, Offworld Industries'in ticari markasıdır. Bu paket bir Squad sunucusunun yazdığı dosyaları okur; oyuna, koduna ya da arşivlerine dokunmaz. Offworld'ün sunucu lisanslama ve yönetim politikası demoların kaydı ve analizi hakkında bir şey söylemez. Squad'ın EULA'sı oyunun kendisinin tersine mühendisliğini yasaklar; bu paket bunu yapmaz.
+Bu paket, bir Squad sunucusunun yazdığı demo dosyalarını okur; oyuna, koduna ya da arşivlerine dokunmaz ve oyundan hiçbir şey içermez ya da yeniden dağıtmaz. Yazdıkları sizin makinenizde kalır.
+
+3DHeat'in Offworld Industries ile bir bağlantısı yoktur ve Offworld Industries tarafından onaylanmamıştır. Squad ve ilgili adlar ile ticari markalar sahiplerine aittir.
+
+Hak sahipleri: <https://github.com/Holdi601/3DHeat-Ext-Squad/issues> adresinde bir issue açın - hızlı yanıt veririz ve istek üzerine her şeyi kaldırırız.

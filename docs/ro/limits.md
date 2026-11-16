@@ -3,7 +3,7 @@ title: "Limite, actualizări și condiții"
 nav_order: 7
 lang: "ro"
 source: limits.md
-source_hash: "ef3802087acc"
+source_hash: "8a9c7c448411"
 nav_exclude: true
 search_exclude: true
 ---
@@ -39,4 +39,8 @@ Informațiile despre format provin din aceste surse:
 - **Unreal.Core** din [FortniteReplayDecompressor](https://github.com/Shiqan/FortniteReplayDecompressor) (MIT). Descrie aspectul generic al replay-urilor Unreal: blocul de informații, bucățile, cadrele, pachetele și exporturile câmpurilor de rețea.
 - **[squad-replay](https://github.com/Codycody31/squad-replay)** (MPL-2.0). Parserul său a fost citit pentru aspectul pe care îl scrie Squad v10.3.1, pentru verificările de versiune și pentru care clase Squad poartă date de tabel. Demo-urile sale de test și numărătorile de instantanee au servit drept verificare independentă. Niciun cod de-al său nu a fost copiat sau tradus: acest cititor este structurat altfel (o arhivă de biți Python peste pachete întregi, pachete parțiale unite pe biți, proprietăți trimise după nume), iar două lucruri pe care el nu le face au fost găsite aici, pe chiar demo-urile: al treilea indicator al pachetelor parțiale și bitul final al mișcării.
 
-Squad este marcă înregistrată a Offworld Industries. Acest pachet citește fișiere pe care le scrie un server Squad; nu atinge jocul, codul sau arhivele sale. Politica Offworld privind licențierea și administrarea serverelor nu spune nimic despre înregistrarea sau analiza demo-urilor. EULA Squad interzice ingineria inversă a jocului însuși, ceea ce acest pachet nu face.
+Acest pachet citește fișierele demo pe care le scrie un server Squad; nu atinge jocul, codul sau arhivele acestuia, iar nimic din joc nu este inclus sau redistribuit. Ce scrie rămâne pe mașina dumneavoastră.
+
+3DHeat nu este afiliat cu Offworld Industries și nu este aprobat de Offworld Industries. Squad și numele și mărcile asociate aparțin proprietarilor lor.
+
+Deținători de drepturi: deschideți un issue la <https://github.com/Holdi601/3DHeat-Ext-Squad/issues> - răspundem repede și eliminăm orice la cerere.

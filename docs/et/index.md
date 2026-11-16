@@ -72,6 +72,7 @@ Soojuskaart-vahelehel ([Andmete sisestamine](https://holdi601.github.io/3DHeat/g
   kõrvuti.
 - 3DHeat Watcher käivitab selle konverteri uute demode puhul, kui see on paigaldatud
   (adapter `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Iga mängulugeja on omaette väike projekt oma litsentsifaili, väljalasete ja probleemijälgijaga, nii et seda saab paigaldada, uuendada, hooldada - või õiguste omaja palvel tagasi võtta - eraldi, ilma et see mõjutaks vaaturit või teisi tööriistu.
 
 ## 3DHeati tööriistad {#the-3dheat-tools}
 

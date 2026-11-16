@@ -71,6 +71,7 @@ cilnē Siltumkarte ([Datu ievade](https://holdi601.github.io/3DHeat/getting-data
   Šis konvertētājs raksta atsevišķos failus: tabulu, mača dokumentu un tā papildfailus blakus.
 - 3DHeat Watcher palaiž šo konvertētāju jaunajiem demo, ja tas ir uzstādīts (adapteris
   `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Katrs spēļu lasītājs ir atsevišķs neliels projekts ar savu licences failu, laidieniem un problēmu izsekotāju, tāpēc to var instalēt, atjaunināt, uzturēt - vai pēc tiesību īpašnieka lūguma atsaukt - atsevišķi, neietekmējot skatītāju vai citus rīkus.
 
 ## 3DHeat rīki {#the-3dheat-tools}
 

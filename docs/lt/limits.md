@@ -3,7 +3,7 @@ title: "Apribojimai, atnaujinimai ir sąlygos"
 nav_order: 7
 lang: "lt"
 source: limits.md
-source_hash: "ef3802087acc"
+source_hash: "8a9c7c448411"
 nav_exclude: true
 search_exclude: true
 ---
@@ -55,6 +55,8 @@ Faktai apie formatą paimti iš šių šaltinių:
   virš visų paketų, dalinai bunch'ai jungiami bit po bito, savybės skirstomos pagal pavadinimą), o du dalykai, kurių jis nedaro, rasti čia
   pačiuose demo: trečioji dalinio bunch'o žymė ir paskutinis judėjimo bitas.
 
-Squad yra Offworld Industries prekių ženklas. Šis paketas skaito failus, kuriuos rašo Squad serveris; jis nesiskverbia į žaidimą, jo kodą ar archyvus.
-Offworld serverių licencijavimo ir administravimo politika nieko nesako apie demo įrašymą ar analizę. Squad EULA draudžia žaidimo atvirkštinę inžineriją,
-ko čia nedaroma.
+Šis paketas skaito demonstracinius failus, kuriuos įrašo Squad serveris; jis neliečia žaidimo, jo kodo ar archyvų, ir nieko iš žaidimo nėra ir niekas neplatinama. Tai, ką jis įrašo, lieka jūsų kompiuteryje.
+
+3DHeat nėra susijęs su Offworld Industries ir nėra jos patvirtintas. Squad ir susiję pavadinimai bei prekių ženklai priklauso jų savininkams.
+
+Teisių turėtojai: sukurkite issue adresu <https://github.com/Holdi601/3DHeat-Ext-Squad/issues> - atsakome greitai ir paprašius pašaliname bet ką.

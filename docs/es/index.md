@@ -3,7 +3,7 @@ title: "Inicio"
 nav_order: 1
 lang: "es"
 source: index.md
-source_hash: "08b02831e1d4"
+source_hash: "4b780cd569c8"
 nav_exclude: true
 search_exclude: true
 permalink: /es/
@@ -73,6 +73,7 @@ del visor ([Cómo cargar datos](https://holdi601.github.io/3DHeat/getting-data-i
   auxiliares, uno al lado del otro.
 - El 3DHeat Watcher ejecuta este convertidor con las demos nuevas cuando está instalado
   (adaptador `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Cada lector de juego es un pequeño proyecto propio, con su propio archivo de licencia, sus versiones y su gestor de incidencias, así que se puede instalar, actualizar, mantener - o retirar a petición de un titular de derechos - por separado, sin afectar al visor ni a las demás herramientas.
 
 ## Las herramientas de 3DHeat {#the-3dheat-tools}
 

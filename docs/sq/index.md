@@ -73,6 +73,7 @@ Duhet të shohësh një rresht për çdo demo. Pastaj ngarko `out/<map>/<demo>.p
   skedarët e tij anësorë përkrah njëri-tjetrit.
 - 3DHeat Watcher e ekzekuton këtë konvertues mbi demot e reja kur është i instaluar
   (adapteri `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Çdo lexues loje është një projekt i vogël më vete, me skedarin e vet të licencës, versionet dhe gjurmuesin e problemeve, kështu që mund të instalohet, përditësohet, mirëmbahet - ose tërhiqet me kërkesë të një mbajtësi të të drejtave - më vete, pa prekur shikuesin ose mjetet e tjera.
 
 ## Mjetet 3DHeat {#the-3dheat-tools}
 

@@ -3,7 +3,7 @@ title: "Korlátok, frissítések és feltételek"
 nav_order: 7
 lang: "hu"
 source: limits.md
-source_hash: "ef3802087acc"
+source_hash: "8a9c7c448411"
 nav_exclude: true
 search_exclude: true
 ---
@@ -63,7 +63,8 @@ A formátumra vonatkozó tényeket ezektől a forrásoktól kaptuk:
   amit az övé nem csinál, itt találtunk meg magukon a demókon: a harmadik részleges köteg-jelzőt és a záró
   mozgásbitet.
 
-A Squad az Offworld Industries védjegye. Ez a csomag olyan fájlokat olvas, amelyeket a Squad-szerver ír; nem
-nyúl a játékhoz, annak kódjához vagy archívumaihoz. Az Offworld szerverlicencelési és adminisztrációs
-szabályzata nem mond semmit a demók rögzítéséről vagy elemzéséről. A Squad EULA-ja tiltja a játék
-visszafejtését, amit ez nem csinál.
+Ez a csomag a Squad-szerver által írt demófájlokat olvassa; nem nyúl a játékhoz, annak kódjához vagy archívumaihoz, és a játékból semmi nincs benne, és semmit nem terjeszt tovább. Amit ír, a gépeden marad.
+
+A 3DHeat nem áll kapcsolatban az Offworld Industries céggel, és az nem is támogatja. A Squad és a kapcsolódó nevek és védjegyek a tulajdonosaikéi.
+
+Jogtulajdonosok: nyissanak issue-t itt: <https://github.com/Holdi601/3DHeat-Ext-Squad/issues> - gyorsan válaszolunk, és kérésre bármit eltávolítunk.

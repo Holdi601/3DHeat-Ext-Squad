@@ -3,7 +3,7 @@ title: "Limites, mises à jour et conditions"
 nav_order: 7
 lang: "fr"
 source: limits.md
-source_hash: "ef3802087acc"
+source_hash: "8a9c7c448411"
 nav_exclude: true
 search_exclude: true
 ---
@@ -39,4 +39,8 @@ Les informations sur le format viennent de ces sources :
 - **Unreal.Core** dans [FortniteReplayDecompressor](https://github.com/Shiqan/FortniteReplayDecompressor) (MIT). Il décrit la disposition générique des réplications Unreal : le bloc d'information, les blocs, les trames, les bunches et les exports de champs réseau.
 - **[squad-replay](https://github.com/Codycody31/squad-replay)** (MPL-2.0). Son analyseur a été lu pour la disposition telle que Squad v10.3.1 l'écrit, pour les contrôles de version, et pour savoir quelles classes de Squad portent les données d'effectif. Ses démos de test publiées et ses comptes de référence ont servi de contrôle croisé indépendant. Aucun de son code n'a été copié ni traduit : ce lecteur est structuré autrement (une archive de bits en Python sur des paquets entiers, des bunches partiels réunis bit à bit, des propriétés aiguillées par nom), et deux points qu'il ne traite pas ont été trouvés ici sur les démos elles-mêmes : le troisième drapeau de bunch partiel et le bit de mouvement final.
 
-Squad est une marque d'Offworld Industries. Ce paquet lit des fichiers qu'un serveur Squad écrit ; il ne touche ni au jeu, ni à son code, ni à ses archives. La politique de licence et d'administration des serveurs d'Offworld ne dit rien sur l'enregistrement ou l'analyse des démos. L'EULA de Squad interdit la rétro-ingénierie du jeu lui-même, ce que ceci ne fait pas.
+Ce paquet lit les fichiers de démo qu'écrit un serveur Squad ; il ne touche ni au jeu, ni à son code, ni à ses archives, et rien du jeu n'est inclus ni redistribué. Ce qu'il écrit reste sur votre machine.
+
+3DHeat n'est ni affilié à Offworld Industries ni approuvé par Offworld Industries. Squad ainsi que les noms et marques associés appartiennent à leurs propriétaires.
+
+Ayants droit : ouvrez un ticket sur <https://github.com/Holdi601/3DHeat-Ext-Squad/issues> - nous répondons rapidement et retirons tout ce qui est demandé.

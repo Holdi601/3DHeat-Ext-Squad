@@ -74,6 +74,7 @@ megjelenítő Hőtérkép fülén ([Adatok betöltése](https://holdi601.github.
   kísérőfájljait egymás mellett.
 - A 3DHeat Watcher a konvertert futtatja az új demókon, ha telepítve van
   (adapter: `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Minden játékolvasó önálló kis projekt saját licencfájllal, kiadásokkal és hibakövetővel, így külön telepíthető, frissíthető, karbantartható - vagy egy jogtulajdonos kérésére visszavonható - anélkül, hogy a megjelenítőt vagy a többi eszközt érintené.
 
 ## A 3DHeat eszközei {#the-3dheat-tools}
 

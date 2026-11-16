@@ -70,6 +70,7 @@ Du bør se én linje per demo. Last deretter inn `out/<map>/<demo>.parquet` i vi
   sidefilene side om side.
 - 3DHeat Watcher kjører dette konverteringsverktøyet på nye demoer når det er installert
   (adapter `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Hver spilleser er sitt eget lille prosjekt med egen lisensfil, egne utgivelser og egen issue-tracker, slik at den kan installeres, oppdateres, vedlikeholdes - eller trekkes tilbake etter ønske fra en rettighetshaver - for seg selv, uten at det påvirker visningsprogrammet eller de andre verktøyene.
 
 ## 3DHeat-verktøyene {#the-3dheat-tools}
 

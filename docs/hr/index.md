@@ -70,6 +70,7 @@ preglednika ([Unos podataka](https://holdi601.github.io/3DHeat/getting-data-in.h
   prateće datoteke jednu uz drugu.
 - 3DHeat Watcher pokreće ovaj pretvarač na novim demoima kad je instaliran
   (adapter `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Svaki čitač igre zaseban je mali projekt s vlastitom datotekom licence, izdanjima i sustavom za prijavu problema, pa se može instalirati, ažurirati, održavati - ili povući na zahtjev nositelja prava - zasebno, bez utjecaja na preglednik ili ostale alate.
 
 ## Alati 3DHeat {#the-3dheat-tools}
 

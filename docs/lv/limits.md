@@ -3,7 +3,7 @@ title: Ierobežojumi, atjauninājumi un noteikumi
 nav_order: 7
 lang: "lv"
 source: limits.md
-source_hash: "ef3802087acc"
+source_hash: "8a9c7c448411"
 nav_exclude: true
 search_exclude: true
 ---
@@ -41,4 +41,8 @@ Faktus par formātu guva no šiem avotiem:
 - **Unreal.Core** [FortniteReplayDecompressor](https://github.com/Shiqan/FortniteReplayDecompressor) (MIT). Tas apraksta vispārīgo Unreal atkārtošanas izkārtojumu: informācijas bloku, fragmentus, kadrus, grupas un tīkla lauku eksportus.
 - **[squad-replay](https://github.com/Codycody31/squad-replay)** (MPL-2.0). Tā parsētājs tika lasīts par izkārtojumu, kādu Squad v10.3.1 to raksta, par versiju pārbaudēm un par to, kuras Squad klases satur dalībnieku datus. Tā publicētie testa demo un skaitļi tika izmantoti kā neatkarīga pārbaude. Neviens no tā kodiem nav kopēts vai tulkots: šis lasītājs ir citādi strukturēts (Python bitu arhīvs pār veseliem paketēm, daļējas grupas savienotas pa bitiem, īpašības izsūtītas pēc nosaukuma), un divas lietas, ko tas nedara, tika atrastas šeit uz pašiem demo: trešais daļējas grupas karogs un pēdējais kustības bits.
 
-Squad ir Offworld Industries preču zīme. Šī pakotne nolasa failus, ko raksta Squad serveris; tā neskar spēli, tās kodu vai arhīvus. Offworld servera licencēšanas un administrēšanas politika neko nesaka par demo ierakstīšanu vai analīzi. Squad EULA aizliedz spēles reversēšanu, ko šī pakotne nedara.
+Šī pakotne nolasa demo failus, ko raksta Squad serveris; tā neskar spēli, tās kodu vai arhīvus, un nekas no spēles nav iekļauts un netiek izplatīts tālāk. Tas, ko tā ieraksta, paliek jūsu datorā.
+
+3DHeat nav saistīts ar Offworld Industries un nav Offworld Industries apstiprināts. Squad un saistītie nosaukumi un preču zīmes pieder to īpašniekiem.
+
+Tiesību īpašnieki: atveriet issue vietnē <https://github.com/Holdi601/3DHeat-Ext-Squad/issues> - mēs atbildam ātri un pēc pieprasījuma noņemam jebko.

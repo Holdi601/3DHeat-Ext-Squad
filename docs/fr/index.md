@@ -3,7 +3,7 @@ title: "Accueil"
 nav_order: 1
 lang: "fr"
 source: index.md
-source_hash: "08b02831e1d4"
+source_hash: "4b780cd569c8"
 nav_exclude: true
 search_exclude: true
 permalink: /fr/
@@ -74,6 +74,7 @@ dans l'onglet Carte de chaleur du visualiseur
   Ce convertisseur écrit les fichiers séparés : la table, le document de partie et ses fichiers annexes, côte à côte.
 - L'outil 3DHeat Watcher exécute ce convertisseur sur les nouvelles démos
   lorsqu'il est installé (adaptateur `squad-demos`) : [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Chaque lecteur de jeu est un petit projet à part, avec son propre fichier de licence, ses versions et son suivi des tickets : il peut ainsi être installé, mis à jour, maintenu - ou retiré à la demande d'un ayant droit - seul, sans toucher à la visionneuse ni aux autres outils.
 
 ## Les outils 3DHeat {#the-3dheat-tools}
 

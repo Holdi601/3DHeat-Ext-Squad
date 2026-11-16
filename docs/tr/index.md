@@ -54,6 +54,7 @@ Her demo için bir satır görmelisiniz. Sonra `out/<map>/<demo>.parquet` dosyas
 - 3DHeat görüntüleyici: [github.com/Holdi601/3DHeat](https://github.com/Holdi601/3DHeat), belgeleri [holdi601.github.io/3DHeat](https://holdi601.github.io/3DHeat/) adresinde.
 - Görüntüleyicinin okuduğu dosya biçimleri, maç başına tek dosyalık kapsayıcı dahil: [Maç başına tek dosya (.3dheat)](https://holdi601.github.io/3DHeat/container.html). Bu dönüştürücü, yan yana duran düz dosyaları yazar: tablo, maç belgesi ve yan dosyaları.
 - 3DHeat Watcher kuruluysa yeni demolarda bu dönüştürücüyü çalıştırır (adaptör `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Her oyun okuyucu, kendi lisans dosyası, sürümleri ve sorun takipçisi olan ayrı küçük bir projedir; böylece görüntüleyiciyi ya da diğer araçları etkilemeden tek başına kurulabilir, güncellenebilir, bakımı yapılabilir - ya da bir hak sahibinin isteği üzerine geri çekilebilir.
 
 ## 3DHeat araçları {#the-3dheat-tools}
 

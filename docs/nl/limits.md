@@ -3,7 +3,7 @@ title: Beperkingen, updates en voorwaarden
 nav_order: 7
 lang: "nl"
 source: limits.md
-source_hash: "ef3802087acc"
+source_hash: "8a9c7c448411"
 nav_exclude: true
 search_exclude: true
 ---
@@ -39,4 +39,8 @@ Feiten over het formaat komen uit deze bronnen:
 - **Unreal.Core** in [FortniteReplayDecompressor](https://github.com/Shiqan/FortniteReplayDecompressor) (MIT). Die beschrijft de algemene indeling van Unreal-replays: het infoblok, de chunks, frames, bunches en netveld-exports.
 - **[squad-replay](https://github.com/Codycody31/squad-replay)** (MPL-2.0). De parser ervan is gelezen voor de indeling zoals Squad v10.3.1 die schrijft, voor de versiecontroles, en voor welke Squad-klassen de ledenlijsten dragen. Zijn gepubliceerde testdemo's en aantallen in snapshots zijn gebruikt als onafhankelijke controle. Geen van zijn code is gekopieerd of vertaald: deze lezer is anders opgebouwd (een bitarchief in Python over hele pakketten, gedeeltelijke bunches bit voor bit samengevoegd, eigenschappen gekozen op naam), en twee dingen die die parser niet doet, zijn hier op de demo's zelf gevonden: de derde vlag van gedeeltelijke bunches en het slotbit van de beweging.
 
-Squad is een handelsmerk van Offworld Industries. Dit pakket leest bestanden die een Squad-server schrijft; het raakt het spel, de code ervan of de archieven niet aan. Het serverlicentie- en beheerbeleid van Offworld zegt niets over het opnemen en analyseren van demo's. Het EULA van Squad verbiedt reverse engineering van het spel zelf, wat dit niet doet.
+Dit pakket leest de demobestanden die een Squad-server schrijft; het raakt het spel, de code en de archieven niet aan, en niets uit het spel zit erin of wordt verder verspreid. Wat het schrijft, blijft op je eigen machine.
+
+3DHeat is niet verbonden aan en niet goedgekeurd door Offworld Industries. Squad en bijbehorende namen en handelsmerken zijn van hun eigenaars.
+
+Rechthebbenden: open een issue op <https://github.com/Holdi601/3DHeat-Ext-Squad/issues> - we reageren snel en verwijderen alles op verzoek.

@@ -35,4 +35,8 @@ Facts about the format came from these sources:
 - **Unreal.Core** in [FortniteReplayDecompressor](https://github.com/Shiqan/FortniteReplayDecompressor) (MIT). It describes the generic Unreal replay layout: the info block, chunks, frames, bunches and net field exports.
 - **[squad-replay](https://github.com/Codycody31/squad-replay)** (MPL-2.0). Its parser was read for the layout as Squad v10.3.1 writes it, for the version checks, and for which Squad classes carry roster data. Its published test demos and snapshot counts were used as an independent cross-check. None of its code was copied or translated: this reader is structured differently (a Python bit archive over whole packets, partial bunches joined bitwise, properties dispatched by name), and two things it does not do were found here on the demos themselves: the third partial-bunch flag and the trailing movement bit.
 
-Squad is a trademark of Offworld Industries. This package reads files a Squad server writes; it does not touch the game, its code or its archives. Offworld's server licensing and administration policy says nothing on recording or analysing demos. Squad's EULA forbids reverse engineering the game itself, which this does not do.
+This package reads the demo files a Squad server writes; it does not touch the game, its code or its archives, and nothing from the game is included or redistributed. What it writes stays on your machine.
+
+3DHeat is not affiliated with or endorsed by Offworld Industries. Squad and related names and trademarks belong to their owners.
+
+Rights holders: open an issue at <https://github.com/Holdi601/3DHeat-Ext-Squad/issues> - we respond quickly and remove anything on request.

@@ -3,7 +3,7 @@ title: "Startseite"
 nav_order: 1
 lang: "de"
 source: index.md
-source_hash: "08b02831e1d4"
+source_hash: "4b780cd569c8"
 nav_exclude: true
 search_exclude: true
 permalink: /de/
@@ -71,6 +71,7 @@ Du solltest pro Demo eine Zeile sehen. Lade dann `out/<map>/<demo>.parquet` im H
   seine Begleitdateien nebeneinander.
 - Der 3DHeat-Watcher führt diesen Konverter bei neuen Demos aus, wenn er installiert ist
   (Adapter `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Jeder Spiel-Leser ist ein eigenes kleines Projekt mit eigener Lizenzdatei, eigenen Releases und eigenem Issue-Tracker. So lässt er sich für sich allein installieren, aktualisieren, pflegen - oder auf Wunsch eines Rechteinhabers zurückziehen -, ohne den Viewer oder die anderen Werkzeuge zu berühren.
 
 ## Die 3DHeat-Werkzeuge {#the-3dheat-tools}
 

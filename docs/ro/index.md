@@ -72,6 +72,7 @@ fila Hartă termică a vizualizatorului ([Introducerea datelor](https://holdi601
   Acest convertor scrie fișierele separate: tabelul, documentul de meci și fișierele sale auxiliare, unul lângă altul.
 - Vizualizatorul 3DHeat Watcher rulează acest convertor pe demo-urile noi, când este instalat
   (adaptorul `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Fiecare cititor de joc este un mic proiect de sine stătător, cu propriul fișier de licență, propriile versiuni și propriul sistem de raportare a problemelor, astfel încât poate fi instalat, actualizat, întreținut - sau retras la cererea unui deținător de drepturi - separat, fără a afecta vizualizatorul sau celelalte instrumente.
 
 ## Instrumentele 3DHeat {#the-3dheat-tools}
 

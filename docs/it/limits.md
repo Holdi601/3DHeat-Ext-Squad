@@ -3,7 +3,7 @@ title: Limiti, aggiornamenti e condizioni
 nav_order: 7
 lang: "it"
 source: limits.md
-source_hash: "ef3802087acc"
+source_hash: "8a9c7c448411"
 nav_exclude: true
 search_exclude: true
 ---
@@ -39,4 +39,8 @@ Le informazioni sul formato provengono da queste fonti:
 - **Unreal.Core** in [FortniteReplayDecompressor](https://github.com/Shiqan/FortniteReplayDecompressor) (MIT). Descrive il layout generico dei replay di Unreal: il blocco di informazioni, i blocchi, i frame, i bunch e le esportazioni dei campi di rete.
 - **[squad-replay](https://github.com/Codycody31/squad-replay)** (MPL-2.0). Il suo parser è stato letto per il layout come lo scrive Squad v10.3.1, per i controlli di versione e per le classi di Squad che contengono i dati dell'elenco dei giocatori. Le sue demo di prova pubblicate e i suoi conteggi di riferimento sono stati usati come verifica incrociata indipendente. Nessun suo codice è stato copiato o tradotto: questo lettore è strutturato in modo diverso (un archivio di bit in Python sui pacchetti interi, bunch parziali uniti a livello di bit, proprietà smistate per nome), e due cose che quel progetto non fa sono state trovate qui sulle demo stesse: il terzo flag dei bunch parziali e il bit finale del movimento.
 
-Squad è un marchio di Offworld Industries. Questo pacchetto legge file che scrive un server di Squad; non tocca il gioco, il suo codice o i suoi archivi. La politica di licenza e amministrazione dei server di Offworld non dice nulla sulla registrazione o l'analisi delle demo. L'EULA di Squad vieta il reverse engineering del gioco stesso, cosa che questo non fa.
+Questo pacchetto legge i file demo che scrive un server di Squad; non tocca il gioco, il suo codice né i suoi archivi, e nulla del gioco è incluso o ridistribuito. Ciò che scrive resta sulla tua macchina.
+
+3DHeat non è affiliato a Offworld Industries né approvato da Offworld Industries. Squad e i nomi e marchi correlati appartengono ai rispettivi proprietari.
+
+Titolari dei diritti: aprite una issue su <https://github.com/Holdi601/3DHeat-Ext-Squad/issues> - rispondiamo rapidamente e rimuoviamo qualsiasi cosa su richiesta.

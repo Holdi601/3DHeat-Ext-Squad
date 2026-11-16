@@ -3,7 +3,7 @@ title: 한계, 업데이트, 약관
 nav_order: 7
 lang: "ko"
 source: limits.md
-source_hash: "ef3802087acc"
+source_hash: "8a9c7c448411"
 nav_exclude: true
 search_exclude: true
 ---
@@ -39,4 +39,8 @@ MIT 라이선스입니다. 자세한 내용은 [`LICENSE`](https://github.com/Ho
 - **Unreal.Core**, [FortniteReplayDecompressor](https://github.com/Shiqan/FortniteReplayDecompressor) 안 (MIT). 일반적인 Unreal 리플레이 구조를 설명합니다: 정보 블록, 청크, 프레임, 번치, 네트 필드 내보내기.
 - **[squad-replay](https://github.com/Codycody31/squad-replay)** (MPL-2.0). 그 파서는 Squad v10.3.1이 쓰는 구조, 버전 검사, 그리고 어떤 Squad 클래스가 명단 데이터를 담는지를 확인하는 데 읽었습니다. 그 프로젝트의 공개 테스트 데모와 개수 스냅숏은 독립적인 교차 검증에 썼습니다. 그 프로젝트의 코드는 한 줄도 복사하거나 번역하지 않았습니다. 이 리더는 구조가 다릅니다(패킷 전체를 다루는 Python 비트 아카이브, 나뉜 번치의 비트 단위 결합, 이름으로 속성을 분기). 또한 그 프로젝트가 하지 않는 두 가지, 즉 세 번째 나뉜 번치 플래그와 끝의 이동 비트는 이 데모들을 직접 보고 찾아냈습니다.
 
-Squad는 Offworld Industries의 상표입니다. 이 패키지는 Squad 서버가 쓰는 파일을 읽을 뿐, 게임이나 그 코드, 아카이브에는 손대지 않습니다. Offworld의 서버 라이선스와 운영 정책은 데모를 기록하거나 분석하는 것에 대해 아무 말도 하지 않습니다. Squad의 EULA는 게임 자체의 리버스 엔지니어링을 금지하는데, 이 패키지는 그런 일을 하지 않습니다.
+이 패키지는 Squad 서버가 기록하는 데모 파일을 읽습니다. 게임, 게임 코드, 아카이브는 건드리지 않으며 게임의 어떤 것도 포함되거나 재배포되지 않습니다. 출력물은 여러분의 컴퓨터에 남습니다.
+
+3DHeat는 Offworld Industries의 제휴사가 아니며 Offworld Industries의 승인을 받지 않았습니다. Squad 및 관련 이름과 상표는 각 소유자에게 있습니다.
+
+권리자께: <https://github.com/Holdi601/3DHeat-Ext-Squad/issues>에서 이슈를 열어 주세요. 빠르게 답변하며 요청하시면 무엇이든 삭제합니다.

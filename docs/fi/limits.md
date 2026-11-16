@@ -3,7 +3,7 @@ title: "Rajoitukset, päivitykset ja ehdot"
 nav_order: 7
 lang: "fi"
 source: limits.md
-source_hash: "ef3802087acc"
+source_hash: "8a9c7c448411"
 nav_exclude: true
 search_exclude: true
 ---
@@ -61,7 +61,8 @@ Tiedot formaatista tulevat näistä lähteistä:
   lähetetään nimen mukaan), ja kaksi asiaa, joita se ei tee, löydettiin täällä demoista itsestään: kolmas
   osittaisen nipun lippu ja lopullinen liikebitti.
 
-Squad on Offworld Industriesin tavaramerkki. Tämä paketti lukee tiedostoja, joita Squad-palvelin kirjoittaa;
-se ei koske peliin, sen koodiin tai arkistoihin. Offworldin palvelimien lisensointi- ja hallintakäytäntö ei
-sano mitään demojen tallentamisesta tai analysoinnista. Squadin käyttöehdot kieltävät pelin itsensä
-käänteissuunnittelun, mitä tämä ei tee.
+Tämä paketti lukee demotiedostot, jotka Squad-palvelin kirjoittaa; se ei koske peliin, sen koodiin eikä arkistoihin, eikä pelistä ole mitään mukana eikä mitään jaeta eteenpäin. Se, mitä se kirjoittaa, pysyy koneellasi.
+
+3DHeat ei ole sidoksissa yhtiöön Offworld Industries, eikä Offworld Industries ole hyväksynyt sitä. Squad ja siihen liittyvät nimet ja tavaramerkit kuuluvat omistajilleen.
+
+Oikeudenhaltijat: avatkaa issue osoitteessa <https://github.com/Holdi601/3DHeat-Ext-Squad/issues> - vastaamme nopeasti ja poistamme pyynnöstä mitä tahansa.

@@ -57,6 +57,7 @@ heat3d-squad-demo match.replay -o out   # 또는 .replay 파일이 든 폴더
 - 뷰어가 읽는 파일 형식, 매치 하나를 파일 하나에 담는 컨테이너 포함: [매치 하나를 파일 하나로 (.3dheat)](https://holdi601.github.io/3DHeat/container.html).
   이 변환기는 낱개 파일을 씁니다. 표, 매치 문서, 보조 파일을 나란히 저장합니다.
 - 3DHeat Watcher가 설치되어 있으면 새 데모에 이 변환기를 자동으로 실행합니다 (어댑터 `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- 각 게임 리더는 자체 라이선스 파일, 릴리스, 이슈 트래커를 갖춘 작은 독립 프로젝트입니다. 그래서 뷰어나 다른 도구에 영향을 주지 않고 따로 설치, 업데이트, 유지 관리할 수 있으며, 권리자의 요청이 있으면 따로 철회할 수도 있습니다.
 
 ## 3DHeat 도구들 {#the-3dheat-tools}
 

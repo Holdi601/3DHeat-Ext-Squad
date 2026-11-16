@@ -73,6 +73,7 @@ Dir sollt eng Zeil pro Demo gesinn. Dann lued `out/<map>/<demo>.parquet` am Heat
   seng Niewendateien niewenteneen.
 - De 3DHeat Watcher féiert dëse Konverter op nei Demoen aus, wann en installéiert ass
   (Adapter `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- All Spill-Lieser ass e klengt eegestännegt Projet mat senger eegener Lizenzdatei, senge Releases a sengem Issue-Tracker, sou datt e sech eleng installéieren, aktualiséieren, ënnerhalen - oder op Ufro vun engem Rechteinhaber zréckzéien - léisst, ouni de Viewer oder déi aner Tools ze beaflossen.
 
 ## Déi 3DHeat-Tools {#the-3dheat-tools}
 

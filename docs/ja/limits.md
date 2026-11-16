@@ -3,7 +3,7 @@ title: "制限、更新、利用条件"
 nav_order: 7
 lang: "ja"
 source: limits.md
-source_hash: "ef3802087acc"
+source_hash: "8a9c7c448411"
 nav_exclude: true
 search_exclude: true
 ---
@@ -39,4 +39,8 @@ MIT。[`LICENSE`](https://github.com/Holdi601/3DHeat-Ext-Squad/blob/main/LICENSE
 - [FortniteReplayDecompressor](https://github.com/Shiqan/FortniteReplayDecompressor) の **Unreal.Core**（MIT）。Unreal のリプレイの一般的な形式を説明しています: 情報ブロック、チャンク、フレーム、バンチ、ネットフィールドのエクスポート。
 - **[squad-replay](https://github.com/Codycody31/squad-replay)**（MPL-2.0）。Squad v10.3.1 が書く形式、バージョンの確認、どのSquadクラスがロースター情報を持つかについて、そのパーサーを読みました。その公開されたテストデモとスナップショットの数は、独立した照合に使いました。そのコードは一切コピーも翻訳もしていません。このリーダーは構造が違います（パケット全体の上にあるPythonのビットアーカイブ、ビット単位で結合される分割バンチ、名前で振り分けられるプロパティ）。そして、そのプロジェクトがやっていない二つのこと（3つ目の分割バンチのフラグと、末尾の移動ビット）は、ここで実デモ上で見つけました。
 
-Squad は Offworld Industries の商標です。このパッケージは、Squadサーバーが書いたファイルを読むもので、ゲーム、そのコード、そのアーカイブには触れません。Offworldのサーバーのライセンスと運営方針は、デモの録画や分析については何も述べていません。Squadのエンドユーザー使用許諾契約は、ゲーム自体のリバースエンジニアリングを禁じていますが、このパッケージはそれを行いません。
+このパッケージは Squad サーバーが書き出すデモファイルを読みます。ゲーム本体、そのコード、アーカイブには触れず、ゲームのものは何も含まれず、再配布もされません。書き出したものはあなたのマシンに残ります。
+
+3DHeat は Offworld Industries とは提携しておらず、Offworld Industries の承認も受けていません。Squad および関連する名称と商標は、それぞれの所有者に帰属します。
+
+権利者の方へ: <https://github.com/Holdi601/3DHeat-Ext-Squad/issues> で Issue を開いてください。迅速に対応し、ご要望があれば何でも削除します。

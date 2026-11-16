@@ -73,6 +73,7 @@ Turėtumėte matyti po vieną eilutę kiekvienam demo. Tada įkelkite `out/<map>
   failus šalia vienas kito.
 - 3DHeat Watcher, įdiegtas, paleidžia šį konvertuotoją naujiems demo
   (adapteris `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Kiekvienas žaidimo skaitytuvas yra atskiras nedidelis projektas su savo licencijos failu, leidimais ir problemų sekimo sistema, todėl jį galima įdiegti, atnaujinti, prižiūrėti - arba teisių turėtojo prašymu pašalinti - atskirai, nepaveikiant peržiūros programos ar kitų įrankių.
 
 ## 3DHeat įrankiai {#the-3dheat-tools}
 

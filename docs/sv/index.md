@@ -66,6 +66,7 @@ Du ser en rad per demo. Läs sedan in `out/<map>/<demo>.parquet` i visarens Vär
   och dess sidofiler bredvid varandra.
 - 3DHeat Watcher kör det här konverteringsverktyget på nya demos när det är installerat
   (adapter `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Varje spelläsare är ett eget litet projekt med egen licensfil, egna releaser och egen ärendehantering, så att den kan installeras, uppdateras, underhållas - eller dras tillbaka på en rättighetshavares begäran - för sig, utan att visaren eller de andra verktygen påverkas.
 
 ## 3DHeat-verktygen {#the-3dheat-tools}
 

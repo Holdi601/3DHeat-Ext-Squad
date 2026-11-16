@@ -3,7 +3,7 @@ title: Teorainneacha, nuashonruithe agus téarmaí
 nav_order: 7
 lang: "ga"
 source: limits.md
-source_hash: "ef3802087acc"
+source_hash: "8a9c7c448411"
 nav_exclude: true
 search_exclude: true
 ---
@@ -39,4 +39,8 @@ Tháinig fíricí faoin bhformáid ó na foinsí seo:
 - **Unreal.Core** i [FortniteReplayDecompressor](https://github.com/Shiqan/FortniteReplayDecompressor) (MIT). Déanann sé cur síos ar leagan amach ginearálta athsheinm Unreal: an bloc faisnéise, codanna, frámaí, bunches agus onnmhairithe réimsí líonra.
 - **[squad-replay](https://github.com/Codycody31/squad-replay)** (MPL-2.0). Léadh a parsálaí le haghaidh an leagan amach mar a scríobhann Squad v10.3.1 é, le haghaidh na seiceálacha leagain, agus le haghaidh na n-aicmí Squad a iompraíonn sonraí ainmniúcháin. Baineadh úsáid as a demos tástála foilsithe agus as a chomhaireamh scáthghrianghraf mar chros-seiceáil neamhspleách. Níor cóipeáladh ná níor aistríodh aon chuid dá chód: tá an léitheoir seo struchtúrtha ar bhealach difriúil (cartlann ghiotán Python thar phaicéid iomlána, bunches páirteacha ceangailte giotán ar ghiotán, airí seolta de réir ainm), agus aimsíodh dhá rud nach ndéanann sé ar na demos féin: an tríú bratach bunch páirteach agus an giotán gluaiseachta deiridh.
 
-Is trádmharc de chuid Offworld Industries é Squad. Léann an pacáiste seo comhaid a scríobhann freastalaí Squad; ní bhaineann sé leis an gcluiche, lena chód ná lena chartlanna. Ní deir polasaí ceadúnúcháin agus riaracháin freastalaí Offworld faic faoi demos a thaifead nó a anailísiú. Toirmisceann EULA Squad an cluiche féin a aisinnealtóireacht, rud nach ndéanann seo.
+Léann an pacáiste seo na comhaid demo a scríobhann freastalaí Squad; ní bhaineann sé leis an gcluiche, lena chód ná lena chartlanna, agus níl aon rud ón gcluiche san áireamh ná á athdháileadh. Fanann a scríobhann sé ar do ríomhaire.
+
+Níl baint ag 3DHeat le Offworld Industries agus níl sé formhuinithe acu. Is lena n-úinéirí Squad agus na hainmneacha agus na trádmharcanna gaolmhara.
+
+Sealbhóirí cearta: oscail issue ag <https://github.com/Holdi601/3DHeat-Ext-Squad/issues> - freagraímid go tapa agus bainimid aon rud ar iarratas.

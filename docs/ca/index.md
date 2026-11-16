@@ -74,6 +74,7 @@ pestanya Mapa de calor del visualitzador
   els seus annexos, un al costat de l'altre.
 - El Watcher de 3DHeat executa aquest convertidor sobre les demos noves quan està
   instal·lat (adaptador `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Cada lector de joc és un petit projecte propi, amb el seu fitxer de llicència, les seves versions i el seu gestor d'incidències, de manera que es pot instal·lar, actualitzar, mantenir - o retirar a petició d'un titular de drets - per separat, sense afectar el visor ni les altres eines.
 
 ## Les eines de 3DHeat {#the-3dheat-tools}
 

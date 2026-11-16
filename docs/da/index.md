@@ -73,6 +73,7 @@ viewerens Heatmap-fane ([Hent data ind](https://holdi601.github.io/3DHeat/gettin
   dets sidecars side om side.
 - 3DHeat Watcher kører denne konverter på nye demoer, når den er installeret
   (adapter `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Hver spillæser er sit eget lille projekt med egen licensfil, egne udgivelser og egen issue-tracker, så den kan installeres, opdateres, vedligeholdes - eller trækkes tilbage efter anmodning fra en rettighedshaver - for sig selv, uden at det påvirker vieweren eller de andre værktøjer.
 
 ## 3DHeat-værktøjerne {#the-3dheat-tools}
 

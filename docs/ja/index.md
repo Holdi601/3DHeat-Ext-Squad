@@ -54,6 +54,7 @@ heat3d-squad-demo match.replay -o out   # または .replay ファイルのフ�
 - 3DHeatビューア: [github.com/Holdi601/3DHeat](https://github.com/Holdi601/3DHeat)。ドキュメントは [holdi601.github.io/3DHeat](https://holdi601.github.io/3DHeat/)。
 - ビューアが読むファイル形式。1 マッチを 1 ファイルにまとめたコンテナを含みます: [1 マッチを 1 ファイルに（.3dheat）](https://holdi601.github.io/3DHeat/container.html)。この変換ツールは、テーブル、マッチドキュメント、そのサイドカーを、別々のファイルとして並べて書き出します。
 - 3DHeat Watcherは、インストールされていれば新しいデモにこの変換ツールを実行します（アダプター `squad-demos`）: [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/)。
+- 各ゲームリーダーは、それぞれ独自のライセンスファイル、リリース、Issue トラッカーを持つ小さな独立したプロジェクトです。そのため、ビューアや他のツールに影響を与えずに単独でインストール、更新、保守でき、権利者の求めがあれば単独で取り下げることもできます。
 
 ## 3DHeatのツール {#the-3dheat-tools}
 

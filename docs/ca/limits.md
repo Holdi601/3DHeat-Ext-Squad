@@ -3,7 +3,7 @@ title: Límits, actualitzacions i condicions
 nav_order: 7
 lang: "ca"
 source: limits.md
-source_hash: "ef3802087acc"
+source_hash: "8a9c7c448411"
 nav_exclude: true
 search_exclude: true
 ---
@@ -39,4 +39,8 @@ Les dades sobre el format provenen d'aquestes fonts:
 - **Unreal.Core** a [FortniteReplayDecompressor](https://github.com/Shiqan/FortniteReplayDecompressor) (MIT). Descriu la disposició genèrica de les repeticions d'Unreal: el bloc d'informació, els blocs, els fotogrames, els paquets i les exportacions de camps de xarxa.
 - **[squad-replay](https://github.com/Codycody31/squad-replay)** (MPL-2.0). Se'n va llegir l'analitzador per a la disposició tal com l'escriu Squad v10.3.1, per a les comprovacions de versió, i per saber quines classes de Squad porten les dades de la plantilla. Les seves demos de prova publicades i els recomptes d'instantànies es van utilitzar com a verificació creuada independent. Cap dels seus codis no es va copiar ni traduir: aquest lector està estructurat d'una altra manera (un arxiu de bits en Python sobre paquets sencers, paquets parcials units bit a bit, propietats despatxades pel nom), i dues coses que no fa es van trobar aquí sobre les mateixes demos: el tercer indicador de paquet parcial i el bit de moviment final.
 
-Squad és una marca registrada d'Offworld Industries. Aquest paquet llegeix fitxers que escriu un servidor de Squad; no toca el joc, el seu codi ni els seus arxius. La política de llicències i administració de servidors d'Offworld no diu res sobre la gravació o l'anàlisi de demos. El EULA de Squad prohibeix l'enginyeria inversa del propi joc, cosa que això no fa.
+Aquest paquet llegeix els fitxers de demo que escriu un servidor de Squad; no toca el joc, el seu codi ni els seus arxius, i no s'hi inclou ni es redistribueix res del joc. El que escriu es queda al teu ordinador.
+
+3DHeat no està afiliat a Offworld Industries ni té el seu aval. Squad i els noms i marques relacionats pertanyen als seus propietaris.
+
+Titulars de drets: obriu una incidència a <https://github.com/Holdi601/3DHeat-Ext-Squad/issues> - responem ràpidament i retirem el que calgui si se'ns demana.

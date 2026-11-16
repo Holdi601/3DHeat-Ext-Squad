@@ -3,7 +3,7 @@ title: "Grenzen, Updates und Bedingungen"
 nav_order: 7
 lang: "de"
 source: limits.md
-source_hash: "ef3802087acc"
+source_hash: "8a9c7c448411"
 nav_exclude: true
 search_exclude: true
 ---
@@ -59,7 +59,8 @@ Die Fakten über das Format stammen aus diesen Quellen:
   zusammengefügt, Eigenschaften nach Namen zugeordnet), und zwei Dinge, die er nicht tut, wurden hier an den Demos
   selbst gefunden: das dritte Flag für geteilte Bündel und das abschließende Bewegungsbit.
 
-Squad ist eine Marke von Offworld Industries. Dieses Paket liest Dateien, die ein Squad-Server schreibt; es greift
-nicht in das Spiel, dessen Code oder Archive ein. Die Server-Lizenzierungs- und Verwaltungsrichtlinien von Offworld
-sagen nichts über das Aufzeichnen oder Auswerten von Demos. Squads EULA verbietet das Reverse Engineering des Spiels
-selbst, was dieses Paket nicht tut.
+Dieses Paket liest die Demo-Dateien, die ein Squad-Server schreibt; es greift nicht in das Spiel, dessen Code oder Archive ein, und nichts aus dem Spiel ist enthalten oder wird weitergegeben. Was es schreibt, bleibt auf deinem Rechner.
+
+3DHeat ist nicht mit Offworld Industries verbunden und wird nicht von Offworld Industries unterstützt. Squad und zugehörige Namen und Marken gehören ihren Inhabern.
+
+Rechteinhaber: Eröffnet ein Issue unter <https://github.com/Holdi601/3DHeat-Ext-Squad/issues> - wir antworten schnell und entfernen auf Anfrage alles.

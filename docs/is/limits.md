@@ -3,7 +3,7 @@ title: "Takmarkanir, uppfærslur og skilmálar"
 nav_order: 7
 lang: "is"
 source: limits.md
-source_hash: "ef3802087acc"
+source_hash: "8a9c7c448411"
 nav_exclude: true
 search_exclude: true
 ---
@@ -39,4 +39,8 @@ Upplýsingar um sniðið komu úr þessum heimildum:
 - **Unreal.Core** í [FortniteReplayDecompressor](https://github.com/Shiqan/FortniteReplayDecompressor) (MIT). Það lýsir almennri uppbyggingu Unreal-upptöku: upplýsingablokkinni, bútum, römmum, bunch-um og net field exports.
 - **[squad-replay](https://github.com/Codycody31/squad-replay)** (MPL-2.0). Þáttari (parser) þess var lesinn til að fá uppbygginguna eins og Squad v10.3.1 skrifar hana, útgáfuskoðanirnar og hvaða Squad-flokkar bera hópskráargögn. Birt prófunardemo þess og snapshot-talningar voru notuð sem óháð víxlskoðun. Enginn kóði þess var afritaður eða þýddur: þessi lesari er byggður öðruvísi (Python-bitaskjalasafn yfir heila pakka, hlutabunch sameinuð á bitastigi, eigindum úthlutað eftir nafni), og tvennt sem það gerir ekki fannst hér á demo-unum sjálfum: þriðji hlutabunch-fáninn og síðasti hreyfibitinn.
 
-Squad er vörumerki Offworld Industries. Þessi pakki les skrár sem Squad-þjónn skrifar; hann snertir ekki leikinn, kóða hans né skjalasöfn. Stefna Offworld um þjónaleyfi og stjórnun segir ekkert um upptöku eða greiningu á demo. EULA Squad bannar öfuga verkfræði (reverse engineering) á leiknum sjálfum, sem þetta gerir ekki.
+Þessi pakki les demo-skrárnar sem Squad-þjónn skrifar; hann snertir ekki leikinn, kóða hans eða söfn og ekkert úr leiknum fylgir með eða er dreift áfram. Það sem hann skrifar verður eftir á tölvunni þinni.
+
+3DHeat tengist ekki Offworld Industries og er ekki samþykkt af Offworld Industries. Squad og tengd heiti og vörumerki tilheyra eigendum sínum.
+
+Rétthafar: stofnið issue á <https://github.com/Holdi601/3DHeat-Ext-Squad/issues> - við svörum fljótt og fjarlægjum hvað sem er sé þess óskað.

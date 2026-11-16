@@ -3,7 +3,7 @@ title: "Grenzen, Updates a Bedingungen"
 nav_order: 7
 lang: "lb"
 source: limits.md
-source_hash: "ef3802087acc"
+source_hash: "8a9c7c448411"
 nav_exclude: true
 search_exclude: true
 ---
@@ -39,4 +39,8 @@ Fakte iwwer d'Format koumen aus dëse Quellen:
 - **Unreal.Core** am [FortniteReplayDecompressor](https://github.com/Shiqan/FortniteReplayDecompressor) (MIT). Et beschreift dat generescht Unreal-Replay-Layout: den Info-Block, d'Chunks, d'Frames, d'Bunches an d'Net-Field-Exports.
 - **[squad-replay](https://github.com/Codycody31/squad-replay)** (MPL-2.0). Säi Parser gouf gelies fir d'Layout, wéi Squad v10.3.1 et schreift, fir d'Versiounscheken, a fir ze wëssen, wéi eng Squad-Klasse Roster-Daten droen. Seng publizéiert Test-Demoen a Snapshot-Zuelen goufen als onofhängege Géigecheck benotzt. Näischt vu sengem Code gouf kopéiert oder iwwersat: dëse Reader ass anescht opgebaut (e Python-Bit-Archiv iwwer ganz Packeten, deelweis Bunches bitweis zesummegesat, Properties no Numm verdeelt), an zwou Saachen, déi en net mécht, goufen hei op den Demoe selwer fonnt: dat drëtt Partial-Bunch-Flag an dat hannescht Beweegungs-Bit.
 
-Squad ass eng Marque vun Offworld Industries. Dëse Package liest Dateien, déi e Squad-Server schreift; en huet näischt mam Spill, sengem Code oder senge Archiver ze dinn. Dem Offworld seng Politik zu Server-Lizenzéierung an Administratioun seet näischt iwwer d'Opnam oder d'Analyse vun Demoen. Dem Squad seng EULA verbitt Reverse Engineering vum Spill selwer, wat dëst net mécht.
+Dëse Package liest d'Demo-Dateien, déi e Squad-Server schreift; e réiert d'Spill, säi Code oder seng Archiven net un, an näischt aus dem Spill ass dran oder gëtt weiderverdeelt. Wat e schreift, bleift op Ärer Maschinn.
+
+3DHeat ass net mat Offworld Industries verbonnen an net vun Offworld Industries ënnerstëtzt. Squad an déi verbonnen Nimm a Marken gehéieren hiren Eegentümer.
+
+Rechteinhaber: maacht en Issue op <https://github.com/Holdi601/3DHeat-Ext-Squad/issues> op - mir äntweren séier an huelen op Ufro alles erof.

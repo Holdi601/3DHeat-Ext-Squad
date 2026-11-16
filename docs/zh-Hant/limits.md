@@ -3,7 +3,7 @@ title: "限制、更新與條款"
 nav_order: 7
 lang: "zh-Hant"
 source: limits.md
-source_hash: "ef3802087acc"
+source_hash: "8a9c7c448411"
 nav_exclude: true
 search_exclude: true
 ---
@@ -39,4 +39,8 @@ MIT；見 [`LICENSE`](https://github.com/Holdi601/3DHeat-Ext-Squad/blob/main/LIC
 - **[FortniteReplayDecompressor](https://github.com/Shiqan/FortniteReplayDecompressor) 中的 Unreal.Core**（MIT）。它描述一般的 Unreal 對戰版面：資訊區塊、區塊、影格、bunch 與網路欄位匯出。
 - **[squad-replay](https://github.com/Codycody31/squad-replay)**（MPL-2.0）。我們閱讀其解析器，以了解 Squad v10.3.1 寫入的版面、版本檢查，以及哪些 Squad 類別帶有名冊資料。其已發布的測試對戰與計數快照，被用作獨立的交叉驗證。其程式碼沒有被複製或翻譯：本讀取器的結構不同（以整個封包為單位的 Python 位元陣列、以位元方式接合部分 bunch、依名稱分派屬性），而有兩件它未做的事，是在對戰本身上發現的：第三個部分 bunch 旗標，以及尾端的移動位元。
 
-Squad 是 Offworld Industries 的商標。本套件讀取 Squad 伺服器寫出的檔案；它不會觸及遊戲、其程式碼或其封存檔。Offworld 的伺服器授權與管理政策，對於錄製與分析對戰並無規定。Squad 的使用者授權協議禁止對遊戲本身進行逆向工程，而本套件並不這麼做。
+本套件讀取 Squad 伺服器寫出的 demo 檔案；它不觸碰遊戲本身、遊戲程式碼或封存檔，也不包含或再散布遊戲的任何內容。它寫出的內容留在你的電腦上。
+
+3DHeat 與 Offworld Industries 並無關聯，也未獲其背書。Squad 及相關名稱與商標屬於其各自的擁有者。
+
+權利人：請在 <https://github.com/Holdi601/3DHeat-Ext-Squad/issues> 開一個 issue - 我們會迅速回覆，並依要求移除任何內容。

@@ -69,6 +69,7 @@ Heatmapa prehliadača ([Načítanie dát](https://holdi601.github.io/3DHeat/gett
   vedľa seba.
 - Watcher 3DHeat spúšťa tento prevodník na nové demá, keď je nainštalovaný
   (adaptér `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Každá čítačka hry je samostatný malý projekt s vlastným licenčným súborom, vydaniami a evidenciou problémov, takže ju možno inštalovať, aktualizovať, udržiavať - alebo na žiadosť držiteľa práv stiahnuť - samostatne, bez vplyvu na prehliadač a ostatné nástroje.
 
 ## Nástroje 3DHeat {#the-3dheat-tools}
 

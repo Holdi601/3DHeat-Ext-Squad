@@ -17,6 +17,10 @@ heatmap, or read it with any tool that reads Parquet and JSON.
 a page per step and per output. Part of [3DHeat](https://github.com/Holdi601/3DHeat)
 ([documentation](https://holdi601.github.io/3DHeat/)).
 
+Each game reader is its own small project with its own licence file, releases and issue
+tracker, so it can be installed, updated, maintained - or withdrawn on a rights holder's
+request - on its own, without affecting the viewer or the other tools.
+
 ## Install
 
 New to the command line? Read [Before you start](https://holdi601.github.io/3DHeat-Ext-Squad/before-you-start.html) first.
@@ -149,5 +153,11 @@ and from [squad-replay](https://github.com/Codycody31/squad-replay) (MPL-2.0),
 whose published test demos were also used as an independent cross-check; no
 code of either was copied or translated.
 
-Squad is a trademark of Offworld Industries. This package reads files a Squad
-server writes; it does not touch the game, its code or its archives.
+This package reads the demo files a Squad server writes; it does not touch the
+game, its code or its archives, and nothing from the game is included or
+redistributed. What it writes stays on your machine.
+
+3DHeat is not affiliated with or endorsed by Offworld Industries. Squad and
+related names and trademarks belong to their owners. Rights holders: open an
+issue at <https://github.com/Holdi601/3DHeat-Ext-Squad/issues> - we respond
+quickly and remove anything on request.

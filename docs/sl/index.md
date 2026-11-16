@@ -74,6 +74,7 @@ Za vsak posnetek se izpiše ena vrstica. Nato v pregledovalniku naloži
   spremljevalne datoteke drugo ob drugi.
 - Pregledovalnik 3DHeat Watcher ob namestitvi za nove posnetke zažene ta pretvornik
   (prilagodilnik `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Vsak bralnik igre je samostojen majhen projekt z lastno licenčno datoteko, izdajami in sledilnikom težav, zato ga je mogoče namestiti, posodobiti, vzdrževati - ali na zahtevo imetnika pravic umakniti - posebej, ne da bi to vplivalo na pregledovalnik ali druga orodja.
 
 ## Orodja 3DHeat {#the-3dheat-tools}
 

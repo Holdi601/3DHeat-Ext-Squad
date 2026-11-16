@@ -73,6 +73,7 @@ Għandek tara linja waħda għal kull demo. Imbagħad ittrasferixxi `out/<map>/<
   s-sidecars tiegħu ħdejn xulxin.
 - Il-Watcher ta' 3DHeat iħaddem dan il-konvertitur fuq demos ġodda meta jkun installat
   (adapter `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Kull qarrej tal-logħba huwa proġett żgħir għalih, bil-fajl tal-liċenzja, ir-rilaxxi u t-tracker tal-issues tiegħu, sabiex ikun jista' jiġi installat, aġġornat, miżmum - jew irtirat fuq talba ta' detentur tad-drittijiet - waħdu, mingħajr ma jolqot il-viewer jew l-għodod l-oħra.
 
 ## L-għodod ta' 3DHeat {#the-3dheat-tools}
 

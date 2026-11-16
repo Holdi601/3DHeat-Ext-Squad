@@ -3,7 +3,7 @@ title: Ograničenja, ažuriranja i uvjeti
 nav_order: 7
 lang: "hr"
 source: limits.md
-source_hash: "ef3802087acc"
+source_hash: "8a9c7c448411"
 nav_exclude: true
 search_exclude: true
 ---
@@ -39,4 +39,8 @@ MIT; vidi [`LICENSE`](https://github.com/Holdi601/3DHeat-Ext-Squad/blob/main/LIC
 - **Unreal.Core** u [FortniteReplayDecompressor](https://github.com/Shiqan/FortniteReplayDecompressor) (MIT). Opisuje opći Unreal raspored replaya: informacijski blok, dijelove, okvire, snopove i izvoze mrežnih polja.
 - **[squad-replay](https://github.com/Codycody31/squad-replay)** (MPL-2.0). Njegov parser je pročitan zbog rasporeda kako ga Squad v10.3.1 piše, zbog provjera verzije i zbog toga koje Squad klase nose podatke o popisu igrača. Njegovi objavljeni testni demoi i brojevi snimki korišteni su kao neovisna unakrsna provjera. Nijedan njegov kod nije kopiran ni preveden: ovaj čitač je drukčije strukturiran (Python bitni arhiv nad cijelim paketima, djelomični snopovi spojeni bit po bit, svojstva raspoređena po imenu), a dvije stvari koje on ne radi pronađene su ovdje na samim demoima: treća zastavica djelomičnog snopa i završni bit kretanja.
 
-Squad je zaštitni znak tvrtke Offworld Industries. Ovaj paket čita datoteke koje piše Squad server; ne dira igru, njezin kod ni njezine arhive. Offworldova pravila o licenciranju i administraciji servera ništa ne kažu o snimanju ili analizi demoa. Squadova EULA zabranjuje reverzni inženjering same igre, što ovo ne radi.
+Ovaj paket čita demo datoteke koje zapisuje Squad poslužitelj; ne dira igru, njezin kod ni arhive, i ništa iz igre nije uključeno niti se dalje distribuira. Ono što zapiše ostaje na tvom računalu.
+
+3DHeat nije povezan s tvrtkom Offworld Industries niti ga ona podržava. Squad i povezani nazivi i zaštitni znakovi pripadaju njihovim vlasnicima.
+
+Nositelji prava: otvorite issue na <https://github.com/Holdi601/3DHeat-Ext-Squad/issues> - brzo odgovaramo i na zahtjev uklanjamo bilo što.

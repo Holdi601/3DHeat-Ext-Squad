@@ -3,7 +3,7 @@ title: "Ograniczenia, aktualizacje i warunki"
 nav_order: 7
 lang: "pl"
 source: limits.md
-source_hash: "ef3802087acc"
+source_hash: "8a9c7c448411"
 nav_exclude: true
 search_exclude: true
 ---
@@ -39,4 +39,8 @@ Fakty o formacie pochodzą z tych źródeł:
 - **Unreal.Core** w [FortniteReplayDecompressor](https://github.com/Shiqan/FortniteReplayDecompressor) (MIT). Opisuje ogólny układ replay Unreal: blok informacyjny, fragmenty, ramki, wiązki i pola eksportu sieciowego.
 - **[squad-replay](https://github.com/Codycody31/squad-replay)** (MPL-2.0). Jego parser został przeczytany pod kątem układu, tak jak Squad v10.3.1 go zapisuje, pod kątem sprawdzeń wersji i tego, które klasy Squad przenoszą dane o składach. Jego opublikowane dema testowe i liczby z migawek posłużyły jako niezależna kontrola krzyżowa. Żaden jego kod nie został skopiowany ani przetłumaczony: ten czytnik ma inną strukturę (archiwum bitowe w Pythonie nad całymi pakietami, części wiązek łączone bit po bicie, właściwości przydzielane po nazwie), a dwie rzeczy, których tamten nie robi, odkryto tutaj na samych demach: trzecią flagę częściowej wiązki i końcowy bit ruchu.
 
-Squad to znak towarowy Offworld Industries. Ten pakiet czyta pliki, które zapisuje serwer Squad; nie ingeruje w grę, jej kod ani archiwa. Polityka licencjonowania i administrowania serwerami Offworld nie mówi nic o nagrywaniu i analizie dem. Umowa licencyjna Squad (EULA) zabrania inżynierii wstecznej samej gry, czego to narzędzie nie robi.
+Ten pakiet odczytuje pliki demo zapisywane przez serwer Squad; nie dotyka gry, jej kodu ani archiwów, a nic z gry nie jest dołączone ani rozpowszechniane. To, co zapisuje, zostaje na twoim komputerze.
+
+3DHeat nie jest powiązany z Offworld Industries ani zatwierdzony przez Offworld Industries. Squad oraz powiązane nazwy i znaki towarowe należą do ich właścicieli.
+
+Posiadacze praw: otwórzcie zgłoszenie (issue) na <https://github.com/Holdi601/3DHeat-Ext-Squad/issues> - odpowiadamy szybko i na prośbę usuwamy wszystko.

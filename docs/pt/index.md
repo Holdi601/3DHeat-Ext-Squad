@@ -73,6 +73,7 @@ Mapa de calor do visualizador ([Obter dados](https://holdi601.github.io/3DHeat/g
   auxiliares lado a lado.
 - O 3DHeat Watcher executa este conversor nas novas demos quando estiver instalado
   (adaptador `squad-demos`): [3DHeat Watcher](https://holdi601.github.io/3DHeat-Watcher/).
+- Cada leitor de jogo é um pequeno projeto próprio, com o seu próprio arquivo de licença, versões e rastreador de problemas, de modo que pode ser instalado, atualizado, mantido - ou retirado a pedido de um titular de direitos - sozinho, sem afetar o visualizador nem as outras ferramentas.
 
 ## As ferramentas 3DHeat {#the-3dheat-tools}
 
