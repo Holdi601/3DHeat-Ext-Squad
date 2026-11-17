@@ -12,6 +12,8 @@ How an update is applied depends on how the tools were installed:
 - **A git checkout** (`git clone`): `git pull --ff-only`. Refused while the
   checkout has local changes - those are someone's work, and an update is not
   allowed to decide what happens to them.
+- **A pip install** (`pip install https://github.com/.../archive/refs/tags/v<version>.zip`):
+  `pip install --upgrade` of the new release's tag, with the same Python.
 - **A downloaded copy** (the release zip): the release's source archive is
   downloaded, checked to be the version it says it is, and copied over this
   folder. Files that are not part of a release - recordings, virtual
@@ -64,7 +66,19 @@ def installed_version() -> str:
     try:
         return (ROOT / "VERSION").read_text(encoding="utf-8").strip()
     except OSError:
+        pass
+    # A pip install has no VERSION file; the package's own version stands in.
+    try:
+        from . import __version__
+
+        return str(__version__)
+    except ImportError:
         return "0"
+
+
+def is_pip_install() -> bool:
+    """Installed into site-packages by pip rather than run from a checkout or a release folder."""
+    return not (ROOT / "VERSION").exists() and not (ROOT / ".git").exists()
 
 
 def parse(version: str) -> tuple[int, ...]:
@@ -173,6 +187,12 @@ def apply(release: Release) -> str:
         if pulled.returncode != 0:
             raise RuntimeError(f"git pull failed: {pulled.stderr.strip() or pulled.stdout.strip()}")
         return f"updated to {installed_version()} with git pull"
+    if is_pip_install():
+        spec = f"https://github.com/{REPO}/archive/refs/tags/{release.tag}.zip"
+        done = subprocess.run([sys.executable, "-m", "pip", "install", "--upgrade", spec])
+        if done.returncode != 0:
+            raise RuntimeError(f"pip install --upgrade {spec} failed")
+        return f"updated to {release.version} with pip"
     return _replace_from_archive(release)
 
 
@@ -254,7 +274,8 @@ def startup(tool: str, *, ask: bool | None = None) -> None:
     if ask is None:
         ask = sys.stdin.isatty() and sys.stderr.isatty()
     if not ask:
-        print(f"[{tool}] Run `python -m {__name__}` in {ROOT} to update.", file=sys.stderr)
+        where = "" if is_pip_install() else f" in {ROOT}"
+        print(f"[{tool}] Run `python -m {__name__}`{where} to update.", file=sys.stderr)
         return
     try:
         answer = input("Update now? [Y/n] ").strip().lower()

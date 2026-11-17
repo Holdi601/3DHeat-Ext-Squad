@@ -3,7 +3,7 @@ title: "Startseite"
 nav_order: 1
 lang: "de"
 source: index.md
-source_hash: "4b780cd569c8"
+source_hash: "1d7ad2b3cd9e"
 nav_exclude: true
 search_exclude: true
 permalink: /de/
@@ -37,15 +37,34 @@ Wofür es nützlich ist:
 
 ## Schnellstart {#quick-start}
 
-Neu in der Kommandozeile? Lies zuerst [Bevor du anfängst](before-you-start.md).
+Du brauchst Windows, Python 3.10 oder neuer (im Installer "Add python.exe to PATH"
+ankreuzen) und Squad-Demos (`.replay`-Dateien), aufgenommen auf einem Squad-Server, nicht
+vom Spiel: Ein Admin führt `AdminDemoRec <name>` und `AdminDemoStop` aus, und der Server
+schreibt `<server>\SquadGame\Saved\Demos\<name>.replay` (70 bis 80 MB pro Stunde bei einem
+kleinen Match; [Eine Demo aufnehmen](recording.md)). Kopiere sie auf deinen PC; Git ist
+nicht nötig. Neu in der Kommandozeile? Lies zuerst [Bevor du anfängst](before-you-start.md).
 
 ```bash
-python -m pip install -e .              # installs the heat3d-squad-demo command
-heat3d-squad-demo match.replay -o out   # or a folder of .replay files
+python -m pip install https://github.com/Holdi601/3DHeat-Ext-Squad/archive/refs/tags/v0.1.0.zip
+heat3d-squad-demo match.replay -o out       # eine Demo
+heat3d-squad-demo D:\SquadDemos -o out      # jede Demo in einem Ordner (nimm deinen eigenen)
 ```
 
-Du solltest pro Demo eine Zeile sehen. Lade dann `out/<map>/<demo>.parquet` im Heatmap-Tab des Viewers
+Du solltest pro Demo eine Zeile sehen:
+`match.replay: <layer>, <n> players, <n> rows -> out\<map>\match.parquet`. Jede Demo wird
+zu vier Dateien in `out\<map>\` (`--flat` legt sie direkt nach `out`): `<demo>.parquet`
+(die Tabelle zum Öffnen), `<demo>.match.json` und zwei Nebendateien
+([Demos umwandeln](converting.md)).
+
+Dann öffne die `.parquet` im [3DHeat-Viewer](https://github.com/Holdi601/3DHeat#quick-start):
+herunterladen (**Code -> Download ZIP**, entpacken), `start.bat` doppelklicken (es bietet
+an, Node.js zu installieren, wenn es fehlt, und öffnet `http://127.0.0.1:5273`), dann
+**Quelle -> Dateien...**, die Datei wählen (oder sie auf das Quelle-Panel ziehen) und
+**Datei laden** klicken
 ([Daten hineinbringen](https://holdi601.github.io/3DHeat/getting-data-in.html)).
+
+Wenn ein neues Release erscheint, sagt das Werkzeug es beim Start und bietet an, sich
+selbst zu aktualisieren (`python -m heat3d_ext_squad.update` macht dasselbe).
 
 ## Seiten {#pages}
 

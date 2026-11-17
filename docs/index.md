@@ -34,15 +34,34 @@ What it is useful for:
 
 ## Quick start
 
-New to the command line? Read [Before you start](before-you-start.md) first.
+You need Windows, Python 3.10 or later ("Add python.exe to PATH" ticked in its
+installer) and Squad demos (`.replay` files), recorded on a Squad server, not
+by the game: an admin runs `AdminDemoRec <name>` and `AdminDemoStop`, and the
+server writes `<server>\SquadGame\Saved\Demos\<name>.replay` (70 to 80 MB an
+hour for a small match; [Recording a demo](recording.md)). Copy them to your
+PC; no Git is needed. New to the command line? Read [Before you start](before-you-start.md) first.
 
 ```bash
-python -m pip install -e .              # installs the heat3d-squad-demo command
-heat3d-squad-demo match.replay -o out   # or a folder of .replay files
+python -m pip install https://github.com/Holdi601/3DHeat-Ext-Squad/archive/refs/tags/v0.1.0.zip
+heat3d-squad-demo match.replay -o out       # one demo
+heat3d-squad-demo D:\SquadDemos -o out      # every demo in a folder (use your own)
 ```
 
-You should see one line per demo. Then load `out/<map>/<demo>.parquet` in the viewer's Heatmap tab
+You should see one line per demo:
+`match.replay: <layer>, <n> players, <n> rows -> out\<map>\match.parquet`. Each
+demo becomes four files in `out\<map>\` (`--flat` puts them straight into
+`out`): `<demo>.parquet` (the table to open), `<demo>.match.json` and two
+sidecars ([Converting demos](converting.md)).
+
+Then open the `.parquet` in the [3DHeat viewer](https://github.com/Holdi601/3DHeat#quick-start):
+download it (**Code -> Download ZIP**, unpack), double-click `start.bat` (it
+offers to install Node.js when it is missing and opens `http://127.0.0.1:5273`),
+then **Source -> Files...**, pick the file (or drop it on the Source panel)
+and click **Load file**
 ([Getting data in](https://holdi601.github.io/3DHeat/getting-data-in.html)).
+
+When a new release is out, the tool says so when it starts and offers to
+update itself (`python -m heat3d_ext_squad.update` does the same).
 
 ## Pages
 

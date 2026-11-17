@@ -7,6 +7,8 @@
   deployables, seats, shots and vehicle hits.
 - Nothing lost: a completeness self-check and two raw sidecars.
 - `--flat`, `--json`, `--version`.
+- Installs with one pip line from the release zip, no Git needed; a pip install knows its version and updates itself with pip when a newer release is out.
+- README: a quick start for new users.
 
 ## Docs
 

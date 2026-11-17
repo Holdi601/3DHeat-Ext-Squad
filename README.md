@@ -21,7 +21,47 @@ Each game reader is its own small project with its own licence file, releases an
 tracker, so it can be installed, updated, maintained - or withdrawn on a rights holder's
 request - on its own, without affecting the viewer or the other tools.
 
-## Install
+## Quick start for new users
+
+You need: Windows, [Python](https://www.python.org/downloads/) 3.10 or later
+("Add python.exe to PATH" ticked in its installer), and Squad demos
+(`.replay` files). They are recorded on a Squad server, not by the game: an
+admin with the `demos` permission runs `AdminDemoRec <name>` in the game's
+console and `AdminDemoStop` at the end; the server writes
+`<server>\SquadGame\Saved\Demos\<name>.replay` (70 to 80 MB an hour for a
+small match). Copy them to your PC. No Git is needed.
+
+1. Install the tool (one line, in PowerShell or a command prompt):
+
+   ```bash
+   python -m pip install https://github.com/Holdi601/3DHeat-Ext-Squad/archive/refs/tags/v0.1.0.zip
+   ```
+
+2. Convert a demo, or every demo in a folder (the tool does not search: name
+   the files or the folder):
+
+   ```bash
+   heat3d-squad-demo match.replay -o out
+   heat3d-squad-demo D:\SquadDemos -o out
+   ```
+
+3. You should see one line per demo:
+   `match.replay: <layer>, <n> players, <n> rows -> out\<map>\match.parquet`.
+   Each demo becomes four files in `out\<map>\` (`--flat` puts them straight
+   into `out`): `<demo>.parquet` (the table to open), `<demo>.match.json`
+   (teams, squads, players) and two sidecars (`.entities.parquet`,
+   `.packets.parquet`).
+4. Open it in the [3DHeat viewer](https://github.com/Holdi601/3DHeat#quick-start):
+   download the viewer (**Code -> Download ZIP**, unpack) and double-click
+   `start.bat`; it offers to install [Node.js](https://nodejs.org/) when it is
+   missing and opens Chrome or Edge at `http://127.0.0.1:5273`. There,
+   **Source -> Files...**, pick `<demo>.parquet` (or drop it on the Source
+   panel) and click **Load file**.
+
+When a new release is out, the tool says so when it starts and offers to
+update itself (`python -m heat3d_ext_squad.update` does the same).
+
+## Install from a checkout
 
 New to the command line? Read [Before you start](https://holdi601.github.io/3DHeat-Ext-Squad/before-you-start.html) first.
 
