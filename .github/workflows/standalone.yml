@@ -1,0 +1,110 @@
+name: standalone
+
+# Tests, then the standalone executables for every platform in standalone.json,
+# each smoke-run (--version, --help, the window's self-test, --check, status,
+# extract). On main, the builds and their SHA256SUMS go into a DRAFT release
+# v<VERSION>; a maintainer publishes it. A published release is never changed.
+# No game files are used anywhere here: the tests make their own.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: standalone-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.m.outputs.matrix }}
+      version: ${{ steps.m.outputs.version }}
+    steps:
+      - uses: actions/checkout@v5
+      - id: m
+        shell: python
+        run: |
+          import json, os
+          cfg = json.load(open("standalone.json"))
+          runners = {"windows-x64": "windows-latest", "linux-x64": "ubuntu-22.04", "macos-arm64": "macos-15"}
+          inc = [{"platform": p, "os": runners[p]} for p, v in cfg["platforms"].items() if v.get("build")]
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write("matrix=" + json.dumps({"include": inc}) + "\n")
+              f.write("version=" + open("VERSION").read().strip() + "\n")
+
+  build:
+    needs: plan
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[test]" pyinstaller pyinstaller-hooks-contrib
+      - name: Tests (no game files; the ones that need an install skip)
+        run: python -m pytest -q -m "not local" ${{ matrix.platform == 'windows-x64' && 'tests' || 'tests/test_standalone.py' }}
+      - name: Build and smoke-run
+        run: python tools/build_standalone.py --smoke
+      - uses: actions/upload-artifact@v4
+        with:
+          name: standalone-${{ matrix.platform }}
+          path: dist-standalone/*
+          if-no-files-found: error
+          retention-days: 14
+
+  draft:
+    needs: [plan, build]
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TAG: v${{ needs.plan.outputs.version }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/download-artifact@v4
+        with:
+          path: dl
+          merge-multiple: true
+      - name: SHA256SUMS
+        run: |
+          cd dl
+          rm -f *.sha256
+          shopt -s nullglob  # a Windows-only tool has no .tar.gz
+          sha256sum *.zip *.tar.gz > SHA256SUMS
+          cat SHA256SUMS
+      - name: Draft release (left for a maintainer to publish)
+        run: |
+          state=$(gh release view "$TAG" --json isDraft -q .isDraft 2>/dev/null || echo none)
+          if [ "$state" = "false" ]; then
+            echo "$TAG is published already; nothing is changed"
+            exit 0
+          fi
+          notes=$(python3 - <<'PY'
+          import re, os
+          v = os.environ["TAG"][1:]
+          text = open("CHANGELOG.md", encoding="utf-8").read() if os.path.exists("CHANGELOG.md") else ""
+          m = re.search(r"^##+\s*\[?v?" + re.escape(v) + r"\b.*?$(.*?)(?=^##+\s|\Z)", text, re.M | re.S)
+          print((m.group(1).strip() if m else "") or f"Version {v}.")
+          PY
+          )
+          if [ "$state" = "none" ]; then
+            gh release create "$TAG" --draft --target "$GITHUB_SHA" --title "$TAG" --notes "$notes" dl/*
+          else
+            gh release edit "$TAG" --draft=true --target "$GITHUB_SHA" --notes "$notes"
+            for a in $(gh release view "$TAG" --json assets -q '.assets[].name'); do gh release delete-asset "$TAG" "$a" -y; done
+            gh release upload "$TAG" dl/* --clobber
+          fi

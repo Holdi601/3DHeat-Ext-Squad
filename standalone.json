@@ -1,0 +1,8 @@
+{
+  "spec": "heat3d_ext_squad.standalone_spec",
+  "collect_submodules": ["numpy", "pyarrow"],
+  "platforms": {
+    "windows-x64": {"build": true, "tested": false, "note": "demo conversion; CI builds, runs the tests and smoke-runs; demos come from a server"},
+    "linux-x64": {"build": true, "tested": false, "note": "a native Linux server's demo folder is found; CI builds and smoke-runs"}
+  }
+}

@@ -21,6 +21,17 @@ Each game reader is its own small project with its own licence file, releases an
 tracker, so it can be installed, updated, maintained - or withdrawn on a rights holder's
 request - on its own, without affecting the viewer or the other tools.
 
+## The standalone program
+
+No Python needed: download the file for your system (Windows, Linux) from the
+[latest release](https://github.com/Holdi601/3DHeat-Ext-Squad/releases/latest), check it against
+`SHA256SUMS`, unpack it and start `heat3d-squad`. Its window finds a Squad server's demo folder on this
+machine (or lets you choose one), converts the demos into the matches folder the viewer opens, and asks
+before it updates itself. `heat3d-squad --help` lists its commands (every command below runs through it
+too: `heat3d-squad <demos> -o <folder>`); `--check --json` is for scripts. The 3DHeat app's Extractors
+panel can install and update it for you. See
+[Before you start](https://holdi601.github.io/3DHeat-Ext-Squad/before-you-start.html).
+
 ## Quick start for new users
 
 You need: Windows, [Python](https://www.python.org/downloads/) 3.10 or later

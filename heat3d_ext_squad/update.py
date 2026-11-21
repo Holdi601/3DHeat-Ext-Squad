@@ -255,40 +255,31 @@ def _sync(src: Path, dst: Path) -> None:
 # --------------------------------------------------------------------- startup
 
 
+#: The standalone app's id (app/spec.py); its settings file holds "auto_update" and "skip_version".
+TOOL_ID = "heat3d-squad"
+
+
+def target():
+    from .app import update as app_update
+
+    return app_update.Target(REPO, TOOL_ID, "3DHeat Squad", installed_version(), apply_source=apply)
+
+
 def startup(tool: str, *, ask: bool | None = None) -> None:
     """
-    Check for a newer release when a tool starts; say so, and offer to update.
+    Check for a newer release when a tool starts; say so with its notes, and
+    ask: update now, later, or skip this version. Updates without asking only
+    when the user chose automatic updates (`--auto-update`, the window's
+    checkbox, or HEAT3D_AUTO_UPDATE=1); see app/update.py.
 
     `ask` defaults to whether there is someone at a terminal to answer. When
     there is not - a scheduled run, a pipe - the notice is printed and the tool
     carries on unchanged. After an update the same command is started again, so
     what was asked for runs on the new version.
     """
-    release = available()
-    if release is None:
-        return
-    print(
-        f"[{tool}] {REPO.split('/')[1]} {release.version} is out (this is {installed_version()}). {release.url}",
-        file=sys.stderr,
-    )
-    if ask is None:
-        ask = sys.stdin.isatty() and sys.stderr.isatty()
-    if not ask:
-        where = "" if is_pip_install() else f" in {ROOT}"
-        print(f"[{tool}] Run `python -m {__name__}`{where} to update.", file=sys.stderr)
-        return
-    try:
-        answer = input("Update now? [Y/n] ").strip().lower()
-    except EOFError:
-        return
-    if answer not in ("", "y", "yes", "j", "ja"):
-        return
-    try:
-        print(apply(release), file=sys.stderr)
-    except RuntimeError as e:
-        print(f"[{tool}] Update not applied: {e}", file=sys.stderr)
-        return
-    restart()
+    from .app import update as app_update
+
+    app_update.startup(target(), ask=ask)
 
 
 def restart() -> None:

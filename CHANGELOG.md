@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.0
+
+- A standalone program for Windows and Linux (no Python needed), built by CI with a `SHA256SUMS` file. Without
+  arguments it opens a window: a Squad server found through Steam and its demo folder (or one you choose), the
+  demo conversion into the viewer's matches folder, and updates. `--check --json` and `status --json` for
+  scripts; demos hold matches, not maps, so `extract` has nothing to extract.
+- Updates ask first (update now / later / skip this version) unless automatic updates were chosen
+  (`--auto-update`, the window's checkbox, or `HEAT3D_AUTO_UPDATE=1`).
+
 ## 0.1.0
 
 - Squad server demos (`.replay`) into a heatmap table and a match document.

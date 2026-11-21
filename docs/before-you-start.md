@@ -8,6 +8,31 @@ nav_order: 1.5
 New to the command line? This page takes you from nothing to a first run.
 It takes about ten minutes, once.
 
+## The standalone program (no Python needed)
+
+Each [release](https://github.com/Holdi601/3DHeat-Ext-Squad/releases/latest)
+has a ready-to-run program for Windows (`heat3d-squad-<version>-windows-x64.zip`)
+and Linux (`heat3d-squad-<version>-linux-x64.tar.gz`), with a `SHA256SUMS` file
+to check the download. Unpack it anywhere and start `heat3d-squad`; steps 1 to 4
+below are then not needed.
+
+Started without arguments it opens a window that:
+
+- finds a Squad server installed through Steam on this machine, and with it the
+  folder its demos are written to, or lets you choose the folder;
+- converts a folder of demos into the matches folder the viewer opens
+  (by default `%LOCALAPPDATA%\3DHeat\matches\squad` on Windows and
+  `~/.local/share/3dheat/matches/squad` on Linux);
+- checks for updates and asks before installing one, unless you tick
+  *Update automatically*.
+
+The same program runs every command on these pages:
+`heat3d-squad heat3d-squad-demo <demos> -o <folder>`, or simply
+`heat3d-squad <demos> -o <folder>`. For scripts: `heat3d-squad --check --json`
+reports what is found and missing. Demos hold matches, not maps, so
+`heat3d-squad status --json` lists no maps and `extract` has nothing to do.
+The 3DHeat app's Extractors panel installs, updates and starts it for you.
+
 ## 1. Install Python
 
 This tool needs **Python 3.10 or later**.
