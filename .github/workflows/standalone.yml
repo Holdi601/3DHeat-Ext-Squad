@@ -55,7 +55,7 @@ jobs:
           python -m pip install -e ".[test]" pyinstaller pyinstaller-hooks-contrib
       - name: Tests (no game files; the ones that need an install skip)
         run: python -m pytest -q -m "not local" ${{ matrix.platform == 'windows-x64' && 'tests' || 'tests/test_standalone.py' }}
-      - name: Build and smoke-run (the window too: a virtual display on Linux)
+      - name: "Build and smoke-run (the window too: a virtual display on Linux)"
         shell: bash
         run: |
           if [ "$RUNNER_OS" = "Linux" ]; then
