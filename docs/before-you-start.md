@@ -33,6 +33,10 @@ reports what is found and missing. Demos hold matches, not maps, so
 `heat3d-squad status --json` lists no maps and `extract` has nothing to do.
 The 3DHeat app's Extractors panel installs, updates and starts it for you.
 
+The window walks through four steps (find the game, choose, work, done) in the 3DHeat look, dark or light. On Windows the program opens only its window, with no console window; in a terminal it prints as usual, and `heat3d-squad-cli.cmd` in the same folder makes the terminal wait for it and pass on its exit code.
+
+Replays from the command line: `heat3d-squad convert <replay>... -o <folder> [--progress-json]` converts them (one JSON line per replay with `--progress-json`), and `heat3d-squad info <replay> --json` prints what a replay says about its match (map, mode, date, length, players, teams, result, game version), read from its header without converting it. The 3DHeat Library uses both.
+
 ## 1. Install Python
 
 This tool needs **Python 3.10 or later**.

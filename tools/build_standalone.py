@@ -42,6 +42,29 @@ def load_spec():
     return cfg, mod.SPEC
 
 
+def window_flags() -> list[str]:
+    """Windows: a window program (no console window when double-clicked; the command line still works, see
+    app/entry.py) with the 3DHeat icon. Elsewhere a console program, as terminals and file managers expect."""
+    if sys.platform != "win32":
+        return ["--console"]
+    package_icon = next(ROOT.glob("*/app/assets/tool.ico"), None) or next(ROOT.glob("*/app/assets/app.ico"), None)
+    return ["--windowed", *(["--icon", str(package_icon)] if package_icon else [])]
+
+
+def cli_shim(folder: Path, tool_id: str) -> None:
+    """`<id>-cli.cmd`: the same program for a Windows terminal, which then waits for it and gets its exit code."""
+    if sys.platform == "win32":
+        (folder / f"{tool_id}-cli.cmd").write_text(
+            f"@echo off\r\n\"%~dp0{tool_id}.exe\" %*\r\nexit /b %errorlevel%\r\n", encoding="ascii")
+
+
+def is_window_program(exe: Path) -> bool:
+    """The PE header says GUI subsystem (2), not console (3)."""
+    b = exe.read_bytes()[:4096]
+    pe = int.from_bytes(b[0x3C:0x40], "little")
+    return int.from_bytes(b[pe + 0x5C:pe + 0x5E], "little") == 2
+
+
 def build(cfg, spec) -> Path:
     package = cfg["spec"].split(".")[0]
     work = ROOT / "build" / "standalone"
@@ -53,7 +76,7 @@ def build(cfg, spec) -> Path:
         encoding="utf-8",
     )
     args = [
-        sys.executable, "-m", "PyInstaller", "--noconfirm", "--onedir", "--console", "--name", spec.id,
+        sys.executable, "-m", "PyInstaller", "--noconfirm", "--onedir", *window_flags(), "--name", spec.id,
         "--paths", str(ROOT), "--distpath", str(work / "dist"), "--workpath", str(work / "work"), "--specpath", str(work),
         "--collect-submodules", package, "--collect-data", package, "--hidden-import", "tkinter",
         *[a for h in cfg.get("hidden_imports", []) for a in ("--hidden-import", h)],
@@ -63,6 +86,7 @@ def build(cfg, spec) -> Path:
     ]
     subprocess.run(args, check=True, cwd=ROOT)
     folder = work / "dist" / spec.id
+    cli_shim(folder, spec.id)
     out = ROOT / "dist-standalone"
     out.mkdir(exist_ok=True)
     plat = platform_key()
@@ -94,6 +118,9 @@ def smoke(spec, folder: Path) -> None:
             print(f"ok: {spec.id} {' '.join(a)}")
             return r.stdout
 
+        if os.name == "nt":
+            assert is_window_program(exe), "the Windows build must be a window program (no console window)"
+            assert (folder / f"{spec.id}-cli.cmd").is_file()
         assert run("--version").strip() == f"{spec.id} {spec.version}"
         assert spec.id in run("--help")
         assert "gui-selftest ok" in run("--gui-selftest")
@@ -105,6 +132,9 @@ def smoke(spec, folder: Path) -> None:
         assert lines and lines[-1]["event"] == "done", lines
         for tool in spec.tools:
             run(tool, "--help")
+        if getattr(spec, "replays", None) is not None:
+            run("convert", "--help")
+            run("info", "--help")
 
 
 def main() -> int:

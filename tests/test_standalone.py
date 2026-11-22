@@ -233,3 +233,53 @@ def test_steam_libraries(tmp_path):
     game = lib2 / "steamapps" / "common" / "Some Game"
     assert P.steam_app_id(lib2, "Some Game") == "4242"
     assert P.proton_user_dir(game, "Documents") == pfx
+
+
+def test_replay_contract(tmp_path, capsys, monkeypatch):
+    """`convert <replay> -o <out> [--progress-json]` and `info <replay> --json`, for any replay reader."""
+    S = app_spec
+    seen = []
+
+    def tool(argv):
+        seen.append(argv)
+        src, out = Path(argv[0]), Path(argv[2])
+        if src.read_bytes() == b"bad":
+            raise ValueError("not a replay")
+        (out / (src.stem + ".3dheat")).write_bytes(b"x")
+        print("1/1 written")
+        return 0
+
+    mod = type(__import__("sys"))("fake_reader")
+    mod.main = tool
+    monkeypatch.setitem(__import__("sys").modules, "fake_reader", mod)
+    reader = S.Replays("fake", (".rep",), lambda r, out: ["fake-replay", str(r), "-o", str(out)],
+                       info=lambda p: {"map": "alpha", "players": [{"name": "A", "team": 1}]})
+    spec = S.Spec("heat3d-fake", "Fake", "Holdi601/3DHeat-Fake", "1.0.0", tools={"fake-replay": "fake_reader:main"},
+                  default_tool="fake-replay", module="x", replays=reader)
+    good, bad = tmp_path / "a.rep", tmp_path / "b.rep"
+    good.write_bytes(b"ok")
+    bad.write_bytes(b"bad")
+    out = tmp_path / "out"
+    code, text = run(spec, "convert", str(good), str(bad), "-o", str(out), "--progress-json", capsys=capsys)
+    lines = [json.loads(l) for l in text.splitlines()]  # stdout holds JSON lines only
+    assert code == 1 and (out / "a.3dheat").is_file()
+    assert lines[0] == {"event": "start", "total": 2} and lines[-1] == {"event": "done", "ok": 1, "failed": 1}
+    assert [l["state"] for l in lines if l.get("event") == "file"] == ["ok", "failed"]
+    code, text = run(spec, "info", str(good), "--json", capsys=capsys)
+    doc = json.loads(text)
+    assert code == 0 and doc["game"] == "fake" and doc["map"] == "alpha" and doc["complete"] is True
+    assert doc["converter"] == {"id": "heat3d-fake", "version": "1.0.0"} and doc["mode"] is None and doc["date"]
+    reader.info = lambda p: (_ for _ in ()).throw(ValueError("not a replay"))
+    code, text = run(spec, "info", str(bad), "--json", capsys=capsys)
+    assert code == 1 and "not a replay" in json.loads(text)["error"]
+
+
+def test_real_spec_replay_verbs(capsys):
+    spec = importlib.import_module(CFG["spec"]).SPEC
+    if spec.replays is None:
+        pytest.skip("not a replay reader")
+    assert spec.replays.extensions and all(e.startswith(".") for e in spec.replays.extensions)
+    assert spec.replays.convert(Path("r" + spec.replays.extensions[0]), Path("out"))[0] in spec.tools
+    with pytest.raises(SystemExit) as e:
+        app_entry.main(spec, ["convert", "--help"])
+    assert e.value.code == 0

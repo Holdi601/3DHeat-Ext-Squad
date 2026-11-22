@@ -1,8 +1,8 @@
 name: standalone
 
 # Tests, then the standalone executables for every platform in standalone.json,
-# each smoke-run (--version, --help, the window's self-test, --check, status,
-# extract). On main, the builds and their SHA256SUMS go into a DRAFT release
+# each smoke-run (--version, --help, the window's self-test drawing every page,
+# --check, status, extract; convert/info for replay readers). On main, the builds and their SHA256SUMS go into a DRAFT release
 # v<VERSION>; a maintainer publishes it. A published release is never changed.
 # No game files are used anywhere here: the tests make their own.
 
@@ -55,8 +55,15 @@ jobs:
           python -m pip install -e ".[test]" pyinstaller pyinstaller-hooks-contrib
       - name: Tests (no game files; the ones that need an install skip)
         run: python -m pytest -q -m "not local" ${{ matrix.platform == 'windows-x64' && 'tests' || 'tests/test_standalone.py' }}
-      - name: Build and smoke-run
-        run: python tools/build_standalone.py --smoke
+      - name: Build and smoke-run (the window too: a virtual display on Linux)
+        shell: bash
+        run: |
+          if [ "$RUNNER_OS" = "Linux" ]; then
+            sudo apt-get update -qq && sudo apt-get install -y -qq xvfb > /dev/null
+            xvfb-run -a python tools/build_standalone.py --smoke
+          else
+            python tools/build_standalone.py --smoke
+          fi
       - uses: actions/upload-artifact@v4
         with:
           name: standalone-${{ matrix.platform }}

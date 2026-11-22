@@ -6,6 +6,8 @@ The standalone executable's command line (the same in every 3DHeat extractor).
     <id> --check --json       what is found and what is missing, as JSON
     <id> status [--json]      maps new / changed / outdated / current per game
     <id> extract [--new] [--changed] [--outdated] [--all] [<map>...] [--game G] [--progress-json]
+    <id> convert <replay>... -o <out> [--progress-json]   replay readers: replays into matches
+    <id> info <replay> --json  replay readers: what a replay holds, without converting it
     <id> --update             look for a newer release and apply it (asks first)
     <id> --gui-selftest       build the window's model without showing it (CI)
     <id> <tool> [args...]     one of the tool's own commands, unchanged
@@ -28,7 +30,7 @@ from .manifest import Manifest, game_status
 from .spec import Spec, game_folders, standard_checks
 
 APP_FLAGS = ("--version", "-V", "--help", "-h", "--check", "--gui-selftest", "--update")
-APP_VERBS = ("status", "extract")
+APP_VERBS = ("status", "extract", "convert", "info")
 
 
 def target(spec: Spec, apply_source=None) -> update.Target:
@@ -51,6 +53,9 @@ def run_tool(spec: Spec, tool: str, argv: list[str]) -> int:
 
 def _usage(spec: Spec) -> str:
     tools = "\n".join(f"  {spec.id} {t} [args...]" for t in spec.tools)
+    if spec.replays is not None:
+        tools = (f"  {spec.id} convert REPLAY... -o OUT [--progress-json]   replays into 3DHeat matches\n"
+                 f"  {spec.id} info REPLAY --json   what a replay holds, without converting it\n") + tools
     return f"""{spec.name} {spec.version}{(' - ' + spec.description) if spec.description else ''}
 
   {spec.id}                    open the window
@@ -135,31 +140,110 @@ def extract(spec: Spec, *, game_key: str | None, ids: list[str], states: set[str
     return 1 if failed else 0
 
 
-def _hide_own_console() -> None:
-    """Started by a double-click, a console program brings a console window; the window app hides it."""
-    if os.name != "nt" or not update.frozen():
+INFO_KEYS = ("game", "map", "mode", "date", "duration_s", "players", "teams", "outcome", "game_version")
+
+
+def convert(spec: Spec, inputs: list[str], out: str, progress_json: bool) -> int:
+    """`convert <replay>... -o <out>`: each replay through the tool's own converter, one at a time."""
+    import contextlib
+
+    r = spec.replays
+    emit = (lambda d: print(json.dumps(d), flush=True)) if progress_json else (lambda d: None)
+    emit({"event": "start", "total": len(inputs)})
+    ok = failed = 0
+    Path(out).mkdir(parents=True, exist_ok=True)
+    for i, inp in enumerate(inputs, 1):
+        argv = r.convert(Path(inp), Path(out))
+        # with --progress-json, stdout carries only the JSON lines; the tool's own words go to stderr
+        with contextlib.redirect_stdout(sys.stderr) if progress_json else contextlib.nullcontext():
+            try:
+                code = run_tool(spec, argv[0], [str(a) for a in argv[1:]])
+                detail = "" if code == 0 else f"exit {code}"
+            except Exception as e:  # a replay that breaks the reader fails alone
+                code, detail = 1, f"{type(e).__name__}: {e}"
+        ok, failed = ok + (code == 0), failed + (code != 0)
+        emit({"event": "file", "index": i, "input": inp, "state": "ok" if code == 0 else "failed", "detail": detail})
+        emit({"progress": round(i / len(inputs), 4)})
+    emit({"event": "done", "ok": ok, "failed": failed})
+    return 0 if failed == 0 else 1
+
+
+def info_doc(spec: Spec, replay: str) -> dict:
+    """`info <replay> --json`: the match a replay holds, as far as it can be read without converting it."""
+    r = spec.replays
+    p = Path(replay)
+    doc: dict = {k: None for k in INFO_KEYS}
+    doc.update(players=[], teams=[], game=r.game)
+    complete = False
+    if r.info is not None:
+        got = r.info(p) or {}
+        doc.update({k: v for k, v in got.items() if v is not None})
+        complete = True
+    if doc["date"] is None:
+        try:
+            from datetime import datetime, timezone
+
+            doc["date"] = datetime.fromtimestamp(p.stat().st_mtime, timezone.utc).isoformat(timespec="seconds")
+            doc["date_from"] = "file"
+        except OSError:
+            pass
+    doc.update(file=p.name, size=p.stat().st_size if p.exists() else None,
+               converter={"id": spec.id, "version": spec.version}, complete=complete)
+    return doc
+
+
+def _console_streams(cli: bool) -> None:
+    """The Windows build is a window program (no console window on a double-click). On the command line it
+    writes into the console it was started from; into pipes when a program runs it; nowhere when neither."""
+    if os.name != "nt":
         return
     try:
         import ctypes
 
         k = ctypes.windll.kernel32
-        buf = (ctypes.c_uint * 4)()
-        if k.GetConsoleProcessList(buf, 4) <= 1:  # nobody else shares it: it is ours alone
-            hwnd = k.GetConsoleWindow()
-            if hwnd:
-                ctypes.windll.user32.ShowWindow(hwnd, 0)
+        attached = False
+        if cli and (sys.stdout is None or sys.stderr is None) and k.AttachConsole(-1):  # ATTACH_PARENT_PROCESS
+            attached = True
+
+        def stream(name: str, mode: str):
+            try:
+                return open(name if attached else os.devnull, mode, encoding="utf-8", errors="replace",
+                            buffering=1 if "w" in mode else -1)
+            except OSError:
+                return open(os.devnull, mode)
+
+        if sys.stdout is None:
+            sys.stdout = stream("CONOUT$", "w")
+        if sys.stderr is None:
+            sys.stderr = stream("CONOUT$", "w")
+        if sys.stdin is None:
+            sys.stdin = stream("CONIN$", "r")
+        if not k.GetConsoleWindow():
+            # No console: console programs this one starts (a tool's helpers) would each open a window.
+            import subprocess
+
+            if not getattr(subprocess.Popen, "_heat3d_no_window", False):
+                orig = subprocess.Popen.__init__
+
+                def init(self, *a, **kw):
+                    if not kw.get("creationflags"):
+                        kw["creationflags"] = subprocess.CREATE_NO_WINDOW
+                    orig(self, *a, **kw)
+
+                subprocess.Popen.__init__ = init
+                subprocess.Popen._heat3d_no_window = True
     except Exception:
         pass
 
 
 def main(spec: Spec, argv: list[str] | None = None, apply_source=None) -> int:
     argv = list(sys.argv[1:] if argv is None else argv)
+    _console_streams(cli=bool(argv))
     if "--auto-update" in argv:
         argv.remove("--auto-update")
         update.AUTO_THIS_RUN = True
     t = target(spec, apply_source)
     if not argv:
-        _hide_own_console()
         from . import gui
 
         return gui.run(spec, t)
@@ -234,6 +318,31 @@ def main(spec: Spec, argv: list[str] | None = None, apply_source=None) -> int:
         if not states and not a.maps:
             states = {"new"}
         return extract(spec, game_key=a.game, ids=a.maps, states=states, progress_json=a.progress_json)
+    if head == "convert" and spec.replays is not None:
+        ap = argparse.ArgumentParser(prog=f"{spec.id} convert", description="Convert replays into 3DHeat matches.")
+        ap.add_argument("inputs", nargs="+", help="replay files")
+        ap.add_argument("-o", "--out", required=True, help="folder for the converted matches")
+        ap.add_argument("--progress-json", action="store_true")
+        a = ap.parse_args(argv[1:])
+        return convert(spec, a.inputs, a.out, a.progress_json)
+    if head == "info" and spec.replays is not None:
+        ap = argparse.ArgumentParser(prog=f"{spec.id} info", description="What a replay holds, without converting it.")
+        ap.add_argument("replay")
+        ap.add_argument("--json", action="store_true")
+        a = ap.parse_args(argv[1:])
+        try:
+            doc = info_doc(spec, a.replay)
+        except Exception as e:  # unreadable: say so, as JSON when asked
+            doc = {"error": f"{type(e).__name__}: {e}", "file": Path(a.replay).name}
+            print(json.dumps(doc) if a.json else doc["error"])
+            return 1
+        if a.json:
+            print(json.dumps(doc, default=str))
+        else:
+            for k, v in doc.items():
+                if v not in (None, [], {}):
+                    print(f"{k}: {v}")
+        return 0
     # The tools announce updates themselves (their own startup check, the same policy).
     if head in spec.tools:
         return run_tool(spec, head, argv[1:])

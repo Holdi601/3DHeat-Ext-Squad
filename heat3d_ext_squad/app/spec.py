@@ -40,9 +40,13 @@ class MapSource:
 class Input:
     key: str
     label: str
-    kind: str = "folder"  # folder | file | files | text
+    kind: str = "folder"  # folder | file | files | text | choice
     #: The default value: a callable of the levels folder (so a default may sit under it), or a string.
     default: Callable[[Path], str] | str | None = None
+    #: kind "choice": the values offered, as (value, what the window shows).
+    choices: list[tuple[str, str]] | None = None
+    #: A short hint under the field.
+    hint: str = ""
 
 
 @dataclass
@@ -55,6 +59,27 @@ class Task:
     #: The command line, from the inputs and the levels folder: `[tool, arg, ...]`.
     argv: Callable[[dict[str, str], Path], list[str]]
     help: str = ""
+    #: run: works, then ends (progress, then done) | live: runs until stopped (recording, watching) |
+    #: quick: a short command whose output the window shows | open: starts something and returns at once.
+    kind: str = "run"
+    #: The button's text ("Convert", "Start recording"); a default per kind when empty.
+    action: str = ""
+    #: The input holding the folder the results go to ("Open output folder"); "" = the levels folder.
+    output: str = "out"
+
+
+@dataclass
+class Replays:
+    """A replay reader's side of the converter contract: `convert` and `info` (the 3DHeat Library uses both)."""
+
+    game: str
+    #: File endings it takes, lower case with the dot (".wrpl").
+    extensions: tuple[str, ...]
+    #: The tool's own command line that converts one replay into the folder `out`: `[tool, arg, ...]`.
+    convert: Callable[[Path, Path], list[str]]
+    #: What the replay says about its match, read without converting it where the format allows
+    #: (keys as in the contract: map, mode, date, duration_s, players, teams, outcome, game_version); None: not offered.
+    info: Callable[[Path], dict] | None = None
 
 
 @dataclass
@@ -99,6 +124,8 @@ class Spec:
     module: str = ""
     #: A neutral line for the GUI footer (not affiliated ...).
     notice: str = ""
+    #: Replay readers: `<id> convert` / `<id> info` (see Replays).
+    replays: Replays | None = None
 
     def has_maps(self) -> bool:
         return any(g.maps is not None and g.extract is not None for g in self.games)
@@ -145,7 +172,7 @@ def standard_checks(spec: Spec, found: dict[str, Path | None], levels: Path) -> 
         p = found.get(g.key)
         checks.append(Check(
             f"game:{g.key}", f"{g.label} install", p is not None,
-            str(p) if p else f"not found; choose its folder ({g.label} must be installed on this machine)",
+            str(p) if p else f"Not found on this computer. If {g.label} is installed, choose its folder.",
         ))
     if spec.checks:
         try:
@@ -155,7 +182,8 @@ def standard_checks(spec: Spec, found: dict[str, Path | None], levels: Path) -> 
     free = paths.free_bytes(levels)
     need = int(spec.min_free_gb * 1024**3)
     checks.append(Check(
-        "disk", "Free space in the levels folder", free is None or free >= need,
-        "unknown" if free is None else f"{free / 1024**3:.1f} GB free" + ("" if free >= need else f", {spec.min_free_gb:g} GB or more advised"),
+        "disk", "Free disk space", free is None or free >= need,
+        "unknown" if free is None else f"{free / 1024**3:.1f} GB free where the maps go"
+        + ("" if free >= need else f"; {spec.min_free_gb:g} GB or more advised. Free some space or choose another folder."),
     ))
     return checks

@@ -12,7 +12,7 @@ from pathlib import Path
 
 from . import __version__
 from .app import paths
-from .app.spec import GameSpec, Input, Spec, Task, game_folders
+from .app.spec import GameSpec, Input, Replays, Spec, Task, game_folders
 
 TOOL = "heat3d-squad-demo"
 #: The Steam folders a Squad server or the game itself installs into.
@@ -45,6 +45,12 @@ def _default_demos(levels: Path) -> str:
         return str(demo_folder(install))
     return ""
 
+def _replay_info(path: Path) -> dict:
+    """`info <replay> --json`: the header only (replay_info.py)."""
+    from .replay_info import info
+
+    return info(path)
+
 
 SPEC = Spec(
     id="heat3d-squad",
@@ -66,6 +72,7 @@ SPEC = Spec(
         help="each demo becomes a heatmap table and a match document the viewer opens",
     )],
     min_free_gb=1.0,
+    replays=Replays("squad", (".replay",), lambda r, out: [TOOL, str(r), "-o", str(out)], info=_replay_info),
     notice="Not affiliated with or endorsed by Offworld Industries.",
 )
 

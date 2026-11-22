@@ -15,3 +15,6 @@ defaults:
       path: ""
     values:
       layout: "default"
+# the tool's icon: the 3DHeat cube with its game's text badge
+logo: "/assets/tool-64.png"
+favicon_ico: "/assets/favicon.ico"
