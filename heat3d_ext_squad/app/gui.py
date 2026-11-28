@@ -35,6 +35,13 @@ from .theme import BRAND_BAR, HeatBar, Theme, app_id, badge, dot, dpi_aware, loa
 STATE_TEXT = {"new": "New", "changed": "Game update", "outdated": "Older version",
               "current": "Up to date", "missing": "Gone from the game"}  # short: the heading above says it in full
 PENDING = ("new", "changed", "outdated")
+KIND_TEXT = {"catalog": "vehicle and weapon list", "models": "3D models", "gadgets": "gadgets", "cars": "cars",
+             "content": "other content"}
+
+
+def rows_of(status: dict) -> list[dict]:
+    """The rows the choose step lists for one game: its maps, then its other content (id `content:<id>`)."""
+    return list(status.get("maps", [])) + [dict(c, id="content:" + c["id"]) for c in status.get("content", [])]
 APP_PAGE = "https://holdi601.github.io/3DHeat/"
 URL = re.compile(r"https?://[^\s)\"']+")
 
@@ -57,7 +64,7 @@ class Model:
         self.found = game_folders(self.spec)
         self.checks = standard_checks(self.spec, self.found, self.levels)
         self.status = [game_status(g, self.found.get(g.key), self.levels, self.spec.id)
-                       for g in self.spec.games if g.maps is not None]
+                       for g in self.spec.games if g.maps is not None or g.contents is not None]
 
     def problems(self) -> list:
         return [c for c in self.checks if not c.ok]
@@ -215,14 +222,14 @@ class App:
         self.settings = load_settings(spec.id)
         self.theme = Theme(root, str(self.settings.get("theme", "system")))
         self.app_cmd = find_app()
-        self.page = "setup" if self._blocked() or not (spec.has_maps() or spec.tasks) else "choose"
-        self.tab = tk.StringVar(value="maps" if spec.has_maps() else "tasks")
+        self.page = "setup" if self._blocked() or not (spec.has_maps() or spec.has_content() or spec.tasks) else "choose"
+        self.tab = tk.StringVar(value="maps" if spec.has_maps() or spec.has_content() else "tasks")
         self.filter = tk.StringVar(value="todo")
         self.search = tk.StringVar()
         self.search.trace_add("write", lambda *a: (self.fill_tree(), getattr(self, "_ph_update", lambda: None)()))
         self.levels_var = tk.StringVar(value=str(model.levels))
         self.auto_var = tk.BooleanVar(value=bool(self.settings.get("auto_update")))
-        self.checked: set[str] = {self._key(s["game"], m["id"]) for s in model.status for m in s["maps"] if m["state"] in PENDING}
+        self.checked: set[str] = {self._key(s["game"], m["id"]) for s in model.status for m in rows_of(s) if m["state"] in PENDING}
         self.inputs: dict[str, dict[str, object]] = {}
         self.run: dict = {}
         self.log_lines: list[str] = []
@@ -472,7 +479,7 @@ class App:
         task = self.run.get("task")
         if task is not None:
             third = {"live": "Record" if "record" in task.label.lower() else "Run"}.get(task.kind, "Convert")
-        elif not self.spec.has_maps():
+        elif not (self.spec.has_maps() or self.spec.has_content()):
             third = "Run"
         return ("Find the game" if self.spec.games else "Check", "Choose", third, "Done")
 
@@ -719,13 +726,13 @@ class App:
         from tkinter import ttk
 
         px, spec = self.theme.px, self.spec
-        if spec.has_maps() and spec.tasks:
+        if (spec.has_maps() or spec.has_content()) and spec.tasks:
             seg = self.frame(self.body)
             seg.pack(anchor="w", pady=(px(2), px(6)))
             for value, text in (("maps", "Maps"), ("tasks", "Replays and more")):
                 ttk.Radiobutton(seg, text=text, value=value, variable=self.tab, style="Chip.TRadiobutton",
                                 command=lambda: self.show("choose"), cursor="hand2").pack(side="left", padx=(0, px(6)))
-        if self.tab.get() == "maps" and spec.has_maps():
+        if self.tab.get() == "maps" and (spec.has_maps() or spec.has_content()):
             self.page_maps()
         else:
             self.page_tasks()
@@ -733,7 +740,7 @@ class App:
     def _counts(self) -> dict[str, int]:
         tot = {s: 0 for s in STATE_TEXT}
         for s in self.model.status:
-            for m in s["maps"]:
+            for m in rows_of(s):
                 tot[m["state"]] = tot.get(m["state"], 0) + 1
         return tot
 
@@ -754,7 +761,12 @@ class App:
             return
         bits = [f"{tot['new']} new"] + ([f"{tot['changed']} changed by a game update"] if tot["changed"] else []) + \
                ([f"{tot['outdated']} made by an older version"] if tot["outdated"] else []) + [f"{tot['current']} up to date"]
-        self.heading(self.body, "Choose maps", f"{n} maps in your {labels} install: " + ", ".join(bits) + ".")
+        n_content = sum(len(s.get("content", [])) for s in status)
+        new_items = sum((s.get("items") or {}).get("new_count", 0) for s in status)
+        what = f"{n - n_content} maps" + (f" and {n_content} other parts (vehicle lists, models)" if n_content else "")
+        self.heading(self.body, "Choose maps", f"{what} in your {labels} install: " + ", ".join(bits) + "."
+                     + (f" The game has {new_items} new item{'s' if new_items != 1 else ''} (vehicles, weapons) "
+                        "that are not extracted yet." if new_items else ""))
         if n == 0:
             self._empty("No maps found in this install", "Start the game once and let it finish updating, then check again.",
                         "Check again", self.refresh)
@@ -843,7 +855,7 @@ class App:
                     notes[self._key(s["game"], ms.id)] = src.note
         for s in self.model.status:
             rows = []
-            for m in s["maps"]:
+            for m in rows_of(s):
                 st = m["state"]
                 if f == "todo" and st not in PENDING or f == "current" and st != "current" or f == "missing" and st != "missing":
                     continue
@@ -857,7 +869,8 @@ class App:
             if multi:
                 tree.insert("", "end", iid=f"game:{s['game']}", values=("", s["label"], f"{len(rows)} maps", ""), tags=("game",))
             for key, m in rows:
-                title = m["title"] + (f"   · {notes[key]}" if key in notes else "")
+                title = m["title"] + (f"   · {notes[key]}" if key in notes else "") + \
+                    (f"   · {KIND_TEXT.get(m['kind'], m['kind'])}" if m.get("kind") else "")
                 pick = "" if m["state"] == "missing" else ("☑" if key in self.checked else "☐")
                 tree.insert("", "end", iid=key, values=(pick, title, STATE_TEXT.get(m["state"], m["state"]),
                                                          m["extracted_version"] or ""), tags=(m["state"],))
@@ -887,7 +900,7 @@ class App:
         if how == "none":
             self.checked.clear()
         else:
-            self.checked = {self._key(s["game"], m["id"]) for s in self.model.status if s["found"] for m in s["maps"]
+            self.checked = {self._key(s["game"], m["id"]) for s in self.model.status if s["found"] for m in rows_of(s)
                             if (m["state"] in PENDING if how == "todo" else m["state"] != "missing")}
         self.fill_tree()
 
@@ -895,7 +908,8 @@ class App:
         n = len(self.checked)
         try:
             self.count_label.config(text=f"{n} selected" if n else "Nothing selected")
-            self.go.config(text=f"Extract {n} map{'s' if n != 1 else ''}  →" if n else "Extract", state="normal" if n else "disabled")
+            word = "map" if all("\x1fcontent:" not in k for k in self.checked) else "part"
+            self.go.config(text=f"Extract {n} {word}{'s' if n != 1 else ''}  →" if n else "Extract", state="normal" if n else "disabled")
         except Exception:
             pass
 
@@ -914,7 +928,7 @@ class App:
         """Jobs: a list on the left, the chosen job's card on the right (one job: its card alone)."""
         px = self.theme.px
         tasks = self.spec.tasks
-        if not self.spec.has_maps():
+        if not (self.spec.has_maps() or self.spec.has_content()):
             self.heading(self.body, "What would you like to do?",
                          (self.spec.description[0].upper() + self.spec.description[1:] + ".") if self.spec.description
                          else "Pick a job; its results open in 3DHeat.")
@@ -1266,9 +1280,9 @@ class App:
     # ------------------------------------------------------------ actions
     def refresh(self) -> None:
         os.environ["HEAT3D_LEVELS"] = self.levels_var.get()
-        before = {self._key(s["game"], m["id"]) for s in self.model.status for m in s["maps"]}
+        before = {self._key(s["game"], m["id"]) for s in self.model.status for m in rows_of(s)}
         self.model.refresh()
-        now = {self._key(s["game"], m["id"]): m["state"] for s in self.model.status for m in s["maps"]}
+        now = {self._key(s["game"], m["id"]): m["state"] for s in self.model.status for m in rows_of(s)}
         # new to-do maps start ticked; ticks on maps that are gone or now current go
         self.checked = {k for k in self.checked if k in now and now[k] != "missing"} | \
                        {k for k, st in now.items() if st in PENDING and k not in before}
@@ -1360,8 +1374,22 @@ class App:
             from . import tray
 
             self.tray = tray.start(short_name(self.spec), lambda a: self.events.put(("tray", a)))
+            if self.tray is not None and (self.spec.has_maps() or self.spec.has_content()):
+                from .entry import status_file
+
+                self.status_watch = tray.StatusWatch(status_file(self.spec, Path(self.levels_var.get())))
+                self.root.after(60_000, self._watch_status)
         if self.tray is not None:
             self.tray.show(state, what)
+
+    def _watch_status(self) -> None:
+        """While the icon is up: a `check-new` that found new maps or items is told by a notification."""
+        if self.tray is None or getattr(self, "status_watch", None) is None:
+            return
+        text = self.status_watch.poll()
+        if text:
+            self.tray.notify(text)
+        self.root.after(60_000, self._watch_status)
 
     def _tray_action(self, action: str) -> None:
         if action == "open":
@@ -1586,7 +1614,7 @@ class App:
         elif not r.get("stopped"):
             r["code"] = code
         self.model.refresh()
-        now = {self._key(s["game"], m["id"]): m["state"] for s in self.model.status for m in s["maps"]}
+        now = {self._key(s["game"], m["id"]): m["state"] for s in self.model.status for m in rows_of(s)}
         self.checked = {k for k in self.checked if now.get(k) in PENDING}
         if r.get("kind") != "maps" and r.get("ok", 0) == 0 and not r.get("code"):
             r["ok"] = 1
@@ -1748,7 +1776,7 @@ class App:
         for page in ("setup", "choose"):
             self.show(page)
             root.update_idletasks()
-        if self.spec.has_maps() and self.spec.tasks:
+        if (self.spec.has_maps() or self.spec.has_content()) and self.spec.tasks:
             self.tab.set("tasks")
             self.show("choose")
             self.tab.set("maps")

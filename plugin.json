@@ -60,7 +60,8 @@
           "heat3d-squad-demo",
           "heat3d-squad"
         ],
-        "output": "parquet"
+        "output": "parquet",
+        "currentFrom": "0.3.0"
       }
     }
   ],

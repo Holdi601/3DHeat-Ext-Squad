@@ -5,7 +5,9 @@ menu's first line, and Open / Pause or Resume / Quit.
 
 Closing the window while a recording runs hides it to the tray instead of
 asking; Pause stops the recording (what was recorded is saved), Resume starts
-the same one again, Quit stops it and ends the program.
+the same one again, Quit stops it and ends the program. While the icon is up,
+a `check-new` that finds new maps or items (its status file) is told as a
+notification: "New maps for <game>: N".
 
 Windows only, through the shell's own notification-area calls (no extra
 package): the icon has a hidden window of its own on a thread of its own, and
@@ -55,6 +57,56 @@ class TrayState:
             items.append(("Resume", "resume"))
         items.append(("Quit", "quit"))
         return items
+
+
+def new_content_text(doc: dict) -> str:
+    """The notification for a `check-new` status file: "New maps for <game>: N" per game; "" when nothing is new."""
+    lines = []
+    for g in doc.get("games", []) if isinstance(doc, dict) else []:
+        if not isinstance(g, dict) or g.get("skipped"):
+            continue
+        label = g.get("label") or g.get("game") or "the game"
+        maps = len(g.get("new_maps") or []) + sum(1 for i in g.get("auto_extracted") or []
+                                                  if not str(i).startswith("content:"))
+        if maps:
+            lines.append(f"New maps for {label}: {maps}")
+        items = (g.get("items") or {}).get("new_count") or (g.get("auto_extracted_items") or {}).get("new_count") or 0
+        if items:
+            lines.append(f"New items for {label}: {items}")
+    return "\n".join(lines)
+
+
+class StatusWatch:
+    """Watches a tool's `check-new` status file; `poll()` gives the text to notify once per new finding."""
+
+    def __init__(self, file):
+        from pathlib import Path
+
+        self.file = Path(file)
+        self.mtime = self._mtime()  # what was there before the icon came up is not news
+        self.told = ""
+
+    def _mtime(self):
+        try:
+            return self.file.stat().st_mtime_ns
+        except OSError:
+            return None
+
+    def poll(self) -> str | None:
+        m = self._mtime()
+        if m is None or m == self.mtime:
+            return None
+        self.mtime = m
+        try:
+            import json
+
+            text = new_content_text(json.loads(self.file.read_text(encoding="utf-8")))
+        except (OSError, ValueError):
+            return None
+        if not text or text == self.told:
+            return None
+        self.told = text
+        return text
 
 
 class Tray:

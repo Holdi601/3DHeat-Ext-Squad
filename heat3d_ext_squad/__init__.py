@@ -12,7 +12,7 @@ archives), `stream` (frames, packets, bunches, actors, properties), `movement`
 (Parquet and match JSON), `cli`.
 """
 
-__version__ = "0.3.0"
+__version__ = "0.4.0"
 
 from .output import write  # noqa: E402
 from .squad import Match, load, parse  # noqa: E402

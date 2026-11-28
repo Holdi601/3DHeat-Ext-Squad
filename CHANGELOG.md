@@ -1,10 +1,19 @@
 # Changelog
 
-## Unreleased
+## 0.4.0
 
 - `plugin.json`: the manifest 3DHeat's Games page reads to know what this tool does, which games it is
   for and how to call it. The release archive carries it and the tool's icon (`icon-64.png`) beside the
   program.
+- The shared app (3DHeat extractor kit) with new-content detection: `status --json` reports content
+  entries and the install's new items beside the maps, and `check-new [--json] [--auto-extract]` is the
+  unattended check that skips the game while it runs or updates and extracts only what is new (never
+  replaces files).
+- Outputs made before the extract record (`.heat3d-extract.json`) existed are no longer all called
+  outdated: when every output is newer than the game files it was made from it counts as current
+  (`"untracked": true` in `status --json`), otherwise outdated.
+- Matches converted by 0.3.0 stay current (`currentFrom` in `plugin.json`): this release does not
+  change the converted output, so 3DHeat does not convert them again.
 
 ## 0.3.0
 

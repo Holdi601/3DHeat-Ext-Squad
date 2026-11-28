@@ -4,7 +4,9 @@ What a tool tells the standalone app about itself (its `standalone_spec.py`).
 The app (entry.py, gui.py) is the same in every 3DHeat extractor; a spec is
 the only part each one writes: its name and repository, its command-line tools,
 the games it reads and how to find them, the checks before it can run, and, for
-map extractors, the maps an install holds and how one is extracted.
+map extractors, the maps an install holds and how one is extracted; for
+catalogue and model extractors, the other content an install holds (a
+catalogue, a model pack, a gadget list: `GameSpec.contents`).
 """
 
 from __future__ import annotations
@@ -27,13 +29,15 @@ class Check:
 
 @dataclass
 class MapSource:
-    """One map in an install: its id (the output's name), a title, and the game files it is made from."""
+    """One map (or other content) in an install: its id (the output's name), a title, and the game files it is made from."""
 
     id: str
     title: str
     sources: list[Path]
     #: Extra words a user may search by (mode, theatre); shown in the GUI.
     note: str = ""
+    #: "map", or what other content this is: "catalog", "models", "gadgets", "cars", ...
+    kind: str = "map"
 
 
 @dataclass
@@ -98,10 +102,25 @@ class GameSpec:
     extract: Callable[[Path, MapSource, Path, Callable[[str], None]], list[Path]] | None = None
     #: The outputs a map has when it was extracted before manifests existed (for an untracked map).
     existing_outputs: Callable[[Path, MapSource], list[Path]] | None = None
+    #: What the tool itself knows about an untracked map or content entry whose outputs exist (extracted
+    #: before manifests existed): (install, map, out) -> (extractor version, "current" | "changed"), or
+    #: None when it cannot tell. "current" adopts it into the manifest (status writes it then); "changed"
+    #: reports it changed. Without a hook or an answer, outputs newer than every source count as current.
+    adopt: Callable[[Path, MapSource, Path], tuple[str, str] | None] | None = None
     #: Maps extracted by an extractor older than this are `outdated` (bump when the output changes).
     output_version: str = "0"
     #: Platforms the game exists on (and this tool runs on).
     platforms: tuple[str, ...] = ("windows-x64",)
+    #: Non-map content of the install (catalogue, models, gadgets ...): MapSources with kind != "map".
+    contents: Callable[[Path], list[MapSource]] | None = None
+    #: Extract one content entry into out (= <levels>/<subdir>); returns the files written.
+    extract_content: Callable[[Path, MapSource, Path, Callable[[str], None]], list[Path]] | None = None
+    #: Item ids the INSTALL holds, by kind ("vehicle", "weapon", "ammo", "gadget", "ship", "car", "operator", ...).
+    catalog_items: Callable[[Path], dict[str, list[str]]] | None = None
+    #: Item ids already EXTRACTED (default: <out>/catalog.json items[] by "id" and "kind"/"category").
+    extracted_items: Callable[[Path], dict[str, list[str]]] | None = None
+    #: Where the game's running exe lives, for the "game is running" guard (default: anywhere under the install).
+    running: Callable[[Path], bool] | None = None
 
 
 @dataclass
@@ -131,6 +150,9 @@ class Spec:
 
     def has_maps(self) -> bool:
         return any(g.maps is not None and g.extract is not None for g in self.games)
+
+    def has_content(self) -> bool:
+        return any(g.contents is not None and g.extract_content is not None for g in self.games)
 
 
 # ------------------------------------------------------------------ settings
