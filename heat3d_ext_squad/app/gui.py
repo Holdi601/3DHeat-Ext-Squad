@@ -231,6 +231,11 @@ class App:
         self.flash_after = None
         self.primary = None
         self.pulse_on = False
+        # The tray icon of a background recorder (spec.tray), made at its first recording.
+        self.tray = None
+        self.live_task: Task | None = None
+        self.pausing = False
+        self.hidden_told = False
 
         root.title(spec.name if spec.name.startswith("3DHeat") else f"3DHeat {spec.name}")
         self.task_sel = spec.tasks[0].id if spec.tasks else ""
@@ -1339,9 +1344,49 @@ class App:
         live = t.kind == "live"
         self.begin(dict(kind="live" if live else "task", task=t, title=t.label, out=out,
                         sub=(t.help[0].upper() + t.help[1:] + "." if t.help else "") if not live else
-                        "Play as usual; this window keeps recording until you press Stop.",
+                        "Play as usual; this window keeps recording until you press Stop."
+                        + (" Closing it keeps recording: the icon by the clock opens it again." if self.spec.tray else ""),
                         done_text="The results are in the output folder and open in 3DHeat.",
                         again=lambda t=t: self.start_task(t)), [(cmd, 0)])
+        if live and self.proc is not None:
+            self.live_task = t
+            self._tray("recording", t.label)
+
+    # ------------------------------------------------------------ tray (spec.tray)
+    def _tray(self, state: str, what: str | None = None) -> None:
+        if not self.spec.tray:
+            return
+        if self.tray is None and state == "recording":
+            from . import tray
+
+            self.tray = tray.start(short_name(self.spec), lambda a: self.events.put(("tray", a)))
+        if self.tray is not None:
+            self.tray.show(state, what)
+
+    def _tray_action(self, action: str) -> None:
+        if action == "open":
+            self.root.deiconify()
+            self.root.lift()
+            try:
+                self.root.focus_force()
+            except Exception:
+                pass
+        elif action == "pause":
+            if self.proc is not None and self.run.get("kind") == "live":
+                self.pausing = True
+                self.stop()
+        elif action == "resume":
+            if self.proc is None and self.live_task is not None:
+                self.start_task(self.live_task)
+        elif action == "quit":
+            self.stop()
+            self._quit()
+
+    def _quit(self) -> None:
+        if self.tray is not None:
+            self.tray.close()
+            self.tray = None
+        self.root.destroy()
 
     def _env(self) -> dict:
         return dict(os.environ, HEAT3D_NO_UPDATE="1", HEAT3D_LEVELS=self.levels_var.get(),
@@ -1411,6 +1456,8 @@ class App:
         if self.proc is None:
             return
         self._render_progress()
+        if self.tray is not None:
+            self.tray.refresh()
         self.root.after(1000, self._tick)
 
     def stop(self) -> None:
@@ -1423,13 +1470,20 @@ class App:
                 pass
 
     def close(self) -> None:
+        if self.proc is not None and self.tray is not None and self.run.get("kind") == "live":
+            # A recording goes on in the tray; the icon opens the window again.
+            self.root.withdraw()
+            if not self.hidden_told:
+                self.hidden_told = True
+                self.tray.notify("Still recording. The icon by the clock opens the window, pauses or quits.")
+            return
         if self.proc is not None:
             from tkinter import messagebox
 
             if not messagebox.askyesno("Still working", "A job is still running. Stop it and close?", parent=self.root):
                 return
             self.stop()
-        self.root.destroy()
+        self._quit()
 
     def pump(self) -> None:
         try:
@@ -1450,6 +1504,8 @@ class App:
                     self._log(data)
                 elif kind == "dialog":
                     self.text_dialog(*data)
+                elif kind == "tray":
+                    self._tray_action(data)
                 elif kind == "quit":
                     self.root.after(800, lambda: os._exit(0))
         except queue.Empty:
@@ -1518,6 +1574,12 @@ class App:
             self.bar.stop()
         self.proc = None
         r = self.run
+        if r.get("kind") == "live" and self.tray is not None:
+            self.tray.show("paused" if self.pausing else "idle")
+            if not r.get("stopped"):  # ended by itself (an error): the window says why
+                self.tray.notify("Recording ended.")
+                self.root.deiconify()
+        self.pausing = False
         r["ended"] = time.time()
         if r.get("kind") == "maps":
             r["code"] = 0 if not r.get("failed") and not r.get("code") else (r.get("code") or 1)

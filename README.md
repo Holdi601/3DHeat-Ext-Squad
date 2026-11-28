@@ -21,6 +21,12 @@ Each game reader is its own small project with its own licence file, releases an
 tracker, so it can be installed, updated, maintained - or withdrawn on a rights holder's
 request - on its own, without affecting the viewer or the other tools.
 
+## In 3DHeat
+
+Install it from the Games page of 3DHeat: 3DHeat installs it and runs it for you. The manifest
+[`plugin.json`](plugin.json) in this repository, also beside the program in every release, tells 3DHeat
+what the tool does, which games it is for and how to call it.
+
 ## The standalone program
 
 No Python needed: download the file for your system (Windows, Linux) from the

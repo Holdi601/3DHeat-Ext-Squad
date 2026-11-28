@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- `plugin.json`: the manifest 3DHeat's Games page reads to know what this tool does, which games it is
+  for and how to call it. The release archive carries it and the tool's icon (`icon-64.png`) beside the
+  program.
+
 ## 0.3.0
 
 - Its own icon: the 3DHeat cube with a text badge for its game (letters in 3DHeat's colours), as the

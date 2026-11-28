@@ -126,6 +126,8 @@ class Spec:
     notice: str = ""
     #: Replay readers: `<id> convert` / `<id> info` (see Replays).
     replays: Replays | None = None
+    #: A tool that records in the background: a tray icon while it records (status, Open, Pause, Quit; app/tray.py).
+    tray: bool = False
 
     def has_maps(self) -> bool:
         return any(g.maps is not None and g.extract is not None for g in self.games)

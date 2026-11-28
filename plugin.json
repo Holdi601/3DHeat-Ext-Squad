@@ -1,0 +1,83 @@
+{
+  "format": "3dheat-plugin",
+  "version": 1,
+  "id": "squad",
+  "name": "Squad",
+  "kind": "game",
+  "what": "Server demos as heatmaps",
+  "games": [
+    {
+      "id": "squad",
+      "name": "Squad"
+    }
+  ],
+  "platforms": [
+    "windows-x64",
+    "linux-x64"
+  ],
+  "icon": "icon-64.png",
+  "programs": [
+    {
+      "id": "heat3d-squad",
+      "repo": "Holdi601/3DHeat-Ext-Squad",
+      "verbs": {
+        "check": [
+          "--check",
+          "--json"
+        ],
+        "convert": [
+          "convert",
+          "{input}",
+          "-o",
+          "{out}"
+        ],
+        "info": [
+          "info",
+          "--json",
+          "{input}"
+        ]
+      }
+    }
+  ],
+  "capabilities": {
+    "replays": {
+      "program": "heat3d-squad"
+    }
+  },
+  "replays": [
+    {
+      "game": "squad",
+      "format": "ue-replay",
+      "patterns": [
+        "*.replay"
+      ],
+      "folders": [
+        "{steam:Squad}/SquadGame/Saved/Demos",
+        "{steam:Squad Dedicated Server}/SquadGame/Saved/Demos"
+      ],
+      "converter": {
+        "names": [
+          "heat3d-squad-demo",
+          "heat3d-squad"
+        ],
+        "output": "parquet"
+      }
+    }
+  ],
+  "requirements": [
+    {
+      "id": "game",
+      "label": "The game installed on this computer",
+      "auto": false
+    }
+  ],
+  "detect": {
+    "steam": [
+      "Squad",
+      "Squad Dedicated Server"
+    ],
+    "processes": [
+      "SquadGame.exe"
+    ]
+  }
+}

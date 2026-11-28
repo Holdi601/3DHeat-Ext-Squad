@@ -283,3 +283,41 @@ def test_real_spec_replay_verbs(capsys):
     with pytest.raises(SystemExit) as e:
         app_entry.main(spec, ["convert", "--help"])
     assert e.value.code == 0
+
+
+def test_tray_says_what_it_does(monkeypatch):
+    tray = importlib.import_module(f"{PKG}.app.tray")
+    s = tray.TrayState("3DHeat Watcher")
+    assert s.status() == "Not recording" and [a for _, a in s.menu()] == [None, None, "open", "quit"]
+    s.state, s.what, s.since = "recording", "Watch my games", 1000.0
+    assert s.status(now=1000.0 + 75 * 60) == "Recording: Watch my games (1 h 15 min)"
+    assert "pause" in [a for _, a in s.menu()] and "resume" not in [a for _, a in s.menu()]
+    s.state = "paused"
+    assert s.status() == "Paused: Watch my games" and "resume" in [a for _, a in s.menu()]
+    s.what = "x" * 300
+    assert len(s.tooltip()) == 127
+    # No icon where there is none to have: the window then behaves as before.
+    monkeypatch.setenv("HEAT3D_NO_TRAY", "1")
+    assert tray.start("3DHeat Watcher", lambda a: None) is None
+
+
+def test_plugin_manifest_names_this_tool():
+    """`plugin.json` (3DHeat's docs/plugins.md): this tool as its main program, every capability a program of it.
+    The archive carries it beside the program (tools/build_standalone.py)."""
+    manifest = ROOT / "plugin.json"
+    if not manifest.is_file():
+        pytest.skip("no plugin.json in this repository")
+    import importlib.util
+
+    spec_mod = importlib.util.spec_from_file_location("build_standalone", ROOT / "tools" / "build_standalone.py")
+    build = importlib.util.module_from_spec(spec_mod)
+    spec_mod.loader.exec_module(build)
+    real = importlib.import_module(CFG["spec"]).SPEC
+    m = json.loads(manifest.read_text(encoding="utf-8"))
+    build.check_plugin(m, real)
+    if real.replays is not None:
+        caps = m["capabilities"]
+        assert "replays" in caps, "a tool that converts replays says so in plugin.json"
+        exts = {e.lstrip(".") for e in real.replays.extensions}
+        pats = {p.split("*.")[-1] for r in m.get("replays", []) for p in r["patterns"]}
+        assert exts <= pats, f"plugin.json lists the replay files {sorted(pats)}, the tool reads {sorted(exts)}"

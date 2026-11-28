@@ -7,6 +7,10 @@ Build the standalone executable of this tool for the system it runs on.
 
 `standalone.json` names the spec module; PyInstaller (onedir) does the build.
 Used by .github/workflows/standalone.yml; nothing here reads game files.
+
+The archive also carries the tool's plugin manifest (`plugin.json` of the repository, see the
+viewer's docs/plugins.md) and its icon (`icon-64.png`) beside the program: 3DHeat's manager reads
+them to know what the tool does and how to call it.
 """
 
 from __future__ import annotations
@@ -65,6 +69,28 @@ def is_window_program(exe: Path) -> bool:
     return int.from_bytes(b[pe + 0x5C:pe + 0x5E], "little") == 2
 
 
+def plugin_files(folder: Path, spec) -> None:
+    """`plugin.json` (checked against the spec) and `icon-64.png` beside the program."""
+    manifest = ROOT / "plugin.json"
+    if manifest.is_file():
+        check_plugin(json.loads(manifest.read_text(encoding="utf-8")), spec)
+        shutil.copyfile(manifest, folder / "plugin.json")
+    icon = next(ROOT.glob("*/app/assets/tool-64.png"), None) or next(ROOT.glob("*/app/assets/icon-64.png"), None)
+    if icon is not None:
+        shutil.copyfile(icon, folder / "icon-64.png")
+
+
+def check_plugin(m: dict, spec) -> None:
+    """The manifest names this tool, as its main program, with this repository."""
+    assert m.get("format") == "3dheat-plugin" and m.get("version") == 1, "plugin.json: not a version 1 plugin manifest"
+    main = next((p for p in m.get("programs", []) if not p.get("legacy")), None)
+    assert main is not None and main["id"] == spec.id, f"plugin.json: the main program is {main and main['id']}, not {spec.id}"
+    assert main["repo"] == spec.repo, f"plugin.json: the repository is {main['repo']}, not {spec.repo}"
+    for cap, c in (m.get("capabilities") or {}).items():
+        own = next((p for p in m["programs"] if p["id"] == c["program"]), None)
+        assert own is not None or c["program"] in m.get("companions", []), f"plugin.json: {cap} names no program of it"
+
+
 def build(cfg, spec) -> Path:
     package = cfg["spec"].split(".")[0]
     work = ROOT / "build" / "standalone"
@@ -87,6 +113,7 @@ def build(cfg, spec) -> Path:
     subprocess.run(args, check=True, cwd=ROOT)
     folder = work / "dist" / spec.id
     cli_shim(folder, spec.id)
+    plugin_files(folder, spec)
     out = ROOT / "dist-standalone"
     out.mkdir(exist_ok=True)
     plat = platform_key()
